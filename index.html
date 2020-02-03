@@ -64,6 +64,109 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数字电路：补码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/03/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A1%A5%E7%A0%81/" class="article-date">
+  <time datetime="2020-02-03T07:09:40.000Z" itemprop="datePublished">2020-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/03/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A1%A5%E7%A0%81/">数字电路：补码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="真值补码对应表"><a href="#真值补码对应表" class="headerlink" title="真值补码对应表"></a>真值补码对应表</h2><p>以8bit数为例</p>
+<table>
+<thead>
+<tr>
+<th align="center">真值-无符号</th>
+<th align="center">补码</th>
+<th align="center">真值-有符号</th>
+<th align="center">补码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0000 0000</td>
+<td align="center">0</td>
+<td align="center">0000 0000</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0000 0001</td>
+<td align="center">1</td>
+<td align="center">0000 0001</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr>
+<td align="center">127</td>
+<td align="center">0111 1111</td>
+<td align="center">127</td>
+<td align="center">0111 1111</td>
+</tr>
+<tr>
+<td align="center">128</td>
+<td align="center">1000 0000</td>
+<td align="center">-128</td>
+<td align="center">1000 0000</td>
+</tr>
+<tr>
+<td align="center">129</td>
+<td align="center">1000 0001</td>
+<td align="center">-127</td>
+<td align="center">1000 0001</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr>
+<td align="center">255</td>
+<td align="center">1111 1111</td>
+<td align="center">-1</td>
+<td align="center">1111 1111</td>
+</tr>
+</tbody></table>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><blockquote>
+<ol>
+<li>可以看出，负数与其绝对值的真值和为0，但是补码和为 1 0000 0000，由于只能存储8bit，故多出的第8号位上的1舍去，余下的0到7号位均为0，对应真值也就是0了。</li>
+<li>为什么-1规定为1111 1111呢？由数学同余概念可知，255对256余-1，所以-1对应255，同理可得其他负数。这样一来，一个数减去1就可以用这个数加上255来表示，只不过计算结果多出的第8位会舍去，剩下的0到7号位表示的就是减法的结果。</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/03/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A1%A5%E7%A0%81/" data-id="ck665xpx40000tcfz4ffdch1x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python语法（一）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/01/31/Python%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" class="article-date">
@@ -173,7 +276,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a></li></ul>
     </div>
   </div>
 
@@ -183,7 +286,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">数字电路</a>
     </div>
   </div>
 
@@ -192,7 +295,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
     </div>
   </div>
 
@@ -203,6 +306,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/02/03/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A1%A5%E7%A0%81/">数字电路：补码</a>
+          </li>
         
           <li>
             <a href="/2020/01/31/Python%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">Python语法（一）</a>
