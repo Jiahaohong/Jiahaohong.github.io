@@ -194,7 +194,8 @@
 <li>函数作用：计算x的y次幂，y为任意整数或浮点数</li>
 </ul>
 <h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><ul>
-<li>范围：近似无穷（有不确定尾数）  </li>
+<li>范围：近似无穷（有不确定尾数） </li>
+<li>表示：小数点、科学计数法 </li>
 <li>常用函数：round(x[,y])</li>
 <li>函数作用：对x四舍五入，y为截取的小数位数，若省去y则对x取整</li>
 <li>应用场景：判断两个浮点数是否相等</li>
@@ -204,11 +205,44 @@
 </ul>
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
 <li>表示：单引号或双引号括起来的多个字符，对应即可</li>
-<li>操作：<ul>
-<li>str.split(x)：将字符串以x为分隔符分割成列表</li>
-<li>str.join(x)：将字符串x的每一个字符后面插入字符串str，x最后一个字符后面不插入</li>
+<li>操作符：<ul>
+<li>+：将两个字符串连接</li>
+<li>*：将一个字符串复制n次</li>
 </ul>
 </li>
+<li>操作：<ul>
+<li>str.split(x)：将字符串以x为分隔符分割成列表</li>
+<li>x.join(str)：将字符串str的每一个字符后面插入字符串x，str最后一个字符后面不插入</li>
+</ul>
+</li>
+</ul>
+<h2 id="组合数据类型"><a href="#组合数据类型" class="headerlink" title="组合数据类型"></a>组合数据类型</h2><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><ul>
+<li>定义：s = set(…)或s = {…}<ul>
+<li>注意：要生成空集合只能使用set方法，空大括号默认生成空字典</li>
+</ul>
+</li>
+<li>操作符：<ul>
+<li>A|B：并</li>
+<li>A-B：差</li>
+<li>A&amp;B：交</li>
+<li>A^B：补</li>
+<li>关系操作符</li>
+</ul>
+</li>
+<li>应用场景：数据去重</li>
+</ul>
+<h3 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h3><ul>
+<li>定义：具有先后关系的一组元素</li>
+<li>衍生：字符串、元组、列表<ul>
+<li>字符串：str = ‘abc’</li>
+<li>元组：t = (…)或t = tuple(…)</li>
+<li>列表：lt = […]或lt = list[…]</li>
+</ul>
+</li>
+</ul>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><ul>
+<li>映射是一种键（索引/属性）和值（数据）的对应</li>
+<li>定义：d = {…}或d = dict(…)</li>
 </ul>
 
       
