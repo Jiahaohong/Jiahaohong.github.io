@@ -86,7 +86,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <ul>
+<li><h3 id="什么是卡诺图"><a href="#什么是卡诺图" class="headerlink" title="什么是卡诺图"></a>什么是卡诺图</h3><ul>
+<li>相邻最小项<br>若两个最小项之间仅有一个逻辑变量互为反变量，那么这两个最小项为相邻最小项。例如：m2（<span style="text-decoration:overline">A</span>·B·<span style="text-decoration:overline">C</span>）与m6（A·B·<span style="text-decoration:overline">C</span>）仅有逻辑变量A不同，因此m2与m6互为相邻最小项。</li>
+<li></li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
@@ -174,11 +181,8 @@
       
         <h2 id="最小项"><a href="#最小项" class="headerlink" title="最小项"></a>最小项</h2><ul>
 <li><h3 id="什么是最小项？"><a href="#什么是最小项？" class="headerlink" title="什么是最小项？"></a>什么是最小项？</h3><ul>
-<li><p>现在有N个逻辑变量，若一个乘积项（与项）包含了这N个变量的原变量或非变量，且每种变量只以原变量或非变量的形式出现一次，那么该乘积项称为最小项。例如三个逻辑变量的最小项有如下8种:<br><span style="text-decoration:overline">A</span>·<span style="text-decoration:overline">B</span>·<span style="text-decoration:overline">C</span>、<br><span style="text-decoration:overline">A</span>·<span style="text-decoration:overline">B</span>·C、<br><span style="text-decoration:overline">A</span>·B·C、<br><span style="text-decoration:overline">A</span>·B·<span style="text-decoration:overline">C</span><br>A·B·<span style="text-decoration:overline">C</span>、<br>A·B·C、<br>A·<span style="text-decoration:overline">B</span>·C、</p>
-<p>A·<span style="text-decoration:overline">B</span>·<span style="text-decoration:overline">C</span>  </p>
-</li>
-<li><p>可以看出，每个最小项中，A、B、C分别只出现一次，要么是原变量（A、B、C），要么是反变量（<span style="text-decoration:overline">A</span>、<span style="text-decoration:overline">B</span>、<span style="text-decoration:overline">C</span>）。</p>
-</li>
+<li>现在有N个逻辑变量，若一个乘积项（与项）包含了这N个变量的原变量或非变量，且每种变量只以原变量或非变量的形式出现一次，那么该乘积项称为最小项。例如三个逻辑变量的最小项有如下8种:<br><span style="text-decoration:overline">A</span>·<span style="text-decoration:overline">B</span>·<span style="text-decoration:overline">C</span>、<span style="text-decoration:overline">A</span>·<span style="text-decoration:overline">B</span>·C、<span style="text-decoration:overline">A</span>·B·C、<span style="text-decoration:overline">A</span>·B·<span style="text-decoration:overline">C</span><br>A·B·<span style="text-decoration:overline">C</span>、A·B·C、A·<span style="text-decoration:overline">B</span>·C、A·<span style="text-decoration:overline">B</span>·<span style="text-decoration:overline">C</span>  </li>
+<li>可以看出，每个最小项中，A、B、C分别只出现一次，要么是原变量（A、B、C），要么是反变量（<span style="text-decoration:overline">A</span>、<span style="text-decoration:overline">B</span>、<span style="text-decoration:overline">C</span>）。</li>
 </ul>
 </li>
 <li><h3 id="为什么叫最小项？"><a href="#为什么叫最小项？" class="headerlink" title="为什么叫最小项？"></a>为什么叫最小项？</h3><ul>
@@ -187,7 +191,7 @@
 </ul>
 </li>
 <li><h3 id="最小项如何编号？"><a href="#最小项如何编号？" class="headerlink" title="最小项如何编号？"></a>最小项如何编号？</h3><ul>
-<li><p>简单的来说，让最小项的结果输出为1的逻辑变量的值的组合就是最小项表达式的编号。如下表：  </p>
+<li><p>简单的来说，原变量用1表示，反变量用0表示，然后组合起来转换成十进制就是对应最小项的编号。如下表：  </p>
 <table>
 <thead>
 <tr>
@@ -223,7 +227,7 @@
 </tr>
 </tbody></table>
 </li>
-<li><p>将逻辑变量的值组合起来（二进制），然后转换为十进制，就是最小项的编号。</p>
+<li><p>为什么这样编号？因为当与运算中任意一个因子为0时，与运算结果为0，因子取值不具有唯一性；当且仅当与运算中所有因子为1时，与运算结果为1，因子取值具有唯一性。因此当原变量取1反变量取0时，最小项表达式所有因子为1，最小项表达式结果为1。</p>
 </li>
 </ul>
 </li>
