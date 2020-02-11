@@ -15,7 +15,7 @@
 <meta property="og:description" content="由上篇blog知道，卡诺图是一个将最小项按二维格雷码的形式排布的表格，每个格子对应着一个最小项，那么卡诺图怎么使用呢？  什么是逻辑函数的卡诺图  逻辑函数的卡诺图每一个格子不仅对应着一个最小项了，若该格子为1，表示这个格子对应的最小项在逻辑函数中出现，反之若该格子为0，表示该格子对应的最小项在逻辑函数中没有出现。将逻辑函数的每一个最小项对应填到同变量数的卡诺图中，这个卡诺图就是该逻辑函数的卡诺图">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-09T08:53:34.000Z">
-<meta property="article:modified_time" content="2020-02-09T09:12:46.211Z">
+<meta property="article:modified_time" content="2020-02-11T03:55:58.894Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数字电路">
 <meta name="twitter:card" content="summary">
@@ -95,7 +95,20 @@
 </li>
 <li><h3 id="如何获得逻辑函数的卡诺图"><a href="#如何获得逻辑函数的卡诺图" class="headerlink" title="如何获得逻辑函数的卡诺图"></a>如何获得逻辑函数的卡诺图</h3><p>  首先将逻辑函数化成与或表达式，然后通过重叠律（A+<span style="text-decoration:overline">A</span>=1）将表达式中每一个乘积项（与项）增补成最小项，然后画出卡诺图，最后在卡诺图中找到逻辑函数每一个最小项对应的格子，将改格子写为1，其余格子全写0。</p>
 </li>
-<li><h3 id="逻辑函数的卡诺图如何化简"><a href="#逻辑函数的卡诺图如何化简" class="headerlink" title="逻辑函数的卡诺图如何化简"></a>逻辑函数的卡诺图如何化简</h3></li>
+<li><h3 id="逻辑函数的卡诺图如何化简"><a href="#逻辑函数的卡诺图如何化简" class="headerlink" title="逻辑函数的卡诺图如何化简"></a>逻辑函数的卡诺图如何化简</h3><ul>
+<li>先看看哪里数字1多，然后画圈圈把他们围住，注意，这些圈圈不能随便画，有以下几点原则:</li>
+</ul>
+<ol>
+<li>圈圈中包围的数字1的个数必须为2的整数幂，即1、2、4、8个等等。</li>
+<li>圈圈中包围的数字只能是1，且圈圈围住的方格组合起来必须是矩形，即1x1、1x2、2x2、2x4的大小等等。</li>
+<li>圈圈个数尽可能少（因为每个圈圈最后就是一个乘积项，圈圈越少结果越简单），每个圈圈包围的数字1尽可能多。</li>
+<li>不同的圈圈<strong>可以重复包围</strong>同一个数字1（这一点初学容易忽视）。</li>
+<li>如果一个圈圈中所有的数字1都已经被其他圈圈围住了，那么这个圈圈就是多余的，可以省去（这一点消除竞争与冒险时会反过来利用）。</li>
+</ol>
+<ul>
+<li>现在圈圈画完了，开始整理，将每一个圈圈所对应的乘积项写出来（即圈圈中所有最小项相“与”），然后将这些乘积项全部“或”起来，就是化简后的表达式了。</li>
+</ul>
+</li>
 </ul>
 
       

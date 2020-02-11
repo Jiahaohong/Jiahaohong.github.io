@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/02/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%881%EF%BC%89/%E4%B8%89%E5%8F%98%E9%87%8F%E5%8D%A1%E8%AF%BA%E5%9B%BE.png">
 <meta property="og:image" content="http://yoursite.com/2020/02/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%881%EF%BC%89/%E5%9B%9B%E5%8F%98%E9%87%8F%E5%8D%A1%E8%AF%BA%E5%9B%BE.png">
 <meta property="article:published_time" content="2020-02-08T02:49:33.000Z">
-<meta property="article:modified_time" content="2020-02-09T09:14:37.779Z">
+<meta property="article:modified_time" content="2020-02-11T02:53:02.773Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数字电路">
 <meta name="twitter:card" content="summary">
@@ -102,9 +102,9 @@
 <li><h3 id="如何构造卡诺图"><a href="#如何构造卡诺图" class="headerlink" title="如何构造卡诺图"></a>如何构造卡诺图</h3><p>  <em>这里将构造卡诺图只是将卡诺图的形式构造出来，只表示最小项之间的几何位置关系，与之后要讲的“逻辑函数的卡诺图”有区别。</em></p>
 <p>  <em>其实卡诺图没有固定的画法，比如两变量的卡诺图可以画成一行，也可以画成两行两列，但为了方便，之后的卡诺图都是如下画法。</em></p>
 <ul>
-<li>展开折叠法  <img src="两变量卡诺图.png" width="200px">
-<img src="三变量卡诺图.png" width="200px">
-<img src="四变量卡诺图.png" width="200px">  </li>
+<li>展开折叠法  <img src="/2020/02/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%881%EF%BC%89/两变量卡诺图.png" width="200px">
+<img src="/2020/02/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%881%EF%BC%89/三变量卡诺图.png" width="200px">
+<img src="/2020/02/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%881%EF%BC%89/四变量卡诺图.png" width="200px">  </li>
 </ul>
 <ol>
 <li>先记住两变量卡诺图，假设两逻辑变量分别为C和D，列号从左至右依次为00、01、11、10，最小项就是列号；</li>
@@ -113,8 +113,9 @@
 </ol>
 </li>
 <li><h3 id="卡诺图的特点"><a href="#卡诺图的特点" class="headerlink" title="卡诺图的特点"></a>卡诺图的特点</h3><ol>
-<li>由上述卡诺图的构造方法，可以将卡诺图理解成<strong>二维的格雷码</strong>，因为他们的构造方法十分相似，只是格雷码只在一个方向上反复对称翻折构造，而卡诺图在两个方向上对称翻折构造。</li>
-<li>基于1的理解，不难发现卡诺图的两个维度标号都是格雷码，但是这里的格雷码的0和1有着明确的含义，即逻辑变量的反变量和原变量，这样就可以轻松的画出卡诺图，也可以由卡诺图轻松的获得每一个各自对应的最小项（自行理解）。</li>
+<li>由上述卡诺图的构造方法，可以将卡诺图理解成<strong>二维的格雷码</strong>，因为他们的构造方法十分相似，只是格雷码只能在一个方向上反复对称翻折构造，而卡诺图可以在两个方向上对称翻折构造。</li>
+<li>基于1的理解，不难发现卡诺图的两个维度标号都是格雷码，但是这里的格雷码的0和1有着明确的含义，即逻辑变量的反变量和原变量。这样就可以轻松的画出卡诺图，也可以由卡诺图轻松的获得每一个各自对应的最小项（自行理解）。</li>
+<li>如果将最小项的标号（格雷码）转换成二进制码，可以发现这些二进制码按照从小到大的顺序S行排列，即从左上角开始，第一行从左向右递增，第二行从右向左递增，以此类推。这为从真值表到卡诺图的转换提供了方便（自行理解）。</li>
 <li>卡诺图最左边的格子和最右边的格子、最下面的格子和最上面的格子也是几何相邻的格子。</li>
 </ol>
 </li>
