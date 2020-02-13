@@ -87,11 +87,163 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
+<li><h3 id="译码器的原理"><a href="#译码器的原理" class="headerlink" title="译码器的原理"></a>译码器的原理</h3><ol>
+<li><p>2线-4线译码器<br> 先看看这种译码器的真值表： </p>
+<table>
+<thead>
+<tr>
+<th align="center">E</th>
+<th align="center">A1</th>
+<th align="center">A0</th>
+<th align="center">Y0</th>
+<th align="center">Y1</th>
+<th align="center">Y2</th>
+<th align="center">Y3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><strong>1</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center"><strong>1</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><strong>1</strong></td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><strong>1</strong></td>
+</tr>
+</tbody></table>
+<p> 在使能端有效的情况下，我们可以写出各个输出端的逻辑表达式，如下：<br> Y0 = <span style="text-decoration:overline">A1</span> · <span style="text-decoration:overline">A0</span><br> Y1 = <span style="text-decoration:overline">A1</span> · A0<br> Y2 = A1 · <span style="text-decoration:overline">A0</span><br> Y3 = A1 · A0<br> 不难发现，每个输出端的逻辑表达式都是输入逻辑变量的最小项。如果将使能端也考虑进去，将上述每一个输出端的逻辑表达式和使能端逻辑变量相与即可。  </p>
+</li>
+<li><p>3线-4线译码器<br> 先看看这种译码器的使能端的真值表：  </p>
+<table>
+<thead>
+<tr>
+<th align="center">E3</th>
+<th align="center">E2</th>
+<th align="center">E1</th>
+<th align="center">A3</th>
+<th align="center">A2</th>
+<th align="center">A1</th>
+<th align="center">Y0</th>
+<th align="center">Y1</th>
+<th align="center">Y2</th>
+<th align="center">Y3</th>
+<th align="center">Y4</th>
+<th align="center">Y5</th>
+<th align="center">Y6</th>
+<th align="center">Y7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">X</td>
+<td align="center">1</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">可以看出，这三个使能端中E3优先级最高，是总开关，E2和E1的功能是一样的，但是怎么用呢？</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
 <li><h3 id="几个问题"><a href="#几个问题" class="headerlink" title="几个问题"></a>几个问题</h3><ol>
 <li>为什么2线-4线译码器74HC139的逻辑符号中，使能端和输出端要各自连接一个非门？</li>
 <li>为什么3线-8线译码器74HC138需要三个使能端？</li>
 <li>如何使用74HC138和少量逻辑门实现三变量逻辑函数？</li>
 </ol>
+</li>
+<li><h3 id="关于译码器的多使能端的问题"><a href="#关于译码器的多使能端的问题" class="headerlink" title="关于译码器的多使能端的问题"></a>关于译码器的多使能端的问题</h3><p>  多个使能端可以拓展译码器的功能，比如之后的数据分配器和数据选择器等。</p>
 </li>
 </ul>
 
