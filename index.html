@@ -5,13 +5,13 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://39.106.115.216">
   <title>Darcy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="A silly optimistic student of Huazhong University of Science and Technology(Grade 2018).">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Darcy&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://39.106.115.216/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
 <meta property="og:description" content="A silly optimistic student of Huazhong University of Science and Technology(Grade 2018).">
 <meta property="og:locale" content="en_US">
@@ -494,12 +494,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><h3 id="什么是编码，什么是编码器"><a href="#什么是编码，什么是编码器" class="headerlink" title="什么是编码，什么是编码器"></a>什么是编码，什么是编码器</h3><p>  编码就是<strong>赋予二进制代码特殊含义</strong>的过程。<br>  编码器就是实现编码功能的逻辑电路。</p>
+        <h2 id="什么是编码，什么是编码器"><a href="#什么是编码，什么是编码器" class="headerlink" title="什么是编码，什么是编码器"></a>什么是编码，什么是编码器</h2><p>编码就是<strong>赋予二进制代码特殊含义</strong>的过程。 </p>
+<p>编码器就是实现编码功能的逻辑电路。 </p>
+<p>举个栗子：  </p>
+<blockquote>
+<p>当你被困在监狱，给你探监的联络员给你传递情报，你们事先（抓进监狱前）约定将三个苹果和一个栗子按苹果、苹果、栗子、苹果的顺序摆放时，表示时机成熟，今晚有人接应，如果按栗子、苹果、苹果、苹果的顺序摆放时，表示时机不成熟，那么你就可以从联络员送来的物品摆放顺序中获得情报。而“事先约定”就是“编码”。  </p>
+</blockquote>
+<blockquote>
+<p>同样的，逻辑电路也可以实现这样的功能。比如四个输入信号为0010时，表示11；输入信号为1000时表示00。这也是一种编码，只不过编码后的输出也是二进制。</p>
+</blockquote>
+<h2 id="普通编码器"><a href="#普通编码器" class="headerlink" title="普通编码器"></a>普通编码器</h2><p><em>任何时候<strong>只允许一个信号输入有效</strong>的编码器称为普通编码器。</em> </p>
+<ul>
+<li><h3 id="普通编码器的名称含义"><a href="#普通编码器的名称含义" class="headerlink" title="普通编码器的名称含义"></a>普通编码器的名称含义</h3><p>  如果输入信号有4个，那么输出信号只需要2个就可以表示输入信号的4种状态。这就是4线2线普通编码器。也就是说，普通编码器如果有2^n个输入信号，那么塔只需要n个输出信号就可以表达输入信号的所有状态。 </p>
 </li>
-<li><h3 id="普通编码器"><a href="#普通编码器" class="headerlink" title="普通编码器"></a>普通编码器</h3><p>  任何时候<strong>只允许一个信号输入</strong>的编码器称为普通编码器。 </p>
-<p>  下面看看普通编码器的真值表：</p>
-<table>
+<li><h3 id="普通编码器的真值表"><a href="#普通编码器的真值表" class="headerlink" title="普通编码器的真值表"></a>普通编码器的真值表</h3><table>
 <thead>
 <tr>
 <th align="center">I0</th>
@@ -543,11 +551,20 @@
 <td align="center"><strong>1</strong></td>
 </tr>
 </tbody></table>
-<p>  普通编码器的逻辑表达式如下（通过卡诺图得出，如果你从真值表看出更厉害）：<br>  Y0 = I2 + I3<br>  Y1 = I1 + I3<br>  结合真值表和逻辑表达式可知，普通编码器只有在<strong>有且仅有一个输入</strong>有效时才能正常工作，否则将会出现<strong>编码重叠</strong>的问题。比如，0101的输入信号会产生11的输出，这样的话编码器之后的电路就会将0101误认为0001。</p>
+<p>  从上面4线2线普通编码器的真值表或卡诺图（卡诺图是怎样的呢？）得到普通编码器的逻辑表达式如下：<br>  Y0 = I2 + I3<br>  Y1 = I1 + I3   </p>
 </li>
-<li><h3 id="优先编码器"><a href="#优先编码器" class="headerlink" title="优先编码器"></a>优先编码器</h3><p>  事先规定好信号的优先级的编码器称为优先编码器。 </p>
-<p>  下面看看优先级编码器的真值表：  </p>
-<table>
+<li><h3 id="普通编码器的编码重叠问题"><a href="#普通编码器的编码重叠问题" class="headerlink" title="普通编码器的编码重叠问题"></a>普通编码器的编码重叠问题</h3><p>  结合真值表和逻辑表达式可知，普通编码器只有在<strong>有且仅有一个输入</strong>有效时才能正常工作，否则将会出现<strong>编码重叠</strong>的问题。比如，0101的输入信号会产生11的输出，这样的话编码器之后的电路就会将0101误认为0001。由于在实际问题中，精准控制所有输入信号满足要求是十分困难的，而且这种编码重叠会造成后续电路的故障，所以为了解决编码重叠的问题，电器工程师们又发明了优先编码器。</p>
+</li>
+</ul>
+<h2 id="优先编码器"><a href="#优先编码器" class="headerlink" title="优先编码器"></a>优先编码器</h2><p><em>事先规定好<strong>信号的优先级</strong>的编码器称为优先编码器。</em>  </p>
+<ul>
+<li><h3 id="优先编码器的“优先”"><a href="#优先编码器的“优先”" class="headerlink" title="优先编码器的“优先”"></a>优先编码器的“优先”</h3><p>  看到这你可能会问，什么是信号优先级？怎么规定信号优先级呢？我们先举个栗子解释一下信号优先级：  </p>
+<blockquote>
+<p>假设你又被困在了监狱，原因是因为上次联络员一不小心</p>
+</blockquote>
+<p>  先撇开信号优先级这一概念，我们和普通编码器一样来讨论一下优先编码器的输入输出信号个数。</p>
+</li>
+<li><h3 id="优先编码器的真值表"><a href="#优先编码器的真值表" class="headerlink" title="优先编码器的真值表"></a>优先编码器的真值表</h3><table>
 <thead>
 <tr>
 <th align="center">I0</th>
@@ -1530,11 +1547,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>
