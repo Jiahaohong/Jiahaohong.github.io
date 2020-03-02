@@ -15,11 +15,13 @@
 <meta property="og:site_name" content="Darcy&#39;s Blog">
 <meta property="og:description" content="什么是编码，什么是编码器编码就是赋予二进制代码特殊含义的过程。  编码器就是实现编码功能的逻辑电路。  举个栗子：    当你被困在监狱，给你探监的联络员给你传递情报，你们事先（抓进监狱前）约定将三个苹果和一个栗子按苹果、苹果、栗子、苹果的顺序摆放时，表示时机成熟，今晚有人接应，如果按栗子、苹果、苹果、苹果的顺序摆放时，表示时机不成熟，那么你就可以从联络员送来的物品摆放顺序中获得情报。而“事先约定">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://39.106.115.216/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/logism1.jpg">
 <meta property="article:published_time" content="2020-02-11T08:20:07.000Z">
-<meta property="article:modified_time" content="2020-02-29T02:41:08.807Z">
+<meta property="article:modified_time" content="2020-03-02T08:35:33.331Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="数字电路">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://39.106.115.216/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/logism1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Darcy&#39;s Blog" type="application/atom+xml">
   
@@ -291,8 +293,11 @@
 </tr>
 </tbody></table>
 <p>  和普通编码器的真值表对照一下就可以发现，优先编码器的有些输入信号为有效时，不论其他信号是否有效，输出结果总是一样的，这种不会被其他信号干扰其输出的信号就叫做高优先级信号，而输出会被其他信号干扰的信号叫做低优先级信号。前面的高低优先级都是相对概念。（Q2你能看出这个编码器输入信号的优先级吗？）  </p>
-<p>  同样的，分别根据Y0和Y1的卡诺图可以求出它们的逻辑表达式，如下：<br>  Y0 = I2 + I3<br>  Y1 = I1 · <span style="text-decoration:overline">I2</span> + I3</p>
+<p>  同样的，分别根据Y0和Y1的卡诺图可以求出它们的逻辑表达式，如下：<br>  Y0 = I2 + I3<br>  Y1 = I1 · <span style="text-decoration:overline">I2</span> + I3  </p>
+<p>  从逻辑表达式可以知道，优先编码器并不是具有什么智慧才能够分辨不同的输入信号，“优先级”实际上是逻辑门的组合而产生的效果。接下来我们使用简单的logism软件来设计一下4线2线优先编码器。</p>
 </li>
+<li><h3 id="Logism之优先编码器"><a href="#Logism之优先编码器" class="headerlink" title="Logism之优先编码器"></a>Logism之优先编码器</h3><p>  分析逻辑表达式，有四个输入端和两个输出端，一个非门、一个与门和两个或门，组装后结果如下：  </p>
+  <img src="/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/logism1.jpg"></li>
 </ul>
 
       
@@ -535,11 +540,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
               </li>
             
             <div class="clearfix"></div>
