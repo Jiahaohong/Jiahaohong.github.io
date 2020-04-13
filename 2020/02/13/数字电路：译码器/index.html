@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://39.106.115.216">
   <title>数字电路：译码器 | Darcy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是译码器译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。 译码器原理 逻辑门器件的设计方法  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。  2线4线译码器  先看看这种译码器的真值表：     E A1 A0 Y0 Y">
+  <meta name="description" content="什么是译码器译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。 译码器原理 逻辑门器件的设计方法  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。  2线4线译码器  先">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字电路：译码器">
 <meta property="og:url" content="http://39.106.115.216/2020/02/13/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%AF%91%E7%A0%81%E5%99%A8/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="什么是译码器译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。 译码器原理 逻辑门器件的设计方法  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。  2线4线译码器  先看看这种译码器的真值表：     E A1 A0 Y0 Y">
+<meta property="og:description" content="什么是译码器译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。 译码器原理 逻辑门器件的设计方法  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。  2线4线译码器  先">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-13T01:50:37.000Z">
-<meta property="article:modified_time" content="2020-03-03T13:41:21.238Z">
+<meta property="article:modified_time" content="2020-04-13T01:55:22.918Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="数字电路">
 <meta name="twitter:card" content="summary">
@@ -171,7 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是译码器"><a href="#什么是译码器" class="headerlink" title="什么是译码器"></a>什么是译码器</h2><p>译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。</p>
+        <h2 id="什么是译码器"><a href="#什么是译码器" class="headerlink" title="什么是译码器"></a>什么是译码器</h2><p>译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。</p>
 <h2 id="译码器原理"><a href="#译码器原理" class="headerlink" title="译码器原理"></a>译码器原理</h2><ul>
 <li><h3 id="逻辑门器件的设计方法"><a href="#逻辑门器件的设计方法" class="headerlink" title="逻辑门器件的设计方法"></a>逻辑门器件的设计方法</h3><p>  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。</p>
 </li>
@@ -236,7 +236,7 @@
 </tbody></table>
 <p>  在使能端有效的情况下，我们可以写出各个输出端的逻辑表达式，如下：<br>  Y0 = <span style="text-decoration:overline">A1</span> · <span style="text-decoration:overline">A0</span><br>  Y1 = <span style="text-decoration:overline">A1</span> · A0<br>  Y2 = A1 · <span style="text-decoration:overline">A0</span><br>  Y3 = A1 · A0<br>  不难发现，每个输出端的逻辑表达式都是输入逻辑变量的最小项。如果将使能端也考虑进去，将上述每一个输出端的逻辑表达式和使能端逻辑变量相与即可。  </p>
 </li>
-<li><h3 id="3线4线译码器"><a href="#3线4线译码器" class="headerlink" title="3线4线译码器"></a>3线4线译码器</h3><p>  先看看这种译码器的使能端的真值表：    </p>
+<li><h3 id="3线8线译码器"><a href="#3线8线译码器" class="headerlink" title="3线8线译码器"></a>3线8线译码器</h3><p>  先看看这种译码器的使能端的真值表：    </p>
 <table>
 <thead>
 <tr>
@@ -564,11 +564,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
             
             <div class="clearfix"></div>

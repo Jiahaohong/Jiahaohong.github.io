@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://39.106.115.216">
   <title>数字电路：编码器 | Darcy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是编码，什么是编码器编码就是赋予二进制代码特殊含义的过程。  编码器就是实现编码功能的逻辑电路。  举个栗子：    当你被困在监狱，给你探监的联络员给你传递情报，你们事先（抓进监狱前）约定将三个苹果和一个栗子按苹果、苹果、栗子、苹果的顺序摆放时，表示时机成熟，今晚有人接应，如果按栗子、苹果、苹果、苹果的顺序摆放时，表示时机不成熟，那么你就可以从联络员送来的物品摆放顺序中获得情报。而“事先约定">
+  <meta name="description" content="什么是编码，什么是编码器编码就是赋予二进制代码特殊含义的过程。  编码器就是实现编码功能的逻辑电路。  普通编码器任何时候只允许一个信号输入有效的编码器称为普通编码器。   普通编码器的名称含义  如果输入信号有4个，那么输出信号只需要2个就可以表示输入信号的4种状态。这就是4线2线普通编码器。也就是说，普通编码器如果有2^n个输入信号，那么它只需要n个输出信号就可以表达输入信号的所有状态。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字电路：编码器">
 <meta property="og:url" content="http://39.106.115.216/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="什么是编码，什么是编码器编码就是赋予二进制代码特殊含义的过程。  编码器就是实现编码功能的逻辑电路。  举个栗子：    当你被困在监狱，给你探监的联络员给你传递情报，你们事先（抓进监狱前）约定将三个苹果和一个栗子按苹果、苹果、栗子、苹果的顺序摆放时，表示时机成熟，今晚有人接应，如果按栗子、苹果、苹果、苹果的顺序摆放时，表示时机不成熟，那么你就可以从联络员送来的物品摆放顺序中获得情报。而“事先约定">
+<meta property="og:description" content="什么是编码，什么是编码器编码就是赋予二进制代码特殊含义的过程。  编码器就是实现编码功能的逻辑电路。  普通编码器任何时候只允许一个信号输入有效的编码器称为普通编码器。   普通编码器的名称含义  如果输入信号有4个，那么输出信号只需要2个就可以表示输入信号的4种状态。这就是4线2线普通编码器。也就是说，普通编码器如果有2^n个输入信号，那么它只需要n个输出信号就可以表达输入信号的所有状态。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://39.106.115.216/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/logism1.png">
 <meta property="og:image" content="http://39.106.115.216/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/logism2.png">
 <meta property="og:image" content="http://39.106.115.216/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/logism3.png">
 <meta property="article:published_time" content="2020-02-11T08:20:07.000Z">
-<meta property="article:modified_time" content="2020-03-03T11:21:10.958Z">
+<meta property="article:modified_time" content="2020-04-13T01:10:03.688Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="数字电路">
 <meta name="twitter:card" content="summary">
@@ -177,10 +177,6 @@
       
         <h2 id="什么是编码，什么是编码器"><a href="#什么是编码，什么是编码器" class="headerlink" title="什么是编码，什么是编码器"></a>什么是编码，什么是编码器</h2><p>编码就是<strong>赋予二进制代码特殊含义</strong>的过程。 </p>
 <p>编码器就是实现编码功能的逻辑电路。 </p>
-<p>举个栗子：  </p>
-<blockquote>
-<p>当你被困在监狱，给你探监的联络员给你传递情报，你们事先（抓进监狱前）约定将三个苹果和一个栗子按苹果、苹果、栗子、苹果的顺序摆放时，表示时机成熟，今晚有人接应，如果按栗子、苹果、苹果、苹果的顺序摆放时，表示时机不成熟，那么你就可以从联络员送来的物品摆放顺序中获得情报。而“事先约定”就是“编码”。<br>同样的，逻辑电路也可以实现这样的功能。比如四个输入信号为0010时，表示11；输入信号为1000时表示00。这也是一种编码，只不过编码后的输出也是二进制。</p>
-</blockquote>
 <h2 id="普通编码器"><a href="#普通编码器" class="headerlink" title="普通编码器"></a>普通编码器</h2><p><em>任何时候<strong>只允许一个信号输入有效</strong>的编码器称为普通编码器。</em> </p>
 <ul>
 <li><h3 id="普通编码器的名称含义"><a href="#普通编码器的名称含义" class="headerlink" title="普通编码器的名称含义"></a>普通编码器的名称含义</h3><p>  如果输入信号有4个，那么输出信号只需要2个就可以表示输入信号的4种状态。这就是4线2线普通编码器。也就是说，普通编码器如果有2^n个输入信号，那么它只需要n个输出信号就可以表达输入信号的所有状态。 </p>
@@ -236,11 +232,7 @@
 </ul>
 <h2 id="优先编码器"><a href="#优先编码器" class="headerlink" title="优先编码器"></a>优先编码器</h2><p><em>事先规定好<strong>信号的优先级</strong>的编码器称为优先编码器。</em>  </p>
 <ul>
-<li><h3 id="优先编码器的“优先”"><a href="#优先编码器的“优先”" class="headerlink" title="优先编码器的“优先”"></a>优先编码器的“优先”</h3><p>  看到这你可能会问，什么是信号优先级？怎么规定信号优先级呢？我们先举个栗子解释一下信号优先级：  </p>
-<blockquote>
-<p>一名士兵在执行任务时，收到了两条来自上级的命令，一条是班长的，说开始执行任务，另一条是连长的，说任务终止。这时候，由于连长军衔高，他的命令就被士兵执行了，而班长的命令就被忽略了。<br>同样的，优先编码器在接收到的所有信号中，有多个信号有效时，它会选择级别高的信号进行编码，而优先级低的信号就不执行编码。</p>
-</blockquote>
-<p>  那么怎么实现信号优先级的设置？或者说编码器怎么识别出信号的优先级的呢？这就要知道优先编码器的逻辑表达式是怎么设计的了。</p>
+<li><h3 id="优先编码器的“优先”"><a href="#优先编码器的“优先”" class="headerlink" title="优先编码器的“优先”"></a>优先编码器的“优先”</h3><p>  看到这你可能会问，什么是信号优先级？怎么规定信号优先级呢?<br>  首先来说说信号的优先级。在普通编码器中，每次输入的信号必须和事先规定的信号二进制码完全一致，逻辑门才能正确识别这个信号，但是优先编码器不同，它可以将“混合”的信号中优先级最高的那个信号识别出来并进行编码，而其他优先级低的信号对这一过程没有影响。那么什么信号是“混合”信号呢？简单来说，0001信号和1000信号混合了，那么混合信号就是1001，假如0001的优先级高于1000，那么这个混合后信号输入到编码器中，编码器会自动识别出0001信号进行编码，并且忽略1000信号，。<br>  那么怎么实现信号优先级的设置？或者说编码器怎么识别出信号的优先级的呢？这就要知道优先编码器的逻辑表达式是怎么设计的了。</p>
 </li>
 <li><h3 id="优先编码器的真值表"><a href="#优先编码器的真值表" class="headerlink" title="优先编码器的真值表"></a>优先编码器的真值表</h3><table>
 <thead>
@@ -551,11 +543,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
             
             <div class="clearfix"></div>

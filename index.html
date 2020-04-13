@@ -156,6 +156,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据库：SQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9ASQL/">数据库：SQL</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9ASQL/" class="archive-article-date">
+  	<time datetime="2020-04-07T11:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h2><ol>
+<li>定义模式<br>CREATE SHEMA <SHEMANAME> AUTHORIZATION <USERNAME><br>注意：如果模式名缺省，则模式名默认和用户名一样。</USERNAME></SHEMANAME></li>
+<li>删除模式<br>DROP SHEMA <SHEMANAME> &lt;CASCADE|RESRTICT&gt;<ul>
+<li>CASCADE(级联)<br>删除模式的同时把该模式中所有数据库对象全部删除 </li>
+</ul>
+</SHEMANAME></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9ASQL/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据库：什么是范式？（下）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -178,7 +258,7 @@
       
         <p><em>范式的规定随着序号的增加而逐渐严格，序号大的范式一定满足序号小的范式的要求</em></p>
 <h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p><em><strong>属性不可分</strong></em><br>这是最简单也是最基础的范式，<strong>所有关系模型</strong>必须满足这个范式。这个定义已经十分清晰明了了，即在实际情况中，我们选取的关系模型的属性必须具有原子性，不可分性，但是同时又不必过于细致，能够满足实际应用要求即可。</p>
-<p>（接下来的范式定义就逐渐晦涩难懂了，我会采用实际例子来辅助理解）</p>
+<p><em>接下来的范式定义就逐渐晦涩难懂了，我会采用实际例子来辅助理解</em></p>
 <h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p><em><strong>所有非主属性完全依赖于任意一个键码</strong></em><br>在这里我们要重点关注一个词：完全。什么样的依赖从才能说是完全依赖呢？我们看看下面这个图书馆借书登记的例子。  </p>
 <table>
 <thead>
@@ -202,7 +282,7 @@
 <td align="center">Domitory B</td>
 </tr>
 </tbody></table>
-<p>在这个借书信息关系表中，我们可以通过生活实际得出如下的函数依赖关系：Name Title-&gt;Date和Name-&gt;Domitory。通过闭包，我们可以求出关系表的键码为{Name，Title}，Date这个属性是通过这个键码确定的，但是Domitory这个属性是通过这个键码的子集{Name}确定的，因此这个关系表不符合第二范式。<br>这时候只要选择一个函数依赖分离出一个新的关系表就可以解决这个问题。比如选择函数依赖Name-&gt;Domitory分离出第一个表：  </p>
+<p>在这个借书信息关系表中，我们可以<strong>通过生活实际</strong>得出如下的函数依赖关系：Name Title-&gt;Date和Name-&gt;Domitory。通过<strong>闭包</strong>，我们可以求出关系表的键码为{Name，Title}，Date这个属性是通过这个键码确定的，但是Domitory这个属性是通过这个<strong>键码的子集</strong>{Name}确定的，因此这个关系表不符合第二范式。<br>这时候只要选择一个函数依赖分离出一个新的关系表就可以解决这个问题。比如选择函数依赖Name-&gt;Domitory分离出第一个表：  </p>
 <table>
 <thead>
 <tr>
@@ -261,7 +341,8 @@
 </tr>
 </tbody></table>
 <p>在这个关系表中，DomitoryManagement不直接依赖于键码{Name}，但是它依赖于Domitory，并且Domitory依赖于键码{Name}，这是一个传递依赖，所以符合第二范式。这一点是区分第二范式和第三范式的关键，因为第三范式要求不能有传递依赖。</p>
-<h2 id="BC范式"><a href="#BC范式" class="headerlink" title="BC范式"></a>BC范式</h2><h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><h2 id="第四范式"><a href="#第四范式" class="headerlink" title="第四范式"></a>第四范式</h2>
+<h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p><em><strong>如果对于关系R中的任何非平凡依赖A1A2…An-&gt;B，它们满 足条件：或者A1A2…An是超键码，或者B是某个键码的组成部分，则关系R满足第三范式</strong></em></p>
+<h2 id="BC范式"><a href="#BC范式" class="headerlink" title="BC范式"></a>BC范式</h2><h2 id="第四范式"><a href="#第四范式" class="headerlink" title="第四范式"></a>第四范式</h2>
       
 
       
@@ -809,7 +890,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是译码器"><a href="#什么是译码器" class="headerlink" title="什么是译码器"></a>什么是译码器</h2><p>译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。</p>
+        <h2 id="什么是译码器"><a href="#什么是译码器" class="headerlink" title="什么是译码器"></a>什么是译码器</h2><p>译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。</p>
 <h2 id="译码器原理"><a href="#译码器原理" class="headerlink" title="译码器原理"></a>译码器原理</h2><ul>
 <li><h3 id="逻辑门器件的设计方法"><a href="#逻辑门器件的设计方法" class="headerlink" title="逻辑门器件的设计方法"></a>逻辑门器件的设计方法</h3><p>  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。</p>
 </li>
@@ -874,7 +955,7 @@
 </tbody></table>
 <p>  在使能端有效的情况下，我们可以写出各个输出端的逻辑表达式，如下：<br>  Y0 = <span style="text-decoration:overline">A1</span> · <span style="text-decoration:overline">A0</span><br>  Y1 = <span style="text-decoration:overline">A1</span> · A0<br>  Y2 = A1 · <span style="text-decoration:overline">A0</span><br>  Y3 = A1 · A0<br>  不难发现，每个输出端的逻辑表达式都是输入逻辑变量的最小项。如果将使能端也考虑进去，将上述每一个输出端的逻辑表达式和使能端逻辑变量相与即可。  </p>
 </li>
-<li><h3 id="3线4线译码器"><a href="#3线4线译码器" class="headerlink" title="3线4线译码器"></a>3线4线译码器</h3><p>  先看看这种译码器的使能端的真值表：    </p>
+<li><h3 id="3线8线译码器"><a href="#3线8线译码器" class="headerlink" title="3线8线译码器"></a>3线8线译码器</h3><p>  先看看这种译码器的使能端的真值表：    </p>
 <table>
 <thead>
 <tr>
@@ -1032,10 +1113,6 @@
       
         <h2 id="什么是编码，什么是编码器"><a href="#什么是编码，什么是编码器" class="headerlink" title="什么是编码，什么是编码器"></a>什么是编码，什么是编码器</h2><p>编码就是<strong>赋予二进制代码特殊含义</strong>的过程。 </p>
 <p>编码器就是实现编码功能的逻辑电路。 </p>
-<p>举个栗子：  </p>
-<blockquote>
-<p>当你被困在监狱，给你探监的联络员给你传递情报，你们事先（抓进监狱前）约定将三个苹果和一个栗子按苹果、苹果、栗子、苹果的顺序摆放时，表示时机成熟，今晚有人接应，如果按栗子、苹果、苹果、苹果的顺序摆放时，表示时机不成熟，那么你就可以从联络员送来的物品摆放顺序中获得情报。而“事先约定”就是“编码”。<br>同样的，逻辑电路也可以实现这样的功能。比如四个输入信号为0010时，表示11；输入信号为1000时表示00。这也是一种编码，只不过编码后的输出也是二进制。</p>
-</blockquote>
 <h2 id="普通编码器"><a href="#普通编码器" class="headerlink" title="普通编码器"></a>普通编码器</h2><p><em>任何时候<strong>只允许一个信号输入有效</strong>的编码器称为普通编码器。</em> </p>
 <ul>
 <li><h3 id="普通编码器的名称含义"><a href="#普通编码器的名称含义" class="headerlink" title="普通编码器的名称含义"></a>普通编码器的名称含义</h3><p>  如果输入信号有4个，那么输出信号只需要2个就可以表示输入信号的4种状态。这就是4线2线普通编码器。也就是说，普通编码器如果有2^n个输入信号，那么它只需要n个输出信号就可以表达输入信号的所有状态。 </p>
@@ -1091,11 +1168,7 @@
 </ul>
 <h2 id="优先编码器"><a href="#优先编码器" class="headerlink" title="优先编码器"></a>优先编码器</h2><p><em>事先规定好<strong>信号的优先级</strong>的编码器称为优先编码器。</em>  </p>
 <ul>
-<li><h3 id="优先编码器的“优先”"><a href="#优先编码器的“优先”" class="headerlink" title="优先编码器的“优先”"></a>优先编码器的“优先”</h3><p>  看到这你可能会问，什么是信号优先级？怎么规定信号优先级呢？我们先举个栗子解释一下信号优先级：  </p>
-<blockquote>
-<p>一名士兵在执行任务时，收到了两条来自上级的命令，一条是班长的，说开始执行任务，另一条是连长的，说任务终止。这时候，由于连长军衔高，他的命令就被士兵执行了，而班长的命令就被忽略了。<br>同样的，优先编码器在接收到的所有信号中，有多个信号有效时，它会选择级别高的信号进行编码，而优先级低的信号就不执行编码。</p>
-</blockquote>
-<p>  那么怎么实现信号优先级的设置？或者说编码器怎么识别出信号的优先级的呢？这就要知道优先编码器的逻辑表达式是怎么设计的了。</p>
+<li><h3 id="优先编码器的“优先”"><a href="#优先编码器的“优先”" class="headerlink" title="优先编码器的“优先”"></a>优先编码器的“优先”</h3><p>  看到这你可能会问，什么是信号优先级？怎么规定信号优先级呢?<br>  首先来说说信号的优先级。在普通编码器中，每次输入的信号必须和事先规定的信号二进制码完全一致，逻辑门才能正确识别这个信号，但是优先编码器不同，它可以将“混合”的信号中优先级最高的那个信号识别出来并进行编码，而其他优先级低的信号对这一过程没有影响。那么什么信号是“混合”信号呢？简单来说，0001信号和1000信号混合了，那么混合信号就是1001，假如0001的优先级高于1000，那么这个混合后信号输入到编码器中，编码器会自动识别出0001信号进行编码，并且忽略1000信号，。<br>  那么怎么实现信号优先级的设置？或者说编码器怎么识别出信号的优先级的呢？这就要知道优先编码器的逻辑表达式是怎么设计的了。</p>
 </li>
 <li><h3 id="优先编码器的真值表"><a href="#优先编码器的真值表" class="headerlink" title="优先编码器的真值表"></a>优先编码器的真值表</h3><table>
 <thead>
@@ -1410,115 +1483,6 @@
 
 
   
-    <article id="post-数字电路：逻辑代数基本定理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/">数字电路：逻辑代数基本定理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-02-07T02:48:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="逻辑代数基本定律"><a href="#逻辑代数基本定律" class="headerlink" title="逻辑代数基本定律"></a>逻辑代数基本定律</h2><p><em>以下两个定律比较重要，故单独列出</em></p>
-<ul>
-<li><strong><em>分配律</em></strong><ul>
-<li>A·（B + C）= A · B + A · C</li>
-<li><strong>A + B · C = （A + B）·（A + C）</strong></li>
-</ul>
-</li>
-<li><strong><em>反演律</em></strong>（摩根定理）<ul>
-<li><span style="text-decoration:overline">A·B·C</span> = <span style="text-decoration:overline">A</span> + <span style="text-decoration:overline">B</span> + <span style="text-decoration:overline">C</span></li>
-<li><span style="text-decoration:overline">A+B+C</span> = <span style="text-decoration:overline">A</span> · <span style="text-decoration:overline">B</span> · <span style="text-decoration:overline">C</span> </li>
-</ul>
-</li>
-</ul>
-<p><strong>基本定律的应用</strong><br>重叠律和同一律的逆应用可以带来凑项的效果。<br><img src="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/BasicFormulas.png" width="200px">  </p>
-<h2 id="逻辑代数常用公式"><a href="#逻辑代数常用公式" class="headerlink" title="逻辑代数常用公式"></a>逻辑代数常用公式</h2><ul>
-<li>吸收律<ul>
-<li>A + A·B = A</li>
-<li>A·（A + B） = A</li>
-</ul>
-</li>
-<li>补吸收律<ul>
-<li>A + <span style="text-decoration:overline">A</span>·B = A + B</li>
-</ul>
-</li>
-<li>重要公式<ul>
-<li>A·B + <span style="text-decoration:overline">A</span>·C + B·C = A·B + <span style="text-decoration:overline">A</span>·C</li>
-<li><strong>A·B + <span style="text-decoration:overline">A</span>·C + B·C·D = A·B + <span style="text-decoration:overline">A</span>·C</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="逻辑代数基本规则"><a href="#逻辑代数基本规则" class="headerlink" title="逻辑代数基本规则"></a>逻辑代数基本规则</h2><ul>
-<li>带入规则<br>同代数的带入规则。</li>
-<li>反演规则<br>如果将表达式中与（·）换成或（+）、或（+）换成与（·）、反变量换成原变量、原变量换成反变量、1换成0、0换成1，那么得到的表达式即使原表达式的反演表达式。注意不要改变运算顺序，适当使用小括号将原表达式的与运算括起来保证原表达式的运算顺序。</li>
-<li>对偶规则<br>如果将表达式中与（·）换成或（+）、或（+）换成与（·），保持运算顺序不变，变量不变，则得到原表达式的对偶表达式。</li>
-</ul>
-<p><strong>基本规则的应用</strong><br>在化简逻辑函数时，可以通过反演规则（对偶规则）将逻辑函数转换为对应的反演表达式（对偶表达式），然后对转换后的新表达式进行化简，将得到的结果再进行一次反演（对偶）即可得到原逻辑函数的化简结果。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1620,11 +1584,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
             
             <div class="clearfix"></div>
