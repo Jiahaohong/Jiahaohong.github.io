@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://39.106.115.216">
   <title>数字电路：译码器 | Darcy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是译码器译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。 译码器原理 逻辑门器件的设计方法  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。  2线4线译码器  先">
+  <meta name="description" content="译码器是和编码器相对的逻辑器件，用来将经过编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。 译码器原理 逻辑门器件的设计方法  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。  2线4线译码器  先看看这种译码器的真">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字电路：译码器">
 <meta property="og:url" content="http://39.106.115.216/2020/02/13/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%AF%91%E7%A0%81%E5%99%A8/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="什么是译码器译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。 译码器原理 逻辑门器件的设计方法  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。  2线4线译码器  先">
+<meta property="og:description" content="译码器是和编码器相对的逻辑器件，用来将经过编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。 译码器原理 逻辑门器件的设计方法  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。  2线4线译码器  先看看这种译码器的真">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-13T01:50:37.000Z">
-<meta property="article:modified_time" content="2020-04-13T01:55:22.918Z">
+<meta property="article:modified_time" content="2020-04-24T01:54:47.439Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="数字电路">
 <meta name="twitter:card" content="summary">
@@ -171,7 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是译码器"><a href="#什么是译码器" class="headerlink" title="什么是译码器"></a>什么是译码器</h2><p>译码器是和编码器相对的逻辑器件，用来将经过编码器编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。</p>
+        <p>译码器是和编码器相对的逻辑器件，用来将经过编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。</p>
 <h2 id="译码器原理"><a href="#译码器原理" class="headerlink" title="译码器原理"></a>译码器原理</h2><ul>
 <li><h3 id="逻辑门器件的设计方法"><a href="#逻辑门器件的设计方法" class="headerlink" title="逻辑门器件的设计方法"></a>逻辑门器件的设计方法</h3><p>  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。</p>
 </li>
@@ -243,9 +243,9 @@
 <th align="center">E3</th>
 <th align="center">E2</th>
 <th align="center">E1</th>
-<th align="center">A3</th>
 <th align="center">A2</th>
 <th align="center">A1</th>
+<th align="center">A0</th>
 <th align="center">Y0</th>
 <th align="center">Y1</th>
 <th align="center">Y2</th>
@@ -305,7 +305,142 @@
 <td align="center">0</td>
 </tr>
 </tbody></table>
-<p>  可以看出，这三个使能端中E3优先级最高，是总开关，E2和E1的功能是一样的，但是怎么用呢？</p>
+<p>  可以看出，这三个使能端中E3优先级最高，是总开关，E2和E1的功能是一样的，但是怎么用呢？  </p>
+<p>  撇开使能端，我们单独讨论一下该译码器的真值表：  </p>
+<table>
+<thead>
+<tr>
+<th align="center">A2</th>
+<th align="center">A1</th>
+<th align="center">A0</th>
+<th align="center">Y0</th>
+<th align="center">Y1</th>
+<th align="center">Y2</th>
+<th align="center">Y3</th>
+<th align="center">Y4</th>
+<th align="center">Y5</th>
+<th align="center">Y6</th>
+<th align="center">Y7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">不难看出，输出信号端口下标（十进制）对应的二进制码就是三个输入信号组合成的二进制码，也就是3位逻辑变量的最小项，即Yi=mi。这个公式很重要，<strong>因为这让译码器除了能够翻译二进制码，还能够根据输入信号输出逻辑表达式的结果</strong>。</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 </li>
 </ul>
 <h2 id="几个问题"><a href="#几个问题" class="headerlink" title="几个问题"></a>几个问题</h2><ol>
@@ -314,7 +449,7 @@
 <li>如何使用74HC138和少量逻辑门实现三变量逻辑函数？</li>
 </ol>
 <ul>
-<li><h3 id="关于译码器连接非门的问题"><a href="#关于译码器连接非门的问题" class="headerlink" title="关于译码器连接非门的问题"></a>关于译码器连接非门的问题</h3><p>  虽然说逻辑函数可以使用与或非三种逻辑门来实现，但是，通常情况下这些逻辑门都不是结构上最简单的。实际上与非门的结构最为简单，并且可以由与非门完成其他基本逻辑们的功能。因此，逻辑电路可能会有一些非门在输入输出端。</p>
+<li><h3 id="关于译码器连接非门的问题"><a href="#关于译码器连接非门的问题" class="headerlink" title="关于译码器连接非门的问题"></a>关于译码器连接非门的问题</h3><p>  虽然说逻辑函数可以使用与或非三种逻辑门来实现，但是，通常情况下这些逻辑门都不是电子结构上最简单的。实际上与非门的电子结构最为简单，并且可以由与非门完成其他基本逻辑们的功能。因此，逻辑电路可能会有一些非门在输入输出端。</p>
 </li>
 <li><h3 id="关于译码器的多使能端的问题"><a href="#关于译码器的多使能端的问题" class="headerlink" title="关于译码器的多使能端的问题"></a>关于译码器的多使能端的问题</h3><p>  多个使能端可以拓展译码器的功能，比如之后的数据分配器和数据选择器等。</p>
 </li>
@@ -564,11 +699,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
             
             <div class="clearfix"></div>
