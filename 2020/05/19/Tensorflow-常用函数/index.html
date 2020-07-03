@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://39.106.115.216">
-  <title>git指令大全 | Darcy&#39;s Blog</title>
+  <title>Tensorflow:常用函数 | Darcy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件操作指令 进入指定文件夹 1cd c:mygit&#x2F;project1 进入上层文件夹 1cd .. 进入根目录文件夹 1cd ~ 显示当前文件夹路径 1pwd 显示当前文件夹里的文件和文件夹 1ls -l 在当前文件夹下创建文件夹 1mkdir project2 在当前文件夹下创建文件 12touch readme.txttouch gitCommand.md 将上述指令结合起来使用，">
+  <meta name="description" content="强制类型转换tf.cast(张量名,dtype&#x3D;数据类型)  计算张量维度上的最值tf.reduce_min(张量名)tf.reduce_max(张量名)如果没有指定维度，那么默认寻找这个张量所有元素里的最值。  axis用于指定函数作用的维度。比如在二维张量中(数组)，axis&#x3D;0代表作用维度是列，tf.reduce_mean(a,axis&#x3D;0)表示分别在张量a的所有列中找到最小值。    t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git指令大全">
-<meta property="og:url" content="http://39.106.115.216/2020/03/09/git%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8/index.html">
+<meta property="og:title" content="Tensorflow:常用函数">
+<meta property="og:url" content="http://39.106.115.216/2020/05/19/Tensorflow-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="文件操作指令 进入指定文件夹 1cd c:mygit&#x2F;project1 进入上层文件夹 1cd .. 进入根目录文件夹 1cd ~ 显示当前文件夹路径 1pwd 显示当前文件夹里的文件和文件夹 1ls -l 在当前文件夹下创建文件夹 1mkdir project2 在当前文件夹下创建文件 12touch readme.txttouch gitCommand.md 将上述指令结合起来使用，">
+<meta property="og:description" content="强制类型转换tf.cast(张量名,dtype&#x3D;数据类型)  计算张量维度上的最值tf.reduce_min(张量名)tf.reduce_max(张量名)如果没有指定维度，那么默认寻找这个张量所有元素里的最值。  axis用于指定函数作用的维度。比如在二维张量中(数组)，axis&#x3D;0代表作用维度是列，tf.reduce_mean(a,axis&#x3D;0)表示分别在张量a的所有列中找到最小值。    t">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-08T23:56:00.000Z">
-<meta property="article:modified_time" content="2020-03-24T13:34:43.375Z">
+<meta property="article:published_time" content="2020-05-19T01:22:16.000Z">
+<meta property="article:modified_time" content="2020-05-19T09:14:05.723Z">
 <meta property="article:author" content="Darcy">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Tensorflow">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Darcy&#39;s Blog" type="application/atom+xml">
@@ -151,48 +151,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git指令大全" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Tensorflow-常用函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      git指令大全
+      Tensorflow:常用函数
     </h1>
   
 
         
-        <a href="/2020/03/09/git%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8/" class="archive-article-date">
-  	<time datetime="2020-03-08T23:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
+        <a href="/2020/05/19/Tensorflow-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-05-19T01:22:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="文件操作指令"><a href="#文件操作指令" class="headerlink" title="文件操作指令"></a>文件操作指令</h2><ul>
-<li><p>进入指定文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd c:mygit&#x2F;project1</span><br></pre></td></tr></table></figure></li>
-<li><p>进入上层文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br></pre></td></tr></table></figure></li>
-<li><p>进入根目录文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure></li>
-<li><p>显示当前文件夹路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure></li>
-<li><p>显示当前文件夹里的文件和文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure></li>
-<li><p>在当前文件夹下创建文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir project2</span><br></pre></td></tr></table></figure></li>
-<li><p>在当前文件夹下创建文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch readme.txt</span><br><span class="line">touch gitCommand.md</span><br></pre></td></tr></table></figure>
-<p>将上述指令结合起来使用，你就可以非常方便的解决一些文件操作的小问题了。比如进入某个文件夹，新建一个子文件夹用来存放自己的markdown笔记，就可以在gitbash里输入如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd f: &amp;&amp; mkdir myNotes &amp;&amp; touch gitNote1.md</span><br></pre></td></tr></table></figure>
-<h2 id="git操作指令"><a href="#git操作指令" class="headerlink" title="git操作指令"></a>git操作指令</h2></li>
-<li><p>创建git仓库（初始化）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+        <ul>
+<li><p>强制类型转换<br>tf.cast(张量名,dtype=数据类型)</p>
 </li>
-<li></li>
+<li><p>计算张量维度上的最值<br>tf.reduce_min(张量名)<br>tf.reduce_max(张量名)<br>如果没有指定维度，那么默认寻找这个张量所有元素里的最值。</p>
+</li>
+<li><p>axis<br>用于指定函数作用的维度。比如在二维张量中(数组)，axis=0代表作用维度是列，tf.reduce_mean(a,axis=0)表示分别在张量a的所有列中找到最小值。</p>
+</li>
+</ul>
+<ul>
+<li><p>tf.Variable<br>将变量标记为“可训练”，被标记的变量会在反向传播中记录梯度信息。可用于参数初始化。</p>
+</li>
+<li><p>张量对应元素的四则运算<br>tf.add(a,b)<br>tf.subtract(a,b)<br>tf.multiply(a,b)<br>tf.divide(a,b)<br>张量a，b维度必须相同。</p>
+</li>
+<li><p>矩阵乘<br>tf.matmul(A,B)</p>
+</li>
+<li><p>tf.data.Dataset.from_tensor_slices<br>将特征和标签配对</p>
+</li>
+<li><p>tf.GradientTape</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> tape:</span><br><span class="line">    w = tf.Variable(tf.constant(<span class="number">3.0</span>))</span><br><span class="line">    loss = tf.pow(w,<span class="number">2</span>)</span><br><span class="line">grad = tape.gradient(loss,w)</span><br><span class="line">print(grad)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tf.one_hot<br>独热编码，在分类问题中常用做标签，1表示是，0表示非。<br>tf.one_hot(代转换数据,depth=几分类)</p>
+</li>
+<li><p>assign_sub<br>只能作用于“可训练”变量，相当于i–。</p>
+</li>
+<li><p>tf.argmax<br>返回张量指定维度的最大值的索引，及最大值的位置。注意不是最大索引值。</p>
+</li>
 </ul>
 
       
@@ -228,7 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tensorflow</a>
         		</li>
       		
 		</ul>
@@ -284,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://39.106.115.216/2020/03/09/git%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://39.106.115.216/2020/05/19/Tensorflow-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -298,18 +302,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/12/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AE-R%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          数据库：E-R图
+          Tensorflow:激活函数和损失函数
         
       </div>
     </a>
   
   
-    <a href="/2020/02/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数字电路：数据分配器</div>
+    <a href="/2020/05/18/Tensorflow-Tensor/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Tensorflow:Tensor</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -435,7 +439,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color1">Tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -156,6 +156,522 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数字电路：竞争与冒险" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/">数字电路：竞争与冒险</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/" class="archive-article-date">
+  	<time datetime="2020-05-29T08:35:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、竞争与冒险的定义"><a href="#一、竞争与冒险的定义" class="headerlink" title="一、竞争与冒险的定义"></a>一、竞争与冒险的定义</h3><p>当一个逻辑门的两个输入变量在同一时刻发生翻转，而变化的时间有差异的现象，称为竞争。<br>由竞争产生输出干扰脉冲的现象称为冒险。</p>
+<h3 id="二、竞争与冒险的判别"><a href="#二、竞争与冒险的判别" class="headerlink" title="二、竞争与冒险的判别"></a>二、竞争与冒险的判别</h3><p>已知一个逻辑表达式，如何判别由该逻辑表达式设计的电路会不会产生竞争与冒险？<br>首先我们需要找到在该表达式中同时出现有原变量和反变量的输入变量，然后我们将所有其他变量选择合适的值，看逻辑表达式是否能成为该输入变量的原变量和反变量的组合，若是那么就会有竞争与冒险现象。</p>
+<h3 id="三、如何消除竞争与冒险现象"><a href="#三、如何消除竞争与冒险现象" class="headerlink" title="三、如何消除竞争与冒险现象"></a>三、如何消除竞争与冒险现象</h3><ol>
+<li>发现并消去互补相乘项<br>如果互补项没有直接的相乘，尝试拆括号将互补项乘到一起消去。</li>
+<li>增加乘积项避免互补项相加<br>从原表达式中增加一些不改变结果的乘积项，使得原来满足互补项相加的条件作用下，多出一些其他表达式，避免互补项相加。   </li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Tensorflow-搭建网络步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/">Tensorflow:搭建网络步骤</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
+  	<time datetime="2020-05-20T01:50:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、六步法"><a href="#一、六步法" class="headerlink" title="一、六步法"></a>一、六步法</h3><ol>
+<li>import   </li>
+<li>train,test  </li>
+<li>model = tf.keras.models.Seque ntial  </li>
+<li>model.compile<br>配置训练方法，比如优化器、损失函数   </li>
+<li>model.fit  </li>
+<li>model.summary</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Tensorflow-激活函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/">Tensorflow:激活函数和损失函数</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-05-20T01:02:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、激活函数"><a href="#一、激活函数" class="headerlink" title="一、激活函数"></a>一、激活函数</h3><ul>
+<li><p>Sigmoid函数<br>tf.nn.sigmoid(x)<br>特点：<br>（1）导数不为0的范围太小，容易造成梯度消失<br>（2）输出非0均值，收敛慢<br>（3）幂运算计算复杂，训练时间长</p>
+</li>
+<li><p>Relu函数</p>
+</li>
+</ul>
+<h3 id="二、损失函数"><a href="#二、损失函数" class="headerlink" title="二、损失函数"></a>二、损失函数</h3><ul>
+<li>softmax</li>
+<li>cross-entropy</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Tensorflow-常用函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/19/Tensorflow-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">Tensorflow:常用函数</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/19/Tensorflow-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-05-19T01:22:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>强制类型转换<br>tf.cast(张量名,dtype=数据类型)</p>
+</li>
+<li><p>计算张量维度上的最值<br>tf.reduce_min(张量名)<br>tf.reduce_max(张量名)<br>如果没有指定维度，那么默认寻找这个张量所有元素里的最值。</p>
+</li>
+<li><p>axis<br>用于指定函数作用的维度。比如在二维张量中(数组)，axis=0代表作用维度是列，tf.reduce_mean(a,axis=0)表示分别在张量a的所有列中找到最小值。</p>
+</li>
+</ul>
+<ul>
+<li><p>tf.Variable<br>将变量标记为“可训练”，被标记的变量会在反向传播中记录梯度信息。可用于参数初始化。</p>
+</li>
+<li><p>张量对应元素的四则运算<br>tf.add(a,b)<br>tf.subtract(a,b)<br>tf.multiply(a,b)<br>tf.divide(a,b)<br>张量a，b维度必须相同。</p>
+</li>
+<li><p>矩阵乘<br>tf.matmul(A,B)</p>
+</li>
+<li><p>tf.data.Dataset.from_tensor_slices<br>将特征和标签配对</p>
+</li>
+<li><p>tf.GradientTape</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> tape:</span><br><span class="line">    w = tf.Variable(tf.constant(<span class="number">3.0</span>))</span><br><span class="line">    loss = tf.pow(w,<span class="number">2</span>)</span><br><span class="line">grad = tape.gradient(loss,w)</span><br><span class="line">print(grad)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tf.one_hot<br>独热编码，在分类问题中常用做标签，1表示是，0表示非。<br>tf.one_hot(代转换数据,depth=几分类)</p>
+</li>
+<li><p>assign_sub<br>只能作用于“可训练”变量，相当于i–。</p>
+</li>
+<li><p>tf.argmax<br>返回张量指定维度的最大值的索引，及最大值的位置。注意不是最大索引值。</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/19/Tensorflow-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Tensorflow-Tensor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/18/Tensorflow-Tensor/">Tensorflow:Tensor</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/18/Tensorflow-Tensor/" class="archive-article-date">
+  	<time datetime="2020-05-18T14:28:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、数据类型"><a href="#一、数据类型" class="headerlink" title="一、数据类型"></a>一、数据类型</h3><p><font color="yellow">tf.int, tf.float</font><br>    tf.int32, tf.int64, tf.float32, tf.float64<br><font color="yellow">tf.bool</font><br>    tf.constant([True,False])<br><font color="yellow">tf.string</font><br>    tf.constrant(“Hello,world!”)</p>
+<h3 id="二、张量（Tensor）"><a href="#二、张量（Tensor）" class="headerlink" title="二、张量（Tensor）"></a>二、张量（Tensor）</h3><p>向量和矩阵的高维拓展。<strong>张量可以表示n维数组。</strong></p>
+<ul>
+<li><p>如何创建张量？<br><font color="yellow">tf.constant(张量内容，dtype=数据类型)</font>  </p>
+</li>
+<li><p>如何查看张量形状（维数）？<br><font color="yellow">print(a.shape)</font><br>输出：shape=(2,)<br>输出中shape的括号里逗号隔开了几个数字，该张量就是几维，上例中张量a是一个一维数组，包含两个元素。</p>
+</li>
+<li><p>numpy数据类型和tensor数据类型的转换<br><font color="yellow">tf.convert_to_tensor(数据名，dtype=数据类型)</font></p>
+</li>
+<li><p>创建全为指定值的张量<br><font color="yellow">tf.zeros(维度)<br>tf.ones(维度)<br>tf.fill(维度，指定值)</font><br>其中，维度如果是1维就直接写元素个数，如果是二维及二维以上，用[n,m,j,k,……]表示张量形状。</p>
+</li>
+<li><p>生成正太分布的随机数<br><font color="yellow">tf.random.normal(维度，mean=均值，stdev=标准差)</font><br>默认mean=0，stdev=1。</p>
+</li>
+<li><p>生成2$delta$范围内的正太分布随机数<br><font color="yellow">tf.random.truncated_normal(维度，mean=均值，stdev=标准差)</font><br>随机数生成在均值加减2倍标准差的范围内。</p>
+</li>
+<li><p>生成均匀分布随机数<br><font color="yellow">tf.random.uniform(维度，minval=最小值，maxval=最大值)</font><br>随机数在[minval,maxval)的左闭右开区间上。</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/18/Tensorflow-Tensor/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数字电路：触发器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A7%A6%E5%8F%91%E5%99%A8/">数字电路：触发器</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A7%A6%E5%8F%91%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2020-05-18T07:45:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、主从D触发器"><a href="#一、主从D触发器" class="headerlink" title="一、主从D触发器"></a>一、主从D触发器</h3><h3 id="二、触发器逻辑功能"><a href="#二、触发器逻辑功能" class="headerlink" title="二、触发器逻辑功能"></a>二、触发器逻辑功能</h3><p>接下来介绍一些常用的触发器的特性方程（Q’代表次态）。</p>
+<ul>
+<li>D触发器<br>Q’=D</li>
+<li>JK触发器<br>Q’=J<span style="text-decoration:overline">Q</span>+<span style="text-decoration:overline">K</span>Q</li>
+<li>T触发器<br>相当于JK触发器J端和K端接到一起：<br>Q’=T<span style="text-decoration:overline">Q</span>+<span style="text-decoration:overline">T</span>Q</li>
+<li>T’触发器<br>相当于T触发器T端始终接高电平：<br>Q’=<span style="text-decoration:overline">Q</span></li>
+<li>SR触发器<br>Q’=S+<span style="text-decoration:overline">R</span>Q<br>S·R=0</li>
+</ul>
+<h3 id="三、触发器的逻辑功能转换"><a href="#三、触发器的逻辑功能转换" class="headerlink" title="三、触发器的逻辑功能转换"></a>三、触发器的逻辑功能转换</h3><p>用D触发器可以实现其他所有的触发器。总体方法是：由于D触发器的特性方程和需要转换的触发器的特性方程是等价的，那么就可以由代转换的触发器特性方程推出输入端D的逻辑表达式。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A7%A6%E5%8F%91%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数字电路：锁存器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -189,7 +705,8 @@
 |1|0|1|0|置1|
 |1|1|0|0|非定义状态（危险）|
 总结一下：S端代表SET，及设置为1状态；R端代表RESET，及重置0状态；S端和R端接收到高电平时才会发挥作用，接收到低电平时不起作用；S端和R端不能同时起作用，及送入S端和R端的信号满足S·R=0，二者不能同时为1。</li>
-<li>与非门锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  <img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器2.png">
+<li>与非门锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  <img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器2.png">  
+与非门锁存器和或非门锁存器送入输入端的信号是互补的，其他一摸一样。可以理解为在或非门两个输入端外分别连接一个非门。
 </li>
 </ul>
 
@@ -216,86 +733,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库：SQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9ASQL/">数据库：SQL</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9ASQL/" class="archive-article-date">
-  	<time datetime="2020-04-07T11:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h2><ol>
-<li>定义模式<br>CREATE SHEMA <SHEMANAME> AUTHORIZATION <USERNAME><br>注意：如果模式名缺省，则模式名默认和用户名一样。</USERNAME></SHEMANAME></li>
-<li>删除模式<br>DROP SHEMA <SHEMANAME> &lt;CASCADE|RESRTICT&gt;<ul>
-<li>CASCADE(级联)<br>删除模式的同时把该模式中所有数据库对象全部删除 </li>
-</ul>
-</SHEMANAME></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9ASQL/">展开全文 >></a>
         </p>
       
 
@@ -773,828 +1210,9 @@
 
 
   
-    <article id="post-git指令大全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/09/git%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8/">git指令大全</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/09/git%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8/" class="archive-article-date">
-  	<time datetime="2020-03-08T23:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="文件操作指令"><a href="#文件操作指令" class="headerlink" title="文件操作指令"></a>文件操作指令</h2><ul>
-<li><p>进入指定文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd c:mygit&#x2F;project1</span><br></pre></td></tr></table></figure></li>
-<li><p>进入上层文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br></pre></td></tr></table></figure></li>
-<li><p>进入根目录文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure></li>
-<li><p>显示当前文件夹路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure></li>
-<li><p>显示当前文件夹里的文件和文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure></li>
-<li><p>在当前文件夹下创建文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir project2</span><br></pre></td></tr></table></figure></li>
-<li><p>在当前文件夹下创建文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch readme.txt</span><br><span class="line">touch gitCommand.md</span><br></pre></td></tr></table></figure>
-<p>将上述指令结合起来使用，你就可以非常方便的解决一些文件操作的小问题了。比如进入某个文件夹，新建一个子文件夹用来存放自己的markdown笔记，就可以在gitbash里输入如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd f: &amp;&amp; mkdir myNotes &amp;&amp; touch gitNote1.md</span><br></pre></td></tr></table></figure>
-<h2 id="git操作指令"><a href="#git操作指令" class="headerlink" title="git操作指令"></a>git操作指令</h2></li>
-<li><p>创建git仓库（初始化）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-</li>
-<li></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/09/git%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数字电路：数据分配器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8/">数字电路：数据分配器</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-02-14T02:07:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>将公共输入信号分配到不同通道上的逻辑电路。相当于一个单刀多掷开关。</p>
-<h2 id="用译码器实现数据分配器"><a href="#用译码器实现数据分配器" class="headerlink" title="用译码器实现数据分配器"></a>用译码器实现数据分配器</h2><p>现在之前说到过的译码器多使能端派上用场了。实际上74HC138芯片的使能端E1和E2上连接有非门，但为了方便，接下来的讨论以芯片内部信号的高低电平为准，而不会以外部信号高低来写逻辑表达式。<br><img src="/2020/02/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8/74HC138.png"></p>
-<ul>
-<li>先简单说说使能端E2和E1的特性，当总使能端E3有效时（高电平），E2和E1中任何一个接收到无效信号（低电平）都会使所有输出端输出无效信号（低电平）。  </li>
-<li>再来看看各输出端的逻辑函数，以5号端口为例：<br>Y5 = E3 · E2 · E1 · A3 · <span style="text-decoration:overline">A2</span> · A1 =  E3 · E2 · E1 · m5  </li>
-<li>其余端口由5号端口同理得出，通式如下：<br>Yi = E3 · E2 · E1 · mi  </li>
-<li>现在设计使能端。将总使能端E3保持有效，E2也保持有效，E1通入要分配的信号D。那么，当信号D为高电平时，E1有效，有且仅有mi所对应的那一路输出端输出高电平（其余输出端为低电平，参看译码器真值表）；当信号D为低电平时，E1无效，所有输出端输出低电平，包括mi所对应的那一路输出端。这样就保证了mi对应的那一路输出端高低电平与输入信号D保持一致，而其他输出端一直为低电平。</li>
-<li>两个译码器可以组成更多路输出的译码器，这种组合译码器用上述方法也同样可以做成更多路的数据分配器。</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数字电路：译码器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/13/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%AF%91%E7%A0%81%E5%99%A8/">数字电路：译码器</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/13/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%AF%91%E7%A0%81%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-02-13T01:50:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>译码器是和编码器相对的逻辑器件，用来将经过编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。</p>
-<h2 id="译码器原理"><a href="#译码器原理" class="headerlink" title="译码器原理"></a>译码器原理</h2><ul>
-<li><h3 id="逻辑门器件的设计方法"><a href="#逻辑门器件的设计方法" class="headerlink" title="逻辑门器件的设计方法"></a>逻辑门器件的设计方法</h3><p>  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。</p>
-</li>
-<li><h3 id="2线4线译码器"><a href="#2线4线译码器" class="headerlink" title="2线4线译码器"></a>2线4线译码器</h3><p>  先看看这种译码器的真值表： </p>
-<table>
-<thead>
-<tr>
-<th align="center">E</th>
-<th align="center">A1</th>
-<th align="center">A0</th>
-<th align="center">Y0</th>
-<th align="center">Y1</th>
-<th align="center">Y2</th>
-<th align="center">Y3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-</tr>
-</tbody></table>
-<p>  在使能端有效的情况下，我们可以写出各个输出端的逻辑表达式，如下：<br>  Y0 = <span style="text-decoration:overline">A1</span> · <span style="text-decoration:overline">A0</span><br>  Y1 = <span style="text-decoration:overline">A1</span> · A0<br>  Y2 = A1 · <span style="text-decoration:overline">A0</span><br>  Y3 = A1 · A0<br>  不难发现，每个输出端的逻辑表达式都是输入逻辑变量的最小项。如果将使能端也考虑进去，将上述每一个输出端的逻辑表达式和使能端逻辑变量相与即可。  </p>
-</li>
-<li><h3 id="3线8线译码器"><a href="#3线8线译码器" class="headerlink" title="3线8线译码器"></a>3线8线译码器</h3><p>  先看看这种译码器的使能端的真值表：    </p>
-<table>
-<thead>
-<tr>
-<th align="center">E3</th>
-<th align="center">E2</th>
-<th align="center">E1</th>
-<th align="center">A2</th>
-<th align="center">A1</th>
-<th align="center">A0</th>
-<th align="center">Y0</th>
-<th align="center">Y1</th>
-<th align="center">Y2</th>
-<th align="center">Y3</th>
-<th align="center">Y4</th>
-<th align="center">Y5</th>
-<th align="center">Y6</th>
-<th align="center">Y7</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-</tbody></table>
-<p>  可以看出，这三个使能端中E3优先级最高，是总开关，E2和E1的功能是一样的，但是怎么用呢？  </p>
-<p>  撇开使能端，我们单独讨论一下该译码器的真值表：  </p>
-<table>
-<thead>
-<tr>
-<th align="center">A2</th>
-<th align="center">A1</th>
-<th align="center">A0</th>
-<th align="center">Y0</th>
-<th align="center">Y1</th>
-<th align="center">Y2</th>
-<th align="center">Y3</th>
-<th align="center">Y4</th>
-<th align="center">Y5</th>
-<th align="center">Y6</th>
-<th align="center">Y7</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">不难看出，输出信号端口下标（十进制）对应的二进制码就是三个输入信号组合成的二进制码，也就是3位逻辑变量的最小项，即Yi=mi。这个公式很重要，<strong>因为这让译码器除了能够翻译二进制码，还能够根据输入信号输出逻辑表达式的结果</strong>。</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h2 id="几个问题"><a href="#几个问题" class="headerlink" title="几个问题"></a>几个问题</h2><ol>
-<li>为什么2线-4线译码器74HC139的逻辑符号中，使能端和输出端要各自连接一个非门？</li>
-<li>为什么3线-8线译码器74HC138需要三个使能端？</li>
-<li>如何使用74HC138和少量逻辑门实现三变量逻辑函数？</li>
-</ol>
-<ul>
-<li><h3 id="关于译码器连接非门的问题"><a href="#关于译码器连接非门的问题" class="headerlink" title="关于译码器连接非门的问题"></a>关于译码器连接非门的问题</h3><p>  虽然说逻辑函数可以使用与或非三种逻辑门来实现，但是，通常情况下这些逻辑门都不是电子结构上最简单的。实际上与非门的电子结构最为简单，并且可以由与非门完成其他基本逻辑们的功能。因此，逻辑电路可能会有一些非门在输入输出端。</p>
-</li>
-<li><h3 id="关于译码器的多使能端的问题"><a href="#关于译码器的多使能端的问题" class="headerlink" title="关于译码器的多使能端的问题"></a>关于译码器的多使能端的问题</h3><p>  多个使能端可以拓展译码器的功能，比如之后的数据分配器和数据选择器等。</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/13/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%AF%91%E7%A0%81%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数字电路：编码器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/">数字电路：编码器</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-02-11T08:20:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>编码就是<strong>赋予二进制代码特殊含义</strong>的过程。 </p>
-<p>编码器就是实现编码功能的逻辑电路。 </p>
-<h3 id="一、普通编码器"><a href="#一、普通编码器" class="headerlink" title="一、普通编码器"></a>一、普通编码器</h3><p><em>任何时候<strong>只允许一个信号输入有效</strong>的编码器称为普通编码器。</em> </p>
-<ul>
-<li><p>普通编码器的名称含义<br>  如果输入信号有4位，那么输出信号只需要2位就可以表示输入信号的4种状态。这就是4线2线普通编码器。也就是说，普通编码器如果有2^n位输入信号，那么它只需要n位输出信号就可以表达输入信号的所有状态。 </p>
-</li>
-<li><p>普通编码器的真值表</p>
-<table>
-<thead>
-<tr>
-<th align="center">I0</th>
-<th align="center">I1</th>
-<th align="center">I2</th>
-<th align="center">I3</th>
-<th align="center">Y0</th>
-<th align="center">Y1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>0</strong></td>
-<td align="center"><strong>0</strong></td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>0</strong></td>
-<td align="center"><strong>1</strong></td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-<td align="center"><strong>0</strong></td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center"><strong>1</strong></td>
-<td align="center"><strong>1</strong></td>
-</tr>
-</tbody></table>
-<p>  从上面4线2线普通编码器的真值表或卡诺图（Q1卡诺图是怎样的呢？）得到普通编码器的逻辑表达式如下：<br>  $Y0 = I2 + I3$<br>  $Y1 = I1 + I3$   </p>
-</li>
-<li><p>普通编码器的编码重叠问题<br>  结合真值表和逻辑表达式可知，普通编码器只有在<strong>有且仅有一个输入信号</strong>有效时才能正常工作，否则将会出现<strong>编码重叠</strong>的问题。比如，四个信号为0101时，也会产生11的输出，这样的话编码器之后的电路就会将0101误认为0001。由于在实际问题中，精准控制所有输入信号满足要求是十分困难的，而且这种编码重叠会造成后续电路的故障，所以为了解决编码重叠的问题，电器工程师们又发明了优先编码器。</p>
-</li>
-</ul>
-<h3 id="二、优先编码器"><a href="#二、优先编码器" class="headerlink" title="二、优先编码器"></a>二、优先编码器</h3><p><em>事先规定好<strong>信号的优先级</strong>的编码器称为优先编码器。</em>  </p>
-<ul>
-<li><p>优先编码器的“优先”<br>  看到这你可能会问，什么是信号优先级？怎么规定信号优先级呢?</p>
-<p>  首先来说说信号的优先级。在普通编码器中，每次输入的信号必须和事先规定的信号二进制码完全一致，逻辑门才能正确识别这个信号，但是优先编码器不同，它可以将“混合”的信号中优先级最高的那个信号识别出来并进行编码，而其他优先级低的信号对这一过程没有影响。那么什么信号是“混合”信号呢？简单来说，0001信号和1000信号混合了，那么混合信号就是1001，假如0001的优先级高于1000，那么这个混合后信号输入到编码器中，编码器会自动识别出0001信号进行编码，并且忽略1000信号。 </p>
-<p>  那么怎么实现信号优先级的设置？或者说编码器怎么识别出信号的优先级的呢？这就要知道优先编码器的逻辑表达式是怎么设计的了。</p>
-</li>
-<li><p>优先编码器的真值表  </p>
-<table>
-<thead>
-<tr>
-<th align="center">I0</th>
-<th align="center">I1</th>
-<th align="center">I2</th>
-<th align="center">I3</th>
-<th align="center">Y0</th>
-<th align="center">Y1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>0</strong></td>
-<td align="center"><strong>0</strong></td>
-</tr>
-<tr>
-<td align="center">x</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>0</strong></td>
-<td align="center"><strong>1</strong></td>
-</tr>
-<tr>
-<td align="center">x</td>
-<td align="center">x</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-<td align="center"><strong>0</strong></td>
-</tr>
-<tr>
-<td align="center">x</td>
-<td align="center">x</td>
-<td align="center">x</td>
-<td align="center">1</td>
-<td align="center"><strong>1</strong></td>
-<td align="center"><strong>1</strong></td>
-</tr>
-</tbody></table>
-<p>  和普通编码器的真值表对照一下就可以发现，优先编码器的有些输入信号为有效时，不论其他信号是否有效（画x的信号），输出结果总是一样的，这种不会被其他信号干扰其输出的信号就叫做高优先级信号，而输出会被其他信号干扰的信号叫做低优先级信号。前面的高低优先级都是相对概念。（Q2你能看出这个编码器输入信号的优先级吗？）  </p>
-<p>  同样的，分别根据Y0和Y1的卡诺图可以求出它们的逻辑表达式，如下：<br>  $Y0 = I2 + I3$<br>  $Y1 = I1 · \overline{I2} + I3$  </p>
-<p>  从逻辑表达式可以知道，优先编码器并不是具有什么智慧才能够分辨不同的输入信号，“优先级”实际上是逻辑门的组合而产生的效果。接下来我们使用简单的logism软件来设计一下4线2线优先编码器。</p>
-</li>
-</ul>
-<h3 id="三、Logism之优先编码器"><a href="#三、Logism之优先编码器" class="headerlink" title="三、Logism之优先编码器"></a>三、Logism之优先编码器</h3><ul>
-<li><p>简单实现<br>  分析逻辑表达式，有四个输入端和两个输出端，一个非门、一个与门和两个或门，组装后结果如下：  </p>
-  <img src="/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/logism1.png">  
-</li>
-<li><p>逻辑门优化<br>  由于逻辑门的具体实现中，电路基本上由同一种逻辑门组成，因此我们考虑将上述基本逻辑门改成与非门。</p>
-<p>  一般将电路图中的逻辑门换成与非门（或非门也可）有两种思路，第一种通过将基本逻辑电路改写成与非门组成的逻辑电路单元，再用这些单元替换原电路中的逻辑门；第二种是从逻辑表达式入手，通过摩根定理将逻辑表达式全部换成与非表达式（或非表达式）。通常情况下，第二种方法更为简便快捷，且设计出来的电路效率更高。</p>
-<p>  我们对逻辑表达式取两次非运算，得到变换后的逻辑表达式如下：<br>  $Y0=\overline{\overline{I2}·\overline{I3}}$<br>  $Y1=\overline{\overline{I1·\overline{I2}}·\overline{T3}}$<br>  Logism效果图如下：  </p>
-  <img src="/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/logism2.png">   
-</li>
-<li><p>功能修正<br>  实际上，这样的电路功能是不完善的，甚至在某些情况下是错误的、危险的。现在考虑输入端信号为0000的情况，这时候根据逻辑表达式，输出应该为00，但是这和输入端信号为1000时的输出是相同的，这就产生了编码重叠的问题。为了解决这个问题，我们需要对输入端信号是否时有效的来进行判断，即新增一个输出端，所有输入端均为无效状态（0）时，新增输出端输出为无效（0），当任何一个输入端信号为有效（1）时，新增输出端也有效（1）。那么，新增的输出信号应该为所有输入信号的“或”即$E=I0+I1+I2+I3$，但是由于只提供与非门，所以根据摩根定理，该输出端的逻辑表达式转换成与非表达式$E=\overline{\overline{I0}·\overline{I1}·\overline{I2}·\overline{I3}}$，这样就可以只用与非门实现该输出端的功能了。改进后的电路如下：  </p>
-  <img src="/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/logism3.png">
-</li>
-<li><p>功能拓展<br>  实际生产的逻辑器件中，上述这种器件的可拓展性比较差，因为其缺少相应的使能端，就比如真正的8线3线优先编码器就有3个使能端、1个额外的输出端（标记编码器是否在正常工作），这样这个器件就可以很好地和其他器件进行信息的传递，从而达到组合器件实现更复杂功能的效果。我们的4线2线优先编码器该如何改进呢？请读者思考一下吧！</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数字电路：卡诺图（2）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/09/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%882%EF%BC%89/">数字电路：卡诺图（2）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/09/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%882%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-02-09T08:53:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>由上篇知道，卡诺图是一个将最小项按二维格雷码的形式排布的表格，每个格子对应着一个最小项，那么卡诺图怎么使用呢？</em></p>
-<h3 id="一、什么是逻辑函数的卡诺图"><a href="#一、什么是逻辑函数的卡诺图" class="headerlink" title="一、什么是逻辑函数的卡诺图"></a>一、什么是逻辑函数的卡诺图</h3><p>逻辑函数的卡诺图每一个格子不仅对应着一个最小项了，若该格子为1，表示这个格子对应的最小项在逻辑函数中出现，反之若该格子为0，表示该格子对应的最小项在逻辑函数中没有出现。将逻辑函数的每一个最小项对应填到同变量数的卡诺图中，这个卡诺图就是该逻辑函数的卡诺图。</p>
-<h3 id="二、如何获得逻辑函数的卡诺图"><a href="#二、如何获得逻辑函数的卡诺图" class="headerlink" title="二、如何获得逻辑函数的卡诺图"></a>二、如何获得逻辑函数的卡诺图</h3><p>首先将逻辑函数化成与或表达式，然后通过重叠律（A+<span style="text-decoration:overline">A</span>=1）将表达式中每一个乘积项（与项）增补成最小项，然后画出卡诺图，最后在卡诺图中找到逻辑函数每一个最小项对应的格子，将改格子写为1，其余格子全写0。</p>
-<h3 id="三、逻辑函数的卡诺图如何化简"><a href="#三、逻辑函数的卡诺图如何化简" class="headerlink" title="三、逻辑函数的卡诺图如何化简"></a>三、逻辑函数的卡诺图如何化简</h3><p>先看看哪里数字1多，然后画圈圈把他们围住，注意，这些圈圈不能随便画，有以下几点原则:</p>
-<ol>
-<li>圈圈中包围的数字1的个数必须为2的整数幂，即1、2、4、8个等等。</li>
-<li>圈圈中包围的数字只能是1，且圈圈围住的方格组合起来必须是矩形，即1x1、1x2、2x2、2x4的大小等等。</li>
-<li>圈圈个数尽可能少（因为每个圈圈最后就是一个乘积项，圈圈越少结果越简单），每个圈圈包围的数字1尽可能多。</li>
-<li>不同的圈圈<strong>可以重复包围</strong>同一个数字1（这一点初学容易忽视）。</li>
-<li>如果一个圈圈中所有的数字1都已经被其他圈圈围住了，那么这个圈圈就是多余的，可以省去（这一点消除竞争与冒险时会反过来利用）。  </li>
-</ol>
-<p>现在圈圈画完了，开始整理，将每一个圈圈所对应的乘积项写出来（即圈圈中所有最小项相“与”），然后将这些乘积项全部“或”起来，就是化简后的表达式了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/09/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%882%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1689,7 +1307,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color1">Tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
