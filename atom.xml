@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://39.106.115.216/"/>
-  <updated>2020-07-11T13:00:23.937Z</updated>
+  <updated>2020-07-11T14:07:57.861Z</updated>
   <id>http://39.106.115.216/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://39.106.115.216/2020/07/11/Python-Numpy/"/>
     <id>http://39.106.115.216/2020/07/11/Python-Numpy/</id>
     <published>2020-07-11T09:39:51.000Z</published>
-    <updated>2020-07-11T13:00:23.937Z</updated>
+    <updated>2020-07-11T14:07:57.861Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>np.zeros(shape, dtype=float)  </li><li>np.random.rand()<br>括号里为矩阵维数，获得数值在0~1之间的随机数矩阵</li><li>np.random.randn()<br>括号里为矩阵维数，获得数值为正态分布的随机数矩阵</li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li>np.zeros(shape, dtype=float)  </li><li>np.random.rand()<br>括号里为矩阵维数，获得数值在0~1之间的随机数矩阵</li><li>np.random.randn()<br>括号里为矩阵维数，获得数值为正态分布的随机数矩阵</li><li>np.sum(A,axis=None)<br>按axis对应维数把矩阵压缩</li></ul>]]></content>
     
     <summary type="html">
     
