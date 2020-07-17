@@ -280,10 +280,15 @@
 <h3 id="二、公式"><a href="#二、公式" class="headerlink" title="二、公式"></a>二、公式</h3><ol>
 <li><p>前向传播公式<br>(1) Z<sup>[i]</sup> = W<sup>[i]</sup> · A<sup>[i-1]</sup> + b<sup>[i]</sup><br>(2) A<sup>[i]</sup> = g<sup>[i]</sup>(Z<sup>[i]</sup>)</p>
 </li>
-<li><p>反向传播公式<br>(1) dW<sup>[i]</sup> = (1/m)·dZ<sup>[i]</sup>·A<sup>[i-1]T</sup><br>(2) db<sup>[i]</sup> = (1/m)·sum(dZ<sup>[i]</sup>)<br>(3) dZ<sup>[i-1]</sup> = W<sup>[i]T</sup>·dZ<sup>[i]</sup>*g<sup>[i]’</sup>(Z<sup>[i]</sup>)</p>
-<p>对于公式1，根据矩阵求导公式d(A·X)/dX = A<sup>T</sup>，可得1个样本时的偏导数为dZ<sup>[i]</sup>·A<sup>[i-1]T</sup>，如果由m个样本，则取平均值1/m。</p>
+<li><p>反向传播公式<br>(1) dW<sup>[i]</sup> = (1/m)·dZ<sup>[i]</sup>·A<sup>[i-1]T</sup><br>(2) db<sup>[i]</sup> = (1/m)·sum(dZ<sup>[i]</sup>)<br>(3) dZ<sup>[i-1]</sup> = W<sup>[i]T</sup>·dZ<sup>[i]</sup>*g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)</p>
+<p>对于公式1，根据矩阵求导公式d(A·X)/dX = A<sup>T</sup>，可得1个样本时的偏导数为dZ<sup>[i]</sup>·A<sup>[i-1]T</sup>，如果有m个样本，则取平均值1/m。</p>
 </li>
 </ol>
+<h3 id="三、常用激活函数导数"><a href="#三、常用激活函数导数" class="headerlink" title="三、常用激活函数导数"></a>三、常用激活函数导数</h3><ul>
+<li>S(x) = sigmoid(X)<br> S<sup>‘</sup>(x) = S(x)·(1-S(x))</li>
+<li>f(x) = tanh(x)<br> f<sup>‘</sup>(x) = 1-(f(x))<sup>2</sup></li>
+<li>f(x) = ReLU(x)<br> f<sup>‘</sup>(x) = max{0,a}</li>
+</ul>
 
       
 
@@ -1199,6 +1204,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Tensorflow</a>
               </li>
              
@@ -1212,10 +1221,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
             
             <div class="clearfix"></div>
