@@ -190,35 +190,29 @@
 <li>将上述指令结合起来使用，你就可以非常方便的解决一些文件操作的小问题了。比如进入某个文件夹，新建一个子文件夹用来存放自己的markdown笔记，就可以在命令窗口里输入如下命令：<br>cd /usr/note &amp;&amp; mkdir LinuxNotes &amp;&amp; touch day1.md</li>
 </ul>
 <h3 id="二、常用软件指令"><a href="#二、常用软件指令" class="headerlink" title="二、常用软件指令"></a>二、常用软件指令</h3><ol>
-<li>screen</li>
-</ol>
-<ul>
+<li>screen<ul>
 <li>新建一个新窗口<br>screen -S name<br>注意S是大写</li>
 <li>将当前窗口挂起（后台运行）<br>ctrl + A + D<br>注意这是快捷键，按后面的键时不要松开前面的键</li>
 <li>显示当前已经开启的窗口<br>screen -ls<br>显示的时候会显示窗口ID和名字，以及是否挂起</li>
 <li>进入挂起窗口<br>screen -r name<br>注意r是小写</li>
 <li>关闭窗口<br>kill ID<br>注意ID可以用screen -ls指令查看</li>
 </ul>
-<ol start="2">
-<li>zip  </li>
-</ol>
-<ul>
+</li>
+<li>zip  <ul>
 <li>解压文件到当前目录<br>unzip file.zip</li>
 <li>压缩文件<br>zip -r file_name.zip file.txt<br>注意是将file.txt文件压缩为file_name.zip文件，不要弄反了 </li>
 </ul>
-<ol start="3">
-<li>rz/sz  </li>
-</ol>
-<ul>
+</li>
+<li>rz/sz  <ul>
 <li>从服务器下载文件<br>sz file.zip</li>
-<li>从本地上传文件<br>rz<br>注意本地需要相应软件，比如Xshell。</li>
+<li>从本地上传文件<br>rz<br>注意本地需要相应软件，比如Xshell</li>
 </ul>
-<ol>
-<li>windows命令窗口上传文件  </li>
-</ol>
-<ul>
+</li>
+<li>windows命令窗口上传文件  <ul>
 <li>pscp C:/fold1/fold1_2/file.txt <a href="mailto:root@xx.xxx.xxx.xxx">root@xx.xxx.xxx.xxx</a>:/usr/A  </li>
 </ul>
+</li>
+</ol>
 
       
 
@@ -294,38 +288,36 @@
       
         <h3 id="一、卷积神经网络符号说明"><a href="#一、卷积神经网络符号说明" class="headerlink" title="一、卷积神经网络符号说明"></a>一、卷积神经网络符号说明</h3><p><em>这里将卷积层和池化层看作一层神经网络，但分开描述</em></p>
 <ol>
-<li>图像n  </li>
-</ol>
+<li><p>图像n  </p>
 <ul>
 <li>图像数量：m  </li>
 <li>图像高度：n<sub>H</sub>  </li>
 <li>图像宽度：n<sub>W</sub>  </li>
 <li>图像信道：n<sub>C</sub></li>
 </ul>
-<ol start="2">
-<li>过滤器Filter  </li>
-</ol>
+</li>
+<li><p>过滤器Filter  </p>
 <ul>
 <li>形状：f<sub>H</sub><sup>[l]</sup> * f<sub>W</sub><sup>[l]</sup>，指一个过滤器的一层矩阵的高和宽，大多数的时候，f<sub>H</sub><sup>[l]</sup> =  f<sub>W</sub><sup>[l]</sup> = 3  </li>
 <li>边沿padding：p<sup>[l]</sup>，用来将过滤器要过滤的图像填充成指定形状</li>
 <li>步长step：s<sup>[l]</sup>，表示过滤器在输入图像上移动一次所经过的像素个数</li>
 <li>信道channel：n<sub>C</sub><sup>[l-1]</sup>，注意，第l层的过滤器的信道数量和上一层的输出图像信道数量相同，这是卷积运算的前提条件  </li>
 </ul>
-<ol start="3">
-<li>池化层Pooling  </li>
-</ol>
+</li>
+<li><p>池化层Pooling  </p>
 <ul>
 <li>形状：f<sub>H</sub><sup>[l]</sup> * f<sub>W</sub><sup>[l]</sup></li>
 <li>边沿padding：p<sup>[l]</sup>，用来将池化层要池化的图像填充成指定形状</li>
 <li>步长step：s<sup>[l]</sup>，表示池在输入图像上移动一次所经过的像素个数</li>
 <li>信道channel：n<sub>C</sub><sup>[l]</sup> = f<sub>m</sub>，注意，第l层的池的信道数量和这一层过滤器的个数相同。</li>
 </ul>
-<ol>
-<li>全连接FullConnection</li>
-</ol>
+</li>
+<li><p>全连接FullConnection</p>
 <ul>
 <li>普通的神经网络连接层</li>
 </ul>
+</li>
+</ol>
 <h3 id="二、卷积神经网络的基本模块"><a href="#二、卷积神经网络的基本模块" class="headerlink" title="二、卷积神经网络的基本模块"></a>二、卷积神经网络的基本模块</h3><ol>
 <li>卷积层<br>卷积操作是由过滤器和上一层的输出完成的。首先来看看卷积操作是如何完成的，然后再研究其中的数据维数等细节。  <ul>
 <li>卷积操作<br>图像的形状为n<sub>H</sub> * n<sub>W</sub>，过滤器的形状为f<sub>H</sub> * f<sub>W</sub>，假设图像没有加边沿padding，过滤器的步长为1，那么将过滤器矩阵和图像矩阵左上角对齐，重叠的格子中的数据相乘，将得到的结果相加作为输出矩阵的第一个元素，然后</li>
@@ -1186,15 +1178,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1206,11 +1198,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
               </li>
             
             <div class="clearfix"></div>
