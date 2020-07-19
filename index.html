@@ -281,7 +281,7 @@
 <li><p>前向传播公式<br>(1) Z<sup>[i]</sup> = W<sup>[i]</sup> · A<sup>[i-1]</sup> + b<sup>[i]</sup><br>(2) A<sup>[i]</sup> = g<sup>[i]</sup>(Z<sup>[i]</sup>)</p>
 </li>
 <li><p>反向传播公式<br>(1) dW<sup>[i]</sup> = (1/m)·dZ<sup>[i]</sup>·A<sup>[i-1]T</sup><br>(2) db<sup>[i]</sup> = (1/m)·sum(dZ<sup>[i]</sup>)<br>(3) dZ<sup>[i-1]</sup> = W<sup>[i]T</sup>·dZ<sup>[i]</sup>*g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)</p>
-<p>对于公式1，根据矩阵求导公式d(A·X)/dX = A<sup>T</sup>，可得1个样本时的偏导数为dZ<sup>[i]</sup>·A<sup>[i-1]T</sup>，如果有m个样本，则取平均值1/m。</p>
+<p>对于公式1，根据矩阵求导公式d( f(X) ) = d( A·X )/dX = A<sup>T</sup>，再由矩阵相等时维度相同，可得1个样本时的偏导数为dZ<sup>[i]</sup>·A<sup>[i-1]T</sup>，如果有m个样本，则取平均值1/m。<br>对于公式3，类似公式1的求导公式得出下一层网络的输入Z<sup>[i]</sup>对上一层网络的输出A<sup>[i-1]</sup>的偏导函数为W<sup>[i]T</sup>,同样根据矩阵相等时维度必须相同可得公式3，注意后面的g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)只不过是A<sup>[i-1]</sup>对Z<sup>[i-1]</sup>的偏导函数，因为A<sup>[i-1]</sup> = g<sup>[i-1]</sup>(Z<sup>[i-1]</sup>)。</p>
 </li>
 </ol>
 <h3 id="三、常用激活函数导数"><a href="#三、常用激活函数导数" class="headerlink" title="三、常用激活函数导数"></a>三、常用激活函数导数</h3><ul>
