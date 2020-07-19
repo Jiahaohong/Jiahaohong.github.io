@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://39.106.115.216/"/>
-  <updated>2020-07-11T14:12:27.712Z</updated>
+  <updated>2020-07-19T01:27:14.081Z</updated>
   <id>http://39.106.115.216/</id>
   
   <author>
@@ -17,13 +17,62 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux常用指令（重制版）</title>
+    <link href="http://39.106.115.216/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
+    <id>http://39.106.115.216/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</id>
+    <published>2020-07-18T13:55:57.000Z</published>
+    <updated>2020-07-19T01:27:14.081Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>系统使用Ubuntu18.04，无图形界面，本地系统为Windows10</em></p><h3 id="一、Linux系统指令"><a href="#一、Linux系统指令" class="headerlink" title="一、Linux系统指令"></a>一、Linux系统指令</h3><ul><li>进入指定文件夹<br>cd /root/mygit/project1</li><li>进入上层文件夹<br>cd ..</li><li>进入根目录文件夹(root)<br>cd ~</li><li>显示当前文件夹路径<br>pwd</li><li>显示当前文件夹里的文件和文件夹<br>ls -l</li><li>在当前文件夹下创建文件夹<br>mkdir project2</li><li>在当前文件夹下创建文件<br>touch readme.txt<br>touch gitCommand.md<br>touch go.sh</li><li>删除文件或文件夹<br>sudo rm -r readme.txt<br>sudo rm -r project2</li><li>重命名文件或文件夹<br>mv readme.txt README.txt  </li><li>将上述指令结合起来使用，你就可以非常方便的解决一些文件操作的小问题了。比如进入某个文件夹，新建一个子文件夹用来存放自己的markdown笔记，就可以在命令窗口里输入如下命令：<br>cd /usr/note &amp;&amp; mkdir LinuxNotes &amp;&amp; touch day1.md</li></ul><h3 id="二、常用软件指令"><a href="#二、常用软件指令" class="headerlink" title="二、常用软件指令"></a>二、常用软件指令</h3><ol><li>screen</li></ol><ul><li>新建一个新窗口<br>screen -S name<br>注意S是大写</li><li>将当前窗口挂起（后台运行）<br>ctrl + A + D<br>注意这是快捷键，按后面的键时不要松开前面的键</li><li>显示当前已经开启的窗口<br>screen -ls<br>显示的时候会显示窗口ID和名字，以及是否挂起</li><li>进入挂起窗口<br>screen -r name<br>注意r是小写</li><li>关闭窗口<br>kill ID<br>注意ID可以用screen -ls指令查看</li></ul><ol start="2"><li>zip  </li></ol><ul><li>解压文件到当前目录<br>unzip file.zip</li><li>压缩文件<br>zip -r file_name.zip file.txt<br>注意是将file.txt文件压缩为file_name.zip文件，不要弄反了 </li></ul><ol start="3"><li>rz/sz  </li></ol><ul><li>从服务器下载文件<br>sz file.zip</li><li>从本地上传文件<br>rz<br>注意本地需要相应软件，比如Xshell。</li></ul><ol><li>windows命令窗口上传文件  </li></ol><ul><li>pscp C:/fold1/fold1_2/file.txt <a href="mailto:root@xx.xxx.xxx.xxx">root@xx.xxx.xxx.xxx</a>:/usr/A  </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;em&gt;系统使用Ubuntu18.04，无图形界面，本地系统为Windows10&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;一、Linux系统指令&quot;&gt;&lt;a href=&quot;#一、Linux系统指令&quot; class=&quot;headerlink&quot; title=&quot;一、Linux系统指令&quot;&gt;&lt;/a&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Linux" scheme="http://39.106.115.216/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习：卷积神经网络</title>
+    <link href="http://39.106.115.216/2020/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <id>http://39.106.115.216/2020/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</id>
+    <published>2020-07-17T13:57:15.000Z</published>
+    <updated>2020-07-18T13:52:13.140Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、卷积神经网络符号说明"><a href="#一、卷积神经网络符号说明" class="headerlink" title="一、卷积神经网络符号说明"></a>一、卷积神经网络符号说明</h3><p><em>这里将卷积层和池化层看作一层神经网络，但分开描述</em></p><ol><li>图像n  </li></ol><ul><li>图像数量：m  </li><li>图像高度：n<sub>H</sub>  </li><li>图像宽度：n<sub>W</sub>  </li><li>图像信道：n<sub>C</sub></li></ul><ol start="2"><li>过滤器Filter  </li></ol><ul><li>形状：f<sub>H</sub><sup>[l]</sup> * f<sub>W</sub><sup>[l]</sup>，指一个过滤器的一层矩阵的高和宽，大多数的时候，f<sub>H</sub><sup>[l]</sup> =  f<sub>W</sub><sup>[l]</sup> = 3  </li><li>边沿padding：p<sup>[l]</sup>，用来将过滤器要过滤的图像填充成指定形状</li><li>步长step：s<sup>[l]</sup>，表示过滤器在输入图像上移动一次所经过的像素个数</li><li>信道channel：n<sub>C</sub><sup>[l-1]</sup>，注意，第l层的过滤器的信道数量和上一层的输出图像信道数量相同，这是卷积运算的前提条件  </li></ul><ol start="3"><li>池化层Pooling  </li></ol><ul><li>形状：f<sub>H</sub><sup>[l]</sup> * f<sub>W</sub><sup>[l]</sup></li><li>边沿padding：p<sup>[l]</sup>，用来将池化层要池化的图像填充成指定形状</li><li>步长step：s<sup>[l]</sup>，表示池在输入图像上移动一次所经过的像素个数</li><li>信道channel：n<sub>C</sub><sup>[l]</sup> = f<sub>m</sub>，注意，第l层的池的信道数量和这一层过滤器的个数相同。</li></ul><ol><li>全连接FullConnection</li></ol><ul><li>普通的神经网络连接层</li></ul><h3 id="二、卷积神经网络的基本模块"><a href="#二、卷积神经网络的基本模块" class="headerlink" title="二、卷积神经网络的基本模块"></a>二、卷积神经网络的基本模块</h3><ol><li>卷积层<br>卷积操作是由过滤器和上一层的输出完成的。首先来看看卷积操作是如何完成的，然后再研究其中的数据维数等细节。  <ul><li>卷积操作<br>图像的形状为n<sub>H</sub> * n<sub>W</sub>，过滤器的形状为f<sub>H</sub> * f<sub>W</sub>，假设图像没有加边沿padding，过滤器的步长为1，那么将过滤器矩阵和图像矩阵左上角对齐，重叠的格子中的数据相乘，将得到的结果相加作为输出矩阵的第一个元素，然后</li><li>数据维数</li></ul></li><li>池化层</li><li>全连接层</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;一、卷积神经网络符号说明&quot;&gt;&lt;a href=&quot;#一、卷积神经网络符号说明&quot; class=&quot;headerlink&quot; title=&quot;一、卷积神经网络符号说明&quot;&gt;&lt;/a&gt;一、卷积神经网络符号说明&lt;/h3&gt;&lt;p&gt;&lt;em&gt;这里将卷积层和池化层看作一层神经网络，但分开描述&lt;/
+      
+    
+    </summary>
+    
+    
+    
+      <category term="深度学习" scheme="http://39.106.115.216/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python:Numpy</title>
     <link href="http://39.106.115.216/2020/07/11/Python-Numpy/"/>
     <id>http://39.106.115.216/2020/07/11/Python-Numpy/</id>
     <published>2020-07-11T09:39:51.000Z</published>
-    <updated>2020-07-11T14:12:27.712Z</updated>
+    <updated>2020-07-17T08:30:45.307Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>np.zeros(shape, dtype=float)  </li><li>np.random.rand()<br>括号里为矩阵维数，获得数值在0~1之间的随机数矩阵</li><li>np.random.randn()<br>括号里为矩阵维数，获得数值为正态分布的随机数矩阵</li><li>np.sum(A,axis=None)<br>按axis对应维数把矩阵压缩</li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li>np.zeros(shape, dtype=float)  </li><li>np.random.rand()<br>括号里为矩阵维数，获得数值在0~1之间的随机数矩阵</li><li>np.random.randn()<br>括号里为矩阵维数，获得数值为正态分布的随机数矩阵</li><li>np.sum(A,axis=None)<br>把axis对应的维度的数相加，变成0维</li><li>np.sequeeze(X)<br>把X中只有1个元素的维度去掉</li></ul>]]></content>
     
     <summary type="html">
     
@@ -48,15 +97,15 @@
     <link href="http://39.106.115.216/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/"/>
     <id>http://39.106.115.216/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/</id>
     <published>2020-07-07T01:48:36.000Z</published>
-    <updated>2020-07-17T06:49:55.851Z</updated>
+    <updated>2020-07-18T13:54:15.940Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="一、符号说明"><a href="#一、符号说明" class="headerlink" title="一、符号说明"></a>一、符号说明</h3><p>一个样本包含两个部分，特征x和类别y</p><ul><li>x<br>表示某一个样本的特征的集合，通常是一个列向量，其中每一个维度表示一个特征</li><li>x<sub>j</sub><br>表示第j个特征</li><li>x<sup>(i)</sup><br>表示第i个样本的特征数据，注意上标是小括号</li><li>x<sup>(i)</sup><sub>j</sub><br>表示第i个样本的第j个特征，注意上标是小括号</li><li>y<br>表示一个样本的真实类别，通常时一个列向量，其中每一个维度代表一个种类，如果该样本这一个维度为0，表示该样本不属于该种类；如果该样本的这一维度为1，表示该样本属于该种类</li><li>y<sup>(i)</sup><br>表示第i个样本的类别，注意上标是小括号  </li></ul><p>一层神经网络由三部分组成，第一部分是与上一层神经网络连接的权重矩阵，第二部分是权重矩阵的输出，第三部分是权重矩阵的输出经过该层神经元的激活函数后的输出结果</p><ul><li>n<sub>i</sub><br>表示第i层神经网络的神经元个数，通常输入层（第0层）写作n<sub>x</sub>，输出层（最后一层）写作n<sub>L</sub></li><li>W<sup>[i]</sup><br>表示连接第i-1层和第i层神经元的权重矩阵，矩阵形状为(n<sub>i</sub>,n<sub>i-1</sub>)，n<sub>i</sub>是第i层的神经元个数</li><li>Z<sup>[i]</sup><br>表示第i层神经元的输入</li><li>A<sup>[i]</sup><br>表示Z<sup>[i]</sup>经过第i层神经元的激活函数后的输出，之后要输入到下一层的权重矩阵W<sup>[i+1]</sup>里；特别的，输入的样本特征可以看作是A<sup>[0]</sup>  </li></ul><p>偏导数部分的符号是程序里的变量标识符，不是数学里的微分字符</p><ul><li>dW<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li><li>dZ<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li><li>dA<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li></ul><h3 id="二、公式"><a href="#二、公式" class="headerlink" title="二、公式"></a>二、公式</h3><ol><li><p>前向传播公式<br>(1) Z<sup>[i]</sup> = W<sup>[i]</sup> · A<sup>[i-1]</sup> + b<sup>[i]</sup><br>(2) A<sup>[i]</sup> = g<sup>[i]</sup>(Z<sup>[i]</sup>)</p></li><li><p>反向传播公式<br>(1) dW<sup>[i]</sup> = (1/m)·dZ<sup>[i]</sup>·A<sup>[i-1]T</sup><br>(2) db<sup>[i]</sup> = (1/m)·sum(dZ<sup>[i]</sup>)<br>(3) dZ<sup>[i-1]</sup> = W<sup>[i]T</sup>·dZ<sup>[i]</sup>*g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)</p><p>对于公式1，根据矩阵求导公式d( f(X) ) = d( A·X )/dX = A<sup>T</sup>，再由矩阵相等时维度相同，可得1个样本时的偏导数为dZ<sup>[i]</sup>·A<sup>[i-1]T</sup>，如果有m个样本，则取平均值1/m。<br>对于公式3，类似公式1的求导公式得出下一层网络的输入Z<sup>[i]</sup>对上一层网络的输出A<sup>[i-1]</sup>的偏导函数为W<sup>[i]T</sup>,同样根据矩阵相等时维度必须相同可得公式3，注意后面的g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)只不过是A<sup>[i-1]</sup>对Z<sup>[i-1]</sup>的偏导函数，因为A<sup>[i-1]</sup> = g<sup>[i-1]</sup>(Z<sup>[i-1]</sup>)。</p></li></ol><h3 id="三、常用激活函数导数"><a href="#三、常用激活函数导数" class="headerlink" title="三、常用激活函数导数"></a>三、常用激活函数导数</h3><ul><li>S(x) = sigmoid(X)<br> S<sup>‘</sup>(x) = S(x)·(1-S(x))</li><li>f(x) = tanh(x)<br> f<sup>‘</sup>(x) = 1-(f(x))<sup>2</sup></li><li>f(x) = ReLU(x)<br> f<sup>‘</sup>(x) = max{0,a}</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="一、符号说明"><a href="#一、符号说明" class="headerlink" title="一、符号说明"></a>一、符号说明</h3><p>一个样本包含两个部分，特征x和标签y</p><ul><li>x<br>表示某一个样本的特征的集合，通常是一个列向量，其中每一个维度表示一个特征</li><li>x<sub>j</sub><br>表示第j个特征</li><li>x<sup>(i)</sup><br>表示第i个样本的特征数据，注意上标是小括号</li><li>x<sup>(i)</sup><sub>j</sub><br>表示第i个样本的第j个特征，注意上标是小括号</li><li>y<br>表示一个样本的真实标签，通常时一个列向量，其中每一个维度代表一个种类，如果该样本这一个维度为0，表示该样本不属于该种类；如果该样本的这一维度为1，表示该样本属于该种类</li><li>y<sup>(i)</sup><br>表示第i个样本的标签，注意上标是小括号  </li></ul><p>一层神经网络由三部分组成，第一部分是与上一层神经网络连接的权重矩阵，第二部分是权重矩阵的输出，第三部分是权重矩阵的输出经过该层神经元的激活函数后的输出结果</p><ul><li>n<sub>i</sub><br>表示第i层神经网络的神经元个数，通常输入层（第0层）写作n<sub>x</sub>，输出层（最后一层）写作n<sub>L</sub></li><li>W<sup>[i]</sup><br>表示连接第i-1层和第i层神经元的权重矩阵，矩阵形状为(n<sub>i</sub>,n<sub>i-1</sub>)，n<sub>i</sub>是第i层的神经元个数</li><li>Z<sup>[i]</sup><br>表示第i层神经元的输入</li><li>A<sup>[i]</sup><br>表示Z<sup>[i]</sup>经过第i层神经元的激活函数后的输出，之后要输入到下一层的权重矩阵W<sup>[i+1]</sup>里；特别的，输入的样本特征可以看作是A<sup>[0]</sup>  </li></ul><p>偏导数部分的符号是程序里的变量标识符，不是数学里的微分字符</p><ul><li>dW<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li><li>dZ<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li><li>dA<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li></ul><h3 id="二、公式"><a href="#二、公式" class="headerlink" title="二、公式"></a>二、公式</h3><ol><li>前向传播公式<br>(1) Z<sup>[i]</sup> = W<sup>[i]</sup> · A<sup>[i-1]</sup> + b<sup>[i]</sup><br>(2) A<sup>[i]</sup> = g<sup>[i]</sup>(Z<sup>[i]</sup>)</li><li>反向传播公式<br>(1) dW<sup>[i]</sup> = (1/m)·dZ<sup>[i]</sup>·A<sup>[i-1]T</sup><br>(2) db<sup>[i]</sup> = (1/m)·sum(dZ<sup>[i]</sup>)<br>(3) dZ<sup>[i-1]</sup> = W<sup>[i]T</sup>·dZ<sup>[i]</sup>*g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)</li><li>公示推导的简单说明<br>对于公式1，根据矩阵求导公式d( f(X) ) = d( A·X )/dX = A<sup>T</sup>，再由矩阵相等时维度相同，可得1个样本时的偏导数为dZ<sup>[i]</sup>·A<sup>[i-1]T</sup>，如果有m个样本，则取平均值1/m。<br>对于公式3，类似公式1的求导公式得出下一层网络的输入Z<sup>[i]</sup>对上一层网络的输出A<sup>[i-1]</sup>的偏导函数为W<sup>[i]T</sup>,同样根据矩阵相等时维度必须相同可得公式3，注意后面的g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)只不过是A<sup>[i-1]</sup>对Z<sup>[i-1]</sup>的偏导函数，因为A<sup>[i-1]</sup> = g<sup>[i-1]</sup>(Z<sup>[i-1]</sup>)。</li></ol><h3 id="三、常用激活函数导数"><a href="#三、常用激活函数导数" class="headerlink" title="三、常用激活函数导数"></a>三、常用激活函数导数</h3><ul><li>S(x) = sigmoid(X)<br> S<sup>‘</sup>(x) = S(x)·(1-S(x))</li><li>f(x) = tanh(x)<br> f<sup>‘</sup>(x) = 1-(f(x))<sup>2</sup></li><li>f(x) = ReLU(x)<br> f<sup>‘</sup>(x) = max{0,a}</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;一、符号说明&quot;&gt;&lt;a href=&quot;#一、符号说明&quot; class=&quot;headerlink&quot; title=&quot;一、符号说明&quot;&gt;&lt;/a&gt;一、符号说明&lt;/h3&gt;&lt;p&gt;一个样本包含两个部分，特征x和类别y&lt;/p&gt;
+        &lt;h3 id=&quot;一、符号说明&quot;&gt;&lt;a href=&quot;#一、符号说明&quot; class=&quot;headerlink&quot; title=&quot;一、符号说明&quot;&gt;&lt;/a&gt;一、符号说明&lt;/h3&gt;&lt;p&gt;一个样本包含两个部分，特征x和标签y&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;x&lt;br&gt;表示某一个样本的特征的集合，通常是
       
@@ -462,56 +511,6 @@
         &lt;h2 id=&quot;逻辑代数基本定律&quot;&gt;&lt;a href=&quot;#逻辑代数基本定律&quot; class=&quot;headerlink&quot; title=&quot;逻辑代数基本定律&quot;&gt;&lt;/a&gt;逻辑代数基本定律&lt;/h2&gt;&lt;p&gt;&lt;em&gt;以下两个定律比较重要，故单独列出&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong
-      
-    
-    </summary>
-    
-    
-    
-      <category term="数字电路" scheme="http://39.106.115.216/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字电路：最小项最大项</title>
-    <link href="http://39.106.115.216/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%A1%B9%E6%9C%80%E5%A4%A7%E9%A1%B9/"/>
-    <id>http://39.106.115.216/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%A1%B9%E6%9C%80%E5%A4%A7%E9%A1%B9/</id>
-    <published>2020-02-07T01:35:48.000Z</published>
-    <updated>2020-04-13T09:14:59.303Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="最小项"><a href="#最小项" class="headerlink" title="最小项"></a>最小项</h2><ul><li><h3 id="什么是最小项？"><a href="#什么是最小项？" class="headerlink" title="什么是最小项？"></a>什么是最小项？</h3><ul><li>现在有N个逻辑变量，若一个乘积项（与项）包含了这N个变量的原变量或非变量，且每种变量只以原变量或非变量的形式出现一次，那么该乘积项称为最小项。例如三个逻辑变量的最小项有如下8种:<br><span style="text-decoration:overline">A</span>·<span style="text-decoration:overline">B</span>·<span style="text-decoration:overline">C</span>、<span style="text-decoration:overline">A</span>·<span style="text-decoration:overline">B</span>·C、<span style="text-decoration:overline">A</span>·B·C、<span style="text-decoration:overline">A</span>·B·<span style="text-decoration:overline">C</span><br>A·B·<span style="text-decoration:overline">C</span>、A·B·C、A·<span style="text-decoration:overline">B</span>·C、A·<span style="text-decoration:overline">B</span>·<span style="text-decoration:overline">C</span>  </li><li>可以看出，每个最小项中，A、B、C分别只出现一次，要么是原变量（A、B、C），要么是反变量（<span style="text-decoration:overline">A</span>、<span style="text-decoration:overline">B</span>、<span style="text-decoration:overline">C</span>）。</li></ul></li><li><h3 id="为什么叫最小项？"><a href="#为什么叫最小项？" class="headerlink" title="为什么叫最小项？"></a>为什么叫最小项？</h3><p>  从概率论的角度看，如果每一个逻辑变量代表一个事件，事件发生和不发生的概率都是0.5，那么所有事件的交集（与运算）的发生概率最小，所以叫最小项。如此看来，不同的最小项之间是互斥的，即任何两个不同的最小项不可能同时发生，<strong>所以不同最小项之间的与运算结果一定是0</strong>。</p></li><li><h3 id="最小项如何编号？"><a href="#最小项如何编号？" class="headerlink" title="最小项如何编号？"></a>最小项如何编号？</h3><p>  简单的来说，原变量用1表示，反变量用0表示，然后组合起来转换成十进制就是对应最小项的编号。如下表：  </p><table><thead><tr><th align="center">A B C</th><th align="center">编号</th><th align="center">A B C</th><th align="center">编号</th></tr></thead><tbody><tr><td align="center">0 0 0</td><td align="center">m0</td><td align="center">1 0 0</td><td align="center">m4</td></tr><tr><td align="center">0 0 1</td><td align="center">m1</td><td align="center">1 0 1</td><td align="center">m5</td></tr><tr><td align="center">0 1 0</td><td align="center">m2</td><td align="center">1 1 0</td><td align="center">m6</td></tr><tr><td align="center">0 1 1</td><td align="center">m3</td><td align="center">1 1 1</td><td align="center">m7</td></tr></tbody></table><p>  为什么这样编号？因为当与运算中任意一个因子为0时，与运算结果为0，因子取值不具有唯一性；当且仅当与运算中所有因子为1时，与运算结果为1，因子取值具有唯一性。因此当原变量取1反变量取0时，最小项表达式所有因子为1，最小项表达式结果为1。</p></li></ul><ul><li><h3 id="什么是最小项表达式？"><a href="#什么是最小项表达式？" class="headerlink" title="什么是最小项表达式？"></a>什么是最小项表达式？</h3><p>  基本表达式中与或表达式的一种标准形式，各逻辑变量之间先进行与运算形成最小项，然后各最小项之间进行或运算形成最小项表达式。</p></li><li><h3 id="如何获得最小项表达式？"><a href="#如何获得最小项表达式？" class="headerlink" title="如何获得最小项表达式？"></a>如何获得最小项表达式？</h3><p>  常用配项法获得。利用逻辑表达式基本定律（A+<span style="text-decoration:overline">A</span>=1）增加各项中的逻辑变量。</p></li></ul><h2 id="最大项"><a href="#最大项" class="headerlink" title="最大项"></a>最大项</h2><p>最大项与最小项互补，大家自行脑补:)</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;最小项&quot;&gt;&lt;a href=&quot;#最小项&quot; class=&quot;headerlink&quot; title=&quot;最小项&quot;&gt;&lt;/a&gt;最小项&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;h3 id=&quot;什么是最小项？&quot;&gt;&lt;a href=&quot;#什么是最小项？&quot; class=&quot;headerlink&quot; title
-      
-    
-    </summary>
-    
-    
-    
-      <category term="数字电路" scheme="http://39.106.115.216/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字电路：码制</title>
-    <link href="http://39.106.115.216/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/"/>
-    <id>http://39.106.115.216/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/</id>
-    <published>2020-02-04T07:35:22.000Z</published>
-    <updated>2020-04-13T05:24:59.342Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="码制概念"><a href="#码制概念" class="headerlink" title="码制概念"></a>码制概念</h2><p>码制是用0和1组成的代码表示人类交流的字符的规则。</p><h2 id="格雷码"><a href="#格雷码" class="headerlink" title="格雷码"></a>格雷码</h2><ul><li>特点：循环码、反射码</li></ul><h4 id="二进制码转换为格雷码"><a href="#二进制码转换为格雷码" class="headerlink" title="二进制码转换为格雷码"></a>二进制码转换为格雷码</h4><ul><li>格雷码最高位（最左边）与二进制码最高位相同</li><li>二进制码从左到右，相邻两位相加，作为格雷码的下一位</li><li><img src="/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/BtoG.png"></li></ul><h4 id="格雷码转换为二进制码"><a href="#格雷码转换为二进制码" class="headerlink" title="格雷码转换为二进制码"></a>格雷码转换为二进制码</h4><ul><li>二进制码的最高位（最左边）与格雷码相同</li><li>将产生的二进制码与下一位格雷码相加，作为下一位二进制码</li><li><img src="/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/GtoB.png"></li></ul><h2 id="BCD码"><a href="#BCD码" class="headerlink" title="BCD码"></a>BCD码</h2><ul><li>BCD码是用四位二进制数表示一个0~9的数字的码制。</li><li>由于四位二进制数有16个，从中选取10个作为BCD码的方案有很多，下面的图列出了常用的BCD码。</li><li><img src="/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/BCD.png"></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;码制概念&quot;&gt;&lt;a href=&quot;#码制概念&quot; class=&quot;headerlink&quot; title=&quot;码制概念&quot;&gt;&lt;/a&gt;码制概念&lt;/h2&gt;&lt;p&gt;码制是用0和1组成的代码表示人类交流的字符的规则。&lt;/p&gt;
-&lt;h2 id=&quot;格雷码&quot;&gt;&lt;a href=&quot;#格雷码&quot; clas
       
     
     </summary>

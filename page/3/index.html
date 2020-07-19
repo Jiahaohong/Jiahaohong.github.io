@@ -156,6 +156,229 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数字电路：最小项最大项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%A1%B9%E6%9C%80%E5%A4%A7%E9%A1%B9/">数字电路：最小项最大项</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%A1%B9%E6%9C%80%E5%A4%A7%E9%A1%B9/" class="archive-article-date">
+  	<time datetime="2020-02-07T01:35:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="最小项"><a href="#最小项" class="headerlink" title="最小项"></a>最小项</h2><ul>
+<li><h3 id="什么是最小项？"><a href="#什么是最小项？" class="headerlink" title="什么是最小项？"></a>什么是最小项？</h3><ul>
+<li>现在有N个逻辑变量，若一个乘积项（与项）包含了这N个变量的原变量或非变量，且每种变量只以原变量或非变量的形式出现一次，那么该乘积项称为最小项。例如三个逻辑变量的最小项有如下8种:<br><span style="text-decoration:overline">A</span>·<span style="text-decoration:overline">B</span>·<span style="text-decoration:overline">C</span>、<span style="text-decoration:overline">A</span>·<span style="text-decoration:overline">B</span>·C、<span style="text-decoration:overline">A</span>·B·C、<span style="text-decoration:overline">A</span>·B·<span style="text-decoration:overline">C</span><br>A·B·<span style="text-decoration:overline">C</span>、A·B·C、A·<span style="text-decoration:overline">B</span>·C、A·<span style="text-decoration:overline">B</span>·<span style="text-decoration:overline">C</span>  </li>
+<li>可以看出，每个最小项中，A、B、C分别只出现一次，要么是原变量（A、B、C），要么是反变量（<span style="text-decoration:overline">A</span>、<span style="text-decoration:overline">B</span>、<span style="text-decoration:overline">C</span>）。</li>
+</ul>
+</li>
+<li><h3 id="为什么叫最小项？"><a href="#为什么叫最小项？" class="headerlink" title="为什么叫最小项？"></a>为什么叫最小项？</h3><p>  从概率论的角度看，如果每一个逻辑变量代表一个事件，事件发生和不发生的概率都是0.5，那么所有事件的交集（与运算）的发生概率最小，所以叫最小项。如此看来，不同的最小项之间是互斥的，即任何两个不同的最小项不可能同时发生，<strong>所以不同最小项之间的与运算结果一定是0</strong>。</p>
+</li>
+<li><h3 id="最小项如何编号？"><a href="#最小项如何编号？" class="headerlink" title="最小项如何编号？"></a>最小项如何编号？</h3><p>  简单的来说，原变量用1表示，反变量用0表示，然后组合起来转换成十进制就是对应最小项的编号。如下表：  </p>
+<table>
+<thead>
+<tr>
+<th align="center">A B C</th>
+<th align="center">编号</th>
+<th align="center">A B C</th>
+<th align="center">编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0 0 0</td>
+<td align="center">m0</td>
+<td align="center">1 0 0</td>
+<td align="center">m4</td>
+</tr>
+<tr>
+<td align="center">0 0 1</td>
+<td align="center">m1</td>
+<td align="center">1 0 1</td>
+<td align="center">m5</td>
+</tr>
+<tr>
+<td align="center">0 1 0</td>
+<td align="center">m2</td>
+<td align="center">1 1 0</td>
+<td align="center">m6</td>
+</tr>
+<tr>
+<td align="center">0 1 1</td>
+<td align="center">m3</td>
+<td align="center">1 1 1</td>
+<td align="center">m7</td>
+</tr>
+</tbody></table>
+<p>  为什么这样编号？因为当与运算中任意一个因子为0时，与运算结果为0，因子取值不具有唯一性；当且仅当与运算中所有因子为1时，与运算结果为1，因子取值具有唯一性。因此当原变量取1反变量取0时，最小项表达式所有因子为1，最小项表达式结果为1。</p>
+</li>
+</ul>
+<ul>
+<li><h3 id="什么是最小项表达式？"><a href="#什么是最小项表达式？" class="headerlink" title="什么是最小项表达式？"></a>什么是最小项表达式？</h3><p>  基本表达式中与或表达式的一种标准形式，各逻辑变量之间先进行与运算形成最小项，然后各最小项之间进行或运算形成最小项表达式。</p>
+</li>
+<li><h3 id="如何获得最小项表达式？"><a href="#如何获得最小项表达式？" class="headerlink" title="如何获得最小项表达式？"></a>如何获得最小项表达式？</h3><p>  常用配项法获得。利用逻辑表达式基本定律（A+<span style="text-decoration:overline">A</span>=1）增加各项中的逻辑变量。</p>
+</li>
+</ul>
+<h2 id="最大项"><a href="#最大项" class="headerlink" title="最大项"></a>最大项</h2><p>最大项与最小项互补，大家自行脑补:)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%A1%B9%E6%9C%80%E5%A4%A7%E9%A1%B9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数字电路：码制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/">数字电路：码制</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2020-02-04T07:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="码制概念"><a href="#码制概念" class="headerlink" title="码制概念"></a>码制概念</h2><p>码制是用0和1组成的代码表示人类交流的字符的规则。</p>
+<h2 id="格雷码"><a href="#格雷码" class="headerlink" title="格雷码"></a>格雷码</h2><ul>
+<li>特点：循环码、反射码</li>
+</ul>
+<h4 id="二进制码转换为格雷码"><a href="#二进制码转换为格雷码" class="headerlink" title="二进制码转换为格雷码"></a>二进制码转换为格雷码</h4><ul>
+<li>格雷码最高位（最左边）与二进制码最高位相同</li>
+<li>二进制码从左到右，相邻两位相加，作为格雷码的下一位</li>
+<li><img src="/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/BtoG.png">
+
+</li>
+</ul>
+<h4 id="格雷码转换为二进制码"><a href="#格雷码转换为二进制码" class="headerlink" title="格雷码转换为二进制码"></a>格雷码转换为二进制码</h4><ul>
+<li>二进制码的最高位（最左边）与格雷码相同</li>
+<li>将产生的二进制码与下一位格雷码相加，作为下一位二进制码</li>
+<li><img src="/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/GtoB.png">
+
+</li>
+</ul>
+<h2 id="BCD码"><a href="#BCD码" class="headerlink" title="BCD码"></a>BCD码</h2><ul>
+<li>BCD码是用四位二进制数表示一个0~9的数字的码制。</li>
+<li>由于四位二进制数有16个，从中选取10个作为BCD码的方案有很多，下面的图列出了常用的BCD码。</li>
+<li><img src="/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/BCD.png">
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%A0%81%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数字电路：补码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -464,6 +687,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -481,6 +708,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
             
             <div class="clearfix"></div>
