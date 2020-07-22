@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://39.106.115.216/"/>
-  <updated>2020-07-22T03:16:48.327Z</updated>
+  <updated>2020-07-22T08:48:01.488Z</updated>
   <id>http://39.106.115.216/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://39.106.115.216/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
     <id>http://39.106.115.216/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</id>
     <published>2020-07-18T13:55:57.000Z</published>
-    <updated>2020-07-22T03:16:48.327Z</updated>
+    <updated>2020-07-22T08:48:01.488Z</updated>
     
-    <content type="html"><![CDATA[<p><em>系统使用Ubuntu18.04，无图形界面，本地系统为Windows10</em></p><h3 id="一、Linux系统指令"><a href="#一、Linux系统指令" class="headerlink" title="一、Linux系统指令"></a>一、Linux系统指令</h3><ul><li>进入指定文件夹<br>cd /root/mygit/project1</li><li>进入上层文件夹<br>cd ..</li><li>进入根目录文件夹(root)<br>cd ~</li><li>显示当前文件夹路径<br>pwd</li><li>显示当前文件夹里的文件和文件夹<br>ls -l</li><li>在当前文件夹下创建文件夹<br>mkdir project2</li><li>在当前文件夹下创建文件<br>touch readme.txt<br>touch gitCommand.md<br>touch go.sh</li><li>删除文件或文件夹<br>sudo rm -r readme.txt<br>sudo rm -r project2</li><li>重命名文件或文件夹<br>mv readme.txt README.txt  </li><li>将上述指令结合起来使用，你就可以非常方便的解决一些文件操作的小问题了。比如进入某个文件夹，新建一个子文件夹用来存放自己的markdown笔记，就可以在命令窗口里输入如下命令：<br>cd /usr/note &amp;&amp; mkdir LinuxNotes &amp;&amp; touch day1.md</li></ul><h3 id="二、常用软件指令"><a href="#二、常用软件指令" class="headerlink" title="二、常用软件指令"></a>二、常用软件指令</h3><ol><li>screen<ul><li>新建一个新窗口<br>screen -S name<br>注意S是大写</li><li>将当前窗口挂起（后台运行）<br>ctrl + A + D<br>注意这是快捷键，按后面的键时不要松开前面的键</li><li>显示当前已经开启的窗口<br>screen -ls<br>显示的时候会显示窗口ID和名字，以及是否挂起</li><li>进入挂起窗口<br>screen -r name<br>注意r是小写</li><li>关闭窗口<br>kill ID<br>注意ID可以用screen -ls指令查看</li></ul></li><li>zip  <ul><li>解压文件到当前目录<br>unzip file.zip</li><li>压缩文件<br>zip -r file_name.zip file.txt<br>注意是将file.txt文件压缩为file_name.zip文件，不要弄反了 </li></ul></li></ol><h3 id="三、上传下载文件"><a href="#三、上传下载文件" class="headerlink" title="三、上传下载文件"></a>三、上传下载文件</h3><ol><li>rz/sz  <ul><li>从服务器下载文件<br>sz file.zip</li><li>从本地上传文件<br>rz<br>注意本地需要相应软件，比如Xshell</li></ul></li><li>windows命令窗口上传文件  <ul><li>pscp C:/fold1/fold1_2/file.txt <a href="mailto:root@xx.xxx.xxx.xxx">root@xx.xxx.xxx.xxx</a>:/usr/folderA  </li></ul></li></ol><h3 id="四、anaconda使用指令"><a href="#四、anaconda使用指令" class="headerlink" title="四、anaconda使用指令"></a>四、anaconda使用指令</h3><ol><li>查看虚拟环境列表<br>conda info -e</li><li>创建虚拟环境<br>conda create -n env_name</li><li>进入虚拟环境<br>conda activate env_name</li><li>退出虚拟环境<br>conda deactivate</li><li>在当前虚拟环境下安装 包<br>conda install appname<br>conda install URL</li></ol>]]></content>
+    <content type="html"><![CDATA[<p><em>系统使用Ubuntu18.04，无图形界面，本地系统为Windows10</em></p><h3 id="一、Linux系统指令"><a href="#一、Linux系统指令" class="headerlink" title="一、Linux系统指令"></a>一、Linux系统指令</h3><ul><li>进入指定文件夹<br>cd /root/mygit/project1</li><li>进入上层文件夹<br>cd ..</li><li>进入根目录文件夹(root)<br>cd ~</li><li>显示当前文件夹路径<br>pwd</li><li>显示当前文件夹里的文件和文件夹<br>ls -l</li><li>在当前文件夹下创建文件夹<br>mkdir project2</li><li>在当前文件夹下创建文件<br>touch readme.txt<br>touch gitCommand.md<br>touch go.sh</li><li>删除文件或文件夹<br>sudo rm -r readme.txt<br>sudo rm -r project2</li><li>重命名文件或文件夹<br>mv readme.txt README.txt  </li><li>将上述指令结合起来使用，你就可以非常方便的解决一些文件操作的小问题了。比如进入某个文件夹，新建一个子文件夹用来存放自己的markdown笔记，就可以在命令窗口里输入如下命令：<br>cd /usr/note &amp;&amp; mkdir LinuxNotes &amp;&amp; touch day1.md</li></ul><h3 id="二、常用软件指令"><a href="#二、常用软件指令" class="headerlink" title="二、常用软件指令"></a>二、常用软件指令</h3><ul><li>screen<ul><li>新建一个新窗口<br>screen -S name<br>注意S是大写</li><li>将当前窗口挂起（后台运行）<br>ctrl + A + D<br>注意这是快捷键，按后面的键时不要松开前面的键</li><li>显示当前已经开启的窗口<br>screen -ls<br>显示的时候会显示窗口ID和名字，以及是否挂起</li><li>进入挂起窗口<br>screen -r name<br>注意r是小写</li><li>关闭窗口<br>kill ID<br>注意ID可以用screen -ls指令查看</li></ul></li><li>zip  <ul><li>解压文件到当前目录<br>unzip file.zip</li><li>压缩文件<br>zip -r file_name.zip file.txt<br>注意是将file.txt文件压缩为file_name.zip文件，不要弄反了 </li></ul></li></ul><h3 id="三、上传下载文件"><a href="#三、上传下载文件" class="headerlink" title="三、上传下载文件"></a>三、上传下载文件</h3><ul><li>rz/sz  <ul><li>从服务器下载文件<br>sz file.zip</li><li>从本地上传文件<br>rz<br>注意本地需要相应软件，比如Xshell</li></ul></li><li>windows命令窗口上传文件  <ul><li>pscp C:/fold1/fold1_2/file.txt <a href="mailto:root@xx.xxx.xxx.xxx">root@xx.xxx.xxx.xxx</a>:/usr/folderA  </li></ul></li></ul><h3 id="四、anaconda使用指令"><a href="#四、anaconda使用指令" class="headerlink" title="四、anaconda使用指令"></a>四、anaconda使用指令</h3><ul><li>查看虚拟环境列表<br>conda info -e</li><li>创建虚拟环境<br>conda create -n env_name</li><li>进入虚拟环境<br>conda activate env_name</li><li>退出虚拟环境<br>conda deactivate</li><li>在当前虚拟环境下安装 包<br>conda install appname<br>conda install URL</li></ul>]]></content>
     
     <summary type="html">
     
@@ -147,7 +147,7 @@
     <link href="http://39.106.115.216/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/"/>
     <id>http://39.106.115.216/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/</id>
     <published>2020-05-20T01:50:21.000Z</published>
-    <updated>2020-05-20T06:02:12.424Z</updated>
+    <updated>2020-07-22T08:46:55.918Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、六步法"><a href="#一、六步法" class="headerlink" title="一、六步法"></a>一、六步法</h3><ol><li>import   </li><li>train,test  </li><li>model = tf.keras.models.Seque ntial  </li><li>model.compile<br>配置训练方法，比如优化器、损失函数   </li><li>model.fit  </li><li>model.summary</li></ol>]]></content>
     
