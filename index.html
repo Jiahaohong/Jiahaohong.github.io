@@ -1,89 +1,24 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="en">
+<html lang=en>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-  
-
-
-  <link rel="alternate" href="/atom.xml" title="Darcy's Blog" type="application/atom+xml" />
-
-
-
-
-
-
-<meta name="description" content="A silly optimistic student of Huazhong University of Science and Technology(Grade 2018).">
+  <title>Darcy&#39;s Blog</title>
+  <meta name="description" content="A silly optimistic student of Huazhong University of Science and Technology(Grade 2018).">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Darcy&#39;s Blog">
 <meta property="og:url" content="http://39.106.115.216/index.html">
@@ -98,1720 +33,649 @@
 <meta property="article:tag" content=" little Js">
 <meta property="article:tag" content=" little html5">
 <meta name="twitter:card" content="summary">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://39.106.115.216/"/>
-
-
-
-
-
-  <title>Darcy's Blog</title>
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://39.106.115.216/index.html">
   
+    <link rel="alternate" href="/atom.xml" title="Darcy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-
-
-
-
-
-
-
+  
+  
+  
+  
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-  
-  
-    
-  
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/Jiahaohong" target="_blank">
+          <img class="img-circle img-rotate" src="/images/me.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Darcy</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Students</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Wuhan, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
 
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Darcy's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
-      
-        <p class="site-subtitle">Hope is something as precious as dimond.</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
-  
-    <ul id="menu" class="menu">
-      
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/.">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            <i class="icon icon-home-fill"></i>
             
-            Home
+            <span class="menu-title">Home</span>
           </a>
         </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/archives">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            <i class="icon icon-archives-fill"></i>
             
-            Archives
+            <span class="menu-title">Archives</span>
           </a>
         </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+      </ul>
       
-
-      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Jiahaohong" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
     </ul>
-  
 
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/" itemprop="url">Matlab:快速傅里叶变换实现</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-20T03:13:55+08:00">
-                2020-09-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、什么是傅里叶变换"><a href="#一、什么是傅里叶变换" class="headerlink" title="一、什么是傅里叶变换"></a>一、什么是傅里叶变换</h3><p>简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。  </p>
-<ul>
-<li><p><strong>正交函数集</strong><br>正交函数集满足如下两条性质：  </p>
-<ol>
-<li>正交函数集中的任意两个不相同函数的内积为0；  </li>
-<li>如果正交函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。  </li>
-</ol>
-<p>用类比的角度看，这个定义和线性代数中的基向量组的定义一致。说明正交函数集其实相当于函数空间中的一组基向量，函数空间中的一个函数对应向量空间中的一个向量，任何向量可以由基向量表示，同样的，任何函数可以由正交函数集表示。基向量可以写成矩阵的形式，同理，正交函数集也可以写成向量的形式。如下：  </p>
-<center>[1, sin(wx), cos(wx), sin(2wx), cos(2wx), ..., sin(nwx), cos(nwx), ...]</center>  
-这是一个1维向量，当前乘一个函数时就可以利用矩阵的乘法将函数分解到这个正交函数集上。  
-<center>[f(x)] * [1, sin(wx), cos(wx), ..., sin(nwx), cos(nwx), ...] =</center>  
-<center>[a0, b1*sin(wx), a1*cos(wx), ..., bn*sin(nwx), an*cos(nwx), ...]</center>  
-注意这些系数由原函数f(x)和基函数内积运算得到的。  
-
-
-</li>
-</ul>
-<ul>
-<li><strong>内积运算</strong><br>内积定义为一个向量在另一个向量上的投影占另一个向量的比例。内积是反映两个向量相似度的重要指标，当两个向量完全相等时，它们的内积取得最大值。因此正交函数集的系数的含义，可以理解为原函数和积函数的相似度，相似度越大，这个基函数的系数越大。</li>
-</ul>
-<p>因此，总体上来看，正交函数集构成了一个无穷维数的函数空间，这个空间里的任何函数都可以由这些基函数的加权求和表示，权重就是原函数和积函数的内积，及将原函数投影到这些正交函数集上。<br>a</p>
-<h3 id="二、离散傅里叶变换"><a href="#二、离散傅里叶变换" class="headerlink" title="二、离散傅里叶变换"></a>二、离散傅里叶变换</h3><p>上一个板块中讲到傅里叶变换是连续函数空间里的，如果处理的函数是一个离散的函数，那么就要用到离散傅里叶变换。离散傅里叶变换与来连续傅里叶变换的最大区别是求相关系数时的积分运算变成了求和运算。将正交函数集的向量形式抄写如下：  </p>
-<center>[1, sin(wx), cos(wx), sin(2wx), cos(2wx), ..., sin(nwx), cos(nwx), ...]</center>  
-注意，这里的每一列都是一个连续函数，如果用离散的x坐标将其离散化，就可以获得离散傅里叶变换的正交函数集矩阵，如下：  
-<img src="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/DMat.jpg">  
-
-<p>这是一个二维矩阵，每一列代表一个正交函数，每一行代表一个离散坐标x。将离散函数写成向量的形式后就可以用矩阵的乘法求出变换后的函数。注意，上述矩阵并没有限制离散变量的取值范围以及基函数的个数，如果要满足矩阵乘法的要求，离散变量x的取值范围应该和原函数的x范围相同，一般来说，基函数的个数（变换后的变量w取值范围）也和原函数x的范围一致。<br>用欧拉公式可以将三角函数化为指数函数：   </p>
-<center>exp(-j*2*pi*w*x)</center>
-
-<h3 id="三、一维快速傅里叶变换的原理"><a href="#三、一维快速傅里叶变换的原理" class="headerlink" title="三、一维快速傅里叶变换的原理"></a>三、一维快速傅里叶变换的原理</h3><h3 id="四、二维傅里叶变换的性质"><a href="#四、二维傅里叶变换的性质" class="headerlink" title="四、二维傅里叶变换的性质"></a>四、二维傅里叶变换的性质</h3><h3 id="五、二维快速傅里叶变换的实现"><a href="#五、二维快速傅里叶变换的实现" class="headerlink" title="五、二维快速傅里叶变换的实现"></a>五、二维快速傅里叶变换的实现</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </nav>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/" itemprop="url">Keil5安装芯片包</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-29T14:03:03+08:00">
-                2020-07-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>如果在使用Keil5安装芯片包时显示找不到包的错误，可以通过手动下载包后导入的方法解决。操作如下：</p>
-<ul>
-<li><p>打开下载芯片包的界面</p>
-<img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/1.png"> 
-</li>
-<li><p>在左侧双击你需要的芯片</p>
-<img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/2.png">
-</li>
-<li><p>点击右侧你需要的芯片包的Install按钮</p>
-<img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/3.png">
-</li>
-<li><p>单击选中下方报错的行</p>
-<img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/4.png">
-</li>
-<li><p>复制后粘贴到浏览器网址栏</p>
-<img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/5.png">
-</li>
-<li><p>去掉头尾留下地址，按回车即可下载</p>
-<img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/6.png">  
-<img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/7.png">
-</li>
-<li><p>下载完毕后回到下载芯片包界面，点击file里的import选项</p>
-<img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/8.png">
-</li>
-<li><p>在弹出窗口里找到之前下载的文件导入</p>
-<img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/9.png">
-
-</li>
-</ul>
-<p>完成！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/07/22/Tensrflow-%E5%88%B6%E4%BD%9C%E6%95%B0%E6%8D%AE%E9%9B%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/22/Tensrflow-%E5%88%B6%E4%BD%9C%E6%95%B0%E6%8D%AE%E9%9B%86/" itemprop="url">Tensorflow:制作数据集</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-22T21:45:51+08:00">
-                2020-07-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>tf.data.Dataset.from_tensor_slice(tensor)<br>将输入tensor按照第一个维度拆分</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" itemprop="url">Linux常用指令（重制版）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T21:55:57+08:00">
-                2020-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><em>系统使用Ubuntu18.04，无图形界面，本地系统为Windows10</em></p>
-<h3 id="一、Linux系统指令"><a href="#一、Linux系统指令" class="headerlink" title="一、Linux系统指令"></a>一、Linux系统指令</h3><ul>
-<li>进入指定文件夹<br>cd /root/mygit/project1</li>
-<li>进入上层文件夹<br>cd ..</li>
-<li>进入根目录文件夹(root)<br>cd ~</li>
-<li>显示当前文件夹路径<br>pwd</li>
-<li>显示当前文件夹里的文件和文件夹<br>ls -l</li>
-<li>在当前文件夹下创建文件夹<br>mkdir project2</li>
-<li>在当前文件夹下创建文件<br>touch readme.txt<br>touch gitCommand.md<br>touch go.sh</li>
-<li>删除文件或文件夹<br>sudo rm -r readme.txt<br>sudo rm -r project2</li>
-<li>重命名文件或文件夹<br>mv readme.txt README.txt  </li>
-<li>将上述指令结合起来使用，你就可以非常方便的解决一些文件操作的小问题了。比如进入某个文件夹，新建一个子文件夹用来存放自己的markdown笔记，就可以在命令窗口里输入如下命令：<br>cd /usr/note &amp;&amp; mkdir LinuxNotes &amp;&amp; touch day1.md</li>
-</ul>
-<h3 id="二、常用软件指令"><a href="#二、常用软件指令" class="headerlink" title="二、常用软件指令"></a>二、常用软件指令</h3><ul>
-<li>screen<ul>
-<li>新建一个新窗口<br>screen -S name<br>注意S是大写</li>
-<li>将当前窗口挂起（后台运行）<br>ctrl + A + D<br>注意这是快捷键，按后面的键时不要松开前面的键</li>
-<li>显示当前已经开启的窗口<br>screen -ls<br>显示的时候会显示窗口ID和名字，以及是否挂起</li>
-<li>进入挂起窗口<br>screen -r name<br>注意r是小写</li>
-<li>关闭窗口<br>kill ID<br>注意ID可以用screen -ls指令查看</li>
-</ul>
-</li>
-<li>zip  <ul>
-<li>解压文件到当前目录<br>unzip file.zip</li>
-<li>压缩文件<br>zip -r file_name.zip file.txt<br>注意是将file.txt文件压缩为file_name.zip文件，不要弄反了 </li>
-</ul>
-</li>
-</ul>
-<h3 id="三、上传下载文件"><a href="#三、上传下载文件" class="headerlink" title="三、上传下载文件"></a>三、上传下载文件</h3><ul>
-<li>rz/sz  <ul>
-<li>从服务器下载文件<br>sz file.zip</li>
-<li>从本地上传文件<br>rz<br>注意本地需要相应软件，比如Xshell</li>
-</ul>
-</li>
-<li>windows命令窗口上传文件  <ul>
-<li>pscp C:/fold1/fold1_2/file.txt <a href="mailto:root@xx.xxx.xxx.xxx">root@xx.xxx.xxx.xxx</a>:/usr/folderA  </li>
-</ul>
-</li>
-</ul>
-<h3 id="四、anaconda使用指令"><a href="#四、anaconda使用指令" class="headerlink" title="四、anaconda使用指令"></a>四、anaconda使用指令</h3><ul>
-<li>查看虚拟环境列表<br>conda info -e</li>
-<li>创建虚拟环境<br>conda create -n env_name</li>
-<li>进入虚拟环境<br>conda activate env_name</li>
-<li>退出虚拟环境<br>conda deactivate</li>
-<li>在当前虚拟环境下安装 包<br>conda install appname<br>conda install URL</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="url">深度学习：卷积神经网络</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-17T21:57:15+08:00">
-                2020-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、卷积神经网络符号说明"><a href="#一、卷积神经网络符号说明" class="headerlink" title="一、卷积神经网络符号说明"></a>一、卷积神经网络符号说明</h3><p><em>这里将卷积层和池化层看作一层神经网络，但分开描述</em><br><em>这里手的图像可以是抽象的多维矩阵</em></p>
-<ol>
-<li><p>图像n  </p>
-<ul>
-<li>图像数量：m  </li>
-<li>图像高度：n<sub>H</sub>  </li>
-<li>图像宽度：n<sub>W</sub>  </li>
-<li>图像信道：n<sub>C</sub></li>
-</ul>
-</li>
-<li><p>过滤器Filter  </p>
-<ul>
-<li>形状：f<sub>H</sub><sup>[l]</sup> * f<sub>W</sub><sup>[l]</sup>，指一个过滤器的一层矩阵的高和宽，大多数的时候，f<sub>H</sub><sup>[l]</sup> =  f<sub>W</sub><sup>[l]</sup> = 3  </li>
-<li>边沿padding：p<sup>[l]</sup>，用来将过滤器要过滤的图像填充成指定形状</li>
-<li>步长step：s<sup>[l]</sup>，表示过滤器在输入图像上移动一次所经过的像素个数</li>
-<li>信道channel：n<sub>C</sub><sup>[l-1]</sup>，注意，第l层的过滤器的信道数量和上一层的输出图像信道数量相同，这是卷积运算的前提条件  </li>
-</ul>
-</li>
-<li><p>池化层Pooling  </p>
-<ul>
-<li>形状：f<sub>H</sub><sup>[l]</sup> * f<sub>W</sub><sup>[l]</sup></li>
-<li>边沿padding：p<sup>[l]</sup>，用来将池化层要池化的图像填充成指定形状</li>
-<li>步长step：s<sup>[l]</sup>，表示池在输入图像上移动一次所经过的像素个数</li>
-<li>信道channel：n<sub>C</sub><sup>[l]</sup> = f<sub>m</sub>，注意，第l层的池的信道数量和这一层过滤器的个数相同。</li>
-</ul>
-</li>
-<li><p>全连接FullConnection</p>
-<ul>
-<li>普通的神经网络连接层</li>
-</ul>
-</li>
-</ol>
-<h3 id="二、卷积神经网络的基本模块"><a href="#二、卷积神经网络的基本模块" class="headerlink" title="二、卷积神经网络的基本模块"></a>二、卷积神经网络的基本模块</h3><ol>
-<li>卷积层<br>卷积操作是由过滤器和上一层的输出完成的。首先来看看卷积操作是如何完成的，然后再研究其中的数据维数等细节。  <ul>
-<li>卷积操作<br>图像的形状为n<sub>H</sub> * n<sub>W</sub>，过滤器的形状为f<sub>H</sub> * f<sub>W</sub>，假设图像没有加边沿padding，过滤器的步长为1，那么将过滤器矩阵和图像矩阵左上角对齐，重叠的格子中的数据相乘，将得到的结果相加作为输出矩阵的第一个元素，然后将过滤器矩阵右移一个像素（一个步长），重复上述操作得到输出矩阵的第二个元素，以此类推，直到右移超出图像边界时，向下移动一个像素，再从最左边开始重复上述操作。</li>
-<li>数据维数<br>由于过滤器所操作的图像可能有多层通道，那么过滤器的通道数和图像必须对应，相同通道的过滤器和图像矩阵进行卷积操作，得到的结果相加作为输出矩阵的一个通道。因此，过滤器有几个，输出矩阵的通道数就有几个。</li>
-</ul>
-</li>
-<li>池化层<br>池化操作简单来说是将图片分为几个区域，从中挑选出符合要求的数据组成新的图像。池和过滤器的结构和定义相似，只不过池中矩阵的每一位上没有权重，只是用来区分图像区域。池化操作和卷积的操作流程相似，但不是将池中的数据加权求和，而是取最大值或平均值作为输出。</li>
-<li>全连接层<br>全连接层时普通的DNN网络，通过将之前网络提取出来的特征展平，再连接，最后输出结果</li>
-</ol>
-<h3 id="三、卷积神经网络的前向传播和反向传播算法"><a href="#三、卷积神经网络的前向传播和反向传播算法" class="headerlink" title="三、卷积神经网络的前向传播和反向传播算法"></a>三、卷积神经网络的前向传播和反向传播算法</h3><p>。。。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/07/11/Python-Numpy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/11/Python-Numpy/" itemprop="url">Python:Numpy</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-11T17:39:51+08:00">
-                2020-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>np.zeros(shape, dtype=float)  </li>
-<li>np.random.rand()<br>括号里为矩阵维数，获得数值在0~1之间的随机数矩阵</li>
-<li>np.random.randn()<br>括号里为矩阵维数，获得数值为正态分布的随机数矩阵</li>
-<li>np.sum(A,axis=None)<br>把axis对应的维度的数相加，变成0维</li>
-<li>np.squeeze(X)<br>把X中只有1个元素的维度去掉</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/" itemprop="url">深度学习:逻辑回归的符号和公式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-07T09:48:36+08:00">
-                2020-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、符号说明"><a href="#一、符号说明" class="headerlink" title="一、符号说明"></a>一、符号说明</h3><p>一个样本包含两个部分，特征x和标签y</p>
-<ul>
-<li>x<br>表示某一个样本的特征的集合，通常是一个列向量，其中每一个维度表示一个特征</li>
-<li>x<sub>j</sub><br>表示第j个特征</li>
-<li>x<sup>(i)</sup><br>表示第i个样本的特征数据，注意上标是小括号</li>
-<li>x<sup>(i)</sup><sub>j</sub><br>表示第i个样本的第j个特征，注意上标是小括号</li>
-<li>y<br>表示一个样本的真实标签，通常时一个列向量，其中每一个维度代表一个种类，如果该样本这一个维度为0，表示该样本不属于该种类；如果该样本的这一维度为1，表示该样本属于该种类</li>
-<li>y<sup>(i)</sup><br>表示第i个样本的标签，注意上标是小括号  </li>
-</ul>
-<p>一层神经网络由三部分组成，第一部分是与上一层神经网络连接的权重矩阵，第二部分是权重矩阵的输出，第三部分是权重矩阵的输出经过该层神经元的激活函数后的输出结果</p>
-<ul>
-<li>n<sub>i</sub><br>表示第i层神经网络的神经元个数，通常输入层（第0层）写作n<sub>x</sub>，输出层（最后一层）写作n<sub>L</sub></li>
-<li>W<sup>[i]</sup><br>表示连接第i-1层和第i层神经元的权重矩阵，矩阵形状为(n<sub>i</sub>,n<sub>i-1</sub>)，n<sub>i</sub>是第i层的神经元个数</li>
-<li>Z<sup>[i]</sup><br>表示第i层神经元的输入</li>
-<li>A<sup>[i]</sup><br>表示Z<sup>[i]</sup>经过第i层神经元的激活函数后的输出，之后要输入到下一层的权重矩阵W<sup>[i+1]</sup>里；特别的，输入的样本特征可以看作是A<sup>[0]</sup>  </li>
-</ul>
-<p>偏导数部分的符号是程序里的变量标识符，不是数学里的微分字符</p>
-<ul>
-<li>dW<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li>
-<li>dZ<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li>
-<li>dA<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li>
-</ul>
-<h3 id="二、公式"><a href="#二、公式" class="headerlink" title="二、公式"></a>二、公式</h3><ol>
-<li>前向传播公式<br>(1) Z<sup>[i]</sup> = W<sup>[i]</sup> · A<sup>[i-1]</sup> + b<sup>[i]</sup><br>(2) A<sup>[i]</sup> = g<sup>[i]</sup>(Z<sup>[i]</sup>)</li>
-<li>反向传播公式<br>(1) dW<sup>[i]</sup> = (1/m)·dZ<sup>[i]</sup>·A<sup>[i-1]T</sup><br>(2) db<sup>[i]</sup> = (1/m)·sum(dZ<sup>[i]</sup>)<br>(3) dZ<sup>[i-1]</sup> = W<sup>[i]T</sup>·dZ<sup>[i]</sup>*g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)</li>
-<li>公示推导的简单说明<br>对于公式1，根据矩阵求导公式d( f(X) ) = d( A·X )/dX = A<sup>T</sup>，再由矩阵相等时维度相同，可得1个样本时的偏导数为dZ<sup>[i]</sup>·A<sup>[i-1]T</sup>，如果有m个样本，则取平均值1/m。<br>对于公式3，类似公式1的求导公式得出下一层网络的输入Z<sup>[i]</sup>对上一层网络的输出A<sup>[i-1]</sup>的偏导函数为W<sup>[i]T</sup>,同样根据矩阵相等时维度必须相同可得公式3，注意后面的g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)只不过是A<sup>[i-1]</sup>对Z<sup>[i-1]</sup>的偏导函数，因为A<sup>[i-1]</sup> = g<sup>[i-1]</sup>(Z<sup>[i-1]</sup>)。</li>
-</ol>
-<h3 id="三、常用激活函数导数"><a href="#三、常用激活函数导数" class="headerlink" title="三、常用激活函数导数"></a>三、常用激活函数导数</h3><ul>
-<li>S(x) = sigmoid(X)<br> S<sup>‘</sup>(x) = S(x)·(1-S(x))</li>
-<li>f(x) = tanh(x)<br> f<sup>‘</sup>(x) = 1-(f(x))<sup>2</sup></li>
-<li>f(x) = ReLU(x)<br> f<sup>‘</sup>(x) = max{0,a}</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/" itemprop="url">数字电路：竞争与冒险</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-29T16:35:53+08:00">
-                2020-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、竞争与冒险的定义"><a href="#一、竞争与冒险的定义" class="headerlink" title="一、竞争与冒险的定义"></a>一、竞争与冒险的定义</h3><p>当一个逻辑门的两个输入变量在同一时刻发生翻转，而变化的时间有差异的现象，称为竞争。<br>由竞争产生输出干扰脉冲的现象称为冒险。</p>
-<h3 id="二、竞争与冒险的判别"><a href="#二、竞争与冒险的判别" class="headerlink" title="二、竞争与冒险的判别"></a>二、竞争与冒险的判别</h3><p>已知一个逻辑表达式，如何判别由该逻辑表达式设计的电路会不会产生竞争与冒险？<br>首先我们需要找到在该表达式中同时出现有原变量和反变量的输入变量，然后我们将所有其他变量选择合适的值，看逻辑表达式是否能成为该输入变量的原变量和反变量的组合，若是那么就会有竞争与冒险现象。</p>
-<h3 id="三、如何消除竞争与冒险现象"><a href="#三、如何消除竞争与冒险现象" class="headerlink" title="三、如何消除竞争与冒险现象"></a>三、如何消除竞争与冒险现象</h3><ol>
-<li>发现并消去互补相乘项<br>如果互补项没有直接的相乘，尝试拆括号将互补项乘到一起消去。</li>
-<li>增加乘积项避免互补项相加<br>从原表达式中增加一些不改变结果的乘积项，使得原来满足互补项相加的条件作用下，多出一些其他表达式，避免互补项相加。   </li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/" itemprop="url">Tensorflow:搭建网络步骤</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-20T09:50:21+08:00">
-                2020-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、六步法"><a href="#一、六步法" class="headerlink" title="一、六步法"></a>一、六步法</h3><ol>
-<li>import   </li>
-<li>train,test  </li>
-<li>model = tf.keras.models.Seque ntial  </li>
-<li>model.compile<br>配置训练方法，比如优化器、损失函数   </li>
-<li>model.fit  </li>
-<li>model.summary</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
+</header>
 
   
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://39.106.115.216/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" itemprop="url">Tensorflow:激活函数和损失函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-20T09:02:28+08:00">
-                2020-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、激活函数"><a href="#一、激活函数" class="headerlink" title="一、激活函数"></a>一、激活函数</h3><ul>
-<li><p>Sigmoid函数<br>tf.nn.sigmoid(x)<br>特点：<br>（1）导数不为0的范围太小，容易造成梯度消失<br>（2）输出非0均值，收敛慢<br>（3）幂运算计算复杂，训练时间长</p>
-</li>
-<li><p>Relu函数</p>
-</li>
-</ul>
-<h3 id="二、损失函数"><a href="#二、损失函数" class="headerlink" title="二、损失函数"></a>二、损失函数</h3><ul>
-<li>softmax</li>
-<li>cross-entropy</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
       
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/DeepLearning/" style="font-size: 13px;">DeepLearning</a> <a href="/tags/Keil5/" style="font-size: 13px;">Keil5</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Matlab/" style="font-size: 13px;">Matlab</a> <a href="/tags/Python/" style="font-size: 13px;">Python</a> <a href="/tags/Tensorflow/" style="font-size: 13.67px;">Tensorflow</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 14px;">数字电路</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 13.33px;">数据库</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 13px;">深度学习</a>
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
     
-    <div class="sidebar-inner">
-
       
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
 
+
+    
       
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
             
-              <p class="site-author-name" itemprop="name">Darcy</p>
-              <p class="site-description motion-element" itemprop="description">A silly optimistic student of Huazhong University of Science and Technology(Grade 2018).</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/%20%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">27</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
+            <div class="item-inner">
+              <p class="item-category">
                 
-                  <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">tags</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/" class="title">Matlab:快速傅里叶变换实现</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-19T19:13:55.000Z" itemprop="datePublished">2020-09-20</time>
+              </p>
             </div>
+          </li>
           
-
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/" class="title">Keil5安装芯片包</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-29T06:03:03.000Z" itemprop="datePublished">2020-07-29</time>
+              </p>
+            </div>
+          </li>
           
-
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/22/Tensrflow-%E5%88%B6%E4%BD%9C%E6%95%B0%E6%8D%AE%E9%9B%86/" class="title">Tensorflow:制作数据集</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-22T13:45:51.000Z" itemprop="datePublished">2020-07-22</time>
+              </p>
+            </div>
+          </li>
           
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="title">Linux常用指令（重制版）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-18T13:55:57.000Z" itemprop="datePublished">2020-07-18</time>
+              </p>
+            </div>
+          </li>
           
-
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="title">深度学习：卷积神经网络</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-17T13:57:15.000Z" itemprop="datePublished">2020-07-17</time>
+              </p>
+            </div>
+          </li>
           
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
+      </ul>
     </div>
-  </aside>
+  </div>
+  
 
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Darcy</span>
+    
+  </div>
+</aside>
 
   
-</div>
+  <main class="main" role="main">
+  
+  <div class="content article-list">
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/">Matlab:快速傅里叶变换实现</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/" class="article-date">
+	  <time datetime="2020-09-19T19:13:55.000Z" itemprop="datePublished">Sep 20</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Matlab/" rel="tag">Matlab</a>
+  </span>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
     
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/">Keil5安装芯片包</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/" class="article-date">
+	  <time datetime="2020-07-29T06:03:03.000Z" itemprop="datePublished">Jul 29</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Keil5/" rel="tag">Keil5</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
 
     
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/22/Tensrflow-%E5%88%B6%E4%BD%9C%E6%95%B0%E6%8D%AE%E9%9B%86/">Tensorflow:制作数据集</a>
+    </h1>
+  
 
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/07/22/Tensrflow-%E5%88%B6%E4%BD%9C%E6%95%B0%E6%8D%AE%E9%9B%86/" class="article-date">
+	  <time datetime="2020-07-22T13:45:51.000Z" itemprop="datePublished">Jul 22</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/22/Tensrflow-%E5%88%B6%E4%BD%9C%E6%95%B0%E6%8D%AE%E9%9B%86/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">Linux常用指令（重制版）</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="article-date">
+	  <time datetime="2020-07-18T13:55:57.000Z" itemprop="datePublished">Jul 18</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Linux/" rel="tag">Linux</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">深度学习：卷积神经网络</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="article-date">
+	  <time datetime="2020-07-17T13:57:15.000Z" itemprop="datePublished">Jul 17</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/11/Python-Numpy/">Python:Numpy</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/07/11/Python-Numpy/" class="article-date">
+	  <time datetime="2020-07-11T09:39:51.000Z" itemprop="datePublished">Jul 11</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Python/" rel="tag">Python</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/11/Python-Numpy/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/">深度学习:逻辑回归的符号和公式</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/" class="article-date">
+	  <time datetime="2020-07-07T01:48:36.000Z" itemprop="datePublished">Jul 7</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/DeepLearning/" rel="tag">DeepLearning</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/">数字电路：竞争与冒险</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/" class="article-date">
+	  <time datetime="2020-05-29T08:35:53.000Z" itemprop="datePublished">May 29</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag">数字电路</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/">Tensorflow:搭建网络步骤</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/" class="article-date">
+	  <time datetime="2020-05-20T01:50:21.000Z" itemprop="datePublished">May 20</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/">Tensorflow:激活函数和损失函数</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" class="article-date">
+	  <time datetime="2020-05-20T01:02:28.000Z" itemprop="datePublished">May 20</time>
+	</a>
+</span>
+    
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
   </div>
 
   
+    
+    <nav class="bar bar-footer clearfix" data-stick-bottom>
+        <div class="bar-inner">
+        <ul class="pager pull-left">
+            
+            <li class="prev disabled">
+                <a href="javascript:;">
+                    <i class="icon icon-angle-left"></i>
+                    Prev
+                </a>
+            </li>
+            
+            
+            <li class="next">
+                <a href="/page/2/">
+                    Next
+                    <i class="icon icon-angle-right"></i>
+                </a>
+            </li>
+            
+        </ul>
+        <div class="total-article bar-right">Page 1 of 3</div>
+        </div>
+    </nav>
+    
+ 
+</main>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Jiahaohong" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
 
+<script src="/js/plugin.min.js"></script>
 
 
+<script src="/js/application.js"></script>
 
 
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
 
+<script src="/js/insight.js"></script>
 
 
 
-  
 
 
 
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
@@ -1821,118 +685,6 @@
 
 
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
