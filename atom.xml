@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Darcy&#39;s Blog</title>
   
-  <subtitle>Shy first Intimate later Friendly forever!</subtitle>
+  <subtitle>Hope is something as precious as dimond.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://39.106.115.216/"/>
-  <updated>2020-07-29T06:54:41.016Z</updated>
+  <updated>2020-09-20T03:01:39.824Z</updated>
   <id>http://39.106.115.216/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Matlab:快速傅里叶变换实现</title>
+    <link href="http://39.106.115.216/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://39.106.115.216/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/</id>
+    <published>2020-09-19T19:13:55.000Z</published>
+    <updated>2020-09-20T03:01:39.824Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、什么是傅里叶变换"><a href="#一、什么是傅里叶变换" class="headerlink" title="一、什么是傅里叶变换"></a>一、什么是傅里叶变换</h3><p>简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。  </p><ul><li><p><strong>正交函数集</strong><br>正交函数集满足如下两条性质：  </p><ol><li>正交函数集中的任意两个不相同函数的内积为0；  </li><li>如果正交函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。  </li></ol><p>用类比的角度看，这个定义和线性代数中的基向量组的定义一致。说明正交函数集其实相当于函数空间中的一组基向量，函数空间中的一个函数对应向量空间中的一个向量，任何向量可以由基向量表示，同样的，任何函数可以由正交函数集表示。基向量可以写成矩阵的形式，同理，正交函数集也可以写成向量的形式。如下：  </p><center>[1, sin(wx), cos(wx), sin(2wx), cos(2wx), ..., sin(nwx), cos(nwx), ...]</center>  这是一个1维向量，当前乘一个函数时就可以利用矩阵的乘法将函数分解到这个正交函数集上。  <center>[f(x)] * [1, sin(wx), cos(wx), ..., sin(nwx), cos(nwx), ...] =</center>  <center>[a0, b1*sin(wx), a1*cos(wx), ..., bn*sin(nwx), an*cos(nwx), ...]</center>  注意这些系数由原函数f(x)和基函数内积运算得到的。  </li></ul><ul><li><strong>内积运算</strong><br>内积定义为一个向量在另一个向量上的投影占另一个向量的比例。内积是反映两个向量相似度的重要指标，当两个向量完全相等时，它们的内积取得最大值。因此正交函数集的系数的含义，可以理解为原函数和积函数的相似度，相似度越大，这个基函数的系数越大。</li></ul><p>因此，总体上来看，正交函数集构成了一个无穷维数的函数空间，这个空间里的任何函数都可以由这些基函数的加权求和表示，权重就是原函数和积函数的内积。</p><h3 id="二、离散傅里叶变换"><a href="#二、离散傅里叶变换" class="headerlink" title="二、离散傅里叶变换"></a>二、离散傅里叶变换</h3><p>上一个板块中讲到傅里叶变换是连续函数空间里的，如果处理的函数是一个离散的函数，那么就要用到离散傅里叶变换。离散傅里叶变换与来连续傅里叶变换的最大区别是求相关系数时的积分运算变成了求和运算。将正交函数集的向量形式抄写如下：  </p><center>[1, sin(wx), cos(wx), sin(2wx), cos(2wx), ..., sin(nwx), cos(nwx), ...]</center>  注意，这里的每一列都是一个连续函数，如果用离散的x坐标将其离散化，就可以获得离散傅里叶变换的正交函数集矩阵，如下：<table><thead><tr><th align="center"></th><th align="center"></th><th align="center"></th><th align="center"></th><th align="center"></th><th align="center"></th><th align="center"></th><th align="center"></th><th align="center"></th></tr></thead><tbody><tr><td align="center">1</td><td align="center">sin(w*0)</td><td align="center">cos(w*0)</td><td align="center">sin(2w*0)</td><td align="center">cos(2w*0)</td><td align="center">…</td><td align="center">sin(nw*0)</td><td align="center">cos(nw*0)</td><td align="center">…</td></tr><tr><td align="center">1</td><td align="center">sin(w*1)</td><td align="center">cos(w*1)</td><td align="center">sin(2w*1)</td><td align="center">cos(2w*1)</td><td align="center">…</td><td align="center">sin(nw*1)</td><td align="center">cos(nw*1)</td><td align="center">…</td></tr><tr><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td></tr><tr><td align="center">1</td><td align="center">sin(w*x)</td><td align="center">cos(w*x)</td><td align="center">sin(2w*x)</td><td align="center">cos(2w*x)</td><td align="center">…</td><td align="center">sin(nw*x)</td><td align="center">cos(nw*x)</td><td align="center">…</td></tr><tr><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td><td align="center">…</td></tr></tbody></table><p>这是一个二维矩阵，每一列代表一个正交函数，每一行代表一个离散坐标x。将离散函数写成向量的形式后就可以用矩阵的乘法求出变换后的函数。注意，上述矩阵并没有限制离散变量的取值范围以及基函数的个数，如果要满足矩阵乘法的要求，离散变量x的取值范围应该和原函数的x范围相同，一般来说，基函数的个数（变换后的变量取值范围）也和原函数x的范围一直。</p><h3 id="三、一维快速傅里叶变换的原理"><a href="#三、一维快速傅里叶变换的原理" class="headerlink" title="三、一维快速傅里叶变换的原理"></a>三、一维快速傅里叶变换的原理</h3><h3 id="四、二维傅里叶变换的性质"><a href="#四、二维傅里叶变换的性质" class="headerlink" title="四、二维傅里叶变换的性质"></a>四、二维傅里叶变换的性质</h3><h3 id="五、二维快速傅里叶变换的实现"><a href="#五、二维快速傅里叶变换的实现" class="headerlink" title="五、二维快速傅里叶变换的实现"></a>五、二维快速傅里叶变换的实现</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;一、什么是傅里叶变换&quot;&gt;&lt;a href=&quot;#一、什么是傅里叶变换&quot; class=&quot;headerlink&quot; title=&quot;一、什么是傅里叶变换&quot;&gt;&lt;/a&gt;一、什么是傅里叶变换&lt;/h3&gt;&lt;p&gt;简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Matlab" scheme="http://39.106.115.216/tags/Matlab/"/>
+    
+  </entry>
   
   <entry>
     <title>Keil5安装芯片包</title>
@@ -302,15 +326,16 @@
     <link href="http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A7%A6%E5%8F%91%E5%99%A8/"/>
     <id>http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A7%A6%E5%8F%91%E5%99%A8/</id>
     <published>2020-05-18T07:45:24.000Z</published>
-    <updated>2020-05-18T08:36:43.574Z</updated>
+    <updated>2020-08-27T08:00:59.016Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="一、主从D触发器"><a href="#一、主从D触发器" class="headerlink" title="一、主从D触发器"></a>一、主从D触发器</h3><h3 id="二、触发器逻辑功能"><a href="#二、触发器逻辑功能" class="headerlink" title="二、触发器逻辑功能"></a>二、触发器逻辑功能</h3><p>接下来介绍一些常用的触发器的特性方程（Q’代表次态）。</p><ul><li>D触发器<br>Q’=D</li><li>JK触发器<br>Q’=J<span style="text-decoration:overline">Q</span>+<span style="text-decoration:overline">K</span>Q</li><li>T触发器<br>相当于JK触发器J端和K端接到一起：<br>Q’=T<span style="text-decoration:overline">Q</span>+<span style="text-decoration:overline">T</span>Q</li><li>T’触发器<br>相当于T触发器T端始终接高电平：<br>Q’=<span style="text-decoration:overline">Q</span></li><li>SR触发器<br>Q’=S+<span style="text-decoration:overline">R</span>Q<br>S·R=0</li></ul><h3 id="三、触发器的逻辑功能转换"><a href="#三、触发器的逻辑功能转换" class="headerlink" title="三、触发器的逻辑功能转换"></a>三、触发器的逻辑功能转换</h3><p>用D触发器可以实现其他所有的触发器。总体方法是：由于D触发器的特性方程和需要转换的触发器的特性方程是等价的，那么就可以由代转换的触发器特性方程推出输入端D的逻辑表达式。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="一、主从D触发器"><a href="#一、主从D触发器" class="headerlink" title="一、主从D触发器"></a>一、主从D触发器</h3><p>略</p><h3 id="二、触发器逻辑功能"><a href="#二、触发器逻辑功能" class="headerlink" title="二、触发器逻辑功能"></a>二、触发器逻辑功能</h3><p>下面介绍一些常用的触发器的特性方程（Q’代表次态）。</p><ul><li>D触发器<br>Q’=D</li><li>JK触发器<br>Q’=J<span style="text-decoration:overline">Q</span>+<span style="text-decoration:overline">K</span>Q</li><li>T触发器<br>相当于JK触发器J端和K端接到一起：<br>Q’=T<span style="text-decoration:overline">Q</span>+<span style="text-decoration:overline">T</span>Q</li><li>T’触发器<br>相当于T触发器T端始终接高电平：<br>Q’=<span style="text-decoration:overline">Q</span></li><li>SR触发器<br>Q’=S+<span style="text-decoration:overline">R</span>Q<br>S·R=0</li></ul><h3 id="三、触发器的逻辑功能转换"><a href="#三、触发器的逻辑功能转换" class="headerlink" title="三、触发器的逻辑功能转换"></a>三、触发器的逻辑功能转换</h3><p>用D触发器可以实现其他所有的触发器。总体方法是：由于D触发器的特性方程和需要转换的触发器的特性方程是等价的，那么就可以由代转换的触发器特性方程推出输入端D的逻辑表达式。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;一、主从D触发器&quot;&gt;&lt;a href=&quot;#一、主从D触发器&quot; class=&quot;headerlink&quot; title=&quot;一、主从D触发器&quot;&gt;&lt;/a&gt;一、主从D触发器&lt;/h3&gt;&lt;h3 id=&quot;二、触发器逻辑功能&quot;&gt;&lt;a href=&quot;#二、触发器逻辑功能&quot; class=&quot;he
+        &lt;h3 id=&quot;一、主从D触发器&quot;&gt;&lt;a href=&quot;#一、主从D触发器&quot; class=&quot;headerlink&quot; title=&quot;一、主从D触发器&quot;&gt;&lt;/a&gt;一、主从D触发器&lt;/h3&gt;&lt;p&gt;略&lt;/p&gt;
+&lt;h3 id=&quot;二、触发器逻辑功能&quot;&gt;&lt;a href=&quot;#二、触发器逻辑功能&quot; 
       
     
     </summary>
@@ -326,9 +351,9 @@
     <link href="http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/"/>
     <id>http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/</id>
     <published>2020-05-18T03:19:29.000Z</published>
-    <updated>2020-05-18T07:44:57.074Z</updated>
+    <updated>2020-08-27T03:01:03.031Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="一、基本双稳态电路"><a href="#一、基本双稳态电路" class="headerlink" title="一、基本双稳态电路"></a>一、基本双稳态电路</h3><p>先直接给出书本上的定义：具有0、1两种逻辑状态，并且进入其中任何一种逻辑状态后均能长期保持这种状态不变的单元电路。<br>并且<strong>规定</strong>Q端输出为0的时候，该电路逻辑状态为0；Q端输出为1的时候，该电路逻辑状态为1。<br><img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本双稳态电路.png"><br>那么如何分析该电路的状态呢？<br>首先假定电路的一个逻辑状态，比如为0；然后确定两输出端的逻辑电平，此时Q为0，Q非为1；接着分析反馈到输入端的逻辑电平，G1输入1，G2输入0；最后通过输入和逻辑门检查输出端的逻辑电平是否和假设一致（此例G1输出0和假设一致），如果一致，表示电路逻辑状态就是假设的逻辑状态，已经稳定了，如果不一致，需要修改假设的逻辑状态再进行一次判断，若第二次分析结果还是不一致，则说明电路进入了不确定状态。</p><h3 id="二、基本SR锁存器"><a href="#二、基本SR锁存器" class="headerlink" title="二、基本SR锁存器"></a>二、基本SR锁存器</h3><p>将基本双稳态电路的非门换成两输入或非门就构成了一种基本SR锁存器，如果换成两输入与非门就构成了另一种基本SR锁存器。   </p><ul><li>或非门SR锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  <img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器.png">  这个电路的状态如何分析？  总体来说和双稳态电路的分析过程差不多，但是考虑到多出来两个输入端，所以在分析锁存器的状态的时候，不仅需要假设锁存器的输出状态，还要假设锁存器的输入状态。下面给出锁存器的功能表：  |S|R|Q|<span style="text-decoration: overline">Q</span>|Function||:---:|:---:|:---:|:---:|:---:||0|0|不变|不变|保持||0|1|0|1|置0||1|0|1|0|置1||1|1|0|0|非定义状态（危险）|总结一下：S端代表SET，及设置为1状态；R端代表RESET，及重置0状态；S端和R端接收到高电平时才会发挥作用，接收到低电平时不起作用；S端和R端不能同时起作用，及送入S端和R端的信号满足S·R=0，二者不能同时为1。</li><li>与非门锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  <img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器2.png">  与非门锁存器和或非门锁存器送入输入端的信号是互补的，其他一摸一样。可以理解为在或非门两个输入端外分别连接一个非门。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="一、基本双稳态电路"><a href="#一、基本双稳态电路" class="headerlink" title="一、基本双稳态电路"></a>一、基本双稳态电路</h3><p>先直接给出书本上的定义：具有0、1两种逻辑状态，并且进入其中任何一种逻辑状态后均能长期保持这种状态不变的单元电路。<br>并且<strong>规定</strong>Q端输出为0的时候，该电路逻辑状态为0；Q端输出为1的时候，该电路逻辑状态为1。  </p><img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本双稳态电路.png">   <p>那么如何分析该电路的状态呢？<br>首先假定电路的一个逻辑状态，比如为0；然后确定两输出端的逻辑电平，此时Q为0，Q非为1；接着分析反馈到输入端的逻辑电平，G1输入1，G2输入0；最后通过输入和逻辑门检查输出端的逻辑电平是否和假设一致（此例G1输出0和假设一致），如果一致，表示电路逻辑状态就是假设的逻辑状态，已经稳定了，如果不一致，需要修改假设的逻辑状态再进行一次判断，若第二次分析结果还是不一致，则说明电路进入了不确定状态。</p><h3 id="二、基本SR锁存器"><a href="#二、基本SR锁存器" class="headerlink" title="二、基本SR锁存器"></a>二、基本SR锁存器</h3><p>将基本双稳态电路的非门换成两输入或非门就构成了一种基本SR锁存器，如果换成两输入与非门就构成了另一种基本SR锁存器。   </p><ul><li><p>或非门SR锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  </p><img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器.png">  <p>这个电路的状态如何分析？<br>总体来说和双稳态电路的分析过程差不多，但是考虑到多出来两个输入端，所以在分析锁存器的状态的时候，不仅需要假设锁存器的输出状态，还要假设锁存器的输入状态。下面给出锁存器的功能表：</p></li></ul><table><thead><tr><th align="center">S</th><th align="center">R</th><th align="center">Q</th><th align="center"><span style="text-decoration: overline">Q</span></th><th align="center">Function</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0</td><td align="center">不变</td><td align="center">不变</td><td align="center">保持</td></tr><tr><td align="center">0</td><td align="center">1</td><td align="center">0</td><td align="center">1</td><td align="center">置0</td></tr><tr><td align="center">1</td><td align="center">0</td><td align="center">1</td><td align="center">0</td><td align="center">置1</td></tr><tr><td align="center">1</td><td align="center">1</td><td align="center">0</td><td align="center">0</td><td align="center">非定义状态（危险）</td></tr></tbody></table><p>  总结一下：S端代表SET，及设置为1状态；R端代表RESET，及重置0状态；S端和R端接收到高电平时才会发挥作用，接收到低电平时不起作用；S端和R端不能同时起作用，及送入S端和R端的信号满足S·R=0，二者不能同时为1。</p><ul><li><p>与非门锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  </p><img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器2.png">  <p>与非门锁存器和或非门锁存器送入输入端的信号是互补的，其他一摸一样。可以理解为在或非门两个输入端外分别连接一个非门。</p></li></ul>]]></content>
     
     <summary type="html">
     
@@ -350,9 +375,9 @@
     <link href="http://39.106.115.216/2020/03/26/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E8%8C%83%E5%BC%8F%EF%BC%9F%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
     <id>http://39.106.115.216/2020/03/26/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E8%8C%83%E5%BC%8F%EF%BC%9F%EF%BC%88%E4%B8%8B%EF%BC%89/</id>
     <published>2020-03-26T08:02:04.000Z</published>
-    <updated>2020-03-31T08:44:52.230Z</updated>
+    <updated>2020-08-27T06:46:25.335Z</updated>
     
-    <content type="html"><![CDATA[<p><em>范式的规定随着序号的增加而逐渐严格，序号大的范式一定满足序号小的范式的要求</em></p><h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p><em><strong>属性不可分</strong></em><br>这是最简单也是最基础的范式，<strong>所有关系模型</strong>必须满足这个范式。这个定义已经十分清晰明了了，即在实际情况中，我们选取的关系模型的属性必须具有原子性，不可分性，但是同时又不必过于细致，能够满足实际应用要求即可。</p><p><em>接下来的范式定义就逐渐晦涩难懂了，我会采用实际例子来辅助理解</em></p><h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p><em><strong>所有非主属性完全依赖于任意一个键码</strong></em><br>在这里我们要重点关注一个词：完全。什么样的依赖从才能说是完全依赖呢？我们看看下面这个图书馆借书登记的例子。  </p><table><thead><tr><th align="center">Name</th><th align="center">Title</th><th align="center">Date</th><th align="center">Domitory</th></tr></thead><tbody><tr><td align="center">Darcy</td><td align="center">Pride And Prejudice</td><td align="center">2020/3/26</td><td align="center">Domitory A</td></tr><tr><td align="center">Lucy</td><td align="center">Jane Eyre</td><td align="center">2020/1/18</td><td align="center">Domitory B</td></tr></tbody></table><p>在这个借书信息关系表中，我们可以<strong>通过生活实际</strong>得出如下的函数依赖关系：Name Title-&gt;Date和Name-&gt;Domitory。通过<strong>闭包</strong>，我们可以求出关系表的键码为{Name，Title}，Date这个属性是通过这个键码确定的，但是Domitory这个属性是通过这个<strong>键码的子集</strong>{Name}确定的，因此这个关系表不符合第二范式。<br>这时候只要选择一个函数依赖分离出一个新的关系表就可以解决这个问题。比如选择函数依赖Name-&gt;Domitory分离出第一个表：  </p><table><thead><tr><th align="center">Name</th><th align="center">Domitory</th></tr></thead><tbody><tr><td align="center">Darcy</td><td align="center">Domitory A</td></tr><tr><td align="center">Lucy</td><td align="center">Domitory B</td></tr></tbody></table><p><strong>剩下的属性集</strong>作为第二个表：  </p><table><thead><tr><th align="center">Name</th><th align="center">Title</th><th align="center">Date</th></tr></thead><tbody><tr><td align="center">Darcy</td><td align="center">Pride And Prejudice</td><td align="center">2020/3/26</td></tr><tr><td align="center">Lucy</td><td align="center">Jane Eyre</td><td align="center">2020/1/18</td></tr></tbody></table><p>这样两个表就都符合第二范式了。当然，实际问题可能更加复杂，比如上面第二个表分离出来后还是不符合第二范式，那么就要根据别的函数依赖继续分离第二个表。</p><p>需要注意的是，第二范式并不要求非主属性直接依赖于同一个键码，但是非主属性一定能够通过某种函数传递而依赖于同一个键码。看上去挺绕的是不是？我们来看一个例子：  </p><table><thead><tr><th align="center">Name</th><th align="center">Domitory</th><th align="center">DomitoryManagement</th></tr></thead><tbody><tr><td align="center">Darcy</td><td align="center">Domitory A</td><td align="center">Uncle Ben</td></tr><tr><td align="center">Lucy</td><td align="center">Domitory B</td><td align="center">Aunt Jenny</td></tr></tbody></table><p>在这个关系表中，DomitoryManagement不直接依赖于键码{Name}，但是它依赖于Domitory，并且Domitory依赖于键码{Name}，这是一个传递依赖，所以符合第二范式。这一点是区分第二范式和第三范式的关键，因为第三范式要求不能有传递依赖。</p><h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p><em><strong>如果对于关系R中的任何非平凡依赖A1A2…An-&gt;B，它们满 足条件：或者A1A2…An是超键码，或者B是某个键码的组成部分，则关系R满足第三范式</strong></em></p><h2 id="BC范式"><a href="#BC范式" class="headerlink" title="BC范式"></a>BC范式</h2><h2 id="第四范式"><a href="#第四范式" class="headerlink" title="第四范式"></a>第四范式</h2>]]></content>
+    <content type="html"><![CDATA[<p><em>范式的规定随着序号的增加而逐渐严格，序号大的范式一定满足序号小的范式的要求</em></p><h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p><em><strong>属性不可分</strong></em><br>这是最简单也是最基础的范式，<strong>所有关系模型</strong>必须满足这个范式。这个定义已经十分清晰明了了，即在实际情况中，我们选取的关系模型的属性必须具有原子性，不可分性，但是同时又不必过于细致，能够满足实际应用要求即可。</p><p><em>接下来的范式定义就逐渐晦涩难懂了，我会采用实际例子来辅助理解</em></p><h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p><em><strong>所有非主属性完全依赖于任意一个键码</strong></em><br>在这里我们要重点关注一个词：完全。什么样的依赖从才能说是完全依赖呢？我们看看下面这个图书馆借书登记的例子。  </p><table><thead><tr><th align="center">Name</th><th align="center">Title</th><th align="center">Date</th><th align="center">Domitory</th></tr></thead><tbody><tr><td align="center">Darcy</td><td align="center">Pride And Prejudice</td><td align="center">2020/3/26</td><td align="center">Domitory A</td></tr><tr><td align="center">Lucy</td><td align="center">Jane Eyre</td><td align="center">2020/1/18</td><td align="center">Domitory B</td></tr></tbody></table><p>在这个借书信息关系表中，我们可以<strong>通过生活实际</strong>得出如下的函数依赖关系：Name Title-&gt;Date和Name-&gt;Domitory。通过<strong>闭包</strong>，我们可以求出关系表的键码为{Name，Title}，Date这个属性是通过这个键码确定的，但是Domitory这个属性是通过这个<strong>键码的子集</strong>{Name}确定的，因此这个关系表不符合第二范式。<br>这时候只要选择一个函数依赖分离出一个新的关系表就可以解决这个问题。比如选择函数依赖Name-&gt;Domitory分离出第一个表：  </p><table><thead><tr><th align="center">Name</th><th align="center">Domitory</th></tr></thead><tbody><tr><td align="center">Darcy</td><td align="center">Domitory A</td></tr><tr><td align="center">Lucy</td><td align="center">Domitory B</td></tr></tbody></table><p><strong>剩下的属性集</strong>作为第二个表：  </p><table><thead><tr><th align="center">Name</th><th align="center">Title</th><th align="center">Date</th></tr></thead><tbody><tr><td align="center">Darcy</td><td align="center">Pride And Prejudice</td><td align="center">2020/3/26</td></tr><tr><td align="center">Lucy</td><td align="center">Jane Eyre</td><td align="center">2020/1/18</td></tr></tbody></table><p>这样两个表就都符合第二范式了。当然，实际问题可能更加复杂，比如上面第二个表分离出来后还是不符合第二范式，那么就要根据别的函数依赖继续分离第二个表。</p><p>需要注意的是，第二范式并不要求非主属性直接依赖于同一个键码，但是非主属性一定能够通过某种函数传递而依赖于同一个键码。看上去挺绕的是不是？我们来看一个例子：  </p><table><thead><tr><th align="center">Name</th><th align="center">Domitory</th><th align="center">DomitoryManagement</th></tr></thead><tbody><tr><td align="center">Darcy</td><td align="center">Domitory A</td><td align="center">Uncle Ben</td></tr><tr><td align="center">Lucy</td><td align="center">Domitory B</td><td align="center">Aunt Jenny</td></tr></tbody></table><p>在这个关系表中，DomitoryManagement不直接依赖于键码{Name}，但是它依赖于Domitory，并且Domitory依赖于键码{Name}，这是一个传递依赖，所以符合第二范式。这一点是区分第二范式和第三范式的关键，因为第三范式要求不能有传递依赖。</p><h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p><em><strong>如果对于关系R中的任何非平凡依赖A1A2…An-&gt;B，它们满 足条件：或者A1A2…An是超键码，或者B是某个键码的组成部分，则关系R满足第三范式</strong></em></p><h2 id="BC范式"><a href="#BC范式" class="headerlink" title="BC范式"></a>BC范式</h2>]]></content>
     
     <summary type="html">
     
@@ -487,31 +512,6 @@
         &lt;p&gt;编码就是&lt;strong&gt;赋予二进制代码特殊含义&lt;/strong&gt;的过程。 &lt;/p&gt;
 &lt;p&gt;编码器就是实现编码功能的逻辑电路。 &lt;/p&gt;
 &lt;h3 id=&quot;一、普通编码器&quot;&gt;&lt;a href=&quot;#一、普通编码器&quot; class=&quot;headerlink&quot; title=&quot;一、普通编码器
-      
-    
-    </summary>
-    
-    
-    
-      <category term="数字电路" scheme="http://39.106.115.216/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字电路：卡诺图（2）</title>
-    <link href="http://39.106.115.216/2020/02/09/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%882%EF%BC%89/"/>
-    <id>http://39.106.115.216/2020/02/09/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%882%EF%BC%89/</id>
-    <published>2020-02-09T08:53:34.000Z</published>
-    <updated>2020-05-18T03:12:18.945Z</updated>
-    
-    <content type="html"><![CDATA[<p><em>由上篇知道，卡诺图是一个将最小项按二维格雷码的形式排布的表格，每个格子对应着一个最小项，那么卡诺图怎么使用呢？</em></p><h3 id="一、什么是逻辑函数的卡诺图"><a href="#一、什么是逻辑函数的卡诺图" class="headerlink" title="一、什么是逻辑函数的卡诺图"></a>一、什么是逻辑函数的卡诺图</h3><p>逻辑函数的卡诺图每一个格子不仅对应着一个最小项了，若该格子为1，表示这个格子对应的最小项在逻辑函数中出现，反之若该格子为0，表示该格子对应的最小项在逻辑函数中没有出现。将逻辑函数的每一个最小项对应填到同变量数的卡诺图中，这个卡诺图就是该逻辑函数的卡诺图。</p><h3 id="二、如何获得逻辑函数的卡诺图"><a href="#二、如何获得逻辑函数的卡诺图" class="headerlink" title="二、如何获得逻辑函数的卡诺图"></a>二、如何获得逻辑函数的卡诺图</h3><p>首先将逻辑函数化成与或表达式，然后通过重叠律（A+<span style="text-decoration:overline">A</span>=1）将表达式中每一个乘积项（与项）增补成最小项，然后画出卡诺图，最后在卡诺图中找到逻辑函数每一个最小项对应的格子，将改格子写为1，其余格子全写0。</p><h3 id="三、逻辑函数的卡诺图如何化简"><a href="#三、逻辑函数的卡诺图如何化简" class="headerlink" title="三、逻辑函数的卡诺图如何化简"></a>三、逻辑函数的卡诺图如何化简</h3><p>先看看哪里数字1多，然后画圈圈把他们围住，注意，这些圈圈不能随便画，有以下几点原则:</p><ol><li>圈圈中包围的数字1的个数必须为2的整数幂，即1、2、4、8个等等。</li><li>圈圈中包围的数字只能是1，且圈圈围住的方格组合起来必须是矩形，即1x1、1x2、2x2、2x4的大小等等。</li><li>圈圈个数尽可能少（因为每个圈圈最后就是一个乘积项，圈圈越少结果越简单），每个圈圈包围的数字1尽可能多。</li><li>不同的圈圈<strong>可以重复包围</strong>同一个数字1（这一点初学容易忽视）。</li><li>如果一个圈圈中所有的数字1都已经被其他圈圈围住了，那么这个圈圈就是多余的，可以省去（这一点消除竞争与冒险时会反过来利用）。  </li></ol><p>现在圈圈画完了，开始整理，将每一个圈圈所对应的乘积项写出来（即圈圈中所有最小项相“与”），然后将这些乘积项全部“或”起来，就是化简后的表达式了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;em&gt;由上篇知道，卡诺图是一个将最小项按二维格雷码的形式排布的表格，每个格子对应着一个最小项，那么卡诺图怎么使用呢？&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&quot;一、什么是逻辑函数的卡诺图&quot;&gt;&lt;a href=&quot;#一、什么是逻辑函数的卡诺图&quot; class=&quot;headerlink&quot; t
       
     
     </summary>
