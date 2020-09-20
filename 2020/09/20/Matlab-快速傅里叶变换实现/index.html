@@ -18,22 +18,22 @@
   
   
   <title>Matlab:快速傅里叶变换实现 | Darcy&#39;s Blog</title>
-  <meta name="description" content="一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。    正交函数集正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；   如果正交函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。    用类比的角度看，这个定义和线性代数中">
+  <meta name="description" content="一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。   正交函数集  正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；    如果正交函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。   用类比的角度看，这个定义和线性代数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matlab:快速傅里叶变换实现">
-<meta property="og:url" content="http://39.106.115.216/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:url" content="http://github.com/Jiahaohong/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。    正交函数集正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；   如果正交函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。    用类比的角度看，这个定义和线性代数中">
+<meta property="og:description" content="一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。   正交函数集  正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；    如果正交函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。   用类比的角度看，这个定义和线性代数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://39.106.115.216/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/DMat.jpg">
+<meta property="og:image" content="http://github.com/Jiahaohong/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/DMat.jpg">
 <meta property="article:published_time" content="2020-09-19T19:13:55.000Z">
-<meta property="article:modified_time" content="2020-09-20T17:28:36.080Z">
+<meta property="article:modified_time" content="2020-09-20T23:11:05.307Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="Matlab">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://39.106.115.216/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/DMat.jpg">
+<meta name="twitter:image" content="http://github.com/Jiahaohong/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/DMat.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://39.106.115.216/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/index.html">
+  <link rel="canonical" href="http://github.com/Jiahaohong/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Darcy&#39;s Blog" type="application/atom+xml">
   
@@ -255,6 +255,15 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是傅里叶变换"><span class="toc-number">1.</span> <span class="toc-text">一、什么是傅里叶变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#正交函数集"><span class="toc-number">1.1.</span> <span class="toc-text">正交函数集</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、离散傅里叶变换"><span class="toc-number">2.</span> <span class="toc-text">二、离散傅里叶变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、一维快速傅里叶变换的原理"><span class="toc-number">3.</span> <span class="toc-text">三、一维快速傅里叶变换的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、二维傅里叶变换的性质"><span class="toc-number">4.</span> <span class="toc-text">四、二维傅里叶变换的性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、二维快速傅里叶变换的实现"><span class="toc-number">5.</span> <span class="toc-text">五、二维快速傅里叶变换的实现</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
   <article id="post-Matlab-快速傅里叶变换实现" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -300,26 +309,27 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <h3 id="一、什么是傅里叶变换"><a href="#一、什么是傅里叶变换" class="headerlink" title="一、什么是傅里叶变换"></a>一、什么是傅里叶变换</h3><p>简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。  </p>
-<ul>
-<li><p><strong>正交函数集</strong><br>正交函数集满足如下两条性质：  </p>
+<h4 id="正交函数集"><a href="#正交函数集" class="headerlink" title="正交函数集"></a>正交函数集</h4><p>  正交函数集满足如下两条性质：  </p>
 <ol>
-<li>正交函数集中的任意两个不相同函数的内积为0；  </li>
-<li>如果正交函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。  </li>
-</ol>
+<li><p>正交函数集中的任意两个不相同函数的内积为0；  </p>
+</li>
+<li><p>如果正交函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。  </p>
 <p>用类比的角度看，这个定义和线性代数中的基向量组的定义一致。说明正交函数集其实相当于函数空间中的一组基向量，函数空间中的一个函数对应向量空间中的一个向量，任何向量可以由基向量表示，同样的，任何函数可以由正交函数集表示。基向量可以写成矩阵的形式，同理，正交函数集也可以写成向量的形式。如下：  </p>
 <center>[1, sin(wx), cos(wx), sin(2wx), cos(2wx), ..., sin(nwx), cos(nwx), ...]</center>  
 这是一个1维向量，当前乘一个函数时就可以利用矩阵的乘法将函数分解到这个正交函数集上。  
 <center>[f(x)] * [1, sin(wx), cos(wx), ..., sin(nwx), cos(nwx), ...] =</center>  
 <center>[a0, b1*sin(wx), a1*cos(wx), ..., bn*sin(nwx), an*cos(nwx), ...]</center>  
-注意这些系数通过原函数f(x)和基函数内积等运算得到的。  </li>
-<li><p><strong>内积运算</strong><br>内积定义为向量a在向量b上的投影向量，当内积运算后的结果除以向量b的模长，就可以计算出向量a在向量b上投影占向量b的比例，这个比例就是基函数前面的系数。内积是反映两个向量相似度的重要指标，当两个向量完全相等时，它们的内积取得最大值。因此正交函数集的系数的含义，可以理解为原函数和基函数的相似度，相似度越大，这个基函数的系数越大。</p>
+注意这些系数通过原函数f(x)和基函数内积等运算得到的。  
+#### 内积运算 
+内积定义为向量a在向量b上的投影向量，当内积运算后的结果除以向量b的模长，就可以计算出向量a在向量b上投影占向量b的比例，这个比例就是基函数前面的系数。内积是反映两个向量相似度的重要指标，当两个向量完全相等时，它们的内积取得最大值。因此正交函数集的系数的含义，可以理解为原函数和基函数的相似度，相似度越大，这个基函数的系数越大。
+
 </li>
-</ul>
+</ol>
 <p>因此，总体上来看，正交函数集构成了一个无穷维数的函数空间，这个空间里的任何函数都可以由这些基函数的加权求和表示，权重就是原函数和积函数的内积，及将原函数投影到这些正交函数集上。  </p>
 <h3 id="二、离散傅里叶变换"><a href="#二、离散傅里叶变换" class="headerlink" title="二、离散傅里叶变换"></a>二、离散傅里叶变换</h3><p>上一个板块中讲到傅里叶变换是连续函数空间里的，如果处理的函数是一个离散的函数，那么就要用到离散傅里叶变换。离散傅里叶变换与来连续傅里叶变换的最大区别是求相关系数时的积分运算变成了求和运算。将正交函数集的向量形式抄写如下：  </p>
 <center>[1, sin(wx), cos(wx), sin(2wx), cos(2wx), ..., sin(nwx), cos(nwx), ...]</center>  
 注意，这里的每一列都是一个连续函数，如果用离散的x坐标将其离散化，就可以获得离散傅里叶变换的正交函数集矩阵，如下：  
-<img src="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/DMat.jpg">  
+<img src="/Jiahaohong/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/DMat.jpg">  
 
 <p>这是一个二维矩阵，每一列代表一个正交函数，每一行代表一个离散坐标x。将离散函数写成向量的形式后就可以用矩阵的乘法求出变换后的函数。注意，上述矩阵并没有限制离散变量的取值范围以及基函数的个数，如果要满足矩阵乘法的要求，离散变量x的取值范围应该和原函数的x范围相同，一般来说，基函数的个数（变换后的变量w取值范围）也和原函数x的范围一致。  </p>
 <h3 id="三、一维快速傅里叶变换的原理"><a href="#三、一维快速傅里叶变换的原理" class="headerlink" title="三、一维快速傅里叶变换的原理"></a>三、一维快速傅里叶变换的原理</h3><h3 id="四、二维傅里叶变换的性质"><a href="#四、二维傅里叶变换的性质" class="headerlink" title="四、二维傅里叶变换的性质"></a>四、二维傅里叶变换的性质</h3><h3 id="五、二维快速傅里叶变换的实现"><a href="#五、二维快速傅里叶变换的实现" class="headerlink" title="五、二维快速傅里叶变换的实现"></a>五、二维快速傅里叶变换的实现</h3>
@@ -331,7 +341,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://39.106.115.216/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/" title="Matlab:快速傅里叶变换实现" target="_blank" rel="external">http://39.106.115.216/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/</a>
+      <a href="http://github.com/Jiahaohong/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/" title="Matlab:快速傅里叶变换实现" target="_blank" rel="external">http://github.com/Jiahaohong/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -380,6 +390,15 @@
       <a href="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/" title="Keil5安装芯片包"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
     
   </ul>
   
@@ -477,7 +496,7 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 (function ($) {
     $('.search-form').on('submit', function (e) {
         var keyword = $('.search-form-input[name="wd"]').val();
-        window.location = 'https://www.baidu.com/s?wd=site:39.106.115.216 ' + keyword;
+        window.location = 'https://www.baidu.com/s?wd=site:github.com/Jiahaohong ' + keyword;
         return false;
     });
 })(jQuery);

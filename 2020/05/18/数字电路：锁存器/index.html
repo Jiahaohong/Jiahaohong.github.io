@@ -21,21 +21,21 @@
   <meta name="description" content="一、基本双稳态电路先直接给出书本上的定义：具有0、1两种逻辑状态，并且进入其中任何一种逻辑状态后均能长期保持这种状态不变的单元电路。并且规定Q端输出为0的时候，该电路逻辑状态为0；Q端输出为1的时候，该电路逻辑状态为1。        那么如何分析该电路的状态呢？首先假定电路的一个逻辑状态，比如为0；然后确定两输出端的逻辑电平，此时Q为0，Q非为1；接着分析反馈到输入端的逻辑电平，G1输入1，G2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字电路：锁存器">
-<meta property="og:url" content="http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/index.html">
+<meta property="og:url" content="http://github.com/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
 <meta property="og:description" content="一、基本双稳态电路先直接给出书本上的定义：具有0、1两种逻辑状态，并且进入其中任何一种逻辑状态后均能长期保持这种状态不变的单元电路。并且规定Q端输出为0的时候，该电路逻辑状态为0；Q端输出为1的时候，该电路逻辑状态为1。        那么如何分析该电路的状态呢？首先假定电路的一个逻辑状态，比如为0；然后确定两输出端的逻辑电平，此时Q为0，Q非为1；接着分析反馈到输入端的逻辑电平，G1输入1，G2">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/%E5%9F%BA%E6%9C%AC%E5%8F%8C%E7%A8%B3%E6%80%81%E7%94%B5%E8%B7%AF.png">
-<meta property="og:image" content="http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/%E5%9F%BA%E6%9C%ACSR%E9%94%81%E5%AD%98%E5%99%A8.png">
-<meta property="og:image" content="http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/%E5%9F%BA%E6%9C%ACSR%E9%94%81%E5%AD%98%E5%99%A82.png">
+<meta property="og:image" content="http://github.com/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/%E5%9F%BA%E6%9C%AC%E5%8F%8C%E7%A8%B3%E6%80%81%E7%94%B5%E8%B7%AF.png">
+<meta property="og:image" content="http://github.com/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/%E5%9F%BA%E6%9C%ACSR%E9%94%81%E5%AD%98%E5%99%A8.png">
+<meta property="og:image" content="http://github.com/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/%E5%9F%BA%E6%9C%ACSR%E9%94%81%E5%AD%98%E5%99%A82.png">
 <meta property="article:published_time" content="2020-05-18T03:19:29.000Z">
 <meta property="article:modified_time" content="2020-08-27T03:01:03.031Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="数字电路">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/%E5%9F%BA%E6%9C%AC%E5%8F%8C%E7%A8%B3%E6%80%81%E7%94%B5%E8%B7%AF.png">
+<meta name="twitter:image" content="http://github.com/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/%E5%9F%BA%E6%9C%AC%E5%8F%8C%E7%A8%B3%E6%80%81%E7%94%B5%E8%B7%AF.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/index.html">
+  <link rel="canonical" href="http://github.com/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Darcy&#39;s Blog" type="application/atom+xml">
   
@@ -302,13 +302,13 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <h3 id="一、基本双稳态电路"><a href="#一、基本双稳态电路" class="headerlink" title="一、基本双稳态电路"></a>一、基本双稳态电路</h3><p>先直接给出书本上的定义：具有0、1两种逻辑状态，并且进入其中任何一种逻辑状态后均能长期保持这种状态不变的单元电路。<br>并且<strong>规定</strong>Q端输出为0的时候，该电路逻辑状态为0；Q端输出为1的时候，该电路逻辑状态为1。  </p>
-<img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本双稳态电路.png">   
+<img src="/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本双稳态电路.png">   
 
 <p>那么如何分析该电路的状态呢？<br>首先假定电路的一个逻辑状态，比如为0；然后确定两输出端的逻辑电平，此时Q为0，Q非为1；接着分析反馈到输入端的逻辑电平，G1输入1，G2输入0；最后通过输入和逻辑门检查输出端的逻辑电平是否和假设一致（此例G1输出0和假设一致），如果一致，表示电路逻辑状态就是假设的逻辑状态，已经稳定了，如果不一致，需要修改假设的逻辑状态再进行一次判断，若第二次分析结果还是不一致，则说明电路进入了不确定状态。</p>
 <h3 id="二、基本SR锁存器"><a href="#二、基本SR锁存器" class="headerlink" title="二、基本SR锁存器"></a>二、基本SR锁存器</h3><p>将基本双稳态电路的非门换成两输入或非门就构成了一种基本SR锁存器，如果换成两输入与非门就构成了另一种基本SR锁存器。   </p>
 <ul>
 <li><p>或非门SR锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  </p>
-<img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器.png">  
+<img src="/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器.png">  
 
 <p>这个电路的状态如何分析？<br>总体来说和双稳态电路的分析过程差不多，但是考虑到多出来两个输入端，所以在分析锁存器的状态的时候，不仅需要假设锁存器的输出状态，还要假设锁存器的输入状态。下面给出锁存器的功能表：</p>
 </li>
@@ -355,7 +355,7 @@
 <p>  总结一下：S端代表SET，及设置为1状态；R端代表RESET，及重置0状态；S端和R端接收到高电平时才会发挥作用，接收到低电平时不起作用；S端和R端不能同时起作用，及送入S端和R端的信号满足S·R=0，二者不能同时为1。</p>
 <ul>
 <li><p>与非门锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  </p>
-<img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器2.png">  
+<img src="/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器2.png">  
 
 <p>与非门锁存器和或非门锁存器送入输入端的信号是互补的，其他一摸一样。可以理解为在或非门两个输入端外分别连接一个非门。</p>
 </li>
@@ -369,7 +369,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/" title="数字电路：锁存器" target="_blank" rel="external">http://39.106.115.216/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/</a>
+      <a href="http://github.com/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/" title="数字电路：锁存器" target="_blank" rel="external">http://github.com/Jiahaohong/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -519,7 +519,7 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 (function ($) {
     $('.search-form').on('submit', function (e) {
         var keyword = $('.search-form-input[name="wd"]').val();
-        window.location = 'https://www.baidu.com/s?wd=site:39.106.115.216 ' + keyword;
+        window.location = 'https://www.baidu.com/s?wd=site:github.com/Jiahaohong ' + keyword;
         return false;
     });
 })(jQuery);
