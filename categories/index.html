@@ -17,21 +17,26 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>深度学习:逻辑回归的符号和公式 | Darcy&#39;s Blog</title>
-  <meta name="description" content="一、符号说明一个样本包含两个部分，特征x和标签y  x表示某一个样本的特征的集合，通常是一个列向量，其中每一个维度表示一个特征 xj表示第j个特征 x(i)表示第i个样本的特征数据，注意上标是小括号 x(i)j表示第i个样本的第j个特征，注意上标是小括号 y表示一个样本的真实标签，通常时一个列向量，其中每一个维度代表一个种类，如果该样本这一个维度为0，表示该样本不属于该种类；如果该样本的这一维度为">
-<meta property="og:type" content="article">
-<meta property="og:title" content="深度学习:逻辑回归的符号和公式">
-<meta property="og:url" content="http://jiahaohong.github.io/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/index.html">
+  <title>分类 | Darcy&#39;s Blog</title>
+  <meta name="description" content="Students">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="http://jiahaohong.github.io/categories/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="一、符号说明一个样本包含两个部分，特征x和标签y  x表示某一个样本的特征的集合，通常是一个列向量，其中每一个维度表示一个特征 xj表示第j个特征 x(i)表示第i个样本的特征数据，注意上标是小括号 x(i)j表示第i个样本的第j个特征，注意上标是小括号 y表示一个样本的真实标签，通常时一个列向量，其中每一个维度代表一个种类，如果该样本这一个维度为0，表示该样本不属于该种类；如果该样本的这一维度为">
+<meta property="og:description" content="Students">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-07T01:48:36.000Z">
-<meta property="article:modified_time" content="2020-07-18T13:54:15.940Z">
+<meta property="article:published_time" content="2020-09-20T22:02:47.434Z">
+<meta property="article:modified_time" content="2020-09-20T20:56:53.095Z">
 <meta property="article:author" content="Darcy">
-<meta property="article:tag" content="DeepLearning">
+<meta property="article:tag" content="new-programmer">
+<meta property="article:tag" content=" much C">
+<meta property="article:tag" content=" little Python">
+<meta property="article:tag" content=" little Java">
+<meta property="article:tag" content=" little Js">
+<meta property="article:tag" content=" little html5">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://jiahaohong.github.io/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/index.html">
+  <link rel="canonical" href="http://jiahaohong.github.io/categories/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Darcy&#39;s Blog" type="application/atom+xml">
   
@@ -252,162 +257,24 @@
 </aside>
 
   
-  
-<main class="main" role="main">
-  <div class="content">
-  <article id="post-深度学习-符号和公式" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-    
-    <div class="article-header">
+  <main class="main" role="main">
+  <article class="article article-categories article-type-list" itemscope="">
+    <header class="article-header">
+      <h1 itemprop="name" class="hidden-xs">分类</h1>
+      <p class="text-muted hidden-xs">共 0 个分类</p>
+      <nav role="navigation" id="nav-main" class="okayNav">
+        <ul>
+          <li><a href="/categories">All</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+    <!-- /header -->
+    <div class="article-body">
       
-        
-  
-    <h1 class="article-title" itemprop="name">
-      深度学习:逻辑回归的符号和公式
-    </h1>
-  
-
-      
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/" class="article-date">
-	  <time datetime="2020-07-07T01:48:36.000Z" itemprop="datePublished">2020-07-07</time>
-	</a>
-</span>
-        
-        
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/DeepLearning/" rel="tag">DeepLearning</a>
-  </span>
-
-
-        
-	<span class="article-read hidden-xs">
-	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
-	    <span id="busuanzi_container_page_pv">
-			<span id="busuanzi_value_page_pv">0</span>
-		</span>
-	</span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/#comments" class="article-comment-link">评论</a></span>
-        
-      </div>
-    </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      
-        <h3 id="一、符号说明"><a href="#一、符号说明" class="headerlink" title="一、符号说明"></a>一、符号说明</h3><p>一个样本包含两个部分，特征x和标签y</p>
-<ul>
-<li>x<br>表示某一个样本的特征的集合，通常是一个列向量，其中每一个维度表示一个特征</li>
-<li>x<sub>j</sub><br>表示第j个特征</li>
-<li>x<sup>(i)</sup><br>表示第i个样本的特征数据，注意上标是小括号</li>
-<li>x<sup>(i)</sup><sub>j</sub><br>表示第i个样本的第j个特征，注意上标是小括号</li>
-<li>y<br>表示一个样本的真实标签，通常时一个列向量，其中每一个维度代表一个种类，如果该样本这一个维度为0，表示该样本不属于该种类；如果该样本的这一维度为1，表示该样本属于该种类</li>
-<li>y<sup>(i)</sup><br>表示第i个样本的标签，注意上标是小括号  </li>
-</ul>
-<p>一层神经网络由三部分组成，第一部分是与上一层神经网络连接的权重矩阵，第二部分是权重矩阵的输出，第三部分是权重矩阵的输出经过该层神经元的激活函数后的输出结果</p>
-<ul>
-<li>n<sub>i</sub><br>表示第i层神经网络的神经元个数，通常输入层（第0层）写作n<sub>x</sub>，输出层（最后一层）写作n<sub>L</sub></li>
-<li>W<sup>[i]</sup><br>表示连接第i-1层和第i层神经元的权重矩阵，矩阵形状为(n<sub>i</sub>,n<sub>i-1</sub>)，n<sub>i</sub>是第i层的神经元个数</li>
-<li>Z<sup>[i]</sup><br>表示第i层神经元的输入</li>
-<li>A<sup>[i]</sup><br>表示Z<sup>[i]</sup>经过第i层神经元的激活函数后的输出，之后要输入到下一层的权重矩阵W<sup>[i+1]</sup>里；特别的，输入的样本特征可以看作是A<sup>[0]</sup>  </li>
-</ul>
-<p>偏导数部分的符号是程序里的变量标识符，不是数学里的微分字符</p>
-<ul>
-<li>dW<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li>
-<li>dZ<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li>
-<li>dA<sup>[i]</sup><br>表示损失函数对第i层神经元输出的偏导数</li>
-</ul>
-<h3 id="二、公式"><a href="#二、公式" class="headerlink" title="二、公式"></a>二、公式</h3><ol>
-<li>前向传播公式<br>(1) Z<sup>[i]</sup> = W<sup>[i]</sup> · A<sup>[i-1]</sup> + b<sup>[i]</sup><br>(2) A<sup>[i]</sup> = g<sup>[i]</sup>(Z<sup>[i]</sup>)</li>
-<li>反向传播公式<br>(1) dW<sup>[i]</sup> = (1/m)·dZ<sup>[i]</sup>·A<sup>[i-1]T</sup><br>(2) db<sup>[i]</sup> = (1/m)·sum(dZ<sup>[i]</sup>)<br>(3) dZ<sup>[i-1]</sup> = W<sup>[i]T</sup>·dZ<sup>[i]</sup>*g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)</li>
-<li>公示推导的简单说明<br>对于公式1，根据矩阵求导公式d( f(X) ) = d( A·X )/dX = A<sup>T</sup>，再由矩阵相等时维度相同，可得1个样本时的偏导数为dZ<sup>[i]</sup>·A<sup>[i-1]T</sup>，如果有m个样本，则取平均值1/m。<br>对于公式3，类似公式1的求导公式得出下一层网络的输入Z<sup>[i]</sup>对上一层网络的输出A<sup>[i-1]</sup>的偏导函数为W<sup>[i]T</sup>,同样根据矩阵相等时维度必须相同可得公式3，注意后面的g<sup>[i-1]’</sup>(Z<sup>[i-1]</sup>)只不过是A<sup>[i-1]</sup>对Z<sup>[i-1]</sup>的偏导函数，因为A<sup>[i-1]</sup> = g<sup>[i-1]</sup>(Z<sup>[i-1]</sup>)。</li>
-</ol>
-<h3 id="三、常用激活函数导数"><a href="#三、常用激活函数导数" class="headerlink" title="三、常用激活函数导数"></a>三、常用激活函数导数</h3><ul>
-<li>S(x) = sigmoid(X)<br> S<sup>‘</sup>(x) = S(x)·(1-S(x))</li>
-<li>f(x) = tanh(x)<br> f<sup>‘</sup>(x) = 1-(f(x))<sup>2</sup></li>
-<li>f(x) = ReLU(x)<br> f<sup>‘</sup>(x) = max{0,a}</li>
-</ul>
-
-      
-    </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="http://jiahaohong.github.io/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/" title="深度学习:逻辑回归的符号和公式" target="_blank" rel="external">http://jiahaohong.github.io/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%85%AC%E5%BC%8F/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/Jiahaohong" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/me.png" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/Jiahaohong" target="_blank"><span class="text-dark">Darcy</span><small class="ml-1x">Students</small></a></h3>
-        <div>Hope is something as precious as dimond.</div>
-      </div>
-    </figure>
-  </div>
-</div>
-
-
     </div>
   </article>
-  
-    
-  <section id="comments">
-  	
-  </section>
-
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2020/07/11/Python-Numpy/" title="Python:Numpy"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
-    
-    <li class="next">
-      <a href="/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/" title="数字电路：竞争与冒险"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
-    
-    
-  </ul>
-  
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="qq,wechat,weibo,facebook,twitter" data-mobile-sites="qq,weibo,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
-
-
 </main>
-
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 	
 	
@@ -449,14 +316,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-   
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-   
 
 
 
