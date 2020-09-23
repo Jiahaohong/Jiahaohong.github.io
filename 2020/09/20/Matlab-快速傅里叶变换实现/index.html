@@ -1,24 +1,89 @@
 <!DOCTYPE html>
-<html lang=zh>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  <!-- Color theme for statusbar -->
-  <meta name="theme-color" content="#000000" />
-  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
-  <meta http-equiv="window-target" content="_top" />
   
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Matlab," />
+
+
+
+
   
-  <title>Matlab:快速傅里叶变换实现 | Darcy&#39;s Blog</title>
-  <meta name="description" content="一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。   正交函数集正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；   如果某函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。    用类比的角度看，这个定义和线性代数中的基">
+
+
+  <link rel="alternate" href="/atom.xml" title="Darcy's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。   正交函数集正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；   如果某函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。    用类比的角度看，这个定义和线性代数中的基">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matlab:快速傅里叶变换实现">
 <meta property="og:url" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/index.html">
@@ -35,287 +100,234 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/FT2D.png">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/FT2DCoreAlgo.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/FT2DCoreAlgo2.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/orig.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/ft.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/shiftFt.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/check.jpg">
 <meta property="article:published_time" content="2020-09-19T19:13:55.000Z">
-<meta property="article:modified_time" content="2020-09-22T05:56:55.609Z">
+<meta property="article:modified_time" content="2020-09-23T15:33:50.963Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="Matlab">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/DMat.jpg">
-  <!-- Canonical links -->
-  <link rel="canonical" href="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/index.html">
-  
-    <link rel="alternate" href="/atom.xml" title="Darcy&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://Jiahaohong.github.io/2020/09/20/Matlab-快速傅里叶变换实现/"/>
+
+
+
+
+
+  <title>Matlab:快速傅里叶变换实现 | Darcy's Blog</title>
   
-  
-  
-  
+
+
+
+
+
+
+
+
 <meta name="generator" content="Hexo 4.2.0"></head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
-  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-  <div class="slimContent">
-    <div class="navbar-header">
-      
-      
-      <div class="profile-block text-center">
-        <a id="avatar" href="https://github.com/Jiahaohong" target="_blank">
-          <img class="img-circle img-rotate" src="/images/me.png" width="200" height="200">
-        </a>
-        <h2 id="name" class="hidden-xs hidden-sm">Darcy</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Students</h3>
-        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Wuhan, China</small>
-      </div>
-      
-      <div class="search" id="search-form-wrap">
+  
+  
+    
+  
 
-    <form class="search-form sidebar-form" method="GET" action="https://www.baidu.com/s?">
-	<div class="input-group">
-    	<input name="wd" type="text" class="form-control search-form-input" placeholder="搜索" />
-	    <span class="input-group-btn">
-	    	<button type="submit" class=" btn btn-flat search-form-submit"><i class="icon icon-search"></i></button>
-	    </span>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Darcy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-</form>
+      
+        <p class="site-subtitle">Hope is something as precious as dimond.</p>
+      
+  </div>
 
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
-      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-      <ul class="nav navbar-nav main-nav menu-highlight">
-        
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
         
         <li class="menu-item menu-item-home">
-          <a href="/.">
+          <a href="/%20" rel="section">
             
-            <i class="icon icon-home-fill"></i>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            <span class="menu-title">首页</span>
+            Home
           </a>
         </li>
-        
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            
-            <i class="icon icon-archives-fill"></i>
-            
-            <span class="menu-title">归档</span>
-          </a>
-        </li>
-        
+      
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="/tags/%20" rel="section">
             
-            <i class="icon icon-tags"></i>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            <span class="menu-title">标签</span>
+            Tags
           </a>
         </li>
-        
-        
-        <li class="menu-item menu-item-repository">
-          <a href="/repository">
-            
-            <i class="icon icon-project"></i>
-            
-            <span class="menu-title">项目</span>
-          </a>
-        </li>
-        
-      </ul>
       
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/Jiahaohong" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
     </ul>
-
-    </nav>
-  </div>
-</header>
+  
 
   
-    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget-body tagcloud">
-      <a href="/tags/DeepLearning/" style="font-size: 13.25px;">DeepLearning</a> <a href="/tags/Keil5/" style="font-size: 13px;">Keil5</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Matlab/" style="font-size: 13px;">Matlab</a> <a href="/tags/Python/" style="font-size: 13px;">Python</a> <a href="/tags/Tensorflow/" style="font-size: 13.75px;">Tensorflow</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" style="font-size: 14px;">数字电路</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 13.5px;">数据库</a>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
+</nav>
 
 
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      
-  <div class="widget">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget-body">
-      <ul class="recent-post-list list-unstyled no-thumbnail">
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/" class="title">Matlab:快速傅里叶变换实现</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-09-19T19:13:55.000Z" itemprop="datePublished">2020-09-20</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/" class="title">Keil5安装芯片包</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-07-29T06:03:03.000Z" itemprop="datePublished">2020-07-29</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/07/22/Tensrflow-%E5%88%B6%E4%BD%9C%E6%95%B0%E6%8D%AE%E9%9B%86/" class="title">Tensorflow:制作数据集</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-07-22T13:45:51.000Z" itemprop="datePublished">2020-07-22</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="title">Linux常用指令（重制版）</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-07-18T13:55:57.000Z" itemprop="datePublished">2020-07-18</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/07/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="title">深度学习：卷积神经网络</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-07-17T13:57:15.000Z" itemprop="datePublished">2020-07-17</time>
-              </p>
-            </div>
-          </li>
-          
-      </ul>
-    </div>
-  </div>
+
   
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
 
     
-  </div>
-</aside>
+      <header class="post-header">
 
-  
-  
-<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    <nav id="toc" class="article-toc">
-      <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是傅里叶变换"><span class="toc-number">1.</span> <span class="toc-text">一、什么是傅里叶变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#正交函数集"><span class="toc-number">1.1.</span> <span class="toc-text">正交函数集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内积运算"><span class="toc-number">1.2.</span> <span class="toc-text">内积运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、离散傅里叶变换"><span class="toc-number">2.</span> <span class="toc-text">二、离散傅里叶变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、一维快速傅里叶变换的原理"><span class="toc-number">3.</span> <span class="toc-text">三、一维快速傅里叶变换的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、二维傅里叶变换的性质"><span class="toc-number">4.</span> <span class="toc-text">四、二维傅里叶变换的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#可分离性"><span class="toc-number">4.1.</span> <span class="toc-text">可分离性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#平移性"><span class="toc-number">4.2.</span> <span class="toc-text">平移性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、二维快速傅里叶变换的实现"><span class="toc-number">5.</span> <span class="toc-text">五、二维快速傅里叶变换的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件结构"><span class="toc-number">5.1.</span> <span class="toc-text">文件结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图像输入"><span class="toc-number">5.2.</span> <span class="toc-text">图像输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二维快速傅里叶变换"><span class="toc-number">5.3.</span> <span class="toc-text">二维快速傅里叶变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一维快速傅里叶变换"><span class="toc-number">5.4.</span> <span class="toc-text">一维快速傅里叶变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二维快速傅里叶反变换"><span class="toc-number">5.5.</span> <span class="toc-text">二维快速傅里叶反变换</span></a></li></ol></li></ol>
-    </nav>
-  </div>
-</aside>
+        
+        
+          <h1 class="post-title" itemprop="name headline">Matlab:快速傅里叶变换实现</h1>
+        
 
-<main class="main" role="main">
-  <div class="content">
-  <article id="post-Matlab-快速傅里叶变换实现" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-20T03:13:55+08:00">
+                2020-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
-    <div class="article-header">
-      
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Matlab:快速傅里叶变换实现
-    </h1>
-  
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/" class="article-date">
-	  <time datetime="2020-09-19T19:13:55.000Z" itemprop="datePublished">2020-09-20</time>
-	</a>
-</span>
-        
-        
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Matlab/" rel="tag">Matlab</a>
-  </span>
+      
 
-
-        
-	<span class="article-read hidden-xs">
-	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
-	    <span id="busuanzi_container_page_pv">
-			<span id="busuanzi_value_page_pv">0</span>
-		</span>
-	</span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">评论</a></span>
-        
-      </div>
-    </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
       
         <h3 id="一、什么是傅里叶变换"><a href="#一、什么是傅里叶变换" class="headerlink" title="一、什么是傅里叶变换"></a>一、什么是傅里叶变换</h3><p>简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。  </p>
 <h4 id="正交函数集"><a href="#正交函数集" class="headerlink" title="正交函数集"></a>正交函数集</h4><p>正交函数集满足如下两条性质：  </p>
@@ -376,146 +388,391 @@
 <p>上一段是进入快速傅里叶变换的铺垫步骤，利用padding补零，使得后续一维傅里叶快速变换可以最大限度地递归进行，最大限度地减少重复计算。而padding补上的零值在傅里叶变换的求和中是没有起作用的，因此不影响原图片的傅里叶变换的值。  </p>
 <h4 id="一维快速傅里叶变换"><a href="#一维快速傅里叶变换" class="headerlink" title="一维快速傅里叶变换"></a>一维快速傅里叶变换</h4><p>由第三部分可知，当输入函数的自变量取值范围是偶数时，输入函数的傅里叶变换可以由偶数部分和奇数部分各自的傅里叶变换通过简单组合得到，因此，我们采取递归的方式不断拆分输入函数，直到输入函数的自变量只能取1个值。</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ outputMat ]</span> = <span class="title">myfft</span><span class="params">( inputMat )</span></span></span><br><span class="line"></span><br><span class="line">    [M,N] = <span class="built_in">size</span>(inputMat);  <span class="comment">%获得输入一维矩阵（向量）的列数N，行数M没有用</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">mod</span>(N,<span class="number">2</span>)==<span class="number">0</span>  <span class="comment">%当输入向量的长度可以拆分时进行递归</span></span><br><span class="line">        oddMat = myfft( inputMat(<span class="number">1</span>:<span class="number">2</span>:<span class="keyword">end</span>) );</span><br><span class="line">        evenMat = myfft( inputMat(<span class="number">2</span>:<span class="number">2</span>:<span class="keyword">end</span>) );</span><br><span class="line">        <span class="keyword">for</span> u=<span class="number">1</span>:N/<span class="number">2</span></span><br><span class="line">            evenMat(u) = evenMat(u)*<span class="built_in">exp</span>(<span class="number">-1</span><span class="built_in">j</span>*<span class="number">2</span>*<span class="built_in">pi</span>*(u<span class="number">-1</span>)/N);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        foreMat = (oddMat + evenMat);</span><br><span class="line">        backMat = (oddMat - evenMat);</span><br><span class="line">        outputMat = <span class="built_in">cat</span>(<span class="number">2</span>,foreMat,backMat);</span><br><span class="line">    <span class="keyword">else</span>  <span class="comment">%当输入向量长度为1时停止递归，返回单点傅里叶变换的值，及自身</span></span><br><span class="line">        outputMat = inputMat;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
+<p>其实不需要完全分到1个点再进行傅里叶变换，可以适当提前结束递归。</p>
 <h4 id="二维快速傅里叶反变换"><a href="#二维快速傅里叶反变换" class="headerlink" title="二维快速傅里叶反变换"></a>二维快速傅里叶反变换</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iftImg = <span class="built_in">abs</span>(ifft2(ftImg));</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">3</span>)</span><br><span class="line">imshow(iftImg,[]);</span><br></pre></td></tr></table></figure>
+<p>这里反变换是利用Matlab提供的函数ifft2进行验证，如果正确的话，结果应该是原图片加上黑色边框。</p>
+<h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><img src="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/orig.jpg" width="400" height="160">
+<img src="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/ft.jpg" width="400" height="160">
+<img src="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/shiftFt.jpg" width="400" height="160">
+<img src="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/check.jpg" width="400" height="160">
       
     </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/" title="Matlab:快速傅里叶变换实现" target="_blank" rel="external">http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/Jiahaohong" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/me.png" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/Jiahaohong" target="_blank"><span class="text-dark">Darcy</span><small class="ml-1x">Students</small></a></h3>
-        <div>Hope is something as precious as dimond.</div>
-      </div>
-    </figure>
-  </div>
-</div>
-
-
-    </div>
-  </article>
-  
-    
-  <section id="comments">
-  	
-  </section>
-
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
     
     
-    <li class="next">
-      <a href="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/" title="Keil5安装芯片包"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
     
-    
-    <li class="toggle-toc">
-      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
-        <span>[&nbsp;</span><span>文章目录</span>
-        <i class="text-collapsed icon icon-anchor"></i>
-        <i class="text-in icon icon-close"></i>
-        <span>]</span>
-      </a>
-    </li>
-    
-  </ul>
-  
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="qq,wechat,weibo,facebook,twitter" data-mobile-sites="qq,weibo,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
 
+    
 
-</main>
+    
 
-  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-	
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/Jiahaohong" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-    </ul>
+    
 
-    <div class="copyright">
-    	
-        <div class="publishby">
-        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
+          
         </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/" rel="next" title="Keil5安装芯片包">
+                <i class="fa fa-chevron-left"></i> Keil5安装芯片包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
-</footer>
-  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script>
-window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Darcy</p>
+              <p class="site-description motion-element" itemprop="description">Students</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是傅里叶变换"><span class="nav-number">1.</span> <span class="nav-text">一、什么是傅里叶变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正交函数集"><span class="nav-number">1.1.</span> <span class="nav-text">正交函数集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内积运算"><span class="nav-number">1.2.</span> <span class="nav-text">内积运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、离散傅里叶变换"><span class="nav-number">2.</span> <span class="nav-text">二、离散傅里叶变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、一维快速傅里叶变换的原理"><span class="nav-number">3.</span> <span class="nav-text">三、一维快速傅里叶变换的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、二维傅里叶变换的性质"><span class="nav-number">4.</span> <span class="nav-text">四、二维傅里叶变换的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可分离性"><span class="nav-number">4.1.</span> <span class="nav-text">可分离性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#平移性"><span class="nav-number">4.2.</span> <span class="nav-text">平移性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、二维快速傅里叶变换的实现"><span class="nav-number">5.</span> <span class="nav-text">五、二维快速傅里叶变换的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件结构"><span class="nav-number">5.1.</span> <span class="nav-text">文件结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图像输入"><span class="nav-number">5.2.</span> <span class="nav-text">图像输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二维快速傅里叶变换"><span class="nav-number">5.3.</span> <span class="nav-text">二维快速傅里叶变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一维快速傅里叶变换"><span class="nav-number">5.4.</span> <span class="nav-text">一维快速傅里叶变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二维快速傅里叶反变换"><span class="nav-number">5.5.</span> <span class="nav-text">二维快速傅里叶反变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实验结果"><span class="nav-number">5.6.</span> <span class="nav-text">实验结果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Darcy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-<script src="/js/plugin.min.js"></script>
-
-
-<script src="/js/application.js"></script>
-
-
-
-    <script>
-(function ($) {
-    $('.search-form').on('submit', function (e) {
-        var keyword = $('.search-form-input[name="wd"]').val();
-        window.location = 'https://www.baidu.com/s?wd=site:Jiahaohong.github.io ' + keyword;
-        return false;
-    });
-})(jQuery);
-</script>
-
-
-
-
-   
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
 
-   
+
+
+
+  
 
 
 
 
 
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
