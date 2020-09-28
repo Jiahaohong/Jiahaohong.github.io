@@ -205,6 +205,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -233,6 +243,165 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" itemprop="url">Linux:Ubuntu18.04小白安装教程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-26T07:38:59+08:00">
+                2020-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><em>本教程原系统Windows10</em><br><em>安装Ubuntu18.04.3版本</em><br><em>电脑联想Y7000</em><br><em>手机华为P10</em> </p>
+<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ul>
+<li><p><a href="https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso" target="_blank" rel="noopener">Ubuntu18.05下载</a>  </p>
+</li>
+<li><p>8G U盘一个</p>
+</li>
+<li><p>能上网的手机一个</p>
+</li>
+</ul>
+<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p><em><strong>注意之后提到的按键以平台为准，可能和你的电脑或手机不一样</strong></em></p>
+<ol>
+<li><p>制作启动盘<br>WIN10下用文件资源管理器打开上面下载的ISO文件，把里面的文件全部复制粘贴到U盘里。<strong>接下来的操作不要拔下U盘</strong>。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO.jpg"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO2.jpg"></p>
+</li>
+<li><p>重启电脑进入BIOS<br>重启电脑，在<strong>电脑重新开启之前</strong>按住F2键不放，然后进入BIOS界面。<strong>注意每个厂家生产的电脑进入BIOS的键不一样</strong>，我的联想Y7000是F2键，其他电脑的快捷键可以去网上查。  </p>
+</li>
+<li><p>修改安全启动项SecurityBoot<br>左右键切换页面到Security界面，上下键选择到SecurityBoot项，按下F5键将其改为Disable。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/SecurityBoot.jpg">  </p>
+</li>
+<li><p>将启动盘（U盘）启动优先级调到第一<br>左右键切换页面到Boot界面，上下键选择到U盘启动项，一般来说后面<strong>括号</strong>里显示的是你<strong>U盘的型号</strong>那个就是启动盘，按F6键将其上移到第一个。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Boot.jpg"></p>
+</li>
+<li><p>保存修改并重启<br>按F10键保存BIOS修改，弹出确认框，左右键选择Yes后回车，系统自动关机，重新打开电脑即可进入U盘里的启动项。</p>
+</li>
+<li><p>选择安装Ubuntu项<br>进入U盘里的启动项后，选择Install Ubuntu选项安装Ubuntu系统。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Install.jpg"></p>
+</li>
+<li><p><strong>连接手机</strong><br>注意，这是很重要的一步，之后的自动更新需要用到手机的网络。用USB线连接手机和电脑，这时手机上会显示几个选项，选择传输文件（点了之后弹窗就没了）。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone1.jpg"><br>找到设置-&gt;移动网络-&gt;移动网络共享，打开USB共享网络。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone4.jpg"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone2.jpg"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone3.jpg"><br>这时候，Ubuntu安装界面右上角出现一个图标就表示电脑已经连上网了。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Wireless.jpg"></p>
+</li>
+</ol>
+<p>现在万事俱备，进入Ubuntu安装程序后，跟着他的步骤一步一步来。</p>
+<ol start="8">
+<li><p>键盘布局<br>键盘布局选择汉语。</p>
+</li>
+<li><p>连接wifi无线网络<br>选择不想连接，因为手机已经共享了。  </p>
+</li>
+<li><p>更新和其他软件<br>选择最小安装，并且安装第三方软件。安装第三方软件需要之前手机的网络，大概两三百MB。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/update.jpg"></p>
+</li>
+<li><p>安装类型<br>选择和Win10Boot共存的那个选项。</p>
+</li>
+<li><p>等待安装完成！</p>
+</li>
+</ol>
+<p>这个安装方式十分方便，安装完成后可以直接用，不需要自己再配置什么驱动，独立显卡驱动除外，之后可能会有一篇博客讲解Nvidia独显驱动安装。总结：见文章内容导航！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -288,6 +457,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Matlab%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">Matlab图像处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -742,6 +933,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -906,6 +1119,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1193,6 +1428,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1542,135 +1799,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" itemprop="url">Tensorflow:激活函数和损失函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-20T09:02:28+08:00">
-                2020-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、激活函数"><a href="#一、激活函数" class="headerlink" title="一、激活函数"></a>一、激活函数</h3><ul>
-<li><p>Sigmoid函数<br>tf.nn.sigmoid(x)<br>特点：<br>（1）导数不为0的范围太小，容易造成梯度消失<br>（2）输出非0均值，收敛慢<br>（3）幂运算计算复杂，训练时间长</p>
-</li>
-<li><p>Relu函数</p>
-</li>
-</ul>
-<h3 id="二、损失函数"><a href="#二、损失函数" class="headerlink" title="二、损失函数"></a>二、损失函数</h3><ul>
-<li>softmax</li>
-<li>cross-entropy</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1725,12 +1853,21 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
             
 
             
@@ -1738,7 +1875,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,Ubuntu," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Darcy's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本教程原系统Windows10安装Ubuntu18.04.3版本电脑联想Y7000手机华为P10  前期准备 Ubuntu18.05下载    8G U盘一个  能上网的手机一个   安装过程注意之后提到的按键以平台为准，可能和你的电脑或手机不一样  制作启动盘WIN10下用文件资源管理器打开上面下载的ISO文件，把里面的文件全部复制粘贴到U盘里。接下来的操作不要拔下U盘。  重启电脑进入BIOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux:Ubuntu18.04小白安装教程">
+<meta property="og:url" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Darcy&#39;s Blog">
+<meta property="og:description" content="本教程原系统Windows10安装Ubuntu18.04.3版本电脑联想Y7000手机华为P10  前期准备 Ubuntu18.05下载    8G U盘一个  能上网的手机一个   安装过程注意之后提到的按键以平台为准，可能和你的电脑或手机不一样  制作启动盘WIN10下用文件资源管理器打开上面下载的ISO文件，把里面的文件全部复制粘贴到U盘里。接下来的操作不要拔下U盘。  重启电脑进入BIOS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO2.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/SecurityBoot.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Boot.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Install.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone1.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone4.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone2.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone3.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Wireless.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/update.jpg">
+<meta property="article:published_time" content="2020-09-25T23:38:59.000Z">
+<meta property="article:modified_time" content="2020-09-28T00:25:56.362Z">
+<meta property="article:author" content="Darcy">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Ubuntu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://Jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04小白安装教程/"/>
+
+
+
+
+
+  <title>Linux:Ubuntu18.04小白安装教程 | Darcy's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Darcy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hope is something as precious as dimond.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux:Ubuntu18.04小白安装教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-26T07:38:59+08:00">
+                2020-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>本教程原系统Windows10</em><br><em>安装Ubuntu18.04.3版本</em><br><em>电脑联想Y7000</em><br><em>手机华为P10</em> </p>
+<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ul>
+<li><p><a href="https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso" target="_blank" rel="noopener">Ubuntu18.05下载</a>  </p>
+</li>
+<li><p>8G U盘一个</p>
+</li>
+<li><p>能上网的手机一个</p>
+</li>
+</ul>
+<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p><em><strong>注意之后提到的按键以平台为准，可能和你的电脑或手机不一样</strong></em></p>
+<ol>
+<li><p>制作启动盘<br>WIN10下用文件资源管理器打开上面下载的ISO文件，把里面的文件全部复制粘贴到U盘里。<strong>接下来的操作不要拔下U盘</strong>。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO.jpg"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO2.jpg"></p>
+</li>
+<li><p>重启电脑进入BIOS<br>重启电脑，在<strong>电脑重新开启之前</strong>按住F2键不放，然后进入BIOS界面。<strong>注意每个厂家生产的电脑进入BIOS的键不一样</strong>，我的联想Y7000是F2键，其他电脑的快捷键可以去网上查。  </p>
+</li>
+<li><p>修改安全启动项SecurityBoot<br>左右键切换页面到Security界面，上下键选择到SecurityBoot项，按下F5键将其改为Disable。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/SecurityBoot.jpg">  </p>
+</li>
+<li><p>将启动盘（U盘）启动优先级调到第一<br>左右键切换页面到Boot界面，上下键选择到U盘启动项，一般来说后面<strong>括号</strong>里显示的是你<strong>U盘的型号</strong>那个就是启动盘，按F6键将其上移到第一个。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Boot.jpg"></p>
+</li>
+<li><p>保存修改并重启<br>按F10键保存BIOS修改，弹出确认框，左右键选择Yes后回车，系统自动关机，重新打开电脑即可进入U盘里的启动项。</p>
+</li>
+<li><p>选择安装Ubuntu项<br>进入U盘里的启动项后，选择Install Ubuntu选项安装Ubuntu系统。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Install.jpg"></p>
+</li>
+<li><p><strong>连接手机</strong><br>注意，这是很重要的一步，之后的自动更新需要用到手机的网络。用USB线连接手机和电脑，这时手机上会显示几个选项，选择传输文件（点了之后弹窗就没了）。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone1.jpg"><br>找到设置-&gt;移动网络-&gt;移动网络共享，打开USB共享网络。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone4.jpg"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone2.jpg"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone3.jpg"><br>这时候，Ubuntu安装界面右上角出现一个图标就表示电脑已经连上网了。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Wireless.jpg"></p>
+</li>
+</ol>
+<p>现在万事俱备，进入Ubuntu安装程序后，跟着他的步骤一步一步来。</p>
+<ol start="8">
+<li><p>键盘布局<br>键盘布局选择汉语。</p>
+</li>
+<li><p>连接wifi无线网络<br>选择不想连接，因为手机已经共享了。  </p>
+</li>
+<li><p>更新和其他软件<br>选择最小安装，并且安装第三方软件。安装第三方软件需要之前手机的网络，大概两三百MB。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/update.jpg"></p>
+</li>
+<li><p>安装类型<br>选择和Win10Boot共存的那个选项。</p>
+</li>
+<li><p>等待安装完成！</p>
+</li>
+</ol>
+<p>这个安装方式十分方便，安装完成后可以直接用，不需要自己再配置什么驱动，独立显卡驱动除外，之后可能会有一篇博客讲解Nvidia独显驱动安装。总结：见文章内容导航！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/" rel="next" title="Matlab:快速傅里叶变换实现">
+                <i class="fa fa-chevron-left"></i> Matlab:快速傅里叶变换实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.png"
+                alt="Darcy" />
+            
+              <p class="site-author-name" itemprop="name">Darcy</p>
+              <p class="site-description motion-element" itemprop="description">Students</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前期准备"><span class="nav-number">1.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装过程"><span class="nav-number">2.</span> <span class="nav-text">安装过程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Darcy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
