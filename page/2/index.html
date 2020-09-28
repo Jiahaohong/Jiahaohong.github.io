@@ -328,18 +328,25 @@
       
         
           
-            <h3 id="一、激活函数"><a href="#一、激活函数" class="headerlink" title="一、激活函数"></a>一、激活函数</h3><ul>
-<li><p>Sigmoid函数<br>tf.nn.sigmoid(x)<br>特点：<br>（1）导数不为0的范围太小，容易造成梯度消失<br>（2）输出非0均值，收敛慢<br>（3）幂运算计算复杂，训练时间长</p>
-</li>
-<li><p>Relu函数</p>
-</li>
-</ul>
-<h3 id="二、损失函数"><a href="#二、损失函数" class="headerlink" title="二、损失函数"></a>二、损失函数</h3><ul>
-<li>softmax</li>
-<li>cross-entropy</li>
-</ul>
+          一、激活函数
+Sigmoid函数tf.nn.sigmoid(x)特点：（1）导数不为0的范围太小，容易造成梯度消失（2）输出非0均值，收敛慢（3）幂运算计算复杂，训练时间长
+
+Relu函数
+
+
+二、损失函数
+softmax
+cross-entropy
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/20/Tensorflow-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -457,35 +464,20 @@
       
         
           
-            <ul>
-<li><p>强制类型转换<br>tf.cast(张量名,dtype=数据类型)</p>
-</li>
-<li><p>计算张量维度上的最值<br>tf.reduce_min(张量名)<br>tf.reduce_max(张量名)<br>如果没有指定维度，那么默认寻找这个张量所有元素里的最值。</p>
-</li>
-<li><p>axis<br>用于指定函数作用的维度。比如在二维张量中(数组)，axis=0代表作用维度是列，tf.reduce_mean(a,axis=0)表示分别在张量a的所有列中找到最小值。</p>
-</li>
-</ul>
-<ul>
-<li><p>tf.Variable<br>将变量标记为“可训练”，被标记的变量会在反向传播中记录梯度信息。可用于参数初始化。</p>
-</li>
-<li><p>张量对应元素的四则运算<br>tf.add(a,b)<br>tf.subtract(a,b)<br>tf.multiply(a,b)<br>tf.divide(a,b)<br>张量a，b维度必须相同。</p>
-</li>
-<li><p>矩阵乘<br>tf.matmul(A,B)</p>
-</li>
-<li><p>tf.data.Dataset.from_tensor_slices<br>将特征和标签配对</p>
-</li>
-<li><p>tf.GradientTape</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> tape:</span><br><span class="line">    w = tf.Variable(tf.constant(<span class="number">3.0</span>))</span><br><span class="line">    loss = tf.pow(w,<span class="number">2</span>)</span><br><span class="line">grad = tape.gradient(loss,w)</span><br><span class="line">print(grad)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>tf.one_hot<br>独热编码，在分类问题中常用做标签，1表示是，0表示非。<br>tf.one_hot(代转换数据,depth=几分类)</p>
-</li>
-<li><p>assign_sub<br>只能作用于“可训练”变量，相当于i–。</p>
-</li>
-<li><p>tf.argmax<br>返回张量指定维度的最大值的索引，及最大值的位置。注意不是最大索引值。</p>
-</li>
-</ul>
-
           
+强制类型转换tf.cast(张量名,dtype=数据类型)
+
+计算张量维度上的最值tf.reduce_min(张量名)tf.reduce_max(张量名)如果没有指定维度，那么默认寻找这个张量所有元素里的最值。
+
+axis用于指定函数作用的维度。比如在二维张量中(数组)，axis=0代表作用维度是
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/19/Tensorflow-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -603,26 +595,16 @@
       
         
           
-            <h3 id="一、数据类型"><a href="#一、数据类型" class="headerlink" title="一、数据类型"></a>一、数据类型</h3><p><font color="yellow">tf.int, tf.float</font><br>    tf.int32, tf.int64, tf.float32, tf.float64<br><font color="yellow">tf.bool</font><br>    tf.constant([True,False])<br><font color="yellow">tf.string</font><br>    tf.constrant(“Hello,world!”)</p>
-<h3 id="二、张量（Tensor）"><a href="#二、张量（Tensor）" class="headerlink" title="二、张量（Tensor）"></a>二、张量（Tensor）</h3><p>向量和矩阵的高维拓展。<strong>张量可以表示n维数组。</strong></p>
-<ul>
-<li><p>如何创建张量？<br><font color="yellow">tf.constant(张量内容，dtype=数据类型)</font>  </p>
-</li>
-<li><p>如何查看张量形状（维数）？<br><font color="yellow">print(a.shape)</font><br>输出：shape=(2,)<br>输出中shape的括号里逗号隔开了几个数字，该张量就是几维，上例中张量a是一个一维数组，包含两个元素。</p>
-</li>
-<li><p>numpy数据类型和tensor数据类型的转换<br><font color="yellow">tf.convert_to_tensor(数据名，dtype=数据类型)</font></p>
-</li>
-<li><p>创建全为指定值的张量<br><font color="yellow">tf.zeros(维度)<br>tf.ones(维度)<br>tf.fill(维度，指定值)</font><br>其中，维度如果是1维就直接写元素个数，如果是二维及二维以上，用[n,m,j,k,……]表示张量形状。</p>
-</li>
-<li><p>生成正太分布的随机数<br><font color="yellow">tf.random.normal(维度，mean=均值，stdev=标准差)</font><br>默认mean=0，stdev=1。</p>
-</li>
-<li><p>生成2$delta$范围内的正太分布随机数<br><font color="yellow">tf.random.truncated_normal(维度，mean=均值，stdev=标准差)</font><br>随机数生成在均值加减2倍标准差的范围内。</p>
-</li>
-<li><p>生成均匀分布随机数<br><font color="yellow">tf.random.uniform(维度，minval=最小值，maxval=最大值)</font><br>随机数在[minval,maxval)的左闭右开区间上。</p>
-</li>
-</ul>
-
-          
+          一、数据类型tf.int, tf.float    tf.int32, tf.int64, tf.float32, tf.float64tf.bool    tf.constant([True,False])tf.string    tf.constrant(“Hello,world!”)
+二、张量
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/18/Tensorflow-Tensor/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -740,18 +722,24 @@
       
         
           
-            <h3 id="一、主从D触发器"><a href="#一、主从D触发器" class="headerlink" title="一、主从D触发器"></a>一、主从D触发器</h3><p>略</p>
-<h3 id="二、触发器逻辑功能"><a href="#二、触发器逻辑功能" class="headerlink" title="二、触发器逻辑功能"></a>二、触发器逻辑功能</h3><p>下面介绍一些常用的触发器的特性方程（Q’代表次态）。</p>
-<ul>
-<li>D触发器<br>Q’=D</li>
-<li>JK触发器<br>Q’=J<span style="text-decoration:overline">Q</span>+<span style="text-decoration:overline">K</span>Q</li>
-<li>T触发器<br>相当于JK触发器J端和K端接到一起：<br>Q’=T<span style="text-decoration:overline">Q</span>+<span style="text-decoration:overline">T</span>Q</li>
-<li>T’触发器<br>相当于T触发器T端始终接高电平：<br>Q’=<span style="text-decoration:overline">Q</span></li>
-<li>SR触发器<br>Q’=S+<span style="text-decoration:overline">R</span>Q<br>S·R=0</li>
-</ul>
-<h3 id="三、触发器的逻辑功能转换"><a href="#三、触发器的逻辑功能转换" class="headerlink" title="三、触发器的逻辑功能转换"></a>三、触发器的逻辑功能转换</h3><p>用D触发器可以实现其他所有的触发器。总体方法是：由于D触发器的特性方程和需要转换的触发器的特性方程是等价的，那么就可以由代转换的触发器特性方程推出输入端D的逻辑表达式。</p>
+          一、主从D触发器略
+二、触发器逻辑功能下面介绍一些常用的触发器的特性方程（Q’代表次态）。
 
-          
+D触发器Q’=D
+JK触发器Q’=JQ+KQ
+T触发器相当于JK触发器J端和K端接到一起：Q’=TQ+TQ
+T’触发器相当于T触发器T端始终接高电平：Q’=Q
+SR触发器Q’=S+RQS·R=0
+
+三、触发
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A7%A6%E5%8F%91%E5%99%A8/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -869,67 +857,18 @@
       
         
           
-            <h3 id="一、基本双稳态电路"><a href="#一、基本双稳态电路" class="headerlink" title="一、基本双稳态电路"></a>一、基本双稳态电路</h3><p>先直接给出书本上的定义：具有0、1两种逻辑状态，并且进入其中任何一种逻辑状态后均能长期保持这种状态不变的单元电路。<br>并且<strong>规定</strong>Q端输出为0的时候，该电路逻辑状态为0；Q端输出为1的时候，该电路逻辑状态为1。  </p>
-<img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本双稳态电路.png">   
+          一、基本双稳态电路先直接给出书本上的定义：具有0、1两种逻辑状态，并且进入其中任何一种逻辑状态后均能长期保持这种状态不变的单元电路。并且规定Q端输出为0的时候，该电路逻辑状态为0；Q端输出为1的时候，该电路逻辑状态为1。  
+   
 
-<p>那么如何分析该电路的状态呢？<br>首先假定电路的一个逻辑状态，比如为0；然后确定两输出端的逻辑电平，此时Q为0，Q非为1；接着分析反馈到输入端的逻辑电平，G1输入1，G2输入0；最后通过输入和逻辑门检查输出端的逻辑电平是否和假设一致（此例G1输出0和假设一致），如果一致，表示电路逻辑状态就是假设的逻辑状态，已经稳定了，如果不一致，需要修改假设的逻辑状态再进行一次判断，若第二次分析结果还是不一致，则说明电路进入了不确定状态。</p>
-<h3 id="二、基本SR锁存器"><a href="#二、基本SR锁存器" class="headerlink" title="二、基本SR锁存器"></a>二、基本SR锁存器</h3><p>将基本双稳态电路的非门换成两输入或非门就构成了一种基本SR锁存器，如果换成两输入与非门就构成了另一种基本SR锁存器。   </p>
-<ul>
-<li><p>或非门SR锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  </p>
-<img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器.png">  
-
-<p>这个电路的状态如何分析？<br>总体来说和双稳态电路的分析过程差不多，但是考虑到多出来两个输入端，所以在分析锁存器的状态的时候，不仅需要假设锁存器的输出状态，还要假设锁存器的输入状态。下面给出锁存器的功能表：</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">S</th>
-<th align="center">R</th>
-<th align="center">Q</th>
-<th align="center"><span style="text-decoration: overline">Q</span></th>
-<th align="center">Function</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">不变</td>
-<td align="center">不变</td>
-<td align="center">保持</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">置0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">置1</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">非定义状态（危险）</td>
-</tr>
-</tbody></table>
-<p>  总结一下：S端代表SET，及设置为1状态；R端代表RESET，及重置0状态；S端和R端接收到高电平时才会发挥作用，接收到低电平时不起作用；S端和R端不能同时起作用，及送入S端和R端的信号满足S·R=0，二者不能同时为1。</p>
-<ul>
-<li><p>与非门锁存器<br><strong>定义Q=1为锁存器的1状态，Q=0为锁存器的0状态。</strong>  </p>
-<img src="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/基本SR锁存器2.png">  
-
-<p>与非门锁存器和或非门锁存器送入输入端的信号是互补的，其他一摸一样。可以理解为在或非门两个输入端外分别连接一个非门。</p>
-</li>
-</ul>
-
-          
+那么如何分析该电路的状态呢？首先假定电路的一个逻辑状态，比如为0
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1047,94 +986,17 @@
       
         
           
-            <p><em>范式的规定随着序号的增加而逐渐严格，序号大的范式一定满足序号小的范式的要求</em></p>
-<h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p><em><strong>属性不可分</strong></em><br>这是最简单也是最基础的范式，<strong>所有关系模型</strong>必须满足这个范式。这个定义已经十分清晰明了了，即在实际情况中，我们选取的关系模型的属性必须具有原子性，不可分性，但是同时又不必过于细致，能够满足实际应用要求即可。</p>
-<p><em>接下来的范式定义就逐渐晦涩难懂了，我会采用实际例子来辅助理解</em></p>
-<h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p><em><strong>所有非主属性完全依赖于任意一个键码</strong></em><br>在这里我们要重点关注一个词：完全。什么样的依赖从才能说是完全依赖呢？我们看看下面这个图书馆借书登记的例子。  </p>
-<table>
-<thead>
-<tr>
-<th align="center">Name</th>
-<th align="center">Title</th>
-<th align="center">Date</th>
-<th align="center">Domitory</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Darcy</td>
-<td align="center">Pride And Prejudice</td>
-<td align="center">2020/3/26</td>
-<td align="center">Domitory A</td>
-</tr>
-<tr>
-<td align="center">Lucy</td>
-<td align="center">Jane Eyre</td>
-<td align="center">2020/1/18</td>
-<td align="center">Domitory B</td>
-</tr>
-</tbody></table>
-<p>在这个借书信息关系表中，我们可以<strong>通过生活实际</strong>得出如下的函数依赖关系：Name Title-&gt;Date和Name-&gt;Domitory。通过<strong>闭包</strong>，我们可以求出关系表的键码为{Name，Title}，Date这个属性是通过这个键码确定的，但是Domitory这个属性是通过这个<strong>键码的子集</strong>{Name}确定的，因此这个关系表不符合第二范式。<br>这时候只要选择一个函数依赖分离出一个新的关系表就可以解决这个问题。比如选择函数依赖Name-&gt;Domitory分离出第一个表：  </p>
-<table>
-<thead>
-<tr>
-<th align="center">Name</th>
-<th align="center">Domitory</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Darcy</td>
-<td align="center">Domitory A</td>
-</tr>
-<tr>
-<td align="center">Lucy</td>
-<td align="center">Domitory B</td>
-</tr>
-</tbody></table>
-<p><strong>剩下的属性集</strong>作为第二个表：  </p>
-<table>
-<thead>
-<tr>
-<th align="center">Name</th>
-<th align="center">Title</th>
-<th align="center">Date</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Darcy</td>
-<td align="center">Pride And Prejudice</td>
-<td align="center">2020/3/26</td>
-</tr>
-<tr>
-<td align="center">Lucy</td>
-<td align="center">Jane Eyre</td>
-<td align="center">2020/1/18</td>
-</tr>
-</tbody></table>
-<p>这样两个表就都符合第二范式了。当然，实际问题可能更加复杂，比如上面第二个表分离出来后还是不符合第二范式，那么就要根据别的函数依赖继续分离第二个表。</p>
-<p>需要注意的是，第二范式并不要求非主属性直接依赖于同一个键码，但是非主属性一定能够通过某种函数传递而依赖于同一个键码。看上去挺绕的是不是？我们来看一个例子：  </p>
-<table>
-<thead>
-<tr>
-<th align="center">Name</th>
-<th align="center">Domitory</th>
-<th align="center">DomitoryManagement</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Darcy</td>
-<td align="center">Domitory A</td>
-<td align="center">Uncle Ben</td>
-</tr>
-<tr>
-<td align="center">Lucy</td>
-<td align="center">Domitory B</td>
-<td align="center">Aunt Jenny</td>
-</tr>
-</tbody></table>
-<p>在这个关系表中，DomitoryManagement不直接依赖于键码{Name}，但是它依赖于Domitory，并且Domitory依赖于键码{Name}，这是一个传递依赖，所以符合第二范式。这一点是区分第二范式和第三范式的关键，因为第三范式要求不能有传递依赖。</p>
-<h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p><em><strong>如果对于关系R中的任何非平凡依赖A1A2…An-&gt;B，它们满 足条件：或者A1A2…An是超键码，或者B是某个键码的组成部分，则关系R满足第三范式</strong></em></p>
-<h2 id="BC范式"><a href="#BC范式" class="headerlink" title="BC范式"></a>BC范式</h2>
-          
+          范式的规定随着序号的增加而逐渐严格，序号大的范式一定满足序号小的范式的要求
+第一范式属性不可分这是最简单也是最基础的范式，所有关系模型必须满足这个范式。这个定义已经十分清晰明了了，即在实际情况中，我们选取的关系模型的属性必须具有原子性，不可分性，但是同时又不必过于细致，能够满足实际应用要求即可。
+接
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/26/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E8%8C%83%E5%BC%8F%EF%BC%9F%EF%BC%88%E4%B8%8B%EF%BC%89/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1252,121 +1114,28 @@
       
         
           
-            <p>在细致讨论关系数据库的范式之前，我们要理解几个重要概念。</p>
-<h2 id="关系的键码"><a href="#关系的键码" class="headerlink" title="关系的键码"></a>关系的键码</h2><h3 id="键码"><a href="#键码" class="headerlink" title="键码"></a>键码</h3><p>一个关系表的键码满足如下条件：</p>
-<ol>
-<li>键码是该关系表中的一个<strong>属性</strong>或<strong>多个属性的集合</strong></li>
-<li>由给定的键码可以确定该关系的所有属性</li>
-<li>键码的任何<strong>真子集</strong>都不能确定该关系的所有属性</li>
-</ol>
-<p>看上去有点绕？没关系，看看下面的栗子就明白了。</p>
-<blockquote>
-<p>1号栗子</p>
-<table>
-<thead>
-<tr>
-<th align="center">ID</th>
-<th align="center">Name</th>
-<th align="center">Gender</th>
-<th align="center">Age</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">001</td>
-<td align="center">Darcy</td>
-<td align="center">Male</td>
-<td align="center">18</td>
-</tr>
-<tr>
-<td align="center">002</td>
-<td align="center">Jessica</td>
-<td align="center">Female</td>
-<td align="center">18</td>
-</tr>
-<tr>
-<td align="center">003</td>
-<td align="center">Lucy</td>
-<td align="center">Female</td>
-<td align="center">17</td>
-</tr>
-<tr>
-<td align="center">004</td>
-<td align="center">Darcy</td>
-<td align="center">Male</td>
-<td align="center">17</td>
-</tr>
-</tbody></table>
-<p>1号栗子中有四个属性，如果你只知道后面三个属性中的任何一个的内容，你都无法确定这个属性是谁的。比如告诉你这个人18岁，问他叫什么名字？再比如告诉你这个人叫Darcy，问他几岁？<br>同样的，如果你知道后面三个属性中的任何两个，你也是无法确定这个人的其他信息的。比如告诉你这个人叫Darcy，Male，问你他几岁？<br>但是如果你同时知道后面这三个属性的内容，那么你就可以在这个表中唯一确定一个人了！比如告诉你这个人叫Darcy，性别Male，年龄17，那么查表你就知道这个人是004号而不是001号。那么这三个属性就可以作为这个表的键码，写成这样{Name，Gender，Age}。<br>聪明的你发现，直接告诉我一个人的ID不就好了？的确如此，ID属性也是这个表的一个键码，这也说明一个关系表中的键码可以有多个，而且每个键码的优劣也有区别，这里不做讨论。</p>
-</blockquote>
-<p>综上所述，一个关系表的键码其实没有多神秘，它也是属性（属性集），只不过它比较特别，它可以帮你找到这个表中的其他属性。而且这样热心的属性（属性集）在一个表中可能会有多个。</p>
-<h3 id="超键码"><a href="#超键码" class="headerlink" title="超键码"></a>超键码</h3><p>一个表中的键码加上其他0个或多个非键码属性构成的属性集合就是超键码。</p>
-<blockquote>
-<p>还是1号栗子<br>如果该表的键码{ID}加上Age属性，那么新的属性集合{ID，Age}就构成了一个超键码。</p>
-</blockquote>
-<p>注意咯，键码一定是超键码，但是超键码不一定是键码。</p>
-<h3 id="主属性和非主属性"><a href="#主属性和非主属性" class="headerlink" title="主属性和非主属性"></a>主属性和非主属性</h3><p>如果一个属性是任意键码的子集，那么这个属性是主属性。<br>如果一个属性不是任何键码的子集，那么这个属性是非主属性。</p>
-<h2 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h2><h3 id="什么是函数依赖？"><a href="#什么是函数依赖？" class="headerlink" title="什么是函数依赖？"></a>什么是函数依赖？</h3><p>简单理解为：如果已知属性A1和属性A2就一定可以推出属性B，那么称函数A1，A2决定B，并且记作A1A2-&gt;B。其中属性A1和A2可以更多。<br><del>数学理解为：一个函数依赖（函数）将定义属性集（定义域）映射到值属性集（值域）。这是我瞎写的。</del></p>
-<blockquote>
-<p>下面再次有请我们的1号栗子</p>
-<table>
-<thead>
-<tr>
-<th align="center">ID</th>
-<th align="center">Name</th>
-<th align="center">Gender</th>
-<th align="center">Age</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">001</td>
-<td align="center">Darcy</td>
-<td align="center">Male</td>
-<td align="center">18</td>
-</tr>
-<tr>
-<td align="center">002</td>
-<td align="center">Jessica</td>
-<td align="center">Female</td>
-<td align="center">18</td>
-</tr>
-<tr>
-<td align="center">003</td>
-<td align="center">Lucy</td>
-<td align="center">Female</td>
-<td align="center">17</td>
-</tr>
-<tr>
-<td align="center">004</td>
-<td align="center">Darcy</td>
-<td align="center">Male</td>
-<td align="center">17</td>
-</tr>
-</tbody></table>
-<p>由键码的分析可以看到，从属性集ID可以推知属性集Name、Gender、Age，那么这就构成了一个函数依赖，写为ID-&gt;Name Gender Age。</p>
-</blockquote>
-<h3 id="函数依赖的分类"><a href="#函数依赖的分类" class="headerlink" title="函数依赖的分类"></a>函数依赖的分类</h3><p>下面将函数依赖简记为{A}-&gt;{B}，其中{A}和{B}都是属性集。</p>
-<ul>
-<li>平凡依赖<br>B是A的子集。<br><del>这个函数依赖很差劲，它不能告诉我们任何它没有的信息。</del></li>
-<li>非平凡依赖<br>B不是A的子集，但B和A的交集不为空。<br><del>这个函数依赖还是有点用的，至少告诉了我们一些其他信息。</del></li>
-<li>完全非平凡依赖<br>B和A的交集为空<br><del>Amazing！这个函数依赖告诉了我们全新的东西！</del></li>
-</ul>
-<h3 id="函数依赖的运算规则"><a href="#函数依赖的运算规则" class="headerlink" title="函数依赖的运算规则"></a>函数依赖的运算规则</h3><ul>
-<li>分解规则<br>A1A2…An-&gt;B1B2…Bm等价于A1A2…An-&gt;Bi(i=1,2,…,m),即将一个函数依赖分解成为一组函数依赖。</li>
-<li>合并规则<br>A1A2…An-&gt;Bi(i=1,2,…,m)等价于A1A2…An-&gt;B1B2…Bm，即将一组函数依赖合成为一个函数依赖，是分解规则的逆运算。</li>
-<li>平凡依赖规则<br>A1A2…An-&gt;B1B2…Bm等价于A1A2…An-&gt;C1C2…Ck，其中C属于B但不属于A，即将B中和A相同的属性去掉，剩下的属性构成新的集合C还是满足原来的函数依赖。</li>
-<li>增长规则<br>如果A1A2…An-&gt;B1B2…Bm，则对于任何属性集 C1C2…Ck，A1A2…An C1C2…Ck-&gt;B1B2…Bm C1C2…Ck,即平凡依赖规则的逆运算。</li>
-<li>传递规则<br>若函数依赖A-&gt;B和B-&gt;C在关系R中成立,则函数依赖A-&gt;C在关系R中也成立.</li>
-</ul>
-<h2 id="属性集的闭包"><a href="#属性集的闭包" class="headerlink" title="属性集的闭包"></a>属性集的闭包</h2><h3 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h3><p>准确的定义：首先我们有一个属性集A{A1，A2，···，An}，然后我们又有了一个函数依赖集S{S1，S2，···，Sn}，至此我们就能够通过函数依赖集中的函数依赖，确定属性集A能够决定的属性集B，称为属性集A的闭包，并记为{A1，A2，···，An}+。<br>通过上述闭包的定义，我们知道要确定一个闭包必须知道两个缺一不可的信息，一是原来的属性集，二是给定的函数依赖集。如果属性集改变，或者函数依赖集改变，都会改变闭包最终包含的属性。<br><del>数学的定义：给定一系列函数Si，将定义域A映射到值域Bi，那么Bi的集合就是定义域A的闭包。</del></p>
-<h3 id="闭包的计算"><a href="#闭包的计算" class="headerlink" title="闭包的计算"></a>闭包的计算</h3><blockquote>
-<p>2号栗子登场<br>给定属性集{A，B，C}和函数依赖集{AB-&gt;D，C-&gt;E}，求{A，B，C}+？<br>计算方法：选取一个函数依赖，作用于属性集上，去掉这个函数依赖，并将原来的属性集更新为新的属性集，再次选取一个函数依赖，重复此步骤，直到函数依赖集为空或者余下的所有函数依赖都无法作用于当前属性集，那么当前的属性集就是原属性集的闭包。<br>X = {A，B，C}<br>选AB-&gt;D作用于X<br>X = {A，B，C，D}<br>选C-&gt;E作用于X<br>X = {A，B，C，D，E}<br>此时函数依赖集为空，得到闭包{A，B，C，D，E}</p>
-</blockquote>
-<h3 id="闭包的应用"><a href="#闭包的应用" class="headerlink" title="闭包的应用"></a>闭包的应用</h3><ul>
-<li>检验一个属性集是否为关系的键码</li>
-<li>检验一个函数依赖是否蕴含于函数依赖集</li>
-</ul>
+          在细致讨论关系数据库的范式之前，我们要理解几个重要概念。
+关系的键码键码一个关系表的键码满足如下条件：
 
-          
+键码是该关系表中的一个属性或多个属性的集合
+由给定的键码可以确定该关系的所有属性
+键码的任何真子集都不能确定该关系的所有属性
+
+看上去有点绕？没关系，看看下面的栗子就明白了。
+
+1号栗子
+
+
+
+
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E8%8C%83%E5%BC%8F%EF%BC%9F%EF%BC%88%E4%B8%8A%EF%BC%89/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1484,38 +1253,23 @@
       
         
           
-            <h2 id="ER图三要素"><a href="#ER图三要素" class="headerlink" title="ER图三要素"></a>ER图三要素</h2><ul>
-<li>实体集<br>具有相同特性的同一类事物的集合，矩形表示。</li>
-<li>属性<br>描述实体摸个特性的值，椭圆形表示。</li>
-<li>联系<br>两个或多个实体集之间的联系，菱形表示。</li>
-</ul>
-<h2 id="联系的多重性"><a href="#联系的多重性" class="headerlink" title="联系的多重性"></a>联系的多重性</h2><ul>
-<li>一对一联系，双边箭头。</li>
-<li>一对多联系，从一指向多的箭头。</li>
-<li>多对多联系，不加箭头。  <h3 id="如何判断两个实体集之间的联系的多重性？"><a href="#如何判断两个实体集之间的联系的多重性？" class="headerlink" title="如何判断两个实体集之间的联系的多重性？"></a>如何判断两个实体集之间的联系的多重性？</h3>如果从某个实体集A中的一个实体a出发，经过一个联系，只有另一个实体集B中唯一的一个实体b与之对应，则从A经过联系指向实体集B的连线应该加箭头。</li>
-</ul>
-<h2 id="联系的多向性"><a href="#联系的多向性" class="headerlink" title="联系的多向性"></a>联系的多向性</h2><p>ER图中的联系可以涉及多个实体，这是ODL中所不具备的。</p>
-<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><ul>
-<li>键码<br>在实体集中，唯一标识一个实体的属性或属性集。用下划线表示某些属性或属性集构成了键码。注意，键码本质上也是属性。</li>
-<li>参照完整性约束  <ol>
-<li>必须是多对一或一对一联系。</li>
-<li>R是从实体集E到实体集F的联系，如果若E中的一个实体e存在，那么与之对应的实体f必须存在。</li>
-</ol>
-</li>
-</ul>
-<h2 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h2><p>如果实体集C具有实体集D的全部属性和联系，并且还拥有一些其他的属性，那么称实体集C是实体集D的子类。用等腰三角形链接超类（可以理解为父类）和子类，顶点指向超类。</p>
-<h3 id="ODL子类和ER图子类的区别"><a href="#ODL子类和ER图子类的区别" class="headerlink" title="ODL子类和ER图子类的区别"></a>ODL子类和ER图子类的区别</h3><ul>
-<li>ODL的子类必须是同一个类的部分成员。</li>
-<li>ER图的实体可以属于多个实体集。</li>
-<li>ODL子类类似Java，ER图子类类似C++。</li>
-</ul>
-<h2 id="弱实体集"><a href="#弱实体集" class="headerlink" title="弱实体集"></a>弱实体集</h2><p>如果实体集C的<strong>键码</strong>中的一些或全部属于实体集D，那么实体集C为实体集D的弱实体集。用双边矩形表示弱实体集，用双边菱形表示实体集C和D的联系。</p>
-<h3 id="如何理解弱实体集"><a href="#如何理解弱实体集" class="headerlink" title="如何理解弱实体集"></a>如何理解弱实体集</h3><ul>
-<li>层次结构<br>在现实世界中的弱实体集E依赖于提供给他键码的实体集F，没有实体集F，就不能确定实体集E。</li>
-<li>连接实体集</li>
-</ul>
+          ER图三要素
+实体集具有相同特性的同一类事物的集合，矩形表示。
+属性描述实体摸个特性的值，椭圆形表示。
+联系两个或多个实体集之间的联系，菱形表示。
 
-          
+联系的多重性
+一对一联系，双边箭头。
+一对多联系，从一指向多的箭头。
+多对多联系，不加箭头。  如何判断两个实体集之间的联系的多重性？如果从某个实体集
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/12/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AE-R%E5%9B%BE/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1633,17 +1387,18 @@
       
         
           
-            <p>将公共输入信号分配到不同通道上的逻辑电路。相当于一个单刀多掷开关。</p>
-<h2 id="用译码器实现数据分配器"><a href="#用译码器实现数据分配器" class="headerlink" title="用译码器实现数据分配器"></a>用译码器实现数据分配器</h2><p>现在之前说到过的译码器多使能端派上用场了。实际上74HC138芯片的使能端E1和E2上连接有非门，但为了方便，接下来的讨论以芯片内部信号的高低电平为准，而不会以外部信号高低来写逻辑表达式。<br><img src="/2020/02/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8/74HC138.png"></p>
-<ul>
-<li>先简单说说使能端E2和E1的特性，当总使能端E3有效时（高电平），E2和E1中任何一个接收到无效信号（低电平）都会使所有输出端输出无效信号（低电平）。  </li>
-<li>再来看看各输出端的逻辑函数，以5号端口为例：<br>Y5 = E3 · E2 · E1 · A3 · <span style="text-decoration:overline">A2</span> · A1 =  E3 · E2 · E1 · m5  </li>
-<li>其余端口由5号端口同理得出，通式如下：<br>Yi = E3 · E2 · E1 · mi  </li>
-<li>现在设计使能端。将总使能端E3保持有效，E2也保持有效，E1通入要分配的信号D。那么，当信号D为高电平时，E1有效，有且仅有mi所对应的那一路输出端输出高电平（其余输出端为低电平，参看译码器真值表）；当信号D为低电平时，E1无效，所有输出端输出低电平，包括mi所对应的那一路输出端。这样就保证了mi对应的那一路输出端高低电平与输入信号D保持一致，而其他输出端一直为低电平。</li>
-<li>两个译码器可以组成更多路输出的译码器，这种组合译码器用上述方法也同样可以做成更多路的数据分配器。</li>
-</ul>
+          将公共输入信号分配到不同通道上的逻辑电路。相当于一个单刀多掷开关。
+用译码器实现数据分配器现在之前说到过的译码器多使能端派上用场了。实际上74HC138芯片的使能端E1和E2上连接有非门，但为了方便，接下来的讨论以芯片内部信号的高低电平为准，而不会以外部信号高低来写逻辑表达式。
 
-          
+先简单说说使能端E
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1761,291 +1516,17 @@
       
         
           
-            <p>译码器是和编码器相对的逻辑器件，用来将经过编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。</p>
-<h2 id="译码器原理"><a href="#译码器原理" class="headerlink" title="译码器原理"></a>译码器原理</h2><ul>
-<li><h3 id="逻辑门器件的设计方法"><a href="#逻辑门器件的设计方法" class="headerlink" title="逻辑门器件的设计方法"></a>逻辑门器件的设计方法</h3><p>  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式，再通过逻辑表达式以及逻辑运算得到符合问题要求的逻辑电路。</p>
-</li>
-<li><h3 id="2线4线译码器"><a href="#2线4线译码器" class="headerlink" title="2线4线译码器"></a>2线4线译码器</h3><p>  先看看这种译码器的真值表： </p>
-<table>
-<thead>
-<tr>
-<th align="center">E</th>
-<th align="center">A1</th>
-<th align="center">A0</th>
-<th align="center">Y0</th>
-<th align="center">Y1</th>
-<th align="center">Y2</th>
-<th align="center">Y3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center"><strong>1</strong></td>
-</tr>
-</tbody></table>
-<p>  在使能端有效的情况下，我们可以写出各个输出端的逻辑表达式，如下：<br>  Y0 = <span style="text-decoration:overline">A1</span> · <span style="text-decoration:overline">A0</span><br>  Y1 = <span style="text-decoration:overline">A1</span> · A0<br>  Y2 = A1 · <span style="text-decoration:overline">A0</span><br>  Y3 = A1 · A0<br>  不难发现，每个输出端的逻辑表达式都是输入逻辑变量的最小项。如果将使能端也考虑进去，将上述每一个输出端的逻辑表达式和使能端逻辑变量相与即可。  </p>
-</li>
-<li><h3 id="3线8线译码器"><a href="#3线8线译码器" class="headerlink" title="3线8线译码器"></a>3线8线译码器</h3><p>  先看看这种译码器的使能端的真值表：    </p>
-<table>
-<thead>
-<tr>
-<th align="center">E3</th>
-<th align="center">E2</th>
-<th align="center">E1</th>
-<th align="center">A2</th>
-<th align="center">A1</th>
-<th align="center">A0</th>
-<th align="center">Y0</th>
-<th align="center">Y1</th>
-<th align="center">Y2</th>
-<th align="center">Y3</th>
-<th align="center">Y4</th>
-<th align="center">Y5</th>
-<th align="center">Y6</th>
-<th align="center">Y7</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">X</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-</tbody></table>
-<p>  可以看出，这三个使能端中E3优先级最高，是总开关，E2和E1的功能是一样的，但是怎么用呢？  </p>
-<p>  撇开使能端，我们单独讨论一下该译码器的真值表：  </p>
-<table>
-<thead>
-<tr>
-<th align="center">A2</th>
-<th align="center">A1</th>
-<th align="center">A0</th>
-<th align="center">Y0</th>
-<th align="center">Y1</th>
-<th align="center">Y2</th>
-<th align="center">Y3</th>
-<th align="center">Y4</th>
-<th align="center">Y5</th>
-<th align="center">Y6</th>
-<th align="center">Y7</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">不难看出，输出信号端口下标（十进制）对应的二进制码就是三个输入信号组合成的二进制码，也就是3位逻辑变量的最小项，即Yi=mi。这个公式很重要，<strong>因为这让译码器除了能够翻译二进制码，还能够根据输入信号输出逻辑表达式的结果</strong>。</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h2 id="几个问题"><a href="#几个问题" class="headerlink" title="几个问题"></a>几个问题</h2><ol>
-<li>为什么2线-4线译码器74HC139的逻辑符号中，使能端和输出端要各自连接一个非门？</li>
-<li>为什么3线-8线译码器74HC138需要三个使能端？</li>
-<li>如何使用74HC138和少量逻辑门实现三变量逻辑函数？</li>
-</ol>
-<ul>
-<li><h3 id="关于译码器连接非门的问题"><a href="#关于译码器连接非门的问题" class="headerlink" title="关于译码器连接非门的问题"></a>关于译码器连接非门的问题</h3><p>  虽然说逻辑函数可以使用与或非三种逻辑门来实现，但是，通常情况下这些逻辑门都不是电子结构上最简单的。实际上与非门的电子结构最为简单，并且可以由与非门完成其他基本逻辑们的功能。因此，逻辑电路可能会有一些非门在输入输出端。</p>
-</li>
-<li><h3 id="关于译码器的多使能端的问题"><a href="#关于译码器的多使能端的问题" class="headerlink" title="关于译码器的多使能端的问题"></a>关于译码器的多使能端的问题</h3><p>  多个使能端可以拓展译码器的功能，比如之后的数据分配器和数据选择器等。</p>
-</li>
-</ul>
-
-          
+          译码器是和编码器相对的逻辑器件，用来将经过编码的二进制代码解码成最初的信号。常用的译码器有二进制译码器，二-十进制译码器和显示译码器。
+译码器原理
+逻辑门器件的设计方法  一般来说，一个逻辑门器件解决一个或一类实际的问题，我们通过对问题的分析可以得出逻辑门的输入逻辑变量和输出逻辑变量之间的逻辑表达式
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/13/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%AF%91%E7%A0%81%E5%99%A8/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
