@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Matlab,图像处理," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Darcy's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一、什么是直方图均衡化灰度直方图原图的灰度直方图形象的反映了图片整体的明暗程度，横轴为像素灰度级，范围是0到255，纵轴是各个灰度的像素个数占总像素的比。当图片偏亮时，灰度级高的像素占比大，当图片偏暗时，灰度级低的像素占比大。   均衡化均衡化的意义是将所有灰度级的像素出现概率调整成一致的，但是这只在连续情况下有效，一般来说，离散的图像灰度级均衡化后各级的概率是不一样的。 为什么要均衡化根据香农信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matlab:直方图均衡化">
+<meta property="og:url" content="http://jiahaohong.github.io/2020/10/05/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96/index.html">
+<meta property="og:site_name" content="Darcy&#39;s Blog">
+<meta property="og:description" content="一、什么是直方图均衡化灰度直方图原图的灰度直方图形象的反映了图片整体的明暗程度，横轴为像素灰度级，范围是0到255，纵轴是各个灰度的像素个数占总像素的比。当图片偏亮时，灰度级高的像素占比大，当图片偏暗时，灰度级低的像素占比大。   均衡化均衡化的意义是将所有灰度级的像素出现概率调整成一致的，但是这只在连续情况下有效，一般来说，离散的图像灰度级均衡化后各级的概率是不一样的。 为什么要均衡化根据香农信">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/05/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96/dark_all.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/05/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96/dark_all_data.jpg">
+<meta property="article:published_time" content="2020-10-05T10:37:57.000Z">
+<meta property="article:modified_time" content="2020-10-05T13:18:16.806Z">
+<meta property="article:author" content="Darcy">
+<meta property="article:tag" content="Matlab">
+<meta property="article:tag" content="图像处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jiahaohong.github.io/2020/10/05/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96/dark_all.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://Jiahaohong.github.io/2020/10/05/Matlab-直方图均衡化/"/>
+
+
+
+
+
+  <title>Matlab:直方图均衡化 | Darcy's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Darcy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hope is something as precious as dimond.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/05/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Matlab:直方图均衡化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-05T18:37:57+08:00">
+                2020-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Matlab%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">Matlab图像处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、什么是直方图均衡化"><a href="#一、什么是直方图均衡化" class="headerlink" title="一、什么是直方图均衡化"></a>一、什么是直方图均衡化</h3><h4 id="灰度直方图"><a href="#灰度直方图" class="headerlink" title="灰度直方图"></a>灰度直方图</h4><p>原图的灰度直方图形象的反映了图片整体的明暗程度，横轴为像素灰度级，范围是0到255，纵轴是各个灰度的像素个数占总像素的比。当图片偏亮时，灰度级高的像素占比大，当图片偏暗时，灰度级低的像素占比大。  </p>
+<h4 id="均衡化"><a href="#均衡化" class="headerlink" title="均衡化"></a>均衡化</h4><p>均衡化的意义是将所有灰度级的像素出现概率调整成一致的，但是这只在连续情况下有效，一般来说，离散的图像灰度级均衡化后各级的概率是不一样的。</p>
+<h4 id="为什么要均衡化"><a href="#为什么要均衡化" class="headerlink" title="为什么要均衡化"></a>为什么要均衡化</h4><p>根据香农信息的定义，图像在灰度均匀出现时所携带的信息量最大，因此，过亮或过暗的图片携带的信息都很少，不利于人眼等的分辨，直方图均衡化可以尽可能的增加图像的信息量。</p>
+<h3 id="二、直方图均衡化的实现"><a href="#二、直方图均衡化的实现" class="headerlink" title="二、直方图均衡化的实现"></a>二、直方图均衡化的实现</h3><h4 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">main</span><br><span class="line">|</span><br><span class="line">|-histogram_equalize %直方图均衡化</span><br><span class="line">| |</span><br><span class="line">| |-count_gray %统计灰度直方图</span><br><span class="line">| |-acc_gray   %计算累计直方图</span><br></pre></td></tr></table></figure>
+
+<h4 id="直方图均衡化"><a href="#直方图均衡化" class="headerlink" title="直方图均衡化"></a>直方图均衡化</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ output_img ]</span> = <span class="title">histogram_equalize</span><span class="params">( input_img )</span></span></span><br><span class="line"></span><br><span class="line">    [M,N] = <span class="built_in">size</span>(input_img);</span><br><span class="line">    output_img = <span class="built_in">zeros</span>(M,N); <span class="comment">%初始化输出图像</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">%统计原图像灰度直方图</span></span><br><span class="line">    gray_histogram = count_gray(input_img);</span><br><span class="line">    <span class="built_in">figure</span>(<span class="number">25565</span>);</span><br><span class="line">    subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">    bar(gray_histogram);</span><br><span class="line">    xlim([<span class="number">0</span> <span class="number">255</span>]);</span><br><span class="line">    title(<span class="string">'orig gray histogram'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">%计算累计直方图</span></span><br><span class="line">    acc_gray_histogram = acc_gray(gray_histogram);</span><br><span class="line">    subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">    bar(acc_gray_histogram);</span><br><span class="line">    xlim([<span class="number">0</span> <span class="number">255</span>]);</span><br><span class="line">    title(<span class="string">'acc gray histogram'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">%灰度转换</span></span><br><span class="line">    gray_trans = acc_gray_histogram*<span class="number">255</span>;</span><br><span class="line">    gray_trans = uint8(<span class="built_in">round</span>(gray_trans));</span><br><span class="line">    subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">    bar(gray_trans);</span><br><span class="line">    xlim([<span class="number">0</span> <span class="number">255</span>]);</span><br><span class="line">    title(<span class="string">'gray trans'</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:M</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:N</span><br><span class="line">            gray_level = input_img(<span class="built_in">i</span>,<span class="built_in">j</span>);</span><br><span class="line">            output_img(<span class="built_in">i</span>,<span class="built_in">j</span>) = gray_trans(gray_level+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span>   </span><br><span class="line">    output_img = uint8(output_img);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">%统计转换后图像的灰度直方图</span></span><br><span class="line">    new_gray_histogram = count_gray(output_img);</span><br><span class="line">    subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>);</span><br><span class="line">    bar(new_gray_histogram);</span><br><span class="line">    xlim([<span class="number">0</span> <span class="number">255</span>]);</span><br><span class="line">    title(<span class="string">'new gray histogram'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="统计灰度直方图"><a href="#统计灰度直方图" class="headerlink" title="统计灰度直方图"></a>统计灰度直方图</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ gray_histogram ]</span> = <span class="title">count_gray</span><span class="params">( input_img )</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">%建立和灰度级登场的数组，数组下标就是灰度级，数组内容为该灰度级的像素个数</span></span><br><span class="line">    [M,N] = <span class="built_in">size</span>(input_img);</span><br><span class="line">    gray_histogram = <span class="built_in">zeros</span>(<span class="number">1</span>,<span class="number">256</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:M</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:N</span><br><span class="line">            gray_level = input_img(<span class="built_in">i</span>,<span class="built_in">j</span>);</span><br><span class="line">            gray_histogram(gray_level+<span class="number">1</span>) = gray_histogram(gray_level+<span class="number">1</span>) +<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    gray_histogram = gray_histogram / M / N;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="计算累计直方图"><a href="#计算累计直方图" class="headerlink" title="计算累计直方图"></a>计算累计直方图</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ acc_gray_histogram ]</span> = <span class="title">acc_gray</span><span class="params">( gray_histogram )</span></span></span><br><span class="line"></span><br><span class="line">    [M,N] = <span class="built_in">size</span>(gray_histogram);</span><br><span class="line">    acc_gray_histogram = <span class="built_in">zeros</span>(M,N);</span><br><span class="line"></span><br><span class="line">    acc_gray_histogram(<span class="number">1</span>) = gray_histogram(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">2</span>:N</span><br><span class="line">        acc_gray_histogram(<span class="built_in">i</span>) = gray_histogram(<span class="built_in">i</span>)+acc_gray_histogram(<span class="built_in">i</span><span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="三、转换结果"><a href="#三、转换结果" class="headerlink" title="三、转换结果"></a>三、转换结果</h3><img src="/2020/10/05/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96/dark_all.jpg" width="800">
+<img src="/2020/10/05/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96/dark_all_data.jpg" width="800">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
+          
+            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag"># 图像处理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="next" title="Linux:Ubuntu18.04小白安装教程">
+                <i class="fa fa-chevron-left"></i> Linux:Ubuntu18.04小白安装教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.png"
+                alt="Darcy" />
+            
+              <p class="site-author-name" itemprop="name">Darcy</p>
+              <p class="site-description motion-element" itemprop="description">Students</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是直方图均衡化"><span class="nav-text">一、什么是直方图均衡化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#灰度直方图"><span class="nav-text">灰度直方图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#均衡化"><span class="nav-text">均衡化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要均衡化"><span class="nav-text">为什么要均衡化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、直方图均衡化的实现"><span class="nav-text">二、直方图均衡化的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件结构"><span class="nav-text">文件结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直方图均衡化"><span class="nav-text">直方图均衡化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#统计灰度直方图"><span class="nav-text">统计灰度直方图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算累计直方图"><span class="nav-text">计算累计直方图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、转换结果"><span class="nav-text">三、转换结果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Darcy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
