@@ -64,7 +64,7 @@
 
 
 
-  <meta name="keywords" content="数字电路," />
+  <meta name="keywords" content="Matlab,图像处理," />
 
 
 
@@ -79,20 +79,23 @@
 
 
 
-<meta name="description" content="逻辑代数基本定律以下两个定律比较重要，故单独列出  分配律 A·（B + C）&#x3D; A · B + A · C A + B · C &#x3D; （A + B）·（A + C）   反演律（摩根定理） A·B·C &#x3D; A + B + C A+B+C &#x3D; A · B · C     基本定律的应用重叠律和同一律的逆应用可以带来凑项的效果。   逻辑代数常用公式 吸收律 A + A·B &#x3D; A A·（A + B）">
+<meta name="description" content="一、什么是同态滤波根据成像原理，一幅图像可以分成两种成分的乘积叠加，一种成分是入射的光强L(x,y)，另一种是反射到人眼中的光强R(x,y)，二者是乘性叠加，所以一幅图像可以表示为F(x,y)&#x3D;L(x,y)*R(x,Y)。同态滤波通过将图像取对数，ln(F(x,y))&#x3D;ln(L(x,y))+ln(R(x,y))，将乘性耦合的入射光和反射光成分解耦，变成加性耦合，这样就可以利用线性性分别对两种成分进">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数字电路：逻辑代数基本定理">
-<meta property="og:url" content="http://jiahaohong.github.io/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/index.html">
+<meta property="og:title" content="Matlab:同态滤波">
+<meta property="og:url" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="逻辑代数基本定律以下两个定律比较重要，故单独列出  分配律 A·（B + C）&#x3D; A · B + A · C A + B · C &#x3D; （A + B）·（A + C）   反演律（摩根定理） A·B·C &#x3D; A + B + C A+B+C &#x3D; A · B · C     基本定律的应用重叠律和同一律的逆应用可以带来凑项的效果。   逻辑代数常用公式 吸收律 A + A·B &#x3D; A A·（A + B）">
+<meta property="og:description" content="一、什么是同态滤波根据成像原理，一幅图像可以分成两种成分的乘积叠加，一种成分是入射的光强L(x,y)，另一种是反射到人眼中的光强R(x,y)，二者是乘性叠加，所以一幅图像可以表示为F(x,y)&#x3D;L(x,y)*R(x,Y)。同态滤波通过将图像取对数，ln(F(x,y))&#x3D;ln(L(x,y))+ln(R(x,y))，将乘性耦合的入射光和反射光成分解耦，变成加性耦合，这样就可以利用线性性分别对两种成分进">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://jiahaohong.github.io/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/BasicFormulas.png">
-<meta property="article:published_time" content="2020-02-07T02:48:54.000Z">
-<meta property="article:modified_time" content="2020-09-29T08:56:12.539Z">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/1.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/0_2-2-0_2-1000.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/sign.jpg">
+<meta property="article:published_time" content="2020-10-06T02:51:54.000Z">
+<meta property="article:modified_time" content="2020-10-06T11:51:09.607Z">
 <meta property="article:author" content="Darcy">
-<meta property="article:tag" content="数字电路">
+<meta property="article:tag" content="Matlab">
+<meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://jiahaohong.github.io/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/BasicFormulas.png">
+<meta name="twitter:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/1.jpg">
 
 
 
@@ -122,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://Jiahaohong.github.io/2020/02/07/数字电路：逻辑代数基本定理/"/>
+  <link rel="canonical" href="http://Jiahaohong.github.io/2020/10/06/Matlab-同态滤波/"/>
 
 
 
 
 
-  <title>数字电路：逻辑代数基本定理 | Darcy's Blog</title>
+  <title>Matlab:同态滤波 | Darcy's Blog</title>
   
 
 
@@ -255,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Darcy">
@@ -272,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数字电路：逻辑代数基本定理</h1>
+          <h1 class="post-title" itemprop="name headline">Matlab:同态滤波</h1>
         
 
         <div class="post-meta">
@@ -284,8 +287,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-07T10:48:54+08:00">
-                2020-02-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-06T10:51:54+08:00">
+                2020-10-06
               </time>
             
 
@@ -307,8 +310,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E7%94%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">数电学习笔记</span>
+                  <a href="/categories/Matlab%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">Matlab图像处理</span>
                   </a>
                 </span>
 
@@ -349,42 +352,20 @@
       
 
       
-        <h2 id="逻辑代数基本定律"><a href="#逻辑代数基本定律" class="headerlink" title="逻辑代数基本定律"></a>逻辑代数基本定律</h2><p><em>以下两个定律比较重要，故单独列出</em></p>
-<ul>
-<li><strong><em>分配律</em></strong><ul>
-<li>A·（B + C）= A · B + A · C</li>
-<li><strong>A + B · C = （A + B）·（A + C）</strong></li>
-</ul>
-</li>
-<li><strong><em>反演律</em></strong>（摩根定理）<ul>
-<li><span style="text-decoration:overline">A·B·C</span> = <span style="text-decoration:overline">A</span> + <span style="text-decoration:overline">B</span> + <span style="text-decoration:overline">C</span></li>
-<li><span style="text-decoration:overline">A+B+C</span> = <span style="text-decoration:overline">A</span> · <span style="text-decoration:overline">B</span> · <span style="text-decoration:overline">C</span> </li>
-</ul>
-</li>
-</ul>
-<p><strong>基本定律的应用</strong><br>重叠律和同一律的逆应用可以带来凑项的效果。<br><img src="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/BasicFormulas.png" width="200px">  </p>
-<h2 id="逻辑代数常用公式"><a href="#逻辑代数常用公式" class="headerlink" title="逻辑代数常用公式"></a>逻辑代数常用公式</h2><ul>
-<li>吸收律<ul>
-<li>A + A·B = A</li>
-<li>A·（A + B） = A</li>
-</ul>
-</li>
-<li>补吸收律<ul>
-<li>A + <span style="text-decoration:overline">A</span>·B = A + B</li>
-</ul>
-</li>
-<li>重要公式<ul>
-<li>A·B + <span style="text-decoration:overline">A</span>·C + B·C = A·B + <span style="text-decoration:overline">A</span>·C</li>
-<li><strong>A·B + <span style="text-decoration:overline">A</span>·C + B·C·D = A·B + <span style="text-decoration:overline">A</span>·C</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="逻辑代数基本规则"><a href="#逻辑代数基本规则" class="headerlink" title="逻辑代数基本规则"></a>逻辑代数基本规则</h2><ul>
-<li>带入规则<br>同代数的带入规则。</li>
-<li>反演规则<br>如果将表达式中与（·）换成或（+）、或（+）换成与（·）、反变量换成原变量、原变量换成反变量、1换成0、0换成1，那么得到的表达式即使原表达式的反演表达式。注意不要改变运算顺序，适当使用小括号将原表达式的与运算括起来保证原表达式的运算顺序。</li>
-<li>对偶规则<br>如果将表达式中与（·）换成或（+）、或（+）换成与（·），保持运算顺序不变，变量不变，则得到原表达式的对偶表达式。</li>
-</ul>
-<p><strong>基本规则的应用</strong><br>在化简逻辑函数时，可以通过反演规则（对偶规则）将逻辑函数转换为对应的反演表达式（对偶表达式），然后对转换后的新表达式进行化简，将得到的结果再进行一次反演（对偶）即可得到原逻辑函数的化简结果。</p>
+        <h3 id="一、什么是同态滤波"><a href="#一、什么是同态滤波" class="headerlink" title="一、什么是同态滤波"></a>一、什么是同态滤波</h3><p>根据成像原理，一幅图像可以分成两种成分的乘积叠加，一种成分是入射的光强<strong>L(x,y)</strong>，另一种是反射到人眼中的光强<strong>R(x,y)</strong>，二者是乘性叠加，所以一幅图像可以表示为<strong>F(x,y)=L(x,y)*R(x,Y)</strong>。<br>同态滤波通过将图像取对数，<strong>ln(F(x,y))=ln(L(x,y))+ln(R(x,y))</strong>，将乘性耦合的入射光和反射光成分解耦，变成加性耦合，这样就可以利用线性性分别对两种成分进行滤波处理。由于反射光强一般是高频成分，而入射光强是低频成分，所以用高通滤波器可以将入射光成分滤掉，得到更加清楚的细节。同态滤波是通过物理规律将图像进行分解操作，滤波器是在滤波过程中的一种频率选择方法，同态滤波并没有设计一种新的滤波器。</p>
+<h3 id="二、同态滤波实现"><a href="#二、同态滤波实现" class="headerlink" title="二、同态滤波实现"></a>二、同态滤波实现</h3><h4 id="同态滤波结构"><a href="#同态滤波结构" class="headerlink" title="同态滤波结构"></a>同态滤波结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">homomophic filter</span><br><span class="line">|</span><br><span class="line">|-log_img &#x3D; log(img + 1)</span><br><span class="line">|</span><br><span class="line">|-ft_img &#x3D; fft(img)</span><br><span class="line">|</span><br><span class="line">|-h_img &#x3D; ft_img.*H</span><br><span class="line">|</span><br><span class="line">|-exp_img &#x3D; exp(h_img) - 1</span><br><span class="line">|</span><br><span class="line">|-res_img &#x3D; ifft(h_img)</span><br></pre></td></tr></table></figure>
+
+<h4 id="matlab代码"><a href="#matlab代码" class="headerlink" title="matlab代码"></a>matlab代码</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ output_img ]</span> = <span class="title">homomorphic_filt</span><span class="params">( input_img, rL, rH, c, d )</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">%同态滤波参数设置</span></span><br><span class="line">    <span class="comment">%rL = 0.4; %低频放大系数</span></span><br><span class="line">    <span class="comment">%rH = 10; %高频放大系数</span></span><br><span class="line">    <span class="comment">%c = 0.2; %高斯变换常数系数</span></span><br><span class="line">    <span class="comment">%d = 4000; %高斯变换系数</span></span><br><span class="line"></span><br><span class="line">    [M,N] = <span class="built_in">size</span>(input_img);</span><br><span class="line">    input_img = double(input_img);</span><br><span class="line"></span><br><span class="line">    log_img = <span class="built_in">log</span>(input_img+<span class="number">1</span>);</span><br><span class="line">    ft_img = fft2(log_img);</span><br><span class="line"></span><br><span class="line">    <span class="comment">%构造高斯滤波器</span></span><br><span class="line">    H = <span class="built_in">zeros</span>(M,N);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:M</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:N</span><br><span class="line">            D = (<span class="built_in">i</span>.^<span class="number">2</span>+<span class="built_in">j</span>.^<span class="number">2</span>);</span><br><span class="line">            H(<span class="built_in">i</span>,<span class="built_in">j</span>) = (rH-rL).*(<span class="number">1</span>-<span class="built_in">exp</span>(-c.*(D./(d^<span class="number">2</span>))))+rL;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    filted_img = H.*ft_img;</span><br><span class="line">    ift_img = ifft2(filted_img);</span><br><span class="line">    exp_img = <span class="built_in">exp</span>(ift_img)<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    output_img = uint8(<span class="built_in">abs</span>(exp_img));</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="有关中心化的处理"><a href="#有关中心化的处理" class="headerlink" title="有关中心化的处理"></a>有关中心化的处理</h4><p>参考了许多CSDN网站上的博客，发现他们都有将高斯滤波器中心化的操作，但是我个人认为这是不必要的操作，仅仅是坐标轴的变换而已。<br>我们来分类讨论一下，如果图像的傅里叶变换没有进行平移操作（fftshift），那么结果的左上角是低频成分，沿着x、y轴坐标增加的方向，频率逐渐增高，那么高通滤波器应该如何设置呢？以左上角为原点，到远点的距离为变量即可构造高斯高通滤波器。但是如果以图片中心点为原点，这时候H需要进行平移，将它和图像的傅里叶变换结果的高低频区域对齐。</p>
+<h3 id="三、实验结果"><a href="#三、实验结果" class="headerlink" title="三、实验结果"></a>三、实验结果</h3><img src="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/1.jpg">  
+<center>原图</center>
+<img src="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/0_2-2-0_2-1000.jpg">  
+<center>变换后的图</center>
+
+<h3 id="四、失误与总结"><a href="#四、失误与总结" class="headerlink" title="四、失误与总结"></a>四、失误与总结</h3><h4 id="调参"><a href="#调参" class="headerlink" title="调参"></a>调参</h4><p>这次的实验参数较多，调参的过程比设计算法的过程还要长，但是通过调参也能够理解各个参数的对图像的影响。比如d和rH的作用又互相抵消的效果，c参数会让图片整体明暗发生变化。至于为什么会出现这些现象，还是要从原理入手，这里还需研究。后续如果有可能的话，可以制作四个参数在一定范围内变化的图像效果变化动图，更加直观的显示四个参数的影响。</p>
+<img src="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/sign.jpg">
+
 
       
     </div>
@@ -402,7 +383,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag"># 数字电路</a>
+            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
+          
+            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag"># 图像处理</a>
           
         </div>
       
@@ -415,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%A1%B9%E6%9C%80%E5%A4%A7%E9%A1%B9/" rel="next" title="数字电路：最小项最大项">
-                <i class="fa fa-chevron-left"></i> 数字电路：最小项最大项
+              <a href="/2020/10/05/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96/" rel="next" title="Matlab:直方图均衡化">
+                <i class="fa fa-chevron-left"></i> Matlab:直方图均衡化
               </a>
             
           </div>
@@ -424,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%881%EF%BC%89/" rel="prev" title="数字电路：卡诺图（1）">
-                数字电路：卡诺图（1） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -570,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑代数基本定律"><span class="nav-text">逻辑代数基本定律</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑代数常用公式"><span class="nav-text">逻辑代数常用公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑代数基本规则"><span class="nav-text">逻辑代数基本规则</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是同态滤波"><span class="nav-text">一、什么是同态滤波</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、同态滤波实现"><span class="nav-text">二、同态滤波实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同态滤波结构"><span class="nav-text">同态滤波结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#matlab代码"><span class="nav-text">matlab代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有关中心化的处理"><span class="nav-text">有关中心化的处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、实验结果"><span class="nav-text">三、实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、失误与总结"><span class="nav-text">四、失误与总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#调参"><span class="nav-text">调参</span></a></li></ol></li></ol></div>
             
 
           </div>
