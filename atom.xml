@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiahaohong.github.io/"/>
-  <updated>2020-10-14T07:01:36.583Z</updated>
+  <updated>2020-10-14T11:49:25.469Z</updated>
   <id>http://jiahaohong.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Opencv:在VisualStudio里配置Opencv</title>
+    <link href="http://jiahaohong.github.io/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/"/>
+    <id>http://jiahaohong.github.io/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/</id>
+    <published>2020-10-14T08:32:46.000Z</published>
+    <updated>2020-10-14T11:49:25.469Z</updated>
+    
+    <content type="html"><![CDATA[<p>一年前学数据结构时配置过Opencv，现在有新工程需要使用Opencv，索性写一篇博客记录下配置过程，希望以后不会忘记。</p><h3 id="1-下载Opencv"><a href="#1-下载Opencv" class="headerlink" title="1.下载Opencv"></a>1.下载Opencv</h3><p>首先得确定你的设备的系统位数，32位还是64位，还要确定你的VisualStudio的版本。我的电脑是x64系统，VisualStudio是2017版。所以我下了4.1.1版本x64平台的Opencv，下载之后将那个exe跑起来，解压Opencv你想要的位置，记住这个位置。</p><h3 id="2-新建工程"><a href="#2-新建工程" class="headerlink" title="2.新建工程"></a>2.新建工程</h3><p>Visual Studio新建空工程文件，OK。</p><h3 id="3-配置工程属性"><a href="#3-配置工程属性" class="headerlink" title="3.配置工程属性"></a>3.配置工程属性</h3><p>在左侧的“解决方案资源管理器”中右键单击你的工程名字，选择弹出选项的最后一个“属性”进行配置。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/0.jpg">  </p><h4 id="3-1“配置和平台”的选择"><a href="#3-1“配置和平台”的选择" class="headerlink" title="3.1“配置和平台”的选择"></a>3.1“配置和平台”的选择</h4><p>我的选择的是“所有配置”和“x64”平台。配置选项也可以选择“Debug”。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/1-1.jpg">  </p><h4 id="3-2“C-C-常规”项的配置"><a href="#3-2“C-C-常规”项的配置" class="headerlink" title="3.2“C\C++常规”项的配置"></a>3.2“C\C++常规”项的配置</h4><p>编辑附加包含目录，将你的Opencv里的<strong>include</strong>文件夹的绝对路径填写进去。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/1.jpg"></p><h4 id="3-3“链接器常规”项的配置"><a href="#3-3“链接器常规”项的配置" class="headerlink" title="3.3“链接器常规”项的配置"></a>3.3“链接器常规”项的配置</h4><p>编辑附加库目录，如图。我的VisualStudio是2017版的，选择v14和v15都可以。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/2.jpg"></p><h4 id="3-4“链接器输入”项的配置"><a href="#3-4“链接器输入”项的配置" class="headerlink" title="3.4“链接器输入”项的配置"></a>3.4“链接器输入”项的配置</h4><p>编辑附加依赖项，将v15\bin文件夹里的opencv_worldxxx.dll和opencv_worldxxx<strong>d</strong>.dll两个文件名字写进去。注意，这个xxx代表的是你下的opencv版本号，比如4.1.1版就是411。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/3.jpg"></p><h3 id="4-移动-dll文件"><a href="#4-移动-dll文件" class="headerlink" title="4.移动.dll文件"></a>4.移动.dll文件</h3><p>最后一步，还记得之前v15\bin文件夹里的两个dll文件吗？将他们复制粘贴到C:\Windows\System32文件夹里，OK。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/4.jpg"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一年前学数据结构时配置过Opencv，现在有新工程需要使用Opencv，索性写一篇博客记录下配置过程，希望以后不会忘记。&lt;/p&gt;
+&lt;h3 id=&quot;1-下载Opencv&quot;&gt;&lt;a href=&quot;#1-下载Opencv&quot; class=&quot;headerlink&quot; title=&quot;1.下载
+      
+    
+    </summary>
+    
+    
+      <category term="图像处理" scheme="http://Jiahaohong.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="图像处理" scheme="http://Jiahaohong.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="Opencv" scheme="http://Jiahaohong.github.io/tags/Opencv/"/>
+    
+  </entry>
   
   <entry>
     <title>Matlab:同态滤波</title>
@@ -513,32 +542,6 @@
       
         &lt;p&gt;在细致讨论关系数据库的范式之前，我们要理解几个重要概念。&lt;/p&gt;
 &lt;h2 id=&quot;关系的键码&quot;&gt;&lt;a href=&quot;#关系的键码&quot; class=&quot;headerlink&quot; title=&quot;关系的键码&quot;&gt;&lt;/a&gt;关系的键码&lt;/h2&gt;&lt;h3 id=&quot;键码&quot;&gt;&lt;a href=&quot;#键码&quot;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="数据库" scheme="http://Jiahaohong.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库：E-R图</title>
-    <link href="http://jiahaohong.github.io/2020/03/12/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AE-R%E5%9B%BE/"/>
-    <id>http://jiahaohong.github.io/2020/03/12/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AE-R%E5%9B%BE/</id>
-    <published>2020-03-12T12:11:32.000Z</published>
-    <updated>2020-03-12T13:29:17.147Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="ER图三要素"><a href="#ER图三要素" class="headerlink" title="ER图三要素"></a>ER图三要素</h2><ul><li>实体集<br>具有相同特性的同一类事物的集合，矩形表示。</li><li>属性<br>描述实体摸个特性的值，椭圆形表示。</li><li>联系<br>两个或多个实体集之间的联系，菱形表示。</li></ul><h2 id="联系的多重性"><a href="#联系的多重性" class="headerlink" title="联系的多重性"></a>联系的多重性</h2><ul><li>一对一联系，双边箭头。</li><li>一对多联系，从一指向多的箭头。</li><li>多对多联系，不加箭头。  <h3 id="如何判断两个实体集之间的联系的多重性？"><a href="#如何判断两个实体集之间的联系的多重性？" class="headerlink" title="如何判断两个实体集之间的联系的多重性？"></a>如何判断两个实体集之间的联系的多重性？</h3>如果从某个实体集A中的一个实体a出发，经过一个联系，只有另一个实体集B中唯一的一个实体b与之对应，则从A经过联系指向实体集B的连线应该加箭头。</li></ul><h2 id="联系的多向性"><a href="#联系的多向性" class="headerlink" title="联系的多向性"></a>联系的多向性</h2><p>ER图中的联系可以涉及多个实体，这是ODL中所不具备的。</p><h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><ul><li>键码<br>在实体集中，唯一标识一个实体的属性或属性集。用下划线表示某些属性或属性集构成了键码。注意，键码本质上也是属性。</li><li>参照完整性约束  <ol><li>必须是多对一或一对一联系。</li><li>R是从实体集E到实体集F的联系，如果若E中的一个实体e存在，那么与之对应的实体f必须存在。</li></ol></li></ul><h2 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h2><p>如果实体集C具有实体集D的全部属性和联系，并且还拥有一些其他的属性，那么称实体集C是实体集D的子类。用等腰三角形链接超类（可以理解为父类）和子类，顶点指向超类。</p><h3 id="ODL子类和ER图子类的区别"><a href="#ODL子类和ER图子类的区别" class="headerlink" title="ODL子类和ER图子类的区别"></a>ODL子类和ER图子类的区别</h3><ul><li>ODL的子类必须是同一个类的部分成员。</li><li>ER图的实体可以属于多个实体集。</li><li>ODL子类类似Java，ER图子类类似C++。</li></ul><h2 id="弱实体集"><a href="#弱实体集" class="headerlink" title="弱实体集"></a>弱实体集</h2><p>如果实体集C的<strong>键码</strong>中的一些或全部属于实体集D，那么实体集C为实体集D的弱实体集。用双边矩形表示弱实体集，用双边菱形表示实体集C和D的联系。</p><h3 id="如何理解弱实体集"><a href="#如何理解弱实体集" class="headerlink" title="如何理解弱实体集"></a>如何理解弱实体集</h3><ul><li>层次结构<br>在现实世界中的弱实体集E依赖于提供给他键码的实体集F，没有实体集F，就不能确定实体集E。</li><li>连接实体集</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;ER图三要素&quot;&gt;&lt;a href=&quot;#ER图三要素&quot; class=&quot;headerlink&quot; title=&quot;ER图三要素&quot;&gt;&lt;/a&gt;ER图三要素&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;实体集&lt;br&gt;具有相同特性的同一类事物的集合，矩形表示。&lt;/li&gt;
-&lt;li&gt;属性&lt;br&gt;描述实体
       
     
     </summary>
