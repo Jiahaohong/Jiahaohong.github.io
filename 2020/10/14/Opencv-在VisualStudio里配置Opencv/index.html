@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="一年前学数据结构时配置过Opencv，现在有新工程需要使用Opencv，索性写一篇博客记录下配置过程，希望以后不会忘记。 1.下载Opencv首先得确定你的设备的系统位数，32位还是64位，还要确定你的VisualStudio的版本。我的电脑是x64系统，VisualStudio是2017版。所以我下了4.1.1版本x64平台的Opencv，下载之后将那个exe跑起来，解压Opencv你想要的位置">
+<meta name="description" content="前言一年前学数据结构时配置过Opencv，现在有新工程需要使用Opencv，索性写一篇博客记录下配置过程，希望以后不会忘记。 1.下载Opencv首先得确定你的设备的系统位数，32位还是64位，还要确定你的VisualStudio的版本。我的电脑是x64系统，VisualStudio是2017版。所以我下了4.1.1版本x64平台的Opencv，下载之后将那个exe跑起来，解压Opencv你想要的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Opencv:在VisualStudio里配置Opencv">
 <meta property="og:url" content="http://jiahaohong.github.io/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="一年前学数据结构时配置过Opencv，现在有新工程需要使用Opencv，索性写一篇博客记录下配置过程，希望以后不会忘记。 1.下载Opencv首先得确定你的设备的系统位数，32位还是64位，还要确定你的VisualStudio的版本。我的电脑是x64系统，VisualStudio是2017版。所以我下了4.1.1版本x64平台的Opencv，下载之后将那个exe跑起来，解压Opencv你想要的位置">
+<meta property="og:description" content="前言一年前学数据结构时配置过Opencv，现在有新工程需要使用Opencv，索性写一篇博客记录下配置过程，希望以后不会忘记。 1.下载Opencv首先得确定你的设备的系统位数，32位还是64位，还要确定你的VisualStudio的版本。我的电脑是x64系统，VisualStudio是2017版。所以我下了4.1.1版本x64平台的Opencv，下载之后将那个exe跑起来，解压Opencv你想要的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/0.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/1-1.jpg">
@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/3.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/4.jpg">
 <meta property="article:published_time" content="2020-10-14T08:32:46.000Z">
-<meta property="article:modified_time" content="2020-10-14T11:49:25.469Z">
+<meta property="article:modified_time" content="2020-10-14T11:54:33.067Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="图像处理">
 <meta property="article:tag" content="Opencv">
@@ -366,7 +366,7 @@
       
 
       
-        <p>一年前学数据结构时配置过Opencv，现在有新工程需要使用Opencv，索性写一篇博客记录下配置过程，希望以后不会忘记。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一年前学数据结构时配置过Opencv，现在有新工程需要使用Opencv，索性写一篇博客记录下配置过程，希望以后不会忘记。</p>
 <h3 id="1-下载Opencv"><a href="#1-下载Opencv" class="headerlink" title="1.下载Opencv"></a>1.下载Opencv</h3><p>首先得确定你的设备的系统位数，32位还是64位，还要确定你的VisualStudio的版本。我的电脑是x64系统，VisualStudio是2017版。所以我下了4.1.1版本x64平台的Opencv，下载之后将那个exe跑起来，解压Opencv你想要的位置，记住这个位置。</p>
 <h3 id="2-新建工程"><a href="#2-新建工程" class="headerlink" title="2.新建工程"></a>2.新建工程</h3><p>Visual Studio新建空工程文件，OK。</p>
 <h3 id="3-配置工程属性"><a href="#3-配置工程属性" class="headerlink" title="3.配置工程属性"></a>3.配置工程属性</h3><p>在左侧的“解决方案资源管理器”中右键单击你的工程名字，选择弹出选项的最后一个“属性”进行配置。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/0.jpg">  </p>
@@ -375,6 +375,7 @@
 <h4 id="3-3“链接器常规”项的配置"><a href="#3-3“链接器常规”项的配置" class="headerlink" title="3.3“链接器常规”项的配置"></a>3.3“链接器常规”项的配置</h4><p>编辑附加库目录，如图。我的VisualStudio是2017版的，选择v14和v15都可以。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/2.jpg"></p>
 <h4 id="3-4“链接器输入”项的配置"><a href="#3-4“链接器输入”项的配置" class="headerlink" title="3.4“链接器输入”项的配置"></a>3.4“链接器输入”项的配置</h4><p>编辑附加依赖项，将v15\bin文件夹里的opencv_worldxxx.dll和opencv_worldxxx<strong>d</strong>.dll两个文件名字写进去。注意，这个xxx代表的是你下的opencv版本号，比如4.1.1版就是411。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/3.jpg"></p>
 <h3 id="4-移动-dll文件"><a href="#4-移动-dll文件" class="headerlink" title="4.移动.dll文件"></a>4.移动.dll文件</h3><p>最后一步，还记得之前v15\bin文件夹里的两个dll文件吗？将他们复制粘贴到C:\Windows\System32文件夹里，OK。<br><img src="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/4.jpg"></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>一年前我还配置过系统环境变量，但是这次没有配置也成功了，仔细检查过系统PATH和用户Path变量后也没有发现一年前配置过的那个变量。所以环境变量可能不是必须的。</p>
 
       
     </div>
@@ -558,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载Opencv"><span class="nav-text">1.下载Opencv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-新建工程"><span class="nav-text">2.新建工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置工程属性"><span class="nav-text">3.配置工程属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1“配置和平台”的选择"><span class="nav-text">3.1“配置和平台”的选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2“C-C-常规”项的配置"><span class="nav-text">3.2“C\C++常规”项的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3“链接器常规”项的配置"><span class="nav-text">3.3“链接器常规”项的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4“链接器输入”项的配置"><span class="nav-text">3.4“链接器输入”项的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-移动-dll文件"><span class="nav-text">4.移动.dll文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载Opencv"><span class="nav-text">1.下载Opencv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-新建工程"><span class="nav-text">2.新建工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置工程属性"><span class="nav-text">3.配置工程属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1“配置和平台”的选择"><span class="nav-text">3.1“配置和平台”的选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2“C-C-常规”项的配置"><span class="nav-text">3.2“C\C++常规”项的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3“链接器常规”项的配置"><span class="nav-text">3.3“链接器常规”项的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4“链接器输入”项的配置"><span class="nav-text">3.4“链接器输入”项的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-移动-dll文件"><span class="nav-text">4.移动.dll文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>
