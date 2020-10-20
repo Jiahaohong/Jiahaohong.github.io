@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiahaohong.github.io/"/>
-  <updated>2020-10-20T09:21:18.643Z</updated>
+  <updated>2020-10-20T12:20:08.088Z</updated>
   <id>http://jiahaohong.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SeedCup:log20201020</title>
+    <link href="http://jiahaohong.github.io/2020/10/20/SeedCup-log20201020/"/>
+    <id>http://jiahaohong.github.io/2020/10/20/SeedCup-log20201020/</id>
+    <published>2020-10-20T12:14:36.000Z</published>
+    <updated>2020-10-20T12:20:08.088Z</updated>
+    
+    <content type="html"><![CDATA[<p>2020-10-20</p><p>Finish:迷宫路径算法完成</p><p>Error:组内坐标定义不兼容</p><p>Task:移动函数</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2020-10-20&lt;/p&gt;
+&lt;p&gt;Finish:迷宫路径算法完成&lt;/p&gt;
+&lt;p&gt;Error:组内坐标定义不兼容&lt;/p&gt;
+&lt;p&gt;Task:移动函数&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="2020种子杯日志" scheme="http://Jiahaohong.github.io/categories/2020%E7%A7%8D%E5%AD%90%E6%9D%AF%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="Python" scheme="http://Jiahaohong.github.io/tags/Python/"/>
+    
+      <category term="SeedCup" scheme="http://Jiahaohong.github.io/tags/SeedCup/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux:ssh免密登录服务器</title>
     <link href="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
     <published>2020-10-20T04:24:38.000Z</published>
-    <updated>2020-10-20T09:21:18.643Z</updated>
+    <updated>2020-10-20T12:17:09.348Z</updated>
     
     <content type="html"><![CDATA[<p>今年二月份在阿里云领了一个免费服务器，当时学了学服务器操作的相关知识，感觉ssh登录确实很方便。前不久8月份免费的服务器到期了，所以我又开了一个一年的低配服务器，现在记录一下我对这个服务器的操作，纯属乐趣。本期话题是“ssh免密登录”。</p><p>我的硬件配置如下：<br><em>本地电脑：Windows10</em><br><em>服务器：阿里云云服务器</em><br><em>本地远程登录软件：gitbash</em></p><h3 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h3><h4 id="一个服务器"><a href="#一个服务器" class="headerlink" title="一个服务器"></a>一个服务器</h4><ul><li>说明一下，其一，一台服务器的概念很宽泛，可以是另一台电脑，也可以是一个云端的电脑，但总归一点你要知道它的IP地址。  </li><li>其二，这个服务器上已经有注册了用户，有个用户名和对应的密码，这类似于你用于登陆Windows的账户。  </li><li>其三，有一个区别是Windows的管理员是administrator，Linux的管理员是root。</li></ul><h4 id="一台本地电脑"><a href="#一台本地电脑" class="headerlink" title="一台本地电脑"></a>一台本地电脑</h4><ul><li>Windows电脑可以下载一些软件来连接，比如Putty和XShell</li><li>Linux电脑需要安装ssh服务。</li></ul><h4 id="核心登录指令"><a href="#核心登录指令" class="headerlink" title="核心登录指令"></a>核心登录指令</h4><p><strong>ssh <a href="mailto:username@xxx.xxx.xxx.xxx">username@xxx.xxx.xxx.xxx</a></strong>  </p><ul><li>username 用你自己的用户名替换  </li><li>xxx.xxx.xxx.xxx 用你自己的服务器ip地址替换</li></ul><h3 id="二、具体步骤"><a href="#二、具体步骤" class="headerlink" title="二、具体步骤"></a>二、具体步骤</h3><h4 id="阿里云远程连接配置服务器"><a href="#阿里云远程连接配置服务器" class="headerlink" title="阿里云远程连接配置服务器"></a>阿里云远程连接配置服务器</h4><p><em>这一步操作需要通过本地电脑远程连接服务器后，在服务器上执行。</em><br>在用自己的电脑远程连接服务器之前，我们需要使用阿里云平台提供的工具连接到自己的服务器，这个工具在哪？登录阿里云官网，控制台里就有。<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun.jpg"><br>点击远程连接进入到终端后，找到/etc/ssh文件夹，我们要修改该文件夹里的<strong>sshd_config</strong>文件，配置一下远程登陆，一般来说文件里都已经写好了，只不过被注释掉了（或开启状态写的是no），这时你只需要找到被注释的行取消注释就行（或把no改成yes）；如果你没有找到相应的配置，那么就要手动添加，写在文件里任何位置都是可以的，但建议最后一行，方便以后修改。需要修改的配置如下两图：<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun_cfg1.jpg"><br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun_cfg2.jpg"><br>这里稍微解释一下这四个配置的意思（如果不想看尽情跳过）：</p><ul><li>第一个<strong>PermitRootLogin</strong>表示允许用root用户进行远程登陆。如果不开启这一项，那么你的远程登陆只能使用其他的普通用户名登录。比如你在服务器上注册了一个darcy账户，而你没有开启这一项，那么你只能用darcy作为远程登录的用户名，这种情况下你用root登录会拒绝你的登录请求。  </li><li>第二个<strong>PasswordAuthentication</strong>表示允许密码远程登录。这是最基础的远程登陆认证方式，其实和你在电脑开机时输入登陆密码一样。  </li><li>第三个<strong>PubkeyAuthentication</strong>表示允许公钥远程登陆。<strong>注意</strong>这一项是本篇博客的重要内容。ssh登录需要开启这个命令。</li><li>第四个是保存公钥的文件，你在你的ssh文件夹里找一找，一般来说第一个就是（因为开头字母是a），如果没有就自己在ssh文件夹里新建一个文件，名字是authoriz_keys，后面那个authoriz_keys2没有用到。  </li></ul><h4 id="生成公钥密钥"><a href="#生成公钥密钥" class="headerlink" title="生成公钥密钥"></a>生成公钥密钥</h4><p><em>这一步操作需要在本地电脑的远程连接软件的终端上执行。</em><br>在gitbash里输入如下命令<strong>ssh-keygen -t rsa</strong>，之后按他的提示来就行，最终会在你的Windows当前用户的主文件夹的.ssh文件夹里生成两个文件，一个是公钥id_rsa.pub，另一个是私钥id_rsa，其中私钥要保管好，公钥要传到服务器上去。注意，如果是Linux用户，这个文件在~/.ssh文件夹里，如果是Windows用户，这个文件在如下图的路径里：<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/key.jpg"></p><h4 id="上传公钥"><a href="#上传公钥" class="headerlink" title="上传公钥"></a>上传公钥</h4><p><em>这一步操作需要在本地电脑的远程连接软件的终端上执行。</em><br>在本地远程连接软件终端里输入如下指令<strong>ssh-copy-id -i ~/.ssh/id_rsa.pub <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a></strong>，之后会让你输入root用户的密码，之后会提示让你用<strong>ssh <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a></strong>命令远程登陆服务器（如下图）。OK，你可以免密登陆了！<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/upload.jpg"></p><h3 id="三、题外话：第一次连接服务器（密码登录）"><a href="#三、题外话：第一次连接服务器（密码登录）" class="headerlink" title="三、题外话：第一次连接服务器（密码登录）"></a>三、题外话：第一次连接服务器（密码登录）</h3><p><em>这一步操作需要在本地电脑的远程连接软件的终端上执行。</em><br>在第一次远程连接服务器的时候，会出现如下警告：<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/norm3.jpg"><br>这是正常的，ssh为了防止中间人攻击会在你第一次连接一个远程服务器时提醒你一下。敲上yes按回车确认即可。然后他会让你输入密码，你输入root用户的密码即可，这里没有显示是正常的，因为他会隐藏你输入的密码。<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/norm1.jpg"></p>]]></content>
     
@@ -36,7 +68,7 @@
     </summary>
     
     
-      <category term="Linux学习笔记" scheme="http://Jiahaohong.github.io/categories/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="Linux学习之路" scheme="http://Jiahaohong.github.io/categories/Linux%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/"/>
     
     
       <category term="Linux" scheme="http://Jiahaohong.github.io/tags/Linux/"/>
@@ -248,7 +280,7 @@
     <link href="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
     <id>http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
     <published>2020-09-25T23:38:59.000Z</published>
-    <updated>2020-09-29T09:00:28.683Z</updated>
+    <updated>2020-10-20T12:16:50.438Z</updated>
     
     <content type="html"><![CDATA[<p><em>本教程原系统Windows10</em><br><em>安装Ubuntu18.04.3版本</em><br><em>电脑联想Y7000</em><br><em>手机华为P10</em> </p><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ul><li><p><a href="https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso" target="_blank" rel="noopener">Ubuntu18.05下载</a>  </p></li><li><p>8G U盘一个</p></li><li><p>能上网的手机一个</p></li></ul><h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p><em><strong>注意之后提到的按键以平台为准，可能和你的电脑或手机不一样</strong></em></p><h4 id="1-制作启动盘"><a href="#1-制作启动盘" class="headerlink" title="1. 制作启动盘"></a>1. 制作启动盘</h4><p>WIN10下用文件资源管理器打开上面下载的ISO文件，把里面的文件全部复制粘贴到U盘里。<strong>接下来的操作不要拔下U盘</strong>。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO.jpg"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO2.jpg"></p><h4 id="2-重启电脑进入BIOS"><a href="#2-重启电脑进入BIOS" class="headerlink" title="2. 重启电脑进入BIOS"></a>2. 重启电脑进入BIOS</h4><p>重启电脑，在<strong>电脑重新开启之前</strong>按住F2键不放，然后进入BIOS界面。<strong>注意每个厂家生产的电脑进入BIOS的键不一样</strong>，我的联想Y7000是F2键，其他电脑的快捷键可以去网上查。  </p><h4 id="3-修改安全启动项SecurityBoot"><a href="#3-修改安全启动项SecurityBoot" class="headerlink" title="3. 修改安全启动项SecurityBoot"></a>3. 修改安全启动项SecurityBoot</h4><p>左右键切换页面到Security界面，上下键选择到SecurityBoot项，按下F5键将其改为Disable。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/SecurityBoot.jpg">  </p><h4 id="4-将启动盘（U盘）启动优先级调到第一"><a href="#4-将启动盘（U盘）启动优先级调到第一" class="headerlink" title="4. 将启动盘（U盘）启动优先级调到第一"></a>4. 将启动盘（U盘）启动优先级调到第一</h4><p>左右键切换页面到Boot界面，上下键选择到U盘启动项，一般来说后面<strong>括号</strong>里显示的是你<strong>U盘的型号</strong>那个就是启动盘，按F6键将其上移到第一个。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Boot.jpg"></p><h4 id="5-保存修改并重启"><a href="#5-保存修改并重启" class="headerlink" title="5. 保存修改并重启"></a>5. 保存修改并重启</h4><p>按F10键保存BIOS修改，弹出确认框，左右键选择Yes后回车，系统自动关机，重新打开电脑即可进入U盘里的启动项。</p><h4 id="6-选择安装Ubuntu项"><a href="#6-选择安装Ubuntu项" class="headerlink" title="6. 选择安装Ubuntu项"></a>6. 选择安装Ubuntu项</h4><p>进入U盘里的启动项后，选择Install Ubuntu选项安装Ubuntu系统。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Install.jpg"></p><h4 id="7-连接手机"><a href="#7-连接手机" class="headerlink" title="7. 连接手机"></a>7. <strong>连接手机</strong></h4><p>注意，这是很重要的一步，之后的自动更新需要用到手机的网络。用USB线连接手机和电脑，这时手机上会显示几个选项，选择传输文件（点了之后弹窗就没了）。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone1.jpg" width="200" height="200"><br>找到设置-&gt;移动网络-&gt;移动网络共享，打开USB共享网络。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone4.jpg" width="200" height="400"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone2.jpg" width="200" height="400"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Phone3.jpg" width="200" height="400"><br>这时候，Ubuntu安装界面右上角出现一个图标就表示电脑已经连上网了。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Wireless.png"></p><p>现在万事俱备，进入Ubuntu安装程序后，跟着他的步骤一步一步来。</p><h4 id="8-键盘布局"><a href="#8-键盘布局" class="headerlink" title="8. 键盘布局"></a>8. 键盘布局</h4><p>键盘布局选择汉语。</p><h4 id="9-连接wifi无线网络"><a href="#9-连接wifi无线网络" class="headerlink" title="9. 连接wifi无线网络"></a>9. 连接wifi无线网络</h4><p>选择不想连接，因为手机已经共享了。  </p><h4 id="10-更新和其他软件"><a href="#10-更新和其他软件" class="headerlink" title="10. 更新和其他软件"></a>10. 更新和其他软件</h4><p>选择最小安装，并且安装第三方软件。安装第三方软件需要之前手机的网络，大概两三百MB。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/update.jpg"></p><h4 id="11-安装类型"><a href="#11-安装类型" class="headerlink" title="11. 安装类型"></a>11. 安装类型</h4><p>选择和Win10Boot共存的那个选项。</p><h4 id="12-等待安装完成！"><a href="#12-等待安装完成！" class="headerlink" title="12. 等待安装完成！"></a>12. 等待安装完成！</h4><p>这个安装方式十分方便，安装完成后可以直接用，不需要自己再配置什么驱动，独立显卡驱动除外，之后可能会有一篇博客讲解Nvidia独显驱动安装。总结：见文章内容导航！</p>]]></content>
     
@@ -263,7 +295,7 @@
     </summary>
     
     
-      <category term="Linux学习笔记" scheme="http://Jiahaohong.github.io/categories/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="Linux学习之路" scheme="http://Jiahaohong.github.io/categories/Linux%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/"/>
     
     
       <category term="Linux" scheme="http://Jiahaohong.github.io/tags/Linux/"/>
@@ -357,7 +389,7 @@
     <link href="http://jiahaohong.github.io/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
     <id>http://jiahaohong.github.io/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</id>
     <published>2020-07-18T13:55:57.000Z</published>
-    <updated>2020-09-25T23:30:18.137Z</updated>
+    <updated>2020-10-20T12:17:21.150Z</updated>
     
     <content type="html"><![CDATA[<p><em>系统使用Ubuntu18.04，无图形界面，本地系统为Windows10</em></p><h3 id="一、Linux系统指令"><a href="#一、Linux系统指令" class="headerlink" title="一、Linux系统指令"></a>一、Linux系统指令</h3><ul><li>进入指定文件夹<br>cd /root/mygit/project1</li><li>进入上层文件夹<br>cd ..</li><li>进入根目录文件夹(root)<br>cd ~</li><li>显示当前文件夹路径<br>pwd</li><li>显示当前文件夹里的文件和文件夹<br>ls -l</li><li>在当前文件夹下创建文件夹<br>mkdir project2</li><li>在当前文件夹下创建文件<br>touch readme.txt<br>touch gitCommand.md<br>touch go.sh</li><li>删除文件或文件夹<br>sudo rm -r readme.txt<br>sudo rm -r project2</li><li>重命名文件或文件夹<br>mv readme.txt README.txt  </li><li>将上述指令结合起来使用，你就可以非常方便的解决一些文件操作的小问题了。比如进入某个文件夹，新建一个子文件夹用来存放自己的markdown笔记，就可以在命令窗口里输入如下命令：<br>cd /usr/note &amp;&amp; mkdir LinuxNotes &amp;&amp; touch day1.md</li></ul><h3 id="二、常用软件指令"><a href="#二、常用软件指令" class="headerlink" title="二、常用软件指令"></a>二、常用软件指令</h3><ul><li>screen<ul><li>新建一个新窗口<br>screen -S name<br>注意S是大写</li><li>将当前窗口挂起（后台运行）<br>ctrl + A + D<br>注意这是快捷键，按后面的键时不要松开前面的键</li><li>显示当前已经开启的窗口<br>screen -ls<br>显示的时候会显示窗口ID和名字，以及是否挂起</li><li>进入挂起窗口<br>screen -r name<br>注意r是小写</li><li>关闭窗口<br>kill ID<br>注意ID可以用screen -ls指令查看</li></ul></li><li>zip  <ul><li>解压文件到当前目录<br>unzip file.zip</li><li>压缩文件<br>zip -r file_name.zip file.txt<br>注意是将file.txt文件压缩为file_name.zip文件，不要弄反了 </li></ul></li></ul><h3 id="三、上传下载文件"><a href="#三、上传下载文件" class="headerlink" title="三、上传下载文件"></a>三、上传下载文件</h3><ul><li>rz/sz  <ul><li>从服务器下载文件<br>sz file.zip</li><li>从本地上传文件<br>rz<br>注意本地需要相应软件，比如Xshell</li></ul></li><li>windows命令窗口上传文件  <ul><li>pscp C:/fold1/fold1_2/file.txt <a href="mailto:root@xx.xxx.xxx.xxx">root@xx.xxx.xxx.xxx</a>:/usr/folderA  </li></ul></li></ul><h3 id="四、anaconda使用指令"><a href="#四、anaconda使用指令" class="headerlink" title="四、anaconda使用指令"></a>四、anaconda使用指令</h3><ul><li>查看虚拟环境列表<br>conda info -e</li><li>创建虚拟环境<br>conda create -n env_name</li><li>进入虚拟环境<br>conda activate env_name</li><li>退出虚拟环境<br>conda deactivate</li><li>在当前虚拟环境下安装 包<br>conda install appname<br>conda install URL</li></ul>]]></content>
     
@@ -372,7 +404,7 @@
     </summary>
     
     
-      <category term="Linux学习笔记" scheme="http://Jiahaohong.github.io/categories/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="Linux学习之路" scheme="http://Jiahaohong.github.io/categories/Linux%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/"/>
     
     
       <category term="Linux" scheme="http://Jiahaohong.github.io/tags/Linux/"/>
@@ -530,33 +562,6 @@
       
         &lt;h3 id=&quot;一、激活函数&quot;&gt;&lt;a href=&quot;#一、激活函数&quot; class=&quot;headerlink&quot; title=&quot;一、激活函数&quot;&gt;&lt;/a&gt;一、激活函数&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Sigmoid函数&lt;br&gt;tf.nn.sigmoid(x)&lt;br&gt;特点：&lt;br&gt;（1）导数
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tensorflow" scheme="http://Jiahaohong.github.io/tags/Tensorflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tensorflow:常用函数</title>
-    <link href="http://jiahaohong.github.io/2020/05/19/Tensorflow-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"/>
-    <id>http://jiahaohong.github.io/2020/05/19/Tensorflow-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</id>
-    <published>2020-05-19T01:22:16.000Z</published>
-    <updated>2020-05-19T09:14:05.723Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><p>强制类型转换<br>tf.cast(张量名,dtype=数据类型)</p></li><li><p>计算张量维度上的最值<br>tf.reduce_min(张量名)<br>tf.reduce_max(张量名)<br>如果没有指定维度，那么默认寻找这个张量所有元素里的最值。</p></li><li><p>axis<br>用于指定函数作用的维度。比如在二维张量中(数组)，axis=0代表作用维度是列，tf.reduce_mean(a,axis=0)表示分别在张量a的所有列中找到最小值。</p></li></ul><ul><li><p>tf.Variable<br>将变量标记为“可训练”，被标记的变量会在反向传播中记录梯度信息。可用于参数初始化。</p></li><li><p>张量对应元素的四则运算<br>tf.add(a,b)<br>tf.subtract(a,b)<br>tf.multiply(a,b)<br>tf.divide(a,b)<br>张量a，b维度必须相同。</p></li><li><p>矩阵乘<br>tf.matmul(A,B)</p></li><li><p>tf.data.Dataset.from_tensor_slices<br>将特征和标签配对</p></li><li><p>tf.GradientTape</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> tape:</span><br><span class="line">    w = tf.Variable(tf.constant(<span class="number">3.0</span>))</span><br><span class="line">    loss = tf.pow(w,<span class="number">2</span>)</span><br><span class="line">grad = tape.gradient(loss,w)</span><br><span class="line">print(grad)</span><br></pre></td></tr></table></figure></li><li><p>tf.one_hot<br>独热编码，在分类问题中常用做标签，1表示是，0表示非。<br>tf.one_hot(代转换数据,depth=几分类)</p></li><li><p>assign_sub<br>只能作用于“可训练”变量，相当于i–。</p></li><li><p>tf.argmax<br>返回张量指定维度的最大值的索引，及最大值的位置。注意不是最大索引值。</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;强制类型转换&lt;br&gt;tf.cast(张量名,dtype=数据类型)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;计算张量维度上的最值&lt;br&gt;tf.reduce_min(张量名)&lt;br&gt;tf.reduce_max(张量名)&lt;br&gt;如果没有指定维度，那么默认寻找这个张量
       
     
     </summary>
