@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/16/C-C-OTSU%E9%98%88%E5%80%BC%E5%88%86%E5%89%B2/debug1.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/16/C-C-OTSU%E9%98%88%E5%80%BC%E5%88%86%E5%89%B2/sign.jpg">
 <meta property="article:published_time" content="2020-10-16T12:50:34.000Z">
-<meta property="article:modified_time" content="2020-10-24T08:10:56.637Z">
+<meta property="article:modified_time" content="2020-10-24T08:16:39.923Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="图像处理">
@@ -395,7 +395,7 @@
 <h3 id="五、实验结果"><a href="#五、实验结果" class="headerlink" title="五、实验结果"></a>五、实验结果</h3><p><strong>阈值116</strong><br><img src="/2020/10/16/C-C-OTSU%E9%98%88%E5%80%BC%E5%88%86%E5%89%B2/otsu_res.png"></p>
 <h3 id="六、失误和总结"><a href="#六、失误和总结" class="headerlink" title="六、失误和总结"></a>六、失误和总结</h3><h4 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h4><p>写完程序后，测试结果总是1，即deltaB运算结果一直为0，调试过程中查看了很多变量也没发现问题，最后鼠标一个个查声明的变量时发现问题：因为<strong>数字1</strong>和<strong>变量size</strong>都是<strong>int类型</strong>的，在进行除法时结果是0，所以之后的计算结果一直为0，达不到预期效果。<br><img src="/2020/10/16/C-C-OTSU%E9%98%88%E5%80%BC%E5%88%86%E5%89%B2/debug1.jpg"></p>
 <h4 id="double类型的表示范围"><a href="#double类型的表示范围" class="headerlink" title="double类型的表示范围"></a>double类型的表示范围</h4><p>最初采用的判别标准是namda公式，在计算deltaW的时候由于u0和u1变量中有一个会很大，导致其平方会超出double表示范围，体现的结果就是deltaW出现负值，而在数学上这个值应该恒为正（两个平方数相加）。之后考虑到计算量，采用了eta公式，并且只用计算deltaB，简化了计算。  </p>
-<center><img src="/2020/10/16/C-C-OTSU%E9%98%88%E5%80%BC%E5%88%86%E5%89%B2/sign.jpg" width="150"></center>
+<center><img src="/2020/10/16/C-C-OTSU%E9%98%88%E5%80%BC%E5%88%86%E5%89%B2/sign.jpg" width="240"></center>
 
       
     </div>
