@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="图像处理,Matlab," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Darcy's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一、什么是同态滤波根据成像原理，一幅图像可以分成两种成分的乘积叠加，一种成分是入射的光强L(x,y)，另一种是反射到人眼中的光强R(x,y)，二者是乘性叠加，所以一幅图像可以表示为F(x,y)&#x3D;L(x,y)*R(x,Y)。同态滤波通过将图像取对数，ln(F(x,y))&#x3D;ln(L(x,y))+ln(R(x,y))，将乘性耦合的入射光和反射光成分解耦，变成加性耦合，这样就可以利用线性性分别对两种成分进">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matlab:同态滤波">
+<meta property="og:url" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/index.html">
+<meta property="og:site_name" content="Darcy&#39;s Blog">
+<meta property="og:description" content="一、什么是同态滤波根据成像原理，一幅图像可以分成两种成分的乘积叠加，一种成分是入射的光强L(x,y)，另一种是反射到人眼中的光强R(x,y)，二者是乘性叠加，所以一幅图像可以表示为F(x,y)&#x3D;L(x,y)*R(x,Y)。同态滤波通过将图像取对数，ln(F(x,y))&#x3D;ln(L(x,y))+ln(R(x,y))，将乘性耦合的入射光和反射光成分解耦，变成加性耦合，这样就可以利用线性性分别对两种成分进">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/1.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/gray.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/0_2-2-0_2-1000.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/error1.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/homofilt.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/signH.jpg">
+<meta property="article:published_time" content="2020-10-06T02:51:54.000Z">
+<meta property="article:modified_time" content="2020-10-24T10:06:06.491Z">
+<meta property="article:author" content="Darcy">
+<meta property="article:tag" content="图像处理">
+<meta property="article:tag" content="Matlab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://Jiahaohong.github.io/2020/10/06/Matlab-同态滤波/"/>
+
+
+
+
+
+  <title>Matlab:同态滤波 | Darcy's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Darcy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hope is something as precious as dimond.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Matlab:同态滤波</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-06T10:51:54+08:00">
+                2020-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">图像处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/" class="leancloud_visitors" data-flag-title="Matlab:同态滤波">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、什么是同态滤波"><a href="#一、什么是同态滤波" class="headerlink" title="一、什么是同态滤波"></a>一、什么是同态滤波</h3><p>根据成像原理，一幅图像可以分成两种成分的乘积叠加，一种成分是入射的光强<strong>L(x,y)</strong>，另一种是反射到人眼中的光强<strong>R(x,y)</strong>，二者是乘性叠加，所以一幅图像可以表示为<strong>F(x,y)=L(x,y)*R(x,Y)</strong>。<br>同态滤波通过将图像取对数，<strong>ln(F(x,y))=ln(L(x,y))+ln(R(x,y))</strong>，将乘性耦合的入射光和反射光成分解耦，变成加性耦合，这样就可以利用线性性分别对两种成分进行滤波处理。由于反射光强一般是高频成分，而入射光强是低频成分，所以用高通滤波器可以将入射光成分滤掉，得到更加清楚的细节。同态滤波是通过物理规律将图像进行分解操作，滤波器是在滤波过程中的一种频率选择方法，同态滤波并没有设计一种新的滤波器。</p>
+<h3 id="二、同态滤波实现"><a href="#二、同态滤波实现" class="headerlink" title="二、同态滤波实现"></a>二、同态滤波实现</h3><h4 id="同态滤波结构"><a href="#同态滤波结构" class="headerlink" title="同态滤波结构"></a>同态滤波结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">homomophic filter</span><br><span class="line">|</span><br><span class="line">|-log_img &#x3D; log(img + 1)</span><br><span class="line">|</span><br><span class="line">|-ft_img &#x3D; fft(img)</span><br><span class="line">|</span><br><span class="line">|-h_img &#x3D; ft_img.*H</span><br><span class="line">|</span><br><span class="line">|-ift_img &#x3D; ifft(h_img)</span><br><span class="line">|</span><br><span class="line">|-res_img &#x3D; exp(ift_img) - 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="matlab代码"><a href="#matlab代码" class="headerlink" title="matlab代码"></a>matlab代码</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ output_img ]</span> = <span class="title">homomorphic_filt</span><span class="params">( input_img, rL, rH, c, d )</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">%同态滤波参数设置</span></span><br><span class="line">    <span class="comment">%rL = 0.1; %低频放大系数</span></span><br><span class="line">    <span class="comment">%rH = 5; %高频放大系数</span></span><br><span class="line">    <span class="comment">%c = 0.2; %高斯变换常数系数</span></span><br><span class="line">    <span class="comment">%d = 8000; %高斯变换系数</span></span><br><span class="line"></span><br><span class="line">    [M,N] = <span class="built_in">size</span>(input_img);</span><br><span class="line">    input_img = double(input_img);</span><br><span class="line"></span><br><span class="line">    log_img = <span class="built_in">log</span>(input_img+<span class="number">1</span>);</span><br><span class="line">    ft_img = fft2(log_img);</span><br><span class="line"></span><br><span class="line">    <span class="comment">%构造高斯滤波器</span></span><br><span class="line">    H = <span class="built_in">zeros</span>(M,N);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:M</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:N</span><br><span class="line">            D = (<span class="built_in">i</span>.^<span class="number">2</span>+<span class="built_in">j</span>.^<span class="number">2</span>);</span><br><span class="line">            H(<span class="built_in">i</span>,<span class="built_in">j</span>) = (rH-rL).*(<span class="number">1</span>-<span class="built_in">exp</span>(-c.*(D./(d^<span class="number">2</span>))))+rL;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    filted_img = H.*ft_img;</span><br><span class="line">    ift_img = ifft2(filted_img);</span><br><span class="line">    exp_img = <span class="built_in">exp</span>(ift_img)<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    output_img = uint8(<span class="built_in">abs</span>(exp_img));</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="有关中心化的处理"><a href="#有关中心化的处理" class="headerlink" title="有关中心化的处理"></a>有关中心化的处理</h4><p>参考了许多CSDN网站上的博客，发现他们都有将高斯滤波器中心化的操作，但是我个人认为这是不必要的操作，仅仅是坐标轴的变换而已。<br>我们来分类讨论一下，如果图像的傅里叶变换没有进行平移操作（fftshift），那么结果的左上角是低频成分，沿着x、y轴坐标增加的方向，频率逐渐增高，那么高通滤波器应该如何设置呢？以左上角为原点，到远点的距离为变量即可构造高斯高通滤波器。但是如果以图片中心点为原点，这时候H需要进行平移，将它和图像的傅里叶变换结果的高低频区域对齐。</p>
+<h3 id="三、实验结果"><a href="#三、实验结果" class="headerlink" title="三、实验结果"></a>三、实验结果</h3><center>原图</center>  
+<img src="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/1.jpg">  
+<center>灰度图</center>  
+<img src="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/gray.jpg">  
+<center>变换后的图</center>  
+<img src="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/0_2-2-0_2-1000.jpg">  
+
+
+<p>可以看出变换后的图像有明显的二值化现象，图片的展现效果不好。</p>
+<h3 id="四、失误与总结"><a href="#四、失误与总结" class="headerlink" title="四、失误与总结"></a>四、失误与总结</h3><h4 id="图像二值化的原因及改进"><a href="#图像二值化的原因及改进" class="headerlink" title="图像二值化的原因及改进"></a>图像二值化的原因及改进</h4><p>在调试过程中，发现取指数后的矩阵元素的值非常小，所以在之后的取整等操作无法反映图像的真实灰度，因此需要将取对数后的图像的灰度拓展到0到255。改进策略是将指数图像的最大最小值取出，然后将指数图像与最小值的差按比例放大到0到255。<br><img src="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/error1.jpg">  </p>
+<center>取指数后的图像矩阵部分元素</center>  
+
+<ul>
+<li>改进后的代码 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ output_img ]</span> = <span class="title">homomorphic_filt</span><span class="params">( input_img, rL, rH, c, d )</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">%同态滤波参数设置</span></span><br><span class="line">    <span class="comment">%rL = 0.1; %低频放大系数</span></span><br><span class="line">    <span class="comment">%rH = 5; %高频放大系数</span></span><br><span class="line">    <span class="comment">%c = 0.2; %高斯变换常数系数</span></span><br><span class="line">    <span class="comment">%d = 8000; %高斯变换系数</span></span><br><span class="line"></span><br><span class="line">    [M,N] = <span class="built_in">size</span>(input_img);</span><br><span class="line">    input_img = double(input_img);</span><br><span class="line"></span><br><span class="line">    log_img = <span class="built_in">log</span>(input_img+<span class="number">1</span>);</span><br><span class="line">    ft_img = fft2(log_img);</span><br><span class="line"></span><br><span class="line">    <span class="comment">%构造高斯滤波器</span></span><br><span class="line">    H = <span class="built_in">zeros</span>(M,N);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:M</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:N</span><br><span class="line">            D = (<span class="built_in">i</span>.^<span class="number">2</span>+<span class="built_in">j</span>.^<span class="number">2</span>);</span><br><span class="line">            H(<span class="built_in">i</span>,<span class="built_in">j</span>) = (rH-rL).*(<span class="number">1</span>-<span class="built_in">exp</span>(-c.*(D./(d^<span class="number">2</span>))))+rL;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    filted_img = H.*ft_img;</span><br><span class="line">    ift_img = ifft2(filted_img);</span><br><span class="line">    exp_img = <span class="built_in">exp</span>(ift_img);</span><br><span class="line">    output_img = </span><br><span class="line">        uint8( <span class="number">255</span> * ( exp_img - <span class="built_in">ones</span>(M,N)*<span class="built_in">min</span>(<span class="built_in">min</span>(exp_img)) ) </span><br><span class="line">                / ( <span class="built_in">max</span>(<span class="built_in">max</span>(exp_img)) - <span class="built_in">min</span>(<span class="built_in">min</span>(exp_img)) ) );</span><br><span class="line">    <span class="comment">%output_img = uint8(abs(exp_img));</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></li>
+<li>改进后实验结果<img src="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/homofilt.jpg">  
+<center>改进后变换后的图</center>
+
+
+</li>
+</ul>
+<h4 id="调参"><a href="#调参" class="headerlink" title="调参"></a>调参</h4><p>这次的实验参数较多，调参的过程比设计算法的过程还要长，但是通过调参也能够理解各个参数的对图像的影响。比如d和rH的作用又互相抵消的效果，c参数会让图片整体明暗发生变化。至于为什么会出现这些现象，还是要从原理入手，这里还需研究。如果有可能的话，之后会制作四个参数在一定范围内变化的图像效果变化动图，更加直观的显示四个参数的影响。  </p>
+<center><img src="/2020/10/06/Matlab-%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/signH.jpg"></center>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag"># 图像处理</a>
+          
+            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/05/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96/" rel="next" title="Matlab:直方图均衡化">
+                <i class="fa fa-chevron-left"></i> Matlab:直方图均衡化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/14/Opencv-%E5%9C%A8VisualStudio%E9%87%8C%E9%85%8D%E7%BD%AEOpencv/" rel="prev" title="Opencv:在VisualStudio里配置Opencv">
+                Opencv:在VisualStudio里配置Opencv <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.png"
+                alt="Darcy" />
+            
+              <p class="site-author-name" itemprop="name">Darcy</p>
+              <p class="site-description motion-element" itemprop="description">Students</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是同态滤波"><span class="nav-text">一、什么是同态滤波</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、同态滤波实现"><span class="nav-text">二、同态滤波实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同态滤波结构"><span class="nav-text">同态滤波结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#matlab代码"><span class="nav-text">matlab代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有关中心化的处理"><span class="nav-text">有关中心化的处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、实验结果"><span class="nav-text">三、实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、失误与总结"><span class="nav-text">四、失误与总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图像二值化的原因及改进"><span class="nav-text">图像二值化的原因及改进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参"><span class="nav-text">调参</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Darcy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'gy0yuCd7DqmhYUtFeyvBqWTG-gzGzoHsz',
+        appKey: 'icdCcOOUEbFcJaA6grH7nSsf',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("gy0yuCd7DqmhYUtFeyvBqWTG-gzGzoHsz", "icdCcOOUEbFcJaA6grH7nSsf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

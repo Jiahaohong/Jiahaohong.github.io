@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,服务器," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Darcy's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="今年二月份在阿里云领了一个免费服务器，当时学了学服务器操作的相关知识，感觉ssh登录确实很方便。前不久8月份免费的服务器到期了，所以我又开了一个一年的低配服务器，现在记录一下我对这个服务器的操作，纯属乐趣。本期话题是“ssh免密登录”。 我的硬件配置如下：本地电脑：Windows10服务器：阿里云云服务器本地远程登录软件：gitbash 一、前期准备一个服务器 说明一下，其一，一台服务器的概念很宽">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux:ssh免密登录服务器">
+<meta property="og:url" content="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
+<meta property="og:site_name" content="Darcy&#39;s Blog">
+<meta property="og:description" content="今年二月份在阿里云领了一个免费服务器，当时学了学服务器操作的相关知识，感觉ssh登录确实很方便。前不久8月份免费的服务器到期了，所以我又开了一个一年的低配服务器，现在记录一下我对这个服务器的操作，纯属乐趣。本期话题是“ssh免密登录”。 我的硬件配置如下：本地电脑：Windows10服务器：阿里云云服务器本地远程登录软件：gitbash 一、前期准备一个服务器 说明一下，其一，一台服务器的概念很宽">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun_cfg1.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun_cfg2.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/key.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/upload.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/norm3.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/norm1.jpg">
+<meta property="article:published_time" content="2020-10-20T04:24:38.000Z">
+<meta property="article:modified_time" content="2020-10-20T12:17:09.348Z">
+<meta property="article:author" content="Darcy">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://Jiahaohong.github.io/2020/10/20/Linux-ssh免密登录服务器/"/>
+
+
+
+
+
+  <title>Linux:ssh免密登录服务器 | Darcy's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Darcy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hope is something as precious as dimond.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux:ssh免密登录服务器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-20T12:24:38+08:00">
+                2020-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux学习之路</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="leancloud_visitors" data-flag-title="Linux:ssh免密登录服务器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今年二月份在阿里云领了一个免费服务器，当时学了学服务器操作的相关知识，感觉ssh登录确实很方便。前不久8月份免费的服务器到期了，所以我又开了一个一年的低配服务器，现在记录一下我对这个服务器的操作，纯属乐趣。本期话题是“ssh免密登录”。</p>
+<p>我的硬件配置如下：<br><em>本地电脑：Windows10</em><br><em>服务器：阿里云云服务器</em><br><em>本地远程登录软件：gitbash</em></p>
+<h3 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h3><h4 id="一个服务器"><a href="#一个服务器" class="headerlink" title="一个服务器"></a>一个服务器</h4><ul>
+<li>说明一下，其一，一台服务器的概念很宽泛，可以是另一台电脑，也可以是一个云端的电脑，但总归一点你要知道它的IP地址。  </li>
+<li>其二，这个服务器上已经有注册了用户，有个用户名和对应的密码，这类似于你用于登陆Windows的账户。  </li>
+<li>其三，有一个区别是Windows的管理员是administrator，Linux的管理员是root。</li>
+</ul>
+<h4 id="一台本地电脑"><a href="#一台本地电脑" class="headerlink" title="一台本地电脑"></a>一台本地电脑</h4><ul>
+<li>Windows电脑可以下载一些软件来连接，比如Putty和XShell</li>
+<li>Linux电脑需要安装ssh服务。</li>
+</ul>
+<h4 id="核心登录指令"><a href="#核心登录指令" class="headerlink" title="核心登录指令"></a>核心登录指令</h4><p><strong>ssh <a href="mailto:username@xxx.xxx.xxx.xxx">username@xxx.xxx.xxx.xxx</a></strong>  </p>
+<ul>
+<li>username 用你自己的用户名替换  </li>
+<li>xxx.xxx.xxx.xxx 用你自己的服务器ip地址替换</li>
+</ul>
+<h3 id="二、具体步骤"><a href="#二、具体步骤" class="headerlink" title="二、具体步骤"></a>二、具体步骤</h3><h4 id="阿里云远程连接配置服务器"><a href="#阿里云远程连接配置服务器" class="headerlink" title="阿里云远程连接配置服务器"></a>阿里云远程连接配置服务器</h4><p><em>这一步操作需要通过本地电脑远程连接服务器后，在服务器上执行。</em><br>在用自己的电脑远程连接服务器之前，我们需要使用阿里云平台提供的工具连接到自己的服务器，这个工具在哪？登录阿里云官网，控制台里就有。<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun.jpg"><br>点击远程连接进入到终端后，找到/etc/ssh文件夹，我们要修改该文件夹里的<strong>sshd_config</strong>文件，配置一下远程登陆，一般来说文件里都已经写好了，只不过被注释掉了（或开启状态写的是no），这时你只需要找到被注释的行取消注释就行（或把no改成yes）；如果你没有找到相应的配置，那么就要手动添加，写在文件里任何位置都是可以的，但建议最后一行，方便以后修改。需要修改的配置如下两图：<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun_cfg1.jpg"><br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/aliyun_cfg2.jpg"><br>这里稍微解释一下这四个配置的意思（如果不想看尽情跳过）：</p>
+<ul>
+<li>第一个<strong>PermitRootLogin</strong>表示允许用root用户进行远程登陆。如果不开启这一项，那么你的远程登陆只能使用其他的普通用户名登录。比如你在服务器上注册了一个darcy账户，而你没有开启这一项，那么你只能用darcy作为远程登录的用户名，这种情况下你用root登录会拒绝你的登录请求。  </li>
+<li>第二个<strong>PasswordAuthentication</strong>表示允许密码远程登录。这是最基础的远程登陆认证方式，其实和你在电脑开机时输入登陆密码一样。  </li>
+<li>第三个<strong>PubkeyAuthentication</strong>表示允许公钥远程登陆。<strong>注意</strong>这一项是本篇博客的重要内容。ssh登录需要开启这个命令。</li>
+<li>第四个是保存公钥的文件，你在你的ssh文件夹里找一找，一般来说第一个就是（因为开头字母是a），如果没有就自己在ssh文件夹里新建一个文件，名字是authoriz_keys，后面那个authoriz_keys2没有用到。  </li>
+</ul>
+<h4 id="生成公钥密钥"><a href="#生成公钥密钥" class="headerlink" title="生成公钥密钥"></a>生成公钥密钥</h4><p><em>这一步操作需要在本地电脑的远程连接软件的终端上执行。</em><br>在gitbash里输入如下命令<strong>ssh-keygen -t rsa</strong>，之后按他的提示来就行，最终会在你的Windows当前用户的主文件夹的.ssh文件夹里生成两个文件，一个是公钥id_rsa.pub，另一个是私钥id_rsa，其中私钥要保管好，公钥要传到服务器上去。注意，如果是Linux用户，这个文件在~/.ssh文件夹里，如果是Windows用户，这个文件在如下图的路径里：<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/key.jpg"></p>
+<h4 id="上传公钥"><a href="#上传公钥" class="headerlink" title="上传公钥"></a>上传公钥</h4><p><em>这一步操作需要在本地电脑的远程连接软件的终端上执行。</em><br>在本地远程连接软件终端里输入如下指令<strong>ssh-copy-id -i ~/.ssh/id_rsa.pub <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a></strong>，之后会让你输入root用户的密码，之后会提示让你用<strong>ssh <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a></strong>命令远程登陆服务器（如下图）。OK，你可以免密登陆了！<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/upload.jpg"></p>
+<h3 id="三、题外话：第一次连接服务器（密码登录）"><a href="#三、题外话：第一次连接服务器（密码登录）" class="headerlink" title="三、题外话：第一次连接服务器（密码登录）"></a>三、题外话：第一次连接服务器（密码登录）</h3><p><em>这一步操作需要在本地电脑的远程连接软件的终端上执行。</em><br>在第一次远程连接服务器的时候，会出现如下警告：<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/norm3.jpg"><br>这是正常的，ssh为了防止中间人攻击会在你第一次连接一个远程服务器时提醒你一下。敲上yes按回车确认即可。然后他会让你输入密码，你输入root用户的密码即可，这里没有显示是正常的，因为他会隐藏你输入的密码。<br><img src="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/norm1.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"># 服务器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/19/Matlab-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96vvs%E5%90%8C%E6%80%81%E6%BB%A4%E6%B3%A2/" rel="next" title="Matlab:直方图均衡化vs同态滤波">
+                <i class="fa fa-chevron-left"></i> Matlab:直方图均衡化vs同态滤波
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/20/SeedCup-log20201020/" rel="prev" title="SeedCup:log20201020">
+                SeedCup:log20201020 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.png"
+                alt="Darcy" />
+            
+              <p class="site-author-name" itemprop="name">Darcy</p>
+              <p class="site-description motion-element" itemprop="description">Students</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、前期准备"><span class="nav-text">一、前期准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个服务器"><span class="nav-text">一个服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一台本地电脑"><span class="nav-text">一台本地电脑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核心登录指令"><span class="nav-text">核心登录指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、具体步骤"><span class="nav-text">二、具体步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#阿里云远程连接配置服务器"><span class="nav-text">阿里云远程连接配置服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成公钥密钥"><span class="nav-text">生成公钥密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上传公钥"><span class="nav-text">上传公钥</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、题外话：第一次连接服务器（密码登录）"><span class="nav-text">三、题外话：第一次连接服务器（密码登录）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Darcy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'gy0yuCd7DqmhYUtFeyvBqWTG-gzGzoHsz',
+        appKey: 'icdCcOOUEbFcJaA6grH7nSsf',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("gy0yuCd7DqmhYUtFeyvBqWTG-gzGzoHsz", "icdCcOOUEbFcJaA6grH7nSsf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

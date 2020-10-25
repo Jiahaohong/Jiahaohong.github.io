@@ -64,7 +64,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C/C++,图像处理," />
 
 
 
@@ -79,21 +79,26 @@
 
 
 
-<meta name="description" content="Students">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Darcy&#39;s Blog">
-<meta property="og:url" content="http://jiahaohong.github.io/categories/%E6%95%B0%E7%94%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta name="description" content="参考文献：D. Comaniciu and P. Meer, Mean Shift: A Robust Approach toward Feature Space Analysis, PAMI 2002.  一、什么是MeanShift算法现在你在一片无边无际的草原，草原上开满了鲜花，有的地方花开的又多又鲜艳，有的地方花开的稀疏，你想找到草原上花开的最茂盛的地方，你该怎么办？你可以这样找，在目光所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C&#x2F;C++:MeanShift图像分割">
+<meta property="og:url" content="http://jiahaohong.github.io/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="Students">
+<meta property="og:description" content="参考文献：D. Comaniciu and P. Meer, Mean Shift: A Robust Approach toward Feature Space Analysis, PAMI 2002.  一、什么是MeanShift算法现在你在一片无边无际的草原，草原上开满了鲜花，有的地方花开的又多又鲜艳，有的地方花开的稀疏，你想找到草原上花开的最茂盛的地方，你该怎么办？你可以这样找，在目光所">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/rou.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/normalized.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/derivative.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/final.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/x.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/physic.jpg">
+<meta property="article:published_time" content="2020-10-24T13:10:28.000Z">
+<meta property="article:modified_time" content="2020-10-25T08:26:42.881Z">
 <meta property="article:author" content="Darcy">
-<meta property="article:tag" content="new-programmer">
-<meta property="article:tag" content=" much C">
-<meta property="article:tag" content=" little Python">
-<meta property="article:tag" content=" little Java">
-<meta property="article:tag" content=" little Js">
-<meta property="article:tag" content=" little html5">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jiahaohong.github.io/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/rou.jpg">
 
 
 
@@ -123,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://Jiahaohong.github.io/categories/数电学习笔记/"/>
+  <link rel="canonical" href="http://Jiahaohong.github.io/2020/10/24/C-C-MeanShift图像分割/"/>
 
 
 
 
 
-  <title>Category: 数电学习笔记 | Darcy's Blog</title>
+  <title>C/C++:MeanShift图像分割 | Darcy's Blog</title>
   
 
 
@@ -148,7 +153,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,311 +247,217 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>数电学习笔记<small>Category</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/" itemprop="url">
-              
-                <span itemprop="name">数字电路：竞争与冒险</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">C/C++:MeanShift图像分割</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-05-29T16:35:53+08:00"
-              content="2020-05-29" >
-          05-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-24T21:10:28+08:00">
+                2020-10-24
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">图像处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" class="leancloud_visitors" data-flag-title="C/C++:MeanShift图像分割">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%A7%A6%E5%8F%91%E5%99%A8/" itemprop="url">
-              
-                <span itemprop="name">数字电路：触发器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-05-18T15:45:24+08:00"
-              content="2020-05-18" >
-          05-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <p>参考文献：D. Comaniciu and P. Meer, Mean Shift: A Robust Approach toward Feature Space Analysis, PAMI 2002. </p>
+<h3 id="一、什么是MeanShift算法"><a href="#一、什么是MeanShift算法" class="headerlink" title="一、什么是MeanShift算法"></a>一、什么是MeanShift算法</h3><p>现在你在一片无边无际的草原，草原上开满了鲜花，有的地方花开的又多又鲜艳，有的地方花开的稀疏，你想找到草原上花开的最茂盛的地方，你该怎么办？你可以这样找，在目光所及之处看看那些鲜花往哪个方向走会变得更多更鲜艳，然后目光顺着那一个方向走，走着走着，直到不论往哪个方向看，花儿都会变得稀少不鲜艳，那么那个地方就是花儿开的最茂盛的地方。MeanShift算法描述的就是这样一种方法，寻找梯度的方向，然后按着梯度的方向找目标。  </p>
+<h4 id="MeanShift算法的严格数学推导"><a href="#MeanShift算法的严格数学推导" class="headerlink" title="MeanShift算法的严格数学推导"></a>MeanShift算法的严格数学推导</h4><ul>
+<li>区域中某一位置的密度估计函数<br>MeanShift算法的目标是找到样本点中某一个密度最大的位置，首先得知道如何定义一个位置的密度，公式如下：  <img src="/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/rou.jpg">  
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+</li>
+</ul>
+<p>稍微解释一下这个公式，<strong>f(X)</strong>代表在这个区域内，x位置的密度，<strong>n</strong>代表这个区域内有n个样本点，<strong>KH</strong>表示一种概率密度函数，可以看作和x距离不同的地方对x位置的密度的贡献程度，常见的有高斯分布。  </p>
+<p>这个公式还不完全，需要归一化，因为x可以看成d维空间中的点，区域可以看成d维空间中半径为h的高维球体，归一化后的公式是这样：<br><img src="/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/normalized.jpg">  </p>
+<ul>
+<li>区域中密度估计函数的最大值<br>MeanShift算法需要沿着梯度方向移动，而当前区域内，密度最大的地方就是下一步要移动的方向。如何求得使f(x)取最大值的x呢？求导：  <img src="/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/derivative.jpg">  
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/05/18/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%94%81%E5%AD%98%E5%99%A8/" itemprop="url">
-              
-                <span itemprop="name">数字电路：锁存器</span>
-              
-            </a>
-        
-      </h2>
+</li>
+</ul>
+<p>我们稍微变形一下，将KH’的求和提出来，得到如下公式：<br><img src="/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/final.jpg">  </p>
+<p>令上式等于零，由于概率密度函数恒大于零，所以第二项等于零，得出密度最大点的公式：<br><img src="/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/x.jpg">  </p>
+<h4 id="MeanShift算法的直观物理推导"><a href="#MeanShift算法的直观物理推导" class="headerlink" title="MeanShift算法的直观物理推导"></a>MeanShift算法的直观物理推导</h4><p>你可以这样想象，每一个样本点都是一个质点，而样本点的参数就是质点的质量，你用一个固定大小的圆随机圈中一些质点，这些质点的质心有很大概率不在你的圆的中心，那么你下一步就需要把圆的中心移到这些点的质心。当你移完之后，你的圆会圈中和上次不完全一样的点，这时就又有一个新的质心，你仍然需要将圆的中心移到这个新的质心上。如此反复，由于质心总是向密度大的方向偏离，最终你的圆会落到所有质点里密度最大的地方。由此得出，每一次移动的位置和权重的样本点关系如下（一维质心公式为例）：  </p>
+<center><img src="/2020/10/24/C-C-MeanShift%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/physic.jpg"></center>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-05-18T11:19:29+08:00"
-              content="2020-05-18" >
-          05-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8/" itemprop="url">
-              
-                <span itemprop="name">数字电路：数据分配器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-14T10:07:15+08:00"
-              content="2020-02-14" >
-          02-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/13/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E8%AF%91%E7%A0%81%E5%99%A8/" itemprop="url">
-              
-                <span itemprop="name">数字电路：译码器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-13T09:50:37+08:00"
-              content="2020-02-13" >
-          02-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/11/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8/" itemprop="url">
-              
-                <span itemprop="name">数字电路：编码器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-11T16:20:07+08:00"
-              content="2020-02-11" >
-          02-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/09/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%882%EF%BC%89/" itemprop="url">
-              
-                <span itemprop="name">数字电路：卡诺图（2）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-09T16:53:34+08:00"
-              content="2020-02-09" >
-          02-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%8D%A1%E8%AF%BA%E5%9B%BE%EF%BC%881%EF%BC%89/" itemprop="url">
-              
-                <span itemprop="name">数字电路：卡诺图（1）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-08T10:49:33+08:00"
-              content="2020-02-08" >
-          02-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/" itemprop="url">
-              
-                <span itemprop="name">数字电路：逻辑代数基本定理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-07T10:48:54+08:00"
-              content="2020-02-07" >
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/07/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E6%9C%80%E5%B0%8F%E9%A1%B9%E6%9C%80%E5%A4%A7%E9%A1%B9/" itemprop="url">
-              
-                <span itemprop="name">数字电路：最小项最大项</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-07T09:35:48+08:00"
-              content="2020-02-07" >
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+<h3 id="二、MeanShift算法应用到图像分割"><a href="#二、MeanShift算法应用到图像分割" class="headerlink" title="二、MeanShift算法应用到图像分割"></a>二、MeanShift算法应用到图像分割</h3><p>MeanShift算法整体思想，是在一个参数空间中，通过密度梯度，寻找到从哪一些点出发能够汇聚到同一个点，然后将这些点归为一类。但是在图像中属于一类的物体哪些参数是比较接近的？根据上网查阅资料得知，一个物体的各个部分在RGB图像中关联度不高，但是在HSV图像中相关度比较高，因此之后的实验在HSV颜色空间中进行。</p>
+<h3 id="三、算法实现"><a href="#三、算法实现" class="headerlink" title="三、算法实现"></a>三、算法实现</h3><p>to be continue…</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          
+            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag"># 图像处理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/20/SeedCup-log20201020/" rel="next" title="SeedCup:log20201020">
+                <i class="fa fa-chevron-left"></i> SeedCup:log20201020
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/%E6%95%B0%E7%94%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/page/2/">2</a><a class="extend next" rel="next" href="/categories/%E6%95%B0%E7%94%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/page/2/">下一页</a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -554,6 +465,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -574,8 +492,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -646,6 +573,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是MeanShift算法"><span class="nav-text">一、什么是MeanShift算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MeanShift算法的严格数学推导"><span class="nav-text">MeanShift算法的严格数学推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MeanShift算法的直观物理推导"><span class="nav-text">MeanShift算法的直观物理推导</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、MeanShift算法应用到图像分割"><span class="nav-text">二、MeanShift算法应用到图像分割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、算法实现"><span class="nav-text">三、算法实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -792,6 +735,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
