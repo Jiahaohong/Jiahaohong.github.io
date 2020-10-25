@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。   正交函数集正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；   如果某函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。    用类比的角度看，这个定义和线性代数中的基">
+<meta name="description" content="原码下载地址 一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。   正交函数集正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；   如果某函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。    用类比的角度看，这个定义和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matlab:快速傅里叶变换实现">
 <meta property="og:url" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。   正交函数集正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；   如果某函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。    用类比的角度看，这个定义和线性代数中的基">
+<meta property="og:description" content="原码下载地址 一、什么是傅里叶变换简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。   正交函数集正交函数集满足如下两条性质：    正交函数集中的任意两个不相同函数的内积为0；   如果某函数集中存在一个函数可以由函数集中除它以外的函数表示，则这个函数集不是正交函数集。    用类比的角度看，这个定义和">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/DMat.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/FT1D.jpg">
@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/check.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/20/Matlab-%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%9E%E7%8E%B0/signH.jpg">
 <meta property="article:published_time" content="2020-09-19T19:13:55.000Z">
-<meta property="article:modified_time" content="2020-10-24T10:06:17.372Z">
+<meta property="article:modified_time" content="2020-10-25T13:49:32.849Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="图像处理">
 <meta property="article:tag" content="Matlab">
@@ -385,7 +385,8 @@
       
 
       
-        <h3 id="一、什么是傅里叶变换"><a href="#一、什么是傅里叶变换" class="headerlink" title="一、什么是傅里叶变换"></a>一、什么是傅里叶变换</h3><p>简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。  </p>
+        <p><a href="https://github.com/Jiahaohong/FFT.git" target="_blank" rel="noopener">原码下载地址</a></p>
+<h3 id="一、什么是傅里叶变换"><a href="#一、什么是傅里叶变换" class="headerlink" title="一、什么是傅里叶变换"></a>一、什么是傅里叶变换</h3><p>简单来说，傅里叶变换将一个函数分解为一组三角函数的和，通过将这个函数分别和这组三角函数中的每一个进行内积运算，可以求得每个三角函数前面的系数。  </p>
 <h4 id="正交函数集"><a href="#正交函数集" class="headerlink" title="正交函数集"></a>正交函数集</h4><p>正交函数集满足如下两条性质：  </p>
 <ol>
 <li>正交函数集中的任意两个不相同函数的内积为0；  </li>
@@ -589,7 +590,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
