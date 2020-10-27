@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiahaohong.github.io/"/>
-  <updated>2020-10-26T11:24:33.372Z</updated>
+  <updated>2020-10-27T08:58:57.069Z</updated>
   <id>http://jiahaohong.github.io/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>图像处理:Watershed算法</title>
+    <link href="http://jiahaohong.github.io/2020/10/27/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Watershed%E7%AE%97%E6%B3%95/"/>
+    <id>http://jiahaohong.github.io/2020/10/27/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Watershed%E7%AE%97%E6%B3%95/</id>
+    <published>2020-10-27T07:18:34.000Z</published>
+    <updated>2020-10-27T08:58:57.069Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、什么是Watershed算法"><a href="#一、什么是Watershed算法" class="headerlink" title="一、什么是Watershed算法"></a>一、什么是Watershed算法</h3><p>将每幅图片看成一个三维空间里的直方图，x、y坐标是原来图片每个像素的坐标，z坐标代表这个像素点的灰度值，这样形成的一个三维图像就像地形等高图一样，灰度值大的地方直方图就高一些，反之，灰度值小的地方直方图就低一些。  </p><p>现在，在每个局部极小值的地方开始灌水，刚开始，每个局部极小值都是不连通的，随着水位的上升，每个局部极小值所处位置的水塘范围逐渐扩大，当两个水塘要连在一起时，就在两个水塘之间建筑一个堤坝分开他们，重复灌水、筑坝的过程，直到水位达到全局最大灰度值，剩下的堤坝就是图像边界。  </p><h3 id="二、对于watershed算法的一些思考"><a href="#二、对于watershed算法的一些思考" class="headerlink" title="二、对于watershed算法的一些思考"></a>二、对于watershed算法的一些思考</h3><h4 id="如何判断两片水域是否连通？"><a href="#如何判断两片水域是否连通？" class="headerlink" title="如何判断两片水域是否连通？"></a>如何判断两片水域是否连通？</h4><p>在每次灌水之前，每一个水塘都会有一个自己的标记，那么这个水塘里所有像素的标记都一样。灌水后，把新淹没的区域用另一个标记表示出来，然后用寻找连通分量的办法，将这些新研末的区域划分到不同的水塘里，如果有一个新淹没的地方被分到多个水塘里，那么这个区域将会连接多个水塘，这就是要找的图像边界。</p><h4 id="水位上涨会改变已有边界位置吗？"><a href="#水位上涨会改变已有边界位置吗？" class="headerlink" title="水位上涨会改变已有边界位置吗？"></a>水位上涨会改变已有边界位置吗？</h4><p>因为水位和已经建立的堤坝一样高，所以如果水位上涨，已经建立的堤坝只能在原位置上增高，因此一旦找到一个边界，那么不论之后水位如何增长，这个边界位置不会改变。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;一、什么是Watershed算法&quot;&gt;&lt;a href=&quot;#一、什么是Watershed算法&quot; class=&quot;headerlink&quot; title=&quot;一、什么是Watershed算法&quot;&gt;&lt;/a&gt;一、什么是Watershed算法&lt;/h3&gt;&lt;p&gt;将每幅图片看成一个三维空间里
+      
+    
+    </summary>
+    
+    
+      <category term="图像处理" scheme="http://Jiahaohong.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="图像处理" scheme="http://Jiahaohong.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>图像处理:MeanShift算法</title>
     <link href="http://jiahaohong.github.io/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/"/>
     <id>http://jiahaohong.github.io/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/</id>
     <published>2020-10-25T12:27:49.000Z</published>
-    <updated>2020-10-26T11:24:33.372Z</updated>
+    <updated>2020-10-27T07:29:09.100Z</updated>
     
-    <content type="html"><![CDATA[<p>参考文献：D. Comaniciu and P. Meer, Mean Shift: A Robust Approach toward Feature Space Analysis, PAMI 2002. </p><h3 id="一、什么是MeanShift算法"><a href="#一、什么是MeanShift算法" class="headerlink" title="一、什么是MeanShift算法"></a>一、什么是MeanShift算法</h3><p>Meanshift算法大致思路是，通过寻找一个小范围内的密度<strong>最大值</strong>，通过迭代的方法，最终收敛到一个全局范围内的密度<strong>极大值</strong>。  </p><h4 id="MeanShift算法的严格数学推导"><a href="#MeanShift算法的严格数学推导" class="headerlink" title="MeanShift算法的严格数学推导"></a>MeanShift算法的严格数学推导</h4><ul><li><p>区域中某一位置的密度估计函数<br>  MeanShift算法的目标是找到样本点中某一个密度最大的位置，首先得知道如何定义一个位置的密度，公式如下：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/rou.jpg" width="200">  <p>  稍微解释一下这个公式，f(X)代表在这个区域内，x位置的密度，n代表这个区域内有n个样本点，KH表示一种概率密度函数，可以看作和x距离不同的地方对x位置的密度的贡献程度，常见的有高斯分布。  </p><p>  这个公式还不完全，需要归一化，因为x可以看成d维空间中的点，区域可以看成d维空间中半径为h的高维球体，归一化后的公式是这样：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/normalized.jpg" width="200">  </li><li><p>区域中密度估计函数的最大值<br>  MeanShift算法需要沿着梯度方向移动，而当前区域内，密度最大的地方就是下一步要移动的方向。如何求得使f(x)取最大值的x呢？求导：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/derivative.jpg" width="300">  <p>  我们稍微变形一下，将KH’的求和提出来，得到如下公式：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/final.jpg" width="450">  <p>  令上式等于零，由于概率密度函数恒大于零，所以第二项等于零，得出密度最大点的公式：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/x.jpg" width="200">  </li></ul><h4 id="MeanShift算法的直观物理推导"><a href="#MeanShift算法的直观物理推导" class="headerlink" title="MeanShift算法的直观物理推导"></a>MeanShift算法的直观物理推导</h4><p>你可以这样想象，每一个样本点都是一个质点，而样本点的参数就是质点的质量，你用一个固定大小的圆随机圈中一些质点，这些质点的质心有很大概率不在你的圆的中心，那么你下一步就需要把圆的中心移到这些点的质心。当你移完之后，你的圆会圈中和上次不完全一样的点，这时就又有一个新的质心，你仍然需要将圆的中心移到这个新的质心上。如此反复，由于质心总是向密度大的方向偏离，最终你的圆会落到所有质点里密度最大的地方。由此得出，每一次移动的位置和权重的样本点关系如下（一维质心公式为例）：  </p><center><img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/physic.jpg" width="90"></center><h3 id="二、MeanShift算法应用到图像分割"><a href="#二、MeanShift算法应用到图像分割" class="headerlink" title="二、MeanShift算法应用到图像分割"></a>二、MeanShift算法应用到图像分割</h3><p>MeanShift算法整体思想，是每一步都向密度更大的地方走，直到走不动为止，然后在所有走到同一个终点的出发点归为一类。但是在图像中属于一类的物体哪些参数是比较接近的？根据上网查阅资料得知，一个物体的各个部分在RGB图像中关联度不高，但是在HSV图像中相关度比较高，因此之后的实验在HSV颜色空间中进行。</p>]]></content>
+    <content type="html"><![CDATA[<p>参考文献：D. Comaniciu and P. Meer, Mean Shift: A Robust Approach toward Feature Space Analysis, PAMI 2002. </p><h3 id="一、什么是MeanShift算法"><a href="#一、什么是MeanShift算法" class="headerlink" title="一、什么是MeanShift算法"></a>一、什么是MeanShift算法</h3><p>Meanshift算法大致思路是，通过寻找一个小范围内的密度<strong>最大值</strong>，通过迭代的方法，最终收敛到一个全局范围内的密度<strong>极大值</strong>。  </p><h3 id="二、MeanShift算法的严格数学推导"><a href="#二、MeanShift算法的严格数学推导" class="headerlink" title="二、MeanShift算法的严格数学推导"></a>二、MeanShift算法的严格数学推导</h3><ul><li><p>区域中某一位置的密度估计函数<br>  MeanShift算法的目标是找到样本点中某一个密度最大的位置，首先得知道如何定义一个位置的密度，公式如下：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/rou.jpg" width="200">  <p>  稍微解释一下这个公式，f(X)代表在这个区域内，x位置的密度，n代表这个区域内有n个样本点，KH表示一种概率密度函数，可以看作和x距离不同的地方对x位置的密度的贡献程度，常见的有高斯分布。  </p><p>  这个公式还不完全，需要归一化，因为x可以看成d维空间中的点，区域可以看成d维空间中半径为h的高维球体，归一化后的公式是这样：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/normalized.jpg" width="200">  </li><li><p>区域中密度估计函数的最大值<br>  MeanShift算法需要沿着梯度方向移动，而当前区域内，密度最大的地方就是下一步要移动的方向。如何求得使f(x)取最大值的x呢？求导：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/derivative.jpg" width="300">  <p>  我们稍微变形一下，将KH’的求和提出来，得到如下公式：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/final.jpg" width="450">  <p>  令上式等于零，由于概率密度函数恒大于零，所以第二项等于零，得出密度最大点的公式：  </p>  <img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/x.jpg" width="200">  </li></ul><h3 id="三、MeanShift算法的直观物理推导"><a href="#三、MeanShift算法的直观物理推导" class="headerlink" title="三、MeanShift算法的直观物理推导"></a>三、MeanShift算法的直观物理推导</h3><p>你可以这样想象，每一个样本点都是一个质点，而样本点的参数就是质点的质量，你用一个固定大小的圆随机圈中一些质点，这些质点的质心有很大概率不在你的圆的中心，那么你下一步就需要把圆的中心移到这些点的质心。当你移完之后，你的圆会圈中和上次不完全一样的点，这时就又有一个新的质心，你仍然需要将圆的中心移到这个新的质心上。如此反复，由于质心总是向密度大的方向偏离，最终你的圆会落到所有质点里密度最大的地方。由此得出，每一次移动的位置和权重的样本点关系如下（一维质心公式为例）：  </p><center><img src="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/physic.jpg" width="90"></center><h3 id="四、MeanShift算法应用到图像分割"><a href="#四、MeanShift算法应用到图像分割" class="headerlink" title="四、MeanShift算法应用到图像分割"></a>四、MeanShift算法应用到图像分割</h3><p>MeanShift算法整体思想，是每一步都向密度更大的地方走，直到走不动为止，然后在所有走到同一个终点的出发点归为一类。但是在图像中属于一类的物体哪些参数是比较接近的？根据上网查阅资料得知，一个物体的各个部分在RGB图像中关联度不高，但是在HSV图像中相关度比较高，因此之后的实验在HSV颜色空间中进行。</p>]]></content>
     
     <summary type="html">
     
@@ -550,33 +576,6 @@
     
     
       <category term="数字电路" scheme="http://Jiahaohong.github.io/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tensorflow:搭建网络步骤</title>
-    <link href="http://jiahaohong.github.io/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/"/>
-    <id>http://jiahaohong.github.io/2020/05/20/Tensorflow-%E6%90%AD%E5%BB%BA%E7%BD%91%E7%BB%9C%E6%AD%A5%E9%AA%A4/</id>
-    <published>2020-05-20T01:50:21.000Z</published>
-    <updated>2020-07-22T08:46:55.918Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="一、六步法"><a href="#一、六步法" class="headerlink" title="一、六步法"></a>一、六步法</h3><ol><li>import   </li><li>train,test  </li><li>model = tf.keras.models.Seque ntial  </li><li>model.compile<br>配置训练方法，比如优化器、损失函数   </li><li>model.fit  </li><li>model.summary</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;一、六步法&quot;&gt;&lt;a href=&quot;#一、六步法&quot; class=&quot;headerlink&quot; title=&quot;一、六步法&quot;&gt;&lt;/a&gt;一、六步法&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;import   &lt;/li&gt;
-&lt;li&gt;train,test  &lt;/li&gt;
-&lt;li&gt;model = tf.
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tensorflow" scheme="http://Jiahaohong.github.io/tags/Tensorflow/"/>
     
   </entry>
   

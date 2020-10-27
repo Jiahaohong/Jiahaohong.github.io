@@ -64,7 +64,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="图像处理," />
 
 
 
@@ -79,20 +79,17 @@
 
 
 
-<meta name="description" content="Students">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Darcy&#39;s Blog">
-<meta property="og:url" content="http://jiahaohong.github.io/tags/Linux/index.html">
+<meta name="description" content="一、什么是Watershed算法将每幅图片看成一个三维空间里的直方图，x、y坐标是原来图片每个像素的坐标，z坐标代表这个像素点的灰度值，这样形成的一个三维图像就像地形等高图一样，灰度值大的地方直方图就高一些，反之，灰度值小的地方直方图就低一些。   现在，在每个局部极小值的地方开始灌水，刚开始，每个局部极小值都是不连通的，随着水位的上升，每个局部极小值所处位置的水塘范围逐渐扩大，当两个水塘要连在一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像处理:Watershed算法">
+<meta property="og:url" content="http://jiahaohong.github.io/2020/10/27/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Watershed%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="Students">
+<meta property="og:description" content="一、什么是Watershed算法将每幅图片看成一个三维空间里的直方图，x、y坐标是原来图片每个像素的坐标，z坐标代表这个像素点的灰度值，这样形成的一个三维图像就像地形等高图一样，灰度值大的地方直方图就高一些，反之，灰度值小的地方直方图就低一些。   现在，在每个局部极小值的地方开始灌水，刚开始，每个局部极小值都是不连通的，随着水位的上升，每个局部极小值所处位置的水塘范围逐渐扩大，当两个水塘要连在一">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-27T07:18:34.000Z">
+<meta property="article:modified_time" content="2020-10-27T08:58:57.069Z">
 <meta property="article:author" content="Darcy">
-<meta property="article:tag" content="new-programmer">
-<meta property="article:tag" content=" much C">
-<meta property="article:tag" content=" little Python">
-<meta property="article:tag" content=" little Java">
-<meta property="article:tag" content=" little Js">
-<meta property="article:tag" content=" little html5">
+<meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Jiahaohong.github.io/tags/Linux/"/>
+  <link rel="canonical" href="http://Jiahaohong.github.io/2020/10/27/图像处理-Watershed算法/"/>
 
 
 
 
 
-  <title>Tag: Linux | Darcy's Blog</title>
+  <title>图像处理:Watershed算法 | Darcy's Blog</title>
   
 
 
@@ -148,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,110 +239,198 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Linux<small>Tag</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/27/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Watershed%E7%AE%97%E6%B3%95/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/10/20/Linux-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-              
-                <span itemprop="name">Linux:ssh免密登录服务器</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">图像处理:Watershed算法</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-20T12:24:38+08:00"
-              content="2020-10-20" >
-          10-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-27T15:18:34+08:00">
+                2020-10-27
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">图像处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/27/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Watershed%E7%AE%97%E6%B3%95/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/27/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Watershed%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/10/27/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Watershed%E7%AE%97%E6%B3%95/" class="leancloud_visitors" data-flag-title="图像处理:Watershed算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" itemprop="url">
-              
-                <span itemprop="name">Linux:Ubuntu18.04小白安装教程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-09-26T07:38:59+08:00"
-              content="2020-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" itemprop="url">
-              
-                <span itemprop="name">Linux常用指令（重制版）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-18T21:55:57+08:00"
-              content="2020-07-18" >
-          07-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h3 id="一、什么是Watershed算法"><a href="#一、什么是Watershed算法" class="headerlink" title="一、什么是Watershed算法"></a>一、什么是Watershed算法</h3><p>将每幅图片看成一个三维空间里的直方图，x、y坐标是原来图片每个像素的坐标，z坐标代表这个像素点的灰度值，这样形成的一个三维图像就像地形等高图一样，灰度值大的地方直方图就高一些，反之，灰度值小的地方直方图就低一些。  </p>
+<p>现在，在每个局部极小值的地方开始灌水，刚开始，每个局部极小值都是不连通的，随着水位的上升，每个局部极小值所处位置的水塘范围逐渐扩大，当两个水塘要连在一起时，就在两个水塘之间建筑一个堤坝分开他们，重复灌水、筑坝的过程，直到水位达到全局最大灰度值，剩下的堤坝就是图像边界。  </p>
+<h3 id="二、对于watershed算法的一些思考"><a href="#二、对于watershed算法的一些思考" class="headerlink" title="二、对于watershed算法的一些思考"></a>二、对于watershed算法的一些思考</h3><h4 id="如何判断两片水域是否连通？"><a href="#如何判断两片水域是否连通？" class="headerlink" title="如何判断两片水域是否连通？"></a>如何判断两片水域是否连通？</h4><p>在每次灌水之前，每一个水塘都会有一个自己的标记，那么这个水塘里所有像素的标记都一样。灌水后，把新淹没的区域用另一个标记表示出来，然后用寻找连通分量的办法，将这些新研末的区域划分到不同的水塘里，如果有一个新淹没的地方被分到多个水塘里，那么这个区域将会连接多个水塘，这就是要找的图像边界。</p>
+<h4 id="水位上涨会改变已有边界位置吗？"><a href="#水位上涨会改变已有边界位置吗？" class="headerlink" title="水位上涨会改变已有边界位置吗？"></a>水位上涨会改变已有边界位置吗？</h4><p>因为水位和已经建立的堤坝一样高，所以如果水位上涨，已经建立的堤坝只能在原位置上增高，因此一旦找到一个边界，那么不论之后水位如何增长，这个边界位置不会改变。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag"># 图像处理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-MeanShift%E7%AE%97%E6%B3%95/" rel="next" title="图像处理:MeanShift算法">
+                <i class="fa fa-chevron-left"></i> 图像处理:MeanShift算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -353,6 +438,14 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -373,8 +466,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -445,6 +547,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是Watershed算法"><span class="nav-text">一、什么是Watershed算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、对于watershed算法的一些思考"><span class="nav-text">二、对于watershed算法的一些思考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断两片水域是否连通？"><span class="nav-text">如何判断两片水域是否连通？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水位上涨会改变已有边界位置吗？"><span class="nav-text">水位上涨会改变已有边界位置吗？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -591,6 +709,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
