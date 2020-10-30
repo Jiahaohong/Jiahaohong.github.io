@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/assoc.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Ncut.jpg">
 <meta property="article:published_time" content="2020-10-29T12:35:23.000Z">
-<meta property="article:modified_time" content="2020-10-29T14:44:59.788Z">
+<meta property="article:modified_time" content="2020-10-30T04:35:25.634Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
@@ -398,9 +398,9 @@
 </ul>
 <p>怎么分割一张图呢？我们以二分类为例介绍一下图的分割和最小割。  </p>
 <ul>
-<li><h4 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h4>  我们的图有两类节点，分别组成子图A和子图B，两个子图满足如下条件：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/condition.jpg">  
+<li><h4 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h4>  我们的图有两类节点，分别组成子图A和子图B，两个子图满足如下条件：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/condition.jpg" width="90">  
   形象地说就是把一块饼掰成两块，而且不掉任何碎屑，这就是分割。为了衡量一个分割是否准确，我们将子图A中的节点和子图B中的节点两两匹配，并且算出每一对节点之间的权重，然后累加这些权重算出一个值，我们姑且称之为这个分割的准确度指标：  
-  <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/cut.jpg">  
+  <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/cut.jpg" width="200">  
   如果我们再加一点限制条件，通过修改两个子图包含的节点，使得算出的准确度指标最小，那么此时得到的分割就是这张图的最小分割。比如第一幅图的最小割如下所示：  
   <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Gmincut.jpg">
 
@@ -408,17 +408,18 @@
 </ul>
 <p>但是最小割往往有缺陷，容易把边缘的单独一个节点割出来，所以我们引入<strong>归一化分割</strong>，即NormalizedCut。</p>
 <ul>
-<li><h4 id="归一化分割-Normalized-Cut"><a href="#归一化分割-Normalized-Cut" class="headerlink" title="归一化分割(Normalized Cut)"></a>归一化分割(Normalized Cut)</h4>  分割可以理解成：子图A的节点对子图B的节点的权重，加上子图B的节点对子图A的节点的权重（其实这两者是相等的，但是除不除2只是一个系数问题，我们比较只用相对大小），公式如下：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/cut2.jpg">  
+<li><h4 id="归一化分割-Normalized-Cut"><a href="#归一化分割-Normalized-Cut" class="headerlink" title="归一化分割(Normalized Cut)"></a>归一化分割(Normalized Cut)</h4><p>  分割可以理解成：子图A的节点对子图B的节点的权重，加上子图B的节点对子图A的节点的权重（其实这两者是相等的，但是除不除2只是一个系数问题，我们比较只用相对大小），公式如下：  </p>
+  <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/cut2.jpg" width="300">  
   这种直接相比较鲁莽，我们稍微修改一下，等式右边两项都除以各自子图与全部图的准确度指标：  
-  <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/assoc.jpg">  
+  <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/assoc.jpg" width="200">  
   然后就得到归一化后的分割准确度指标：  
-  <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Ncut.jpg">  
-  可以看出，**Ncut在追求不同子集间点的权重最小值的同时也追求同一子集间点的权重最大值**<sup>[1]</sup>
+  <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Ncut.jpg" width="300">  
 
+<p>  可以看出，<strong>Ncut在追求不同子集间点的权重最小值的同时也追求同一子集间点的权重最大值</strong><sup>[1]</sup></p>
 </li>
 </ul>
 <h3 id="二、参考资料"><a href="#二、参考资料" class="headerlink" title="二、参考资料"></a>二、参考资料</h3><ol>
-<li>(图像处理–归一化切割–(normalized cut)–Python实现)[<a href="https://blog.csdn.net/qq_38476684/article/details/80553850]" target="_blank" rel="noopener">https://blog.csdn.net/qq_38476684/article/details/80553850]</a></li>
+<li><a href="https://blog.csdn.net/qq_38476684/article/details/80553850" target="_blank" rel="noopener">图像处理–归一化切割–(normalized cut)–Python实现</a></li>
 </ol>
 
       
