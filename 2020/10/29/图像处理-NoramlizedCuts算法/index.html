@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/assoc.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Ncut.jpg">
 <meta property="article:published_time" content="2020-10-29T12:35:23.000Z">
-<meta property="article:modified_time" content="2020-10-30T04:35:25.634Z">
+<meta property="article:modified_time" content="2020-10-30T08:26:44.996Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
@@ -394,12 +394,12 @@
 </ul>
 <p>知道模型之后，我们来看看NormalizedCuts算法是要解决什么问题。</p>
 <ul>
-<li><h4 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h4>  把一张图中关系密切的节点作为一类分割出来。直觉上来说，关系越密切的节点，两节点之间的权重也越大，<strong>但是用什么指标衡量关系是否密切还需考量，而且不相邻的节点如何确定权重也需要定义</strong>。还有怎样分割能够将种类准确的分割出来，这是接下来的目标。  </li>
+<li><h4 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h4>  把一张图中关系密切的节点作为一类分割出来。直觉上来说，关系越密切的节点，两节点之间的权重也越大，<strong>但是用什么指标衡量关系是否密切还需考量</strong>。还有怎样分割能够将种类准确的分割出来，这是接下来的目标。  </li>
 </ul>
 <p>怎么分割一张图呢？我们以二分类为例介绍一下图的分割和最小割。  </p>
 <ul>
 <li><h4 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h4>  我们的图有两类节点，分别组成子图A和子图B，两个子图满足如下条件：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/condition.jpg" width="90">  
-  形象地说就是把一块饼掰成两块，而且不掉任何碎屑，这就是分割。为了衡量一个分割是否准确，我们将子图A中的节点和子图B中的节点两两匹配，并且算出每一对节点之间的权重，然后累加这些权重算出一个值，我们姑且称之为这个分割的准确度指标：  
+  形象地说就是把一块饼掰成两块，而且不掉任何碎屑，这就是分割。为了衡量一个分割是否准确，我们把连接子图A和子图B的边找出来，然后累加这些边的权重，得到的值为图像的能量或损失，不同的分割情况有不同的损失，这样形成一个函数，称为能量函数或损失函数：  
   <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/cut.jpg" width="200">  
   如果我们再加一点限制条件，通过修改两个子图包含的节点，使得算出的准确度指标最小，那么此时得到的分割就是这张图的最小分割。比如第一幅图的最小割如下所示：  
   <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Gmincut.jpg">
@@ -410,9 +410,9 @@
 <ul>
 <li><h4 id="归一化分割-Normalized-Cut"><a href="#归一化分割-Normalized-Cut" class="headerlink" title="归一化分割(Normalized Cut)"></a>归一化分割(Normalized Cut)</h4><p>  分割可以理解成：子图A的节点对子图B的节点的权重，加上子图B的节点对子图A的节点的权重（其实这两者是相等的，但是除不除2只是一个系数问题，我们比较只用相对大小），公式如下：  </p>
   <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/cut2.jpg" width="300">  
-  这种直接相比较鲁莽，我们稍微修改一下，等式右边两项都除以各自子图与全部图的准确度指标：  
+  这种直接相比较鲁莽，我们稍微修改一下，等式右边两项都除以各自子图与全部图的能量函数：  
   <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/assoc.jpg" width="200">  
-  然后就得到归一化后的分割准确度指标：  
+  然后就得到归一化后的分割能量函数：  
   <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Ncut.jpg" width="300">  
 
 <p>  可以看出，<strong>Ncut在追求不同子集间点的权重最小值的同时也追求同一子集间点的权重最大值</strong><sup>[1]</sup></p>
@@ -460,6 +460,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/" rel="prev" title="图像处理:四种分割算法对比">
+                图像处理:四种分割算法对比 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -544,7 +548,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
