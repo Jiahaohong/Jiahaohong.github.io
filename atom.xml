@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiahaohong.github.io/"/>
-  <updated>2020-10-27T08:58:57.069Z</updated>
+  <updated>2020-10-29T14:44:59.788Z</updated>
   <id>http://jiahaohong.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图像处理:NoramlizedCuts算法</title>
+    <link href="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/"/>
+    <id>http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/</id>
+    <published>2020-10-29T12:35:23.000Z</published>
+    <updated>2020-10-29T14:44:59.788Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、什么是NormalizedCuts算法"><a href="#一、什么是NormalizedCuts算法" class="headerlink" title="一、什么是NormalizedCuts算法"></a>一、什么是NormalizedCuts算法</h3><p>要理解Normalized算法，我们先要熟悉一下这个算法所解决的问题的模型。  </p><ul><li><h4 id="问题模型"><a href="#问题模型" class="headerlink" title="问题模型"></a>问题模型</h4><p>  NormalizedCuts是定义在带权无向图上的分割问题，这里给出这种图的定义：  </p><ul><li><p>图用G表示  </p></li><li><p>图中的节点用V表示  </p></li><li><p>节点与节点之间的连线（图像的边）用E表示  </p><p>带权图表示图像的每一条边都有一个确定的权重，而无向图表示图像的边没有方向性，类似于双行线，即边所连接的节点可以互相访问到对方。比如下图就是一个典型的带权无向图：  </p><img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/G.jpg">  </li></ul></li></ul><p>知道模型之后，我们来看看NormalizedCuts算法是要解决什么问题。</p><ul><li><h4 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h4>  把一张图中关系密切的节点作为一类分割出来。直觉上来说，关系越密切的节点，两节点之间的权重也越大，<strong>但是用什么指标衡量关系是否密切还需考量，而且不相邻的节点如何确定权重也需要定义</strong>。还有怎样分割能够将种类准确的分割出来，这是接下来的目标。  </li></ul><p>怎么分割一张图呢？我们以二分类为例介绍一下图的分割和最小割。  </p><ul><li><h4 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h4>  我们的图有两类节点，分别组成子图A和子图B，两个子图满足如下条件：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/condition.jpg">    形象地说就是把一块饼掰成两块，而且不掉任何碎屑，这就是分割。为了衡量一个分割是否准确，我们将子图A中的节点和子图B中的节点两两匹配，并且算出每一对节点之间的权重，然后累加这些权重算出一个值，我们姑且称之为这个分割的准确度指标：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/cut.jpg">    如果我们再加一点限制条件，通过修改两个子图包含的节点，使得算出的准确度指标最小，那么此时得到的分割就是这张图的最小分割。比如第一幅图的最小割如下所示：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Gmincut.jpg"></li></ul><p>但是最小割往往有缺陷，容易把边缘的单独一个节点割出来，所以我们引入<strong>归一化分割</strong>，即NormalizedCut。</p><ul><li><h4 id="归一化分割-Normalized-Cut"><a href="#归一化分割-Normalized-Cut" class="headerlink" title="归一化分割(Normalized Cut)"></a>归一化分割(Normalized Cut)</h4>  分割可以理解成：子图A的节点对子图B的节点的权重，加上子图B的节点对子图A的节点的权重（其实这两者是相等的，但是除不除2只是一个系数问题，我们比较只用相对大小），公式如下：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/cut2.jpg">    这种直接相比较鲁莽，我们稍微修改一下，等式右边两项都除以各自子图与全部图的准确度指标：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/assoc.jpg">    然后就得到归一化后的分割准确度指标：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Ncut.jpg">    可以看出，**Ncut在追求不同子集间点的权重最小值的同时也追求同一子集间点的权重最大值**<sup>[1]</sup></li></ul><h3 id="二、参考资料"><a href="#二、参考资料" class="headerlink" title="二、参考资料"></a>二、参考资料</h3><ol><li>(图像处理–归一化切割–(normalized cut)–Python实现)[<a href="https://blog.csdn.net/qq_38476684/article/details/80553850]" target="_blank" rel="noopener">https://blog.csdn.net/qq_38476684/article/details/80553850]</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;一、什么是NormalizedCuts算法&quot;&gt;&lt;a href=&quot;#一、什么是NormalizedCuts算法&quot; class=&quot;headerlink&quot; title=&quot;一、什么是NormalizedCuts算法&quot;&gt;&lt;/a&gt;一、什么是NormalizedCuts算法&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="图像处理" scheme="http://Jiahaohong.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="图像处理" scheme="http://Jiahaohong.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>图像处理:Watershed算法</title>
@@ -550,32 +576,6 @@
     
     
       <category term="DeepLearning" scheme="http://Jiahaohong.github.io/tags/DeepLearning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字电路：竞争与冒险</title>
-    <link href="http://jiahaohong.github.io/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/"/>
-    <id>http://jiahaohong.github.io/2020/05/29/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8E%E5%86%92%E9%99%A9/</id>
-    <published>2020-05-29T08:35:53.000Z</published>
-    <updated>2020-09-29T08:55:36.332Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="一、竞争与冒险的定义"><a href="#一、竞争与冒险的定义" class="headerlink" title="一、竞争与冒险的定义"></a>一、竞争与冒险的定义</h3><p>当一个逻辑门的两个输入变量在同一时刻发生翻转，而变化的时间有差异的现象，称为竞争。<br>由竞争产生输出干扰脉冲的现象称为冒险。</p><h3 id="二、竞争与冒险的判别"><a href="#二、竞争与冒险的判别" class="headerlink" title="二、竞争与冒险的判别"></a>二、竞争与冒险的判别</h3><p>已知一个逻辑表达式，如何判别由该逻辑表达式设计的电路会不会产生竞争与冒险？<br>首先我们需要找到在该表达式中同时出现有原变量和反变量的输入变量，然后我们将所有其他变量选择合适的值，看逻辑表达式是否能成为该输入变量的原变量和反变量的组合，若是那么就会有竞争与冒险现象。</p><h3 id="三、如何消除竞争与冒险现象"><a href="#三、如何消除竞争与冒险现象" class="headerlink" title="三、如何消除竞争与冒险现象"></a>三、如何消除竞争与冒险现象</h3><ol><li>发现并消去互补相乘项<br>如果互补项没有直接的相乘，尝试拆括号将互补项乘到一起消去。</li><li>增加乘积项避免互补项相加<br>从原表达式中增加一些不改变结果的乘积项，使得原来满足互补项相加的条件作用下，多出一些其他表达式，避免互补项相加。   </li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;一、竞争与冒险的定义&quot;&gt;&lt;a href=&quot;#一、竞争与冒险的定义&quot; class=&quot;headerlink&quot; title=&quot;一、竞争与冒险的定义&quot;&gt;&lt;/a&gt;一、竞争与冒险的定义&lt;/h3&gt;&lt;p&gt;当一个逻辑门的两个输入变量在同一时刻发生翻转，而变化的时间有差异的现象，称为
-      
-    
-    </summary>
-    
-    
-      <category term="数电学习笔记" scheme="http://Jiahaohong.github.io/categories/%E6%95%B0%E7%94%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="数字电路" scheme="http://Jiahaohong.github.io/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
     
   </entry>
   
