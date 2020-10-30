@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiahaohong.github.io/"/>
-  <updated>2020-10-30T09:40:32.080Z</updated>
+  <updated>2020-10-30T09:44:38.041Z</updated>
   <id>http://jiahaohong.github.io/</id>
   
   <author>
@@ -21,16 +21,17 @@
     <link href="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/"/>
     <id>http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/</id>
     <published>2020-10-30T05:52:54.000Z</published>
-    <updated>2020-10-30T09:40:32.080Z</updated>
+    <updated>2020-10-30T09:44:38.041Z</updated>
     
-    <content type="html"><![CDATA[<ol><li>(Watershed-and-Meanshift)[<a href="https://github.com/Jiahaohong/Watershed-Meanshift.git]" target="_blank" rel="noopener">https://github.com/Jiahaohong/Watershed-Meanshift.git]</a></li></ol><h4 id="图1"><a href="#图1" class="headerlink" title="图1"></a>图1</h4><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1origin.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1watershed.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1meanshift.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1noramlized.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1origin"><h4 id="图2"><a href="#图2" class="headerlink" title="图2"></a>图2</h4><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2origin.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2watershed.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2meanshift.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2noramlized.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2origin">]]></content>
+    <content type="html"><![CDATA[<ol><li><a href="https://github.com/Jiahaohong/Watershed-Meanshift.git" target="_blank" rel="noopener">Watershed-and-Meanshift</a></li></ol><h4 id="图1"><a href="#图1" class="headerlink" title="图1"></a>图1</h4><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1origin.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1watershed.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1meanshift.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1ncut.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1graphcut.jpg"><h4 id="图2"><a href="#图2" class="headerlink" title="图2"></a>图2</h4><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2origin.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2watershed.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2meanshift.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2ncut.jpg"><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2graphcut.jpg">]]></content>
     
     <summary type="html">
     
       
       
         &lt;ol&gt;
-&lt;li&gt;(Watershed-and-Meanshift)[&lt;a href=&quot;https://github.com/Jiahaohong/Watershed-Meanshift.git]&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://g
+&lt;li&gt;&lt;a href=&quot;https://github.com/Jiahaohong/Watershed-Meanshift.git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Watershed-and-Meanshift&lt;/a&gt;&lt;/li&gt;
+&lt;/o
       
     
     </summary>
