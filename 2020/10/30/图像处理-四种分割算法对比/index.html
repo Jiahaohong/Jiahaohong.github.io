@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="一、实验结果图1      图2      二、实验结果分析 Watershed算法相对于Meanshift算法有较严重的过分割现象，但是Ncut算法效果也不太理想。 Graphcut算法对前景背景的选取要求较高。  三、Graphcut前景背景选取对结果的影响图片中绿色的线条为选取的前景，粉红色的线条为选区的背景。 三、原码下载地址1号连接使用Opencv自带函数实现，2号和3号连接使用他人开源">
+<meta name="description" content="一、实验结果图1      图2      二、实验结果分析 Watershed算法相对于Meanshift算法有较严重的过分割现象，但是Ncut算法效果也不太理想。 Graphcut算法对前景背景的选取要求较高。  三、Graphcut前景背景选取对结果的影响接下来我们通过控制变量的方式，每次仅改变前景或背景的标注方式，看看标注方式对实验结果有什么影响。图片中绿色的线条为选取的前景，粉红色的线条">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图像处理:四种分割算法对比">
 <meta property="og:url" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="一、实验结果图1      图2      二、实验结果分析 Watershed算法相对于Meanshift算法有较严重的过分割现象，但是Ncut算法效果也不太理想。 Graphcut算法对前景背景的选取要求较高。  三、Graphcut前景背景选取对结果的影响图片中绿色的线条为选取的前景，粉红色的线条为选区的背景。 三、原码下载地址1号连接使用Opencv自带函数实现，2号和3号连接使用他人开源">
+<meta property="og:description" content="一、实验结果图1      图2      二、实验结果分析 Watershed算法相对于Meanshift算法有较严重的过分割现象，但是Ncut算法效果也不太理想。 Graphcut算法对前景背景的选取要求较高。  三、Graphcut前景背景选取对结果的影响接下来我们通过控制变量的方式，每次仅改变前景或背景的标注方式，看看标注方式对实验结果有什么影响。图片中绿色的线条为选取的前景，粉红色的线条">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1origin.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1watershed.jpg">
@@ -96,8 +96,16 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2meanshift.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2ncut.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2graphcut.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1biaozhu.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1res.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2biaozhu.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2res.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/3biaozhu.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/3res.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/4biaozhu.jpg">
+<meta property="og:image" content="http://jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/4res.jpg">
 <meta property="article:published_time" content="2020-10-30T05:52:54.000Z">
-<meta property="article:modified_time" content="2020-10-31T01:44:55.549Z">
+<meta property="article:modified_time" content="2020-10-31T03:06:45.223Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
@@ -395,7 +403,16 @@
 <li>Watershed算法相对于Meanshift算法有较严重的过分割现象，但是Ncut算法效果也不太理想。</li>
 <li>Graphcut算法对前景背景的选取要求较高。</li>
 </ol>
-<h3 id="三、Graphcut前景背景选取对结果的影响"><a href="#三、Graphcut前景背景选取对结果的影响" class="headerlink" title="三、Graphcut前景背景选取对结果的影响"></a>三、Graphcut前景背景选取对结果的影响</h3><p>图片中绿色的线条为选取的前景，粉红色的线条为选区的背景。</p>
+<h3 id="三、Graphcut前景背景选取对结果的影响"><a href="#三、Graphcut前景背景选取对结果的影响" class="headerlink" title="三、Graphcut前景背景选取对结果的影响"></a>三、Graphcut前景背景选取对结果的影响</h3><p>接下来我们通过控制变量的方式，每次仅改变前景或背景的标注方式，看看标注方式对实验结果有什么影响。图片中绿色的线条为选取的前景，粉红色的线条为选区的背景。  </p>
+<hr>
+<p>第一次标注，前景用一条线标注，背景分成三块标注：<br><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1biaozhu.jpg"><br>第一次标注结果：<br><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/1res.jpg"></p>
+<hr>
+<p>第二次标注，前景用一个圈标注，背景还是分成三块标注：<br><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2biaozhu.jpg"><br>第二次标注结果：<br><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/2res.jpg"></p>
+<hr>
+<p>第三次标注，前景用一条线标注，背景圈出来标注：<br><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/3biaozhu.jpg"><br>第三次标注结果：<br><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/3res.jpg"></p>
+<hr>
+<p>第四次标注，前景用一个圈标注，背景圈出来标注：<br><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/4biaozhu.jpg"><br>第四次标注结果：<br><img src="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/4res.jpg"></p>
+<p>可以看出来使用圈圈出来的前景分割效果比直线标注效果好，而背景如何标注对实验结果没有太大影响。具体原因还需研究。</p>
 <h3 id="三、原码下载地址"><a href="#三、原码下载地址" class="headerlink" title="三、原码下载地址"></a>三、原码下载地址</h3><p><strong>1号连接使用Opencv自带函数实现，2号和3号连接使用他人开源代码，由于找不到其源码地址了，就放到自己的github上了，如有好心人知道代码地址，敬请留言告诉我，谢谢!</strong><br><strong>2020/10/31更新，Normalizedcut代码原地址已找到，链接已更新！</strong></p>
 <ol>
 <li><a href="https://github.com/Jiahaohong/Watershed-Meanshift.git" target="_blank" rel="noopener">Watershed-and-Meanshift</a></li>
