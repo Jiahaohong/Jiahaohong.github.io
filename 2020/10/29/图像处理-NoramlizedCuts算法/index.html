@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="一、什么是NormalizedCuts算法要理解Normalized算法，我们先要熟悉一下这个算法所解决的问题的模型。    问题模型  NormalizedCuts是定义在带权无向图上的分割问题，这里给出这种图的定义：    图用G表示    图中的节点用V表示    节点与节点之间的连线（图像的边）用E表示   带权图表示图像的每一条边都有一个确定的权重，而无向图表示图像的边没有方向性，类似于">
+<meta name="description" content="一、什么是NormalizedCuts算法 要理解Normalized算法，我们先要熟悉一下这个算法所解决的问题的模型。    问题模型  NormalizedCuts是定义在带权无向图上的分割问题，这里给出这种图的定义：    图用G表示    图中的节点用V表示    节点与节点之间的连线（图像的边）用E表示   带权图表示图像的每一条边都有一个确定的权重，而无向图表示图像的边没有方向性，类似">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图像处理:NoramlizedCuts算法">
 <meta property="og:url" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="一、什么是NormalizedCuts算法要理解Normalized算法，我们先要熟悉一下这个算法所解决的问题的模型。    问题模型  NormalizedCuts是定义在带权无向图上的分割问题，这里给出这种图的定义：    图用G表示    图中的节点用V表示    节点与节点之间的连线（图像的边）用E表示   带权图表示图像的每一条边都有一个确定的权重，而无向图表示图像的边没有方向性，类似于">
+<meta property="og:description" content="一、什么是NormalizedCuts算法 要理解Normalized算法，我们先要熟悉一下这个算法所解决的问题的模型。    问题模型  NormalizedCuts是定义在带权无向图上的分割问题，这里给出这种图的定义：    图用G表示    图中的节点用V表示    节点与节点之间的连线（图像的边）用E表示   带权图表示图像的每一条边都有一个确定的权重，而无向图表示图像的边没有方向性，类似">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/G.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/condition.jpg">
@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/assoc.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Ncut.jpg">
 <meta property="article:published_time" content="2020-10-29T12:35:23.000Z">
-<meta property="article:modified_time" content="2020-10-30T08:26:44.996Z">
+<meta property="article:modified_time" content="2020-10-31T02:34:34.567Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
@@ -376,7 +376,8 @@
       
 
       
-        <h3 id="一、什么是NormalizedCuts算法"><a href="#一、什么是NormalizedCuts算法" class="headerlink" title="一、什么是NormalizedCuts算法"></a>一、什么是NormalizedCuts算法</h3><p>要理解Normalized算法，我们先要熟悉一下这个算法所解决的问题的模型。  </p>
+        <h3 id="一、什么是NormalizedCuts算法"><a href="#一、什么是NormalizedCuts算法" class="headerlink" title="一、什么是NormalizedCuts算法"></a>一、什么是NormalizedCuts算法</h3><hr>
+<p>要理解Normalized算法，我们先要熟悉一下这个算法所解决的问题的模型。  </p>
 <ul>
 <li><h4 id="问题模型"><a href="#问题模型" class="headerlink" title="问题模型"></a>问题模型</h4><p>  NormalizedCuts是定义在带权无向图上的分割问题，这里给出这种图的定义：  </p>
 <ul>
@@ -392,10 +393,12 @@
 </ul>
 </li>
 </ul>
+<hr>
 <p>知道模型之后，我们来看看NormalizedCuts算法是要解决什么问题。</p>
 <ul>
 <li><h4 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h4>  把一张图中关系密切的节点作为一类分割出来。直觉上来说，关系越密切的节点，两节点之间的权重也越大，<strong>但是用什么指标衡量关系是否密切还需考量</strong>。还有怎样分割能够将种类准确的分割出来，这是接下来的目标。  </li>
 </ul>
+<hr>
 <p>怎么分割一张图呢？我们以二分类为例介绍一下图的分割和最小割。  </p>
 <ul>
 <li><h4 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h4>  我们的图有两类节点，分别组成子图A和子图B，两个子图满足如下条件：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/condition.jpg" width="90">  
@@ -406,6 +409,7 @@
 
 </li>
 </ul>
+<hr>
 <p>但是最小割往往有缺陷，容易把边缘的单独一个节点割出来，所以我们引入<strong>归一化分割</strong>，即NormalizedCut。</p>
 <ul>
 <li><h4 id="归一化分割-Normalized-Cut"><a href="#归一化分割-Normalized-Cut" class="headerlink" title="归一化分割(Normalized Cut)"></a>归一化分割(Normalized Cut)</h4><p>  分割可以理解成：子图A的节点对子图B的节点的权重，加上子图B的节点对子图A的节点的权重（其实这两者是相等的，但是除不除2只是一个系数问题，我们比较只用相对大小），公式如下：  </p>
@@ -418,8 +422,11 @@
 <p>  可以看出，<strong>Ncut在追求不同子集间点的权重最小值的同时也追求同一子集间点的权重最大值</strong><sup>[1]</sup></p>
 </li>
 </ul>
-<h3 id="二、参考资料"><a href="#二、参考资料" class="headerlink" title="二、参考资料"></a>二、参考资料</h3><ol>
+<h3 id="二、参考资料"><a href="#二、参考资料" class="headerlink" title="二、参考资料"></a>二、参考资料</h3><p>Normalizedcut算法的优化十分复杂，这里我给出一些整理的文献资料，有时间和兴趣的话可以看看如何实现。</p>
+<ol>
 <li><a href="https://blog.csdn.net/qq_38476684/article/details/80553850" target="_blank" rel="noopener">图像处理–归一化切割–(normalized cut)–Python实现</a></li>
+<li><a href="https://people.eecs.berkeley.edu/~malik/papers/SM-ncut.pdf" target="_blank" rel="noopener">Normalized Cuts and Image Segmentation</a></li>
+<li><a href="https://github.com/SatyabratSrikumar/Normalized-Cuts-and-Image-Segmentation-Matlab-Implementation" target="_blank" rel="noopener">Jitendra Malik, Jianbo Shi UC Berkeley, Normalized-Cuts-and-Image-Segmentation</a></li>
 </ol>
 
       
@@ -548,7 +555,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

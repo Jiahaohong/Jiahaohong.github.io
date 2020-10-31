@@ -64,7 +64,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="图像处理," />
 
 
 
@@ -79,22 +79,17 @@
 
 
 
-<meta name="description" content="Students">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://jiahaohong.github.io/categories/index.html">
+<meta name="description" content="一、什么是Graphcut算法首先得知道，名字里的graph的意思是图，和前几篇的博客讲解的图是一个概念，而不是什么图片或照片。 然后，我们还要知道一个概念——最大流。 我们把一张带权图看成一张公路网，每一个节点都是一个城市，每一条边就是一条公路，每条边的权重是这条路所能承载的最大车流量。现在有一个非常庞大的车队，从节点S出发，要到达节点T，这些车充满了整个公路网，由于有些城市进城最大车流量小于出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像处理:Graphcut算法">
+<meta property="og:url" content="http://jiahaohong.github.io/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="Students">
+<meta property="og:description" content="一、什么是Graphcut算法首先得知道，名字里的graph的意思是图，和前几篇的博客讲解的图是一个概念，而不是什么图片或照片。 然后，我们还要知道一个概念——最大流。 我们把一张带权图看成一张公路网，每一个节点都是一个城市，每一条边就是一条公路，每条边的权重是这条路所能承载的最大车流量。现在有一个非常庞大的车队，从节点S出发，要到达节点T，这些车充满了整个公路网，由于有些城市进城最大车流量小于出">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-25T23:05:39.000Z">
-<meta property="article:modified_time" content="2020-09-25T23:06:28.232Z">
+<meta property="article:published_time" content="2020-10-31T02:00:02.000Z">
+<meta property="article:modified_time" content="2020-10-31T02:47:02.133Z">
 <meta property="article:author" content="Darcy">
-<meta property="article:tag" content="new-programmer">
-<meta property="article:tag" content=" much C">
-<meta property="article:tag" content=" little Python">
-<meta property="article:tag" content=" little Java">
-<meta property="article:tag" content=" little Js">
-<meta property="article:tag" content=" little html5">
+<meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
 
 
@@ -125,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Jiahaohong.github.io/categories/"/>
+  <link rel="canonical" href="http://Jiahaohong.github.io/2020/10/31/图像处理-Graphcut算法/"/>
 
 
 
 
 
-  <title>categories | Darcy's Blog</title>
+  <title>图像处理:Graphcut算法 | Darcy's Blog</title>
   
 
 
@@ -246,40 +241,196 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                5 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2020%E7%A7%8D%E5%AD%90%E6%9D%AF%E6%97%A5%E5%BF%97/">2020种子杯日志</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/">Linux学习之路</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E7%94%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">数电学习笔记</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">深度学习学习笔记</a><span class="category-list-count">2</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">图像处理:Graphcut算法</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-31T10:00:02+08:00">
+                2020-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">图像处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/" class="leancloud_visitors" data-flag-title="图像处理:Graphcut算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="一、什么是Graphcut算法"><a href="#一、什么是Graphcut算法" class="headerlink" title="一、什么是Graphcut算法"></a>一、什么是Graphcut算法</h3><p>首先得知道，名字里的graph的意思是图，和前几篇的博客讲解的图是一个概念，而不是什么图片或照片。</p>
+<p>然后，我们还要知道一个概念——最大流。</p>
+<p>我们把一张带权图看成一张公路网，每一个节点都是一个城市，每一条边就是一条公路，每条边的权重是这条路所能承载的最大车流量。现在有一个非常庞大的车队，从节点S出发，要到达节点T，这些车充满了整个公路网，由于有些城市进城最大车流量小于出城最大车流量，于是这些节点的出城公路就没有堵塞，反之，有些城市的进城车流量大于出城车流量，那么这些城市的出城公路就出现了堵塞。  </p>
+<p>将上述问题转换成图表示，就出现了从节点S出发到节点T的最大流量问题——maxflow问题。具体问题解析参考<a href="https://blog.csdn.net/G1011/article/details/89786489" target="_blank" rel="noopener">这篇博客</a>，这里不深入讨论。  </p>
+<p>还有一个重要结论，这里复述一下：<a href="https://blog.csdn.net/ccblogger/article/details/77658166" target="_blank" rel="noopener">福特-富克森定理表明，网路的最大流max flow与最小割min cut相等</a>。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag"># 图像处理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/" rel="next" title="图像处理:四种分割算法对比">
+                <i class="fa fa-chevron-left"></i> 图像处理:四种分割算法对比
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -316,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -388,6 +548,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是Graphcut算法"><span class="nav-text">一、什么是Graphcut算法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

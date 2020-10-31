@@ -257,6 +257,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Darcy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Darcy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/" itemprop="url">图像处理:Graphcut算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-31T10:00:02+08:00">
+                2020-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">图像处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/" class="leancloud_visitors" data-flag-title="图像处理:Graphcut算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          一、什么是Graphcut算法首先得知道，名字里的graph的意思是图，和前几篇的博客讲解的图是一个概念，而不是什么图片或照片。
+然后，我们还要知道一个概念——最大流。
+我们把一张带权图看成一张公路网，每一个节点都是一个城市，每一条边就是一条公路，每条边的权重是这条路所能承载的最大车流量。现在有一个
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/10/31/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-Graphcut%E7%AE%97%E6%B3%95/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/30/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E5%9B%9B%E7%A7%8D%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -556,7 +727,8 @@ Graphcut算法对前景背景的选取要求较高。
       
         
           
-          一、什么是NormalizedCuts算法要理解Normalized算法，我们先要熟悉一下这个算法所解决的问题的模型。  
+          一、什么是NormalizedCuts算法
+要理解Normalized算法，我们先要熟悉一下这个算法所解决的问题的模型。  
 
 问题模型  NormalizedCuts是定义在带权无向图上的分割问题，这里给出这种图的定义：  
 
@@ -564,7 +736,7 @@ Graphcut算法对前景背景的选取要求较高。
 
 图中的节点用V表示  
 
-节点与节点之间的连线（图像的
+节点与节点之间的连线（图像
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1805,177 +1977,6 @@ Task:移动函数
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Jiahaohong.github.io/2020/10/16/C-C-%E4%B8%AD%E5%80%BC%E6%BB%A4%E6%B3%A2%E5%92%8C%E5%9D%87%E5%80%BC%E6%BB%A4%E6%B3%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Darcy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darcy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/10/16/C-C-%E4%B8%AD%E5%80%BC%E6%BB%A4%E6%B3%A2%E5%92%8C%E5%9D%87%E5%80%BC%E6%BB%A4%E6%B3%A2/" itemprop="url">C/C++:中值滤波和均值滤波</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-16T16:35:07+08:00">
-                2020-10-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
-                    <span itemprop="name">图像处理</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/10/16/C-C-%E4%B8%AD%E5%80%BC%E6%BB%A4%E6%B3%A2%E5%92%8C%E5%9D%87%E5%80%BC%E6%BB%A4%E6%B3%A2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/16/C-C-%E4%B8%AD%E5%80%BC%E6%BB%A4%E6%B3%A2%E5%92%8C%E5%9D%87%E5%80%BC%E6%BB%A4%E6%B3%A2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/10/16/C-C-%E4%B8%AD%E5%80%BC%E6%BB%A4%E6%B3%A2%E5%92%8C%E5%9D%87%E5%80%BC%E6%BB%A4%E6%B3%A2/" class="leancloud_visitors" data-flag-title="C/C++:中值滤波和均值滤波">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原码下载地址
-一、中值滤波1.原理针对椒盐噪声设计。因为椒盐噪声的幅值和原图像差异很大，所以在模板中一半分布在最大或最小值附近，而原图像的灰度分布相对接近，通过取模板中间值，可以滤掉椒盐噪声。
-2.文件结构1234567891011main||-read orig img||-convert gra
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/10/16/C-C-%E4%B8%AD%E5%80%BC%E6%BB%A4%E6%B3%A2%E5%92%8C%E5%9D%87%E5%80%BC%E6%BB%A4%E6%B3%A2/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2030,7 +2031,7 @@ Task:移动函数
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
