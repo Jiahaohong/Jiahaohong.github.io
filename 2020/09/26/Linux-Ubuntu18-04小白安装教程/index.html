@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="本教程原系统Windows10安装Ubuntu18.04.3版本电脑联想Y7000手机华为P10  前期准备 Ubuntu18.05下载    8G U盘一个  能上网的手机一个   安装过程注意之后提到的按键以平台为准，可能和你的电脑或手机不一样 0.分配一块磁盘空间WIN10磁盘管理随便分配一块空间，我分配的是E盘的80G空间。 1. 制作启动盘WIN10下用文件资源管理器打开上面下载的ISO">
+<meta name="description" content="本教程原系统Windows10安装Ubuntu18.04.3版本电脑联想Y7000手机华为P10  前期准备 Ubuntu18.05下载    8G U盘一个  能上网的手机一个   安装过程注意之后提到的按键以平台为准，可能和你的电脑或手机不一样 0.分配一块磁盘空间首先我们需要从WIN10管理下的磁盘里分出一块空间给Ubuntu。注意这不是新建一个分区，而是压缩出一个未分配的空间。 1. 制作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux:Ubuntu18.04小白安装教程">
 <meta property="og:url" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Darcy&#39;s Blog">
-<meta property="og:description" content="本教程原系统Windows10安装Ubuntu18.04.3版本电脑联想Y7000手机华为P10  前期准备 Ubuntu18.05下载    8G U盘一个  能上网的手机一个   安装过程注意之后提到的按键以平台为准，可能和你的电脑或手机不一样 0.分配一块磁盘空间WIN10磁盘管理随便分配一块空间，我分配的是E盘的80G空间。 1. 制作启动盘WIN10下用文件资源管理器打开上面下载的ISO">
+<meta property="og:description" content="本教程原系统Windows10安装Ubuntu18.04.3版本电脑联想Y7000手机华为P10  前期准备 Ubuntu18.05下载    8G U盘一个  能上网的手机一个   安装过程注意之后提到的按键以平台为准，可能和你的电脑或手机不一样 0.分配一块磁盘空间首先我们需要从WIN10管理下的磁盘里分出一块空间给Ubuntu。注意这不是新建一个分区，而是压缩出一个未分配的空间。 1. 制作">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO2.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/SecurityBoot.jpg">
@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Wireless.png">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/update.jpg">
 <meta property="article:published_time" content="2020-09-25T23:38:59.000Z">
-<meta property="article:modified_time" content="2020-11-05T02:52:25.181Z">
+<meta property="article:modified_time" content="2020-11-05T03:42:55.206Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Ubuntu">
@@ -390,7 +390,7 @@
 </li>
 </ul>
 <h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p><em><strong>注意之后提到的按键以平台为准，可能和你的电脑或手机不一样</strong></em></p>
-<h4 id="0-分配一块磁盘空间"><a href="#0-分配一块磁盘空间" class="headerlink" title="0.分配一块磁盘空间"></a>0.分配一块磁盘空间</h4><p>WIN10磁盘管理随便分配一块空间，我分配的是E盘的80G空间。</p>
+<h4 id="0-分配一块磁盘空间"><a href="#0-分配一块磁盘空间" class="headerlink" title="0.分配一块磁盘空间"></a>0.分配一块磁盘空间</h4><p>首先我们需要从WIN10管理下的磁盘里分出一块空间给Ubuntu。注意这不是新建一个分区，而是压缩出一个未分配的空间。</p>
 <h4 id="1-制作启动盘"><a href="#1-制作启动盘" class="headerlink" title="1. 制作启动盘"></a>1. 制作启动盘</h4><p>WIN10下用文件资源管理器打开上面下载的ISO文件，把里面的文件全部复制粘贴到U盘里。<strong>接下来的操作不要拔下U盘</strong>。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO.jpg"><br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ISO2.jpg"></p>
 <h4 id="2-重启电脑进入BIOS"><a href="#2-重启电脑进入BIOS" class="headerlink" title="2. 重启电脑进入BIOS"></a>2. 重启电脑进入BIOS</h4><p>重启电脑，在<strong>电脑重新开启之前</strong>按住F2键不放，然后进入BIOS界面。<strong>注意每个厂家生产的电脑进入BIOS的键不一样</strong>，我的联想Y7000是F2键，其他电脑的快捷键可以去网上查。  </p>
 <h4 id="3-修改安全启动项SecurityBoot"><a href="#3-修改安全启动项SecurityBoot" class="headerlink" title="3. 修改安全启动项SecurityBoot"></a>3. 修改安全启动项SecurityBoot</h4><p>左右键切换页面到Security界面，上下键选择到SecurityBoot项，按下F5键将其改为Disable。<br><img src="/2020/09/26/Linux-Ubuntu18-04%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/SecurityBoot.jpg">  </p>
