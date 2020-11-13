@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/assoc.jpg">
 <meta property="og:image" content="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Ncut.jpg">
 <meta property="article:published_time" content="2020-10-29T12:35:23.000Z">
-<meta property="article:modified_time" content="2020-10-31T02:34:34.567Z">
+<meta property="article:modified_time" content="2020-11-13T05:57:16.712Z">
 <meta property="article:author" content="Darcy">
 <meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
@@ -401,7 +401,7 @@
 <p>怎么分割一张图呢？我们以二分类为例介绍一下图的分割和最小割。  </p>
 <ul>
 <li><h4 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h4>  我们的图有两类节点，分别组成子图A和子图B，两个子图满足如下条件：    <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/condition.jpg" width="90">  
-  形象地说就是把一块饼掰成两块，而且不掉任何碎屑，这就是分割。为了衡量一个分割是否准确，我们把连接子图A和子图B的边找出来，然后累加这些边的权重，得到的值为图像的能量或损失，不同的分割情况有不同的损失，这样形成一个函数，称为能量函数或损失函数：  
+  形象地说就是把一块饼掰成两块，而且不掉任何碎屑，这就是分割。为了衡量一个分割是否准确，我们把子图A和子图B中的节点两两配对，然后将权重相加，得到的值为图像的能量或损失，不同的分割情况有不同的损失，这样形成一个函数，称为能量函数或损失函数：  
   <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/cut.jpg" width="200">  
   如果我们再加一点限制条件，通过修改两个子图包含的节点，使得算出的准确度指标最小，那么此时得到的分割就是这张图的最小分割。比如第一幅图的最小割如下所示：  
   <img src="/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/Gmincut.jpg">
