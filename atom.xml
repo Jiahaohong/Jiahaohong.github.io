@@ -127,6 +127,35 @@
   </entry>
   
   <entry>
+    <title>Python: Pandas DataFrame</title>
+    <link href="http://jiahaohong.github.io/2020/10/30/Python-Pandas-DataFrame/"/>
+    <id>http://jiahaohong.github.io/2020/10/30/Python-Pandas-DataFrame/</id>
+    <published>2020-10-30T05:52:54.000Z</published>
+    <updated>2021-02-10T12:04:36.566Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近写美赛论文用到了许多图片，所以把最近用到的数据处理工具包在此做一下记录。</p><h2 id="pandas-DataFrame"><a href="#pandas-DataFrame" class="headerlink" title="pandas.DataFrame"></a>pandas.DataFrame</h2><p>pandas提供的DataFrame类的数据处理形式和数据库很类似。每一行是一个数据（也叫记录），每一列是一种属性。</p><h3 id="1-导入"><a href="#1-导入" class="headerlink" title="1.导入"></a>1.导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure><h3 id="1-从Excel文件中读取数据"><a href="#1-从Excel文件中读取数据" class="headerlink" title="1.从Excel文件中读取数据"></a>1.从Excel文件中读取数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'data.xlsx'</span>,usecols=[<span class="number">1</span>,<span class="number">2</span>])</span><br></pre></td></tr></table></figure><p>df是DataFrame变量。usecols表示选择excel中的哪些列。</p><h3 id="2-按属性条件选择数据"><a href="#2-按属性条件选择数据" class="headerlink" title="2.按属性条件选择数据"></a>2.按属性条件选择数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pos = df.where(df[<span class="string">'Lab Status'</span>]==<span class="string">'Positive ID'</span>)</span><br></pre></td></tr></table></figure><p>此时，df中不满足条件的数据对应属性会被替换成NaN，然后存入pos，注意这里df自身没有被改变。pos也是一个DataFrame变量。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pos = pos.dropna(axis=<span class="number">0</span>,how=<span class="string">'any'</span>)</span><br></pre></td></tr></table></figure><p>axis=0表示按行删除数据。how=’any’表示只要这一行数据中有一个NaN元素就把这一行删除。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.where(df[<span class="string">'Lab Status'</span>]==<span class="string">'Positive ID'</span>).dropna(axis=<span class="number">0</span>,how=<span class="string">'any'</span>,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure><p>inplace表示直接对df操作，而不创建新DataFrame，也就是df自身被改变了。</p><h3 id="3-按列读数据"><a href="#3-按列读数据" class="headerlink" title="3.按列读数据"></a>3.按列读数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetimes = df[<span class="string">'Detection Date'</span>].values</span><br></pre></td></tr></table></figure><p>.values方法返回一个numpy数组。</p><h3 id="4-插入列（属性）"><a href="#4-插入列（属性）" class="headerlink" title="4.插入列（属性）"></a>4.插入列（属性）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.insert(<span class="number">0</span>,</span><br><span class="line">          <span class="string">'Year'</span>,</span><br><span class="line">          [df[<span class="string">'Detection Date'</span>].values[i].year <span class="keyword">for</span> i <span class="keyword">in</span> range(len(df))])</span><br></pre></td></tr></table></figure><p>0表示改列插入位置。’Year’表示该列的索引（可以理解为字典里的key）。最后[]列表是插入的数据，注意和df等长。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近写美赛论文用到了许多图片，所以把最近用到的数据处理工具包在此做一下记录。&lt;/p&gt;
+&lt;h2 id=&quot;pandas-DataFrame&quot;&gt;&lt;a href=&quot;#pandas-DataFrame&quot; class=&quot;headerlink&quot; title=&quot;pandas.DataFra
+      
+    
+    </summary>
+    
+    
+      <category term="数据处理" scheme="http://Jiahaohong.github.io/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="Python" scheme="http://Jiahaohong.github.io/tags/Python/"/>
+    
+      <category term="数据处理包" scheme="http://Jiahaohong.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>图像处理:NoramlizedCuts算法</title>
     <link href="http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/"/>
     <id>http://jiahaohong.github.io/2020/10/29/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-NoramlizedCuts%E7%AE%97%E6%B3%95/</id>
@@ -545,35 +574,6 @@
     
     
       <category term="Tensorflow" scheme="http://Jiahaohong.github.io/tags/Tensorflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux常用指令（重制版）</title>
-    <link href="http://jiahaohong.github.io/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
-    <id>http://jiahaohong.github.io/2020/07/18/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</id>
-    <published>2020-07-18T13:55:57.000Z</published>
-    <updated>2020-10-20T12:17:21.150Z</updated>
-    
-    <content type="html"><![CDATA[<p><em>系统使用Ubuntu18.04，无图形界面，本地系统为Windows10</em></p><h3 id="一、Linux系统指令"><a href="#一、Linux系统指令" class="headerlink" title="一、Linux系统指令"></a>一、Linux系统指令</h3><ul><li>进入指定文件夹<br>cd /root/mygit/project1</li><li>进入上层文件夹<br>cd ..</li><li>进入根目录文件夹(root)<br>cd ~</li><li>显示当前文件夹路径<br>pwd</li><li>显示当前文件夹里的文件和文件夹<br>ls -l</li><li>在当前文件夹下创建文件夹<br>mkdir project2</li><li>在当前文件夹下创建文件<br>touch readme.txt<br>touch gitCommand.md<br>touch go.sh</li><li>删除文件或文件夹<br>sudo rm -r readme.txt<br>sudo rm -r project2</li><li>重命名文件或文件夹<br>mv readme.txt README.txt  </li><li>将上述指令结合起来使用，你就可以非常方便的解决一些文件操作的小问题了。比如进入某个文件夹，新建一个子文件夹用来存放自己的markdown笔记，就可以在命令窗口里输入如下命令：<br>cd /usr/note &amp;&amp; mkdir LinuxNotes &amp;&amp; touch day1.md</li></ul><h3 id="二、常用软件指令"><a href="#二、常用软件指令" class="headerlink" title="二、常用软件指令"></a>二、常用软件指令</h3><ul><li>screen<ul><li>新建一个新窗口<br>screen -S name<br>注意S是大写</li><li>将当前窗口挂起（后台运行）<br>ctrl + A + D<br>注意这是快捷键，按后面的键时不要松开前面的键</li><li>显示当前已经开启的窗口<br>screen -ls<br>显示的时候会显示窗口ID和名字，以及是否挂起</li><li>进入挂起窗口<br>screen -r name<br>注意r是小写</li><li>关闭窗口<br>kill ID<br>注意ID可以用screen -ls指令查看</li></ul></li><li>zip  <ul><li>解压文件到当前目录<br>unzip file.zip</li><li>压缩文件<br>zip -r file_name.zip file.txt<br>注意是将file.txt文件压缩为file_name.zip文件，不要弄反了 </li></ul></li></ul><h3 id="三、上传下载文件"><a href="#三、上传下载文件" class="headerlink" title="三、上传下载文件"></a>三、上传下载文件</h3><ul><li>rz/sz  <ul><li>从服务器下载文件<br>sz file.zip</li><li>从本地上传文件<br>rz<br>注意本地需要相应软件，比如Xshell</li></ul></li><li>windows命令窗口上传文件  <ul><li>pscp C:/fold1/fold1_2/file.txt <a href="mailto:root@xx.xxx.xxx.xxx">root@xx.xxx.xxx.xxx</a>:/usr/folderA  </li></ul></li></ul><h3 id="四、anaconda使用指令"><a href="#四、anaconda使用指令" class="headerlink" title="四、anaconda使用指令"></a>四、anaconda使用指令</h3><ul><li>查看虚拟环境列表<br>conda info -e</li><li>创建虚拟环境<br>conda create -n env_name</li><li>进入虚拟环境<br>conda activate env_name</li><li>退出虚拟环境<br>conda deactivate</li><li>在当前虚拟环境下安装 包<br>conda install appname<br>conda install URL</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;em&gt;系统使用Ubuntu18.04，无图形界面，本地系统为Windows10&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&quot;一、Linux系统指令&quot;&gt;&lt;a href=&quot;#一、Linux系统指令&quot; class=&quot;headerlink&quot; title=&quot;一、Linux系统指令&quot;&gt;&lt;/a&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="Linux学习之路" scheme="http://Jiahaohong.github.io/categories/Linux%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/"/>
-    
-    
-      <category term="Linux" scheme="http://Jiahaohong.github.io/tags/Linux/"/>
-    
-      <category term="服务器" scheme="http://Jiahaohong.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
