@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiahaohong.github.io/"/>
-  <updated>2020-11-05T02:50:21.057Z</updated>
+  <updated>2021-02-10T13:05:00.353Z</updated>
   <id>http://jiahaohong.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python: Pandas DataFrame</title>
+    <link href="http://jiahaohong.github.io/2021/02/10/Python-Pandas-DataFrame/"/>
+    <id>http://jiahaohong.github.io/2021/02/10/Python-Pandas-DataFrame/</id>
+    <published>2021-02-10T11:52:54.000Z</published>
+    <updated>2021-02-10T13:05:00.353Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近写美赛论文用到了许多图片，所以把最近用到的数据处理工具包在此做一下记录。</p><h2 id="pandas-DataFrame"><a href="#pandas-DataFrame" class="headerlink" title="pandas.DataFrame"></a>pandas.DataFrame</h2><p>pandas提供的DataFrame类的数据处理形式和数据库很类似。每一行是一个数据（也叫记录），每一列是一种属性。</p><h3 id="1-导入"><a href="#1-导入" class="headerlink" title="1.导入"></a>1.导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure><h3 id="1-从Excel文件中读取数据"><a href="#1-从Excel文件中读取数据" class="headerlink" title="1.从Excel文件中读取数据"></a>1.从Excel文件中读取数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'data.xlsx'</span>,usecols=[<span class="number">1</span>,<span class="number">2</span>])</span><br></pre></td></tr></table></figure><p>df是DataFrame变量。usecols表示选择excel中的哪些列。</p><h3 id="2-按属性条件选择数据"><a href="#2-按属性条件选择数据" class="headerlink" title="2.按属性条件选择数据"></a>2.按属性条件选择数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pos = df.where(df[<span class="string">'Lab Status'</span>]==<span class="string">'Positive ID'</span>)</span><br></pre></td></tr></table></figure><p>此时，df中不满足条件的数据对应属性会被替换成NaN，然后存入pos，注意这里df自身没有被改变。pos也是一个DataFrame变量。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pos = pos.dropna(axis=<span class="number">0</span>,how=<span class="string">'any'</span>)</span><br></pre></td></tr></table></figure><p>axis=0表示按行删除数据。how=’any’表示只要这一行数据中有一个NaN元素就把这一行删除。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.where(df[<span class="string">'Lab Status'</span>]==<span class="string">'Positive ID'</span>).dropna(axis=<span class="number">0</span>,how=<span class="string">'any'</span>,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure><p>inplace表示直接对df操作，而不创建新DataFrame，也就是df自身被改变了。</p><h3 id="3-按列读数据"><a href="#3-按列读数据" class="headerlink" title="3.按列读数据"></a>3.按列读数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetimes = df[<span class="string">'Detection Date'</span>].values</span><br></pre></td></tr></table></figure><p>.values方法返回一个numpy数组。</p><h3 id="4-插入列（属性）"><a href="#4-插入列（属性）" class="headerlink" title="4.插入列（属性）"></a>4.插入列（属性）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.insert(<span class="number">0</span>,</span><br><span class="line">          <span class="string">'Year'</span>,</span><br><span class="line">          [df[<span class="string">'Detection Date'</span>].values[i].year <span class="keyword">for</span> i <span class="keyword">in</span> range(len(df))])</span><br></pre></td></tr></table></figure><p>0表示改列插入位置。’Year’表示该列的索引（可以理解为字典里的key）。最后[]列表是插入的数据，注意和df等长。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近写美赛论文用到了许多图片，所以把最近用到的数据处理工具包在此做一下记录。&lt;/p&gt;
+&lt;h2 id=&quot;pandas-DataFrame&quot;&gt;&lt;a href=&quot;#pandas-DataFrame&quot; class=&quot;headerlink&quot; title=&quot;pandas.DataFra
+      
+    
+    </summary>
+    
+    
+      <category term="数据处理" scheme="http://Jiahaohong.github.io/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="Python" scheme="http://Jiahaohong.github.io/tags/Python/"/>
+    
+      <category term="数据处理包" scheme="http://Jiahaohong.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>Yukrili:Always with me</title>
@@ -97,35 +126,6 @@
     
     
       <category term="图像处理" scheme="http://Jiahaohong.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python: Pandas DataFrame</title>
-    <link href="http://jiahaohong.github.io/2020/10/30/Python-Pandas-DataFrame/"/>
-    <id>http://jiahaohong.github.io/2020/10/30/Python-Pandas-DataFrame/</id>
-    <published>2020-10-30T05:52:54.000Z</published>
-    <updated>2021-02-10T12:04:36.566Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近写美赛论文用到了许多图片，所以把最近用到的数据处理工具包在此做一下记录。</p><h2 id="pandas-DataFrame"><a href="#pandas-DataFrame" class="headerlink" title="pandas.DataFrame"></a>pandas.DataFrame</h2><p>pandas提供的DataFrame类的数据处理形式和数据库很类似。每一行是一个数据（也叫记录），每一列是一种属性。</p><h3 id="1-导入"><a href="#1-导入" class="headerlink" title="1.导入"></a>1.导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure><h3 id="1-从Excel文件中读取数据"><a href="#1-从Excel文件中读取数据" class="headerlink" title="1.从Excel文件中读取数据"></a>1.从Excel文件中读取数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'data.xlsx'</span>,usecols=[<span class="number">1</span>,<span class="number">2</span>])</span><br></pre></td></tr></table></figure><p>df是DataFrame变量。usecols表示选择excel中的哪些列。</p><h3 id="2-按属性条件选择数据"><a href="#2-按属性条件选择数据" class="headerlink" title="2.按属性条件选择数据"></a>2.按属性条件选择数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pos = df.where(df[<span class="string">'Lab Status'</span>]==<span class="string">'Positive ID'</span>)</span><br></pre></td></tr></table></figure><p>此时，df中不满足条件的数据对应属性会被替换成NaN，然后存入pos，注意这里df自身没有被改变。pos也是一个DataFrame变量。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pos = pos.dropna(axis=<span class="number">0</span>,how=<span class="string">'any'</span>)</span><br></pre></td></tr></table></figure><p>axis=0表示按行删除数据。how=’any’表示只要这一行数据中有一个NaN元素就把这一行删除。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.where(df[<span class="string">'Lab Status'</span>]==<span class="string">'Positive ID'</span>).dropna(axis=<span class="number">0</span>,how=<span class="string">'any'</span>,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure><p>inplace表示直接对df操作，而不创建新DataFrame，也就是df自身被改变了。</p><h3 id="3-按列读数据"><a href="#3-按列读数据" class="headerlink" title="3.按列读数据"></a>3.按列读数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetimes = df[<span class="string">'Detection Date'</span>].values</span><br></pre></td></tr></table></figure><p>.values方法返回一个numpy数组。</p><h3 id="4-插入列（属性）"><a href="#4-插入列（属性）" class="headerlink" title="4.插入列（属性）"></a>4.插入列（属性）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.insert(<span class="number">0</span>,</span><br><span class="line">          <span class="string">'Year'</span>,</span><br><span class="line">          [df[<span class="string">'Detection Date'</span>].values[i].year <span class="keyword">for</span> i <span class="keyword">in</span> range(len(df))])</span><br></pre></td></tr></table></figure><p>0表示改列插入位置。’Year’表示该列的索引（可以理解为字典里的key）。最后[]列表是插入的数据，注意和df等长。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最近写美赛论文用到了许多图片，所以把最近用到的数据处理工具包在此做一下记录。&lt;/p&gt;
-&lt;h2 id=&quot;pandas-DataFrame&quot;&gt;&lt;a href=&quot;#pandas-DataFrame&quot; class=&quot;headerlink&quot; title=&quot;pandas.DataFra
-      
-    
-    </summary>
-    
-    
-      <category term="数据处理" scheme="http://Jiahaohong.github.io/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="Python" scheme="http://Jiahaohong.github.io/tags/Python/"/>
-    
-      <category term="数据处理包" scheme="http://Jiahaohong.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8C%85/"/>
     
   </entry>
   
