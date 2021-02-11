@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiahaohong.github.io/"/>
-  <updated>2021-02-10T13:05:00.353Z</updated>
+  <updated>2021-02-11T02:42:36.333Z</updated>
   <id>http://jiahaohong.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python:数据可视化包</title>
+    <link href="http://jiahaohong.github.io/2021/02/11/Python-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8C%85/"/>
+    <id>http://jiahaohong.github.io/2021/02/11/Python-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8C%85/</id>
+    <published>2021-02-11T02:37:10.000Z</published>
+    <updated>2021-02-11T02:42:36.333Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h2><p>matplotlib也是常用的python作图工具包，可以画图表，显示图像。</p><h3 id="1-导入"><a href="#1-导入" class="headerlink" title="1.导入"></a>1.导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> plt</span><br></pre></td></tr></table></figure><h3 id="2-显示图像的格式"><a href="#2-显示图像的格式" class="headerlink" title="2.显示图像的格式"></a>2.显示图像的格式</h3><p>在console显示：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><p>在jupyter里显示可调的画布：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%matpoltlib jupyter</span><br></pre></td></tr></table></figure><h3 id="3-创建画布"><a href="#3-创建画布" class="headerlink" title="3.创建画布"></a>3.创建画布</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure><p>figsize参数是一个内置的比例参数，不是以像素为单位。</p><h3 id="4-显示图像"><a href="#4-显示图像" class="headerlink" title="4.显示图像"></a>4.显示图像</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">image = cv2.imread(<span class="string">'test.jpg'</span>)</span><br><span class="line">img = image[:,:,::<span class="number">-1</span>]</span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><p>opencv彩色图片是GBR排列，而plt是RGB排列。</p><h3 id="5-保存图像"><a href="#5-保存图像" class="headerlink" title="5.保存图像"></a>5.保存图像</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.savefig(<span class="string">'plt.jpg'</span>)</span><br></pre></td></tr></table></figure><h2 id="pecharts"><a href="#pecharts" class="headerlink" title="pecharts"></a>pecharts</h2><p>功能强大，配色好看的数据可视化包。官方教程在此：<br><a href="https://gallery.pyecharts.org/#/" target="_blank" rel="noopener">Pyecharts官方教程</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;matplotlib&quot;&gt;&lt;a href=&quot;#matplotlib&quot; class=&quot;headerlink&quot; title=&quot;matplotlib&quot;&gt;&lt;/a&gt;matplotlib&lt;/h2&gt;&lt;p&gt;matplotlib也是常用的python作图工具包，可以画图表，显示图像。
+      
+    
+    </summary>
+    
+    
+      <category term="数据处理" scheme="http://Jiahaohong.github.io/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="Python" scheme="http://Jiahaohong.github.io/tags/Python/"/>
+    
+      <category term="数据处理包" scheme="http://Jiahaohong.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>Python: Pandas DataFrame</title>
@@ -549,31 +577,6 @@
     
     
       <category term="Keil5" scheme="http://Jiahaohong.github.io/tags/Keil5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tensorflow:制作数据集</title>
-    <link href="http://jiahaohong.github.io/2020/07/22/Tensrflow-%E5%88%B6%E4%BD%9C%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
-    <id>http://jiahaohong.github.io/2020/07/22/Tensrflow-%E5%88%B6%E4%BD%9C%E6%95%B0%E6%8D%AE%E9%9B%86/</id>
-    <published>2020-07-22T13:45:51.000Z</published>
-    <updated>2020-07-22T13:48:29.221Z</updated>
-    
-    <content type="html"><![CDATA[<p>tf.data.Dataset.from_tensor_slice(tensor)<br>将输入tensor按照第一个维度拆分</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;tf.data.Dataset.from_tensor_slice(tensor)&lt;br&gt;将输入tensor按照第一个维度拆分&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tensorflow" scheme="http://Jiahaohong.github.io/tags/Tensorflow/"/>
     
   </entry>
   
