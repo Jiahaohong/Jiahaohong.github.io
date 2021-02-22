@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiahaohong.github.io/"/>
-  <updated>2021-02-11T02:42:36.333Z</updated>
+  <updated>2021-02-22T12:48:54.567Z</updated>
   <id>http://jiahaohong.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python:Opencv版本那点事</title>
+    <link href="http://jiahaohong.github.io/2021/02/22/Python-Opencv%E7%89%88%E6%9C%AC%E9%82%A3%E7%82%B9%E4%BA%8B/"/>
+    <id>http://jiahaohong.github.io/2021/02/22/Python-Opencv%E7%89%88%E6%9C%AC%E9%82%A3%E7%82%B9%E4%BA%8B/</id>
+    <published>2021-02-22T12:34:25.000Z</published>
+    <updated>2021-02-22T12:48:54.567Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong><em>python3.5</em></strong></p><h3 id="Opencv3-Recommanded"><a href="#Opencv3-Recommanded" class="headerlink" title="Opencv3(Recommanded)"></a><strong>Opencv3(Recommanded)</strong></h3><ul><li>Install  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install opencv-python==<span class="number">3.4</span><span class="number">.2</span><span class="number">.16</span></span><br><span class="line">pip install opencv-contrib-python==<span class="number">3.4</span><span class="number">.2</span><span class="number">.16</span></span><br></pre></td></tr></table></figure></li><li>Import Error  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError:libSM.so<span class="number">.6</span>: cannot open shared object file: No such file <span class="keyword">or</span> directory</span><br></pre></td></tr></table></figure></li><li>Solution  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y python-qt4</span><br></pre></td></tr></table></figure></li></ul><h3 id="Opencv4"><a href="#Opencv4" class="headerlink" title="Opencv4"></a>Opencv4</h3><ul><li>Install  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install opencv-python</span><br><span class="line">pip install opencv-contrib-python</span><br></pre></td></tr></table></figure></li><li>Import Error  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError:libGL.so<span class="number">.1</span>: cannot open shared object file: No such file <span class="keyword">or</span> directory</span><br></pre></td></tr></table></figure></li><li>Solution    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install libgl1-mesa-glx</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;python3.5&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Opencv3-Recommanded&quot;&gt;&lt;a href=&quot;#Opencv3-Recommanded&quot; class=&quot;headerlink&quot; title=&quot;Opencv3(Rec
+      
+    
+    </summary>
+    
+    
+      <category term="数据处理" scheme="http://Jiahaohong.github.io/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="Python" scheme="http://Jiahaohong.github.io/tags/Python/"/>
+    
+      <category term="Opencv" scheme="http://Jiahaohong.github.io/tags/Opencv/"/>
+    
+  </entry>
   
   <entry>
     <title>Python:数据可视化包</title>
@@ -550,33 +579,6 @@
       <category term="图像处理" scheme="http://Jiahaohong.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="Matlab" scheme="http://Jiahaohong.github.io/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Keil5安装芯片包</title>
-    <link href="http://jiahaohong.github.io/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/"/>
-    <id>http://jiahaohong.github.io/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/</id>
-    <published>2020-07-29T06:03:03.000Z</published>
-    <updated>2020-07-29T06:54:41.016Z</updated>
-    
-    <content type="html"><![CDATA[<p>如果在使用Keil5安装芯片包时显示找不到包的错误，可以通过手动下载包后导入的方法解决。操作如下：</p><ul><li><p>打开下载芯片包的界面</p><img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/1.png"> </li><li><p>在左侧双击你需要的芯片</p><img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/2.png"></li><li><p>点击右侧你需要的芯片包的Install按钮</p><img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/3.png"></li><li><p>单击选中下方报错的行</p><img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/4.png"></li><li><p>复制后粘贴到浏览器网址栏</p><img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/5.png"></li><li><p>去掉头尾留下地址，按回车即可下载</p><img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/6.png">  <img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/7.png"></li><li><p>下载完毕后回到下载芯片包界面，点击file里的import选项</p><img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/8.png"></li><li><p>在弹出窗口里找到之前下载的文件导入</p><img src="/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E7%89%87%E5%8C%85/9.png"></li></ul><p>完成！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;如果在使用Keil5安装芯片包时显示找不到包的错误，可以通过手动下载包后导入的方法解决。操作如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;打开下载芯片包的界面&lt;/p&gt;
-&lt;img src=&quot;/2020/07/29/Keil5%E5%AE%89%E8%A3%85%E8%8A%AF%E
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Keil5" scheme="http://Jiahaohong.github.io/tags/Keil5/"/>
     
   </entry>
   
