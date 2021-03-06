@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiahaohong.github.io/"/>
-  <updated>2021-03-06T03:17:15.996Z</updated>
+  <updated>2021-03-06T06:51:42.588Z</updated>
   <id>http://jiahaohong.github.io/</id>
   
   <author>
@@ -21,13 +21,30 @@
     <link href="http://jiahaohong.github.io/2021/03/06/Matlab-%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>http://jiahaohong.github.io/2021/03/06/Matlab-%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
     <published>2021-03-06T03:17:15.000Z</published>
-    <updated>2021-03-06T03:17:15.996Z</updated>
+    <updated>2021-03-06T06:51:42.588Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>注释多行<br>Ctrl+R</p></li><li><p>取消注释多行<br>Ctrl+T</p></li><li><p>在同一画布上做多幅图像</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fig1 = <span class="built_in">figure</span>()</span><br><span class="line">...code1...</span><br><span class="line"></span><br><span class="line">fig2 = <span class="built_in">figure</span>()</span><br><span class="line">...code2...</span><br></pre></td></tr></table></figure></li></ul>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;注释多行&lt;br&gt;Ctrl+R&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;取消注释多行&lt;br&gt;Ctrl+T&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在同一画布上做多幅图像&lt;/p&gt;
+&lt;figure class=&quot;highlight matlab&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+      
     
     </summary>
     
     
+      <category term="Matlab" scheme="http://Jiahaohong.github.io/categories/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://Jiahaohong.github.io/tags/Matlab/"/>
     
   </entry>
   
